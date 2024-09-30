@@ -25,4 +25,13 @@
     --acento-semi-oscuro: #ac0856;
     --acento-oscuro: #8f0c4b;
     --acento-muy-oscuro: #580029;
+
+    /* Paleta monocromática */
+    --gris-muy-claro: #fafbff;
+    --gris-claro: #b5b7c7;
+    --gris-semi-claro: #373952;
+    --gris: #363745;
+    --gris-semi-oscuro: #1f2130;
+    --gris-oscuro: #11131c;
+    --gris-muy-oscuro: #0c0d14;
 }

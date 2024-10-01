@@ -1,21 +1,21 @@
 :root {
     /* Color primario */
-    --primario-muy-claro: #7dee68;
-    --primario-claro: #31c71b;
-    --primario-semi-claro: #22a612;
-    --primario: #1c7912;
-    --primario-semi-oscuro: #1b6014;
-    --primario-oscuro: #1a5116;
-    --primario-muy-oscuro: #072d06;
+    --primario-muy-claro: #bfa4ff;
+    --primario-claro: #a172ff;
+    --primario-semi-claro: #7c12ff;
+    --primario: #6e01ff;
+    --primario-semi-oscuro: #6300e6;
+    --primario-oscuro: #4d02b0;
+    --primario-muy-oscuro: #2d0078;
     
     /* Color secundario */
-    --secundario-muy-claro: #bfa4ff;
-    --secundario-claro: #a172ff;
-    --secundario-semi-claro: #7c12ff;
-    --secundario: #6e01ff;
-    --secundario-semi-oscuro: #6300e6;
-    --secundario-oscuro: #4d02b0;
-    --secundario-muy-oscuro: #2d0078;
+    --secundario-muy-claro: #7dee68;
+    --secundario-claro: #31c71b;
+    --secundario-semi-claro: #22a612;
+    --secundario: #1c7912;
+    --secundario-semi-oscuro: #1b6014;
+    --secundario-oscuro: #1a5116;
+    --secundario-muy-oscuro: #072d06;
 
     /* Color de acento */
     --acento-muy-claro: #ff9fdc;

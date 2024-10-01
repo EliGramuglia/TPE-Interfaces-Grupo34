@@ -1,3 +1,4 @@
+/* ------------------- Variables globales ------------------- */
 :root {
     /* Color primario */
     --primario-muy-claro: #bfa4ff;
@@ -34,4 +35,49 @@
     --gris-semi-oscuro: #1f2130;
     --gris-oscuro: #11131c;
     --gris-muy-oscuro: #0c0d14;
+
+    /* Tipografía */
+    --grosor-grueso: 700;
+    --grosor-mediano: 500;
+    --grosor-regular: 400;
+    --grosor-fino: 200;
 }
+
+
+/* ------------------- Estilo general ------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito';
+    font-weight: var(--grosor-regular);
+}
+
+h1 {
+    font-weight: var(--grosor-grueso);
+}
+
+
+
+
+
+
+/* ------------------- Login ------------------- */
+
+
+
+
+
+
+/* ------------------- Home ------------------- */
+
+
+
+
+
+
+/* ------------------- Juego ------------------- */
+

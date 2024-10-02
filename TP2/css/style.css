@@ -74,7 +74,61 @@ h1 {
 
 /* ------------------- Home ------------------- */
 
+header {
+    background-color: var(--gris-semi-claro);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+}
 
+.iconos {
+    display: flex;
+    gap: 25px;
+}
+
+.imagenIconos {
+    width: 40px;
+    height: 40px;
+}
+
+#contenedorBuscador {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#contenedorBuscador input {
+    border-radius: 20px;
+    width: 460px;
+    height: 40px;
+    background-color: #FAFBFF;
+    font-size: var(--grosor-mediano);
+    padding-left: 18px;
+    border-color: none;
+    font-family: 'Nunito';
+    font-size: 16px;
+}
+
+#logoWinnit {
+    width: 90.54px;
+    height: 39.48px;
+}
+
+#menuHamburguesa {
+    width: 35px;
+    height: 35px;
+}
+
+#imagenLupa {
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /*Evita que la imagen interfiera con el input*/
+}
 
 
 

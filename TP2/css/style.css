@@ -203,7 +203,7 @@ header {
 /* Perfil desplegable */
 .perfil-desplegable {
     width: 334px;
-    height: 508px;
+    height: 515px;
     background-color: var(--gris-semi-oscuro);
     border-radius: 10px;
     margin-top: 8px;
@@ -285,5 +285,12 @@ header {
     margin-top: 35px;
 }
 
+.redes-sociales a img {
+    transition: transform 0.2s ease;
+}
+
+.redes-sociales a:hover img {
+    transform: scale(1.2); /*Aumenta el tamaño de la imagen*/
+}
 
 /* ------------------- Juego ------------------- */

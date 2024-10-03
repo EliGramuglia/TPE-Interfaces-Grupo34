@@ -73,7 +73,6 @@ h1 {
 
 
 /* ------------------- Home ------------------- */
-
 header {
     background-color: var(--gris-semi-claro);
     display: flex;
@@ -87,22 +86,22 @@ header {
     gap: 25px;
 }
 
-.imagenIconos {
+.imagen-iconos {
     width: 40px;
     height: 40px;
 }
 
-#contenedorBuscador {
+#contenedor-buscador {
     display: flex;
     align-items: center;
     position: relative;
 }
 
-#contenedorBuscador input {
+#contenedor-buscador input {
     border-radius: 20px;
     width: 460px;
     height: 40px;
-    background-color: #FAFBFF;
+    background-color: var(--gris-muy-claro);
     font-size: var(--grosor-mediano);
     padding-left: 18px;
     border-color: none;
@@ -110,17 +109,17 @@ header {
     font-size: 16px;
 }
 
-#logoWinnit {
+#logo-winnit {
     width: 90.54px;
     height: 39.48px;
 }
 
-#menuHamburguesa {
+#menu-hamburguesa {
     width: 35px;
     height: 35px;
 }
 
-#imagenLupa {
+#imagen-lupa {
     width: 26px;
     height: 26px;
     position: absolute;
@@ -130,8 +129,11 @@ header {
     pointer-events: none; /*Evita que la imagen interfiera con el input*/
 }
 
-
+.menuCategorias {
+    width: 230px;
+    height: 100vh;
+    background-color: var(--gris-oscuro);
+}
 
 
 /* ------------------- Juego ------------------- */
-

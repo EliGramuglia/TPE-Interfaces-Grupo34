@@ -32,7 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let listaCategorias = document.querySelector("#lista-categorias");
 
     for (let c of categorias) {
-        listaCategorias.innerHTML += `<a href="#"><li><img src="img/menu-categorias/${c.img}"> ${c.descripcion}</li></a>`;
+        listaCategorias.innerHTML +=
+            `<li>
+                <a href="#">
+                    <img src="img/menu-categorias/${c.img}">
+                    <span>${c.descripcion}</span>
+                </a>
+            </li>`;
     }
 });
-

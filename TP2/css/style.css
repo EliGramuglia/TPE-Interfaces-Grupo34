@@ -52,13 +52,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style: none;
 }
 
 body {
     color: var(--gris-muy-claro);
     font-family: 'Nunito';
     font-weight: var(--grosor-regular);
-    list-style: none;
     height: 100vh;
     background-color: var(--violeta-muy-oscuro);
 }
@@ -159,11 +159,17 @@ header {
     padding: 20px;
     background-color: var(--gris-oscuro);
     overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gris-muy-oscuro) var(--gris-semi-claro);
 }
 
 .menu-categorias ul li {
     margin-bottom: 10px;
     font-weight: var(--grosor-mediano);
+}
+
+.menu-categorias ul li a {
+    width: 100%;
     display: flex;
     align-items: center;
 }

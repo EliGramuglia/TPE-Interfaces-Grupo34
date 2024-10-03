@@ -13,7 +13,9 @@
 <body>
     <header>
         <div class="iconos">
-            <img src="img/iconos/menu-hamburguesa.png" alt="Menú Hamburguesa" id="menu-hamburguesa">
+            <a href="#">
+                <img src="img/iconos/menu-hamburguesa.png" alt="Menú Hamburguesa" id="menu-hamburguesa">
+            </a>
             <img src="img/iconos/logo.png" alt="Logo Winnit" id="logo-winnit"> 
         </div>
         <div id="contenedor-buscador">
@@ -22,13 +24,14 @@
         </div>
         <div class="iconos">
             <img src="img/iconos/carrito.png" alt="Carrito de compras" class="imagen-iconos">
-            <img src="img/iconos/perfil.png" alt="Perfil de usuario" class="imagen-iconos">
+            <a href="#">
+                <img src="img/iconos/perfil.png" alt="Perfil de usuario" class="imagen-iconos" id="icono-perfil">
+            </a>
         </div>
     </header>
 
-    <div class="contenedor-menu-perfil">
         <!-- Menú de categorías -->
-        <aside class="contenedor-menu-categorias">
+        <aside id="contenedor-menu-categorias" style="display: none;">
             <div class="menu-categorias">
                 <ul id="lista-categorias"></ul>
             </div>
@@ -36,10 +39,12 @@
 
 
         <!-- Perfil desplegable -->
-        <aside>
+        <aside id="contendor-perfil-desplegable" style="display: none">
             <div class="perfil-desplegable">
                 <div id="cruz-salir">
-                    <img src="img/iconos/perfil-desplegable/cruz-salir.png" alt="Cruz para cerrar sección">
+                    <a href="#">
+                        <img src="img/iconos/perfil-desplegable/cruz-salir.png" alt="Cruz para cerrar sección" id="cerrar-perfil">
+                    </a>
                 </div>
                 <div id="avatar-mail">
                     <img src="img/iconos/perfil-desplegable/foto-de-perfil.png" alt="Avatar o foto de perfil del usuario" id="foto-de-perfil">
@@ -91,10 +96,17 @@
                 </div>
             </div>
         </aside>
-    </div>
+   
 
-
-
+    <!--<section>
+        <div>
+            <h2>Juegos de acción</h2>
+        </div>
+        <div>
+            <img src=""
+        </div>  
+    </section>
+    -->
 
     <main>
 
@@ -110,6 +122,9 @@
 
 
 
+
+
+    <script src="js/perfilDesplegable.js"></script>
     <script src="js/menuCategorias.js"></script>
 </body>
 

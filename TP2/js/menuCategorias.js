@@ -41,3 +41,16 @@ document.addEventListener('DOMContentLoaded', () => {
             </li>`;
     }
 });
+
+
+
+const iconoMenu = document.getElementById('menu-hamburguesa');
+const menuCategorias = document.getElementById('contenedor-menu-categorias');
+
+iconoMenu.addEventListener('click', () => {
+    if (menuCategorias.style.display === 'none') {
+        menuCategorias.style.display = 'block';  //Mostrar el menú
+    } else {
+        menuCategorias.style.display = 'none';   //Ocultar el menú
+    }
+});

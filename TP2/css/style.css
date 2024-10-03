@@ -154,7 +154,7 @@ header {
 
 /* Menú de categorías */
 .contenedor-menu-categorias {
-    padding: 0 10px;
+    padding: 0 10px 0 20px;
     background-color: var(--gris-oscuro);
 }
 

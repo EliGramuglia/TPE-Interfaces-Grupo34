@@ -144,7 +144,13 @@ header {
     pointer-events: none; /* Evita que la imagen interfiera con el input */
 }
 
+.icon-hover {
+    transition: transform 0.2s ease;
+}
 
+.icon-hover:hover {
+    transform: scale(1.1); 
+}
 
 
 /* Menú de categorías */

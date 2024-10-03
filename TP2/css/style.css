@@ -153,14 +153,33 @@ header {
 
 
 /* Menú de categorías */
-.menu-categorias {
-    width: 230px;
-    height: calc(100vh - 60px);
-    padding: 20px;
+.contenedor-menu-categorias {
+    padding: 0 10px;
     background-color: var(--gris-oscuro);
+}
+
+.menu-categorias {
+    width: 190px;
+    height: calc(100vh - 60px);
+    padding: 15px 0;
     overflow-y: scroll;
-    scrollbar-width: thin;
-    scrollbar-color: var(--gris-semi-claro) var(--gris-semi-oscuro);
+}
+
+.menu-categorias::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: inherit;
+}
+
+.menu-categorias::-webkit-scrollbar-track {
+    margin-block: 15px;
+    background-color: var(--gris-semi-oscuro);
+    border-radius: 100vw;
+}
+
+.menu-categorias::-webkit-scrollbar-thumb {
+    background-color: var(--gris-semi-claro);
+    border-radius: 100vw;
 }
 
 .menu-categorias ul li {

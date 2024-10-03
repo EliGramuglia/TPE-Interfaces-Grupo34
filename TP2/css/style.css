@@ -145,11 +145,12 @@ header {
 }
 
 .icon-hover {
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, filter 0.2s ease;
 }
 
 .icon-hover:hover {
-    transform: scale(1.1); 
+    transform: scale(1.1);
+    filter:brightness(1.4);
 }
 
 
@@ -163,7 +164,7 @@ header {
     transition: left 0.5s ease-in-out;
 }
 
-.abierto {
+.contenedor-menu-categorias.abierto {
     position: fixed;
     left: 0px;
 }

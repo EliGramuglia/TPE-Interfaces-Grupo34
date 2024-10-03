@@ -239,7 +239,7 @@ header {
 }
 
 #avatar-mail #email {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 #items-perfil-desplegable ul{
@@ -251,7 +251,7 @@ header {
 #items-perfil-desplegable li {
     display: flex;
     align-items: center; 
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 #items-perfil-desplegable img {
@@ -262,7 +262,27 @@ header {
 
 #items-perfil-desplegable p {
     font-size: 16px;
-    font-weight: var(--grosor-mediano);
+    font-weight: var(--grosor-grueso);
+}
+
+#cerrar-sesion p {
+    color: var(--acento-semi-claro);
+}
+
+#cerrar-sesion img, #cerrar-sesion p {
+    margin-bottom: 20px;
+}
+
+.redes-sociales img {
+    width: 30px;
+    height: 30px;
+}
+
+.redes-sociales {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 35px;
 }
 
 

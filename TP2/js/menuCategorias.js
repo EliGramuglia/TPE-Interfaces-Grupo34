@@ -1,7 +1,7 @@
 "use strict";
 
 document.addEventListener('DOMContentLoaded', () => {
-    let categorias = [
+    const categorias = [
         { img: "inicio.png", descripcion: "Inicio" },
         { img: "recientes.png", descripcion: "Recientes" },
         { img: "favoritos.png", descripcion: "Favoritos" },
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { img: "etiquetas.png", descripcion: "Etiquetas" }
     ];
 
-    let listaCategorias = document.querySelector("#lista-categorias");
+    const listaCategorias = document.querySelector("#lista-categorias");
 
     for (let c of categorias) {
         listaCategorias.innerHTML +=
@@ -40,17 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 </a>
             </li>`;
     }
-});
 
+    const iconoMenu = document.querySelector('#menu-hamburguesa');
+    const menuCategorias = document.querySelector('.contenedor-menu-categorias');
 
-
-const iconoMenu = document.getElementById('menu-hamburguesa');
-const menuCategorias = document.getElementById('contenedor-menu-categorias');
-
-iconoMenu.addEventListener('click', () => {
-    if (menuCategorias.style.display === 'none') {
-        menuCategorias.style.display = 'block';  //Mostrar el menú
-    } else {
-        menuCategorias.style.display = 'none';   //Ocultar el menú
-    }
+    iconoMenu.addEventListener('click', () => {
+        menuCategorias.classList.toggle('abierto');
+    });
 });

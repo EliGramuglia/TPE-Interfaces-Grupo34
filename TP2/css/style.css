@@ -154,9 +154,18 @@ header {
 
 
 /* Menú de categorías */
-#contenedor-menu-categorias {
+.contenedor-menu-categorias {
+    position: fixed;
+    left: -220px;
     padding: 0 10px 0 20px;
     background-color: var(--gris-oscuro);
+    z-index: 1;
+    transition: left 0.5s ease-in-out;
+}
+
+.abierto {
+    position: fixed;
+    left: 0px;
 }
 
 .menu-categorias {

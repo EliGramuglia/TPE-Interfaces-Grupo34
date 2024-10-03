@@ -160,7 +160,7 @@ header {
     background-color: var(--gris-oscuro);
     overflow-y: scroll;
     scrollbar-width: thin;
-    scrollbar-color: var(--gris-muy-oscuro) var(--gris-semi-claro);
+    scrollbar-color: var(--gris-semi-claro) var(--gris-semi-oscuro);
 }
 
 .menu-categorias ul li {

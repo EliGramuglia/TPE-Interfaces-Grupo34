@@ -217,5 +217,28 @@ header {
     font-size: 12px;
 }
 
+#items-perfil-desplegable ul{
+    margin-top: 30px;
+    margin-left: 40px;
+    list-style-type: none;
+}
+
+#items-perfil-desplegable li {
+    display: flex;
+    align-items: center; 
+    margin-bottom: 10px;
+}
+
+#items-perfil-desplegable img {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+#items-perfil-desplegable p {
+    font-size: 16px;
+    font-weight: var(--grosor-mediano);
+}
+
 
 /* ------------------- Juego ------------------- */

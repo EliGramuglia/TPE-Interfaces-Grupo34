@@ -52,12 +52,20 @@
 }
 
 body {
+    color: var(--gris-muy-claro);
     font-family: 'Nunito';
     font-weight: var(--grosor-regular);
+    list-style: none;
+    height: 100vh;
 }
 
 h1 {
     font-weight: var(--grosor-grueso);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 
@@ -73,7 +81,9 @@ h1 {
 
 
 /* ------------------- Home ------------------- */
+/* Header */
 header {
+    height: 60px;
     background-color: var(--gris-semi-claro);
     display: flex;
     justify-content: space-between;
@@ -110,8 +120,8 @@ header {
 }
 
 #logo-winnit {
-    width: 90.54px;
-    height: 39.48px;
+    width: 90px;
+    height: 40px;
 }
 
 #menu-hamburguesa {
@@ -126,13 +136,30 @@ header {
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
-    pointer-events: none; /*Evita que la imagen interfiera con el input*/
+    pointer-events: none; /* Evita que la imagen interfiera con el input */
 }
 
-.menuCategorias {
+
+/* Menú de categorías */
+.menu-categorias {
     width: 230px;
-    height: 100vh;
+    height: calc(100vh - 60px);
+    padding: 20px;
     background-color: var(--gris-oscuro);
+    overflow-y: scroll;
+}
+
+.menu-categorias ul li {
+    margin-bottom: 10px;
+    font-weight: var(--grosor-mediano);
+    display: flex;
+    align-items: center;
+}
+
+.menu-categorias img {
+    width: 26px;
+    height: 26px;
+    margin-right: 12px;
 }
 
 

@@ -60,6 +60,7 @@
     box-sizing: border-box;
     list-style: none;
     border: none;
+    color: var(--gris-muy-claro);
 }
 
 body {
@@ -87,9 +88,85 @@ a {
 
 
 /* ------------------- Login ------------------- */
+.resaltado{
+    color:var(--acento);
+}
+.contenedor-formulario-inicio{
+    height: 90vh;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.portada-formulario{
+    background-image: url(/img/portada_login.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top 70%;
+}
+.contenedor-formulario{
+    background-image: linear-gradient(to top right , var(--gris-muy-oscuro),var(--primario-muy-oscuro));
+    padding: 3% 10%;
+}
 
 
+form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+}
+.nav-registro,.input-capcha{
+    display: flex;
+}
+.nav-registro h2{
+    text-align: center;
+    width: 100%;
+    padding: 6px 0;
+    font-size: 16px;
+    border-bottom: var(--gris-claro) 2px solid;
+}
+/* cosas pequeñas, estilos especificos de elementos */
+.input-formulario input{
+    border-radius: 4px;
+    padding: 10px;
+}
+.input-formulario input[type="date"]{
+    padding: 9px;
+}
 
+.input-formulario{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 8px 0;
+}
+.input-formulario > p{
+    margin: 4px 0;
+    font-style: oblique;
+}
+.contenedor-input{
+    column-gap: 4px;
+    width: 100%;
+}
+.btn-principal{
+    font-size: 15px;
+    background-color:var(--secundario);
+    border-radius: 30px;
+    padding: 10px 0;
+    width: 200px;
+}
+.input-capcha{
+    background-color:var(--violeta-muy-oscuro);
+    border: 1px solid var(--primario-semi-oscuro);
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    border-radius: 10px;
+    padding: 0 5%;
+}
+.input-capcha img{
+width: 100px;
+}
 
 
 /* ------------------- Home ------------------- */
@@ -385,3 +462,15 @@ header {
 
 
 /* ------------------- Juego ------------------- */
+
+@media only screen and (min-width:660px) {
+/* ------------------- Login ------------------- */
+.contenedor-input{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+.ancho-completo{
+    grid-column: span 2;
+}
+
+}

@@ -437,14 +437,14 @@ header {
 
 #tarjeta-nombre-juego {
     font-weight: var(--grosor-regular);
+    margin-top: 5px;
 }
 
 #tarjeta-precio-juego {
     font-weight: var(--grosor-grueso);
 }
 
-.iconos-tarjetas-play-carrito {
-    background-color: var(--secundario);
+.iconos-tarjetas-play-carrito, #icono-corazon-favoritos {
     border-radius: 50%;
     width: 35px; 
     height: 35px;
@@ -453,10 +453,14 @@ header {
     justify-content: center;
     align-items: center;
     position: absolute;
+    cursor: pointer;
+}
+
+.iconos-tarjetas-play-carrito {
+    background-color: var(--secundario);
     right: 12px;
     top: 50%; 
     transform: translateY(-50%); 
-    cursor: pointer;
 }
 
 .iconos-tarjetas-play-carrito img {
@@ -466,17 +470,9 @@ header {
 
 #icono-corazon-favoritos {
     background-color: #373952;
-    border-radius: 50%;
-    width: 35px; 
-    height: 35px;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: absolute;
     top: 5px; 
     left: 5px;
-    cursor: pointer;
 }
 
 #icono-corazon-favoritos img {
@@ -484,8 +480,31 @@ header {
     height: 14px;
 }
 
+#puntaje-juego {
+    width: 43px;
+    height: 25px;
+    position: absolute;
+    background-color: #373952;
+    top: 5px;
+    right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    border-radius: 3px;
+}
 
+#puntaje-juego img {
+    width: 14px;
+    height: auto;
+    margin-right: 4px;
+}
 
+#puntaje-juego p {
+    color: var(--gris-muy-claro);
+    font-size: 11px;
+    font-weight: var(--grosor-grueso);
+}
 
 
 /* ------------------- Juego ------------------- */

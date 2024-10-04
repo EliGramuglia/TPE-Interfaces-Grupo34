@@ -1,6 +1,7 @@
 "use strict";
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Cada categoría es un JSON con una imágen y una descripción
     const categorias = [
         { img: "inicio.png", descripcion: "Inicio" },
         { img: "recientes.png", descripcion: "Recientes" },
@@ -29,18 +30,28 @@ document.addEventListener('DOMContentLoaded', () => {
         { img: "etiquetas.png", descripcion: "Etiquetas" }
     ];
 
+    // Creación de lista de categorías
     const listaCategorias = document.querySelector("#lista-categorias");
-
     for (let c of categorias) {
-        listaCategorias.innerHTML +=
-            `<li>
-                <a href="#">
-                    <img src="img/menu-categorias/${c.img}">
-                    <span>${c.descripcion}</span>
-                </a>
-            </li>`;
+        // Se crean elementos HTML
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        const img = document.createElement('img');
+        const span = document.createElement('span');
+    
+        // Se establecen atributos
+        img.src = `img/menu-categorias/${c.img}`;
+        span.textContent = c.descripcion;
+        a.href = '#';
+
+        // Se agregan al documento
+        a.appendChild(img);
+        a.appendChild(span);
+        li.appendChild(a);
+        listaCategorias.appendChild(li);
     }
 
+    // Menú hamburguesa
     const iconoMenu = document.querySelector('#menu-hamburguesa');
     const menuCategorias = document.querySelector('.contenedor-menu-categorias');
 

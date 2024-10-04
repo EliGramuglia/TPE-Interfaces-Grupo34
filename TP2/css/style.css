@@ -403,6 +403,12 @@ header {
     margin-left: 44px;
 }
 
+#juegos h1 {
+    font-size: var(--tamanio-20);
+    margin-bottom: 10px;
+    margin-top: 28px;
+}
+
 #contenedor-imagen-tarjeta {
     width: 240px;
     height: 140px;

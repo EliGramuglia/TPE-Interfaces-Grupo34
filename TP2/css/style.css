@@ -483,7 +483,7 @@ header {
 
 #icono-corazon-favoritos img {
     width: 16px;
-    height: 14px;
+    height: auto;
 }
 
 #puntaje-juego {

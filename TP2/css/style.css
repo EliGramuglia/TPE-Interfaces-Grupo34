@@ -122,7 +122,7 @@ form{
     text-align: center;
     width: 100%;
     padding: 6px 0;
-    font-size: 16px;
+    font-size: var(--tamanio-16);
     border-bottom: var(--gris-claro) 2px solid;
 }
 /* cosas pequeñas, estilos especificos de elementos */
@@ -149,7 +149,7 @@ form{
     width: 100%;
 }
 .btn-principal{
-    font-size: 15px;
+    font-size: var(--tamanio-15);
     background-color:var(--secundario);
     border-radius: 30px;
     padding: 10px 0;
@@ -206,7 +206,7 @@ header {
     padding-left: 18px;
     border-color: none;
     font-family: 'Nunito';
-    font-size: 16px;
+    font-size: var(--tamanio-16);
 }
 
 #logo-winnit {
@@ -335,13 +335,13 @@ header {
 } 
 
 #avatar-mail #nikename {
-    font-size: 20px;
+    font-size: var(--tamanio-20);
     font-weight: var(--grosor-grueso);
     margin-top: 8px;
 }
 
 #avatar-mail #email {
-    font-size: 14px;
+    font-size: var(--tamanio-14);
 }
 
 #items-perfil-desplegable ul{
@@ -363,7 +363,7 @@ header {
 }
 
 #items-perfil-desplegable p {
-    font-size: 16px;
+    font-size: var(--tamanio-16);
     font-weight: var(--grosor-grueso);
 }
 
@@ -425,7 +425,7 @@ header {
 
 #contenedor-texto-tarjeta p {
     color: var(--gris-muy-claro);
-    font-size: 14px;
+    font-size: var(--tamanio-14);
 }
 
 #tarjeta-nombre-juego {

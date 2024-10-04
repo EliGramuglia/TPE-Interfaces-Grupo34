@@ -300,7 +300,8 @@ header {
 /* Perfil desplegable */
 #contendor-perfil-desplegable {
     position: absolute;
-    right: 0; 
+    right: 0;
+    display: none; 
 }
 
 .perfil-desplegable {
@@ -397,9 +398,15 @@ header {
 
 
 /* Tarjeta de juego */
+#juegos{
+    margin-left: 44px;
+    margin-left: 44px;
+}
+
 #contenedor-imagen-tarjeta {
-    width: 235px;
-    height: 139px;
+    width: 240px;
+    height: 140px;
+    position: relative;
 }
 
 #contenedor-imagen-tarjeta img {
@@ -411,7 +418,7 @@ header {
 }
 
 #contenedor-texto-tarjeta {
-    width: 235px;
+    width: 240px;
     height: 50px;
     background-color: var(--gris-oscuro);
     border-bottom-left-radius: 5px;
@@ -455,9 +462,29 @@ header {
 .iconos-tarjetas-play-carrito img {
     width: 10px;
     height: 12px;
-    display: block;
-    margin: 0;
 }
+
+#icono-corazon-favoritos {
+    background-color: #373952;
+    border-radius: 50%;
+    width: 35px; 
+    height: 35px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 5px; 
+    left: 5px;
+    cursor: pointer;
+}
+
+#icono-corazon-favoritos img {
+    width: 16px;
+    height: 14px;
+}
+
+
 
 
 

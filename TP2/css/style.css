@@ -44,6 +44,12 @@
     --grosor-mediano: 500;
     --grosor-regular: 400;
     --grosor-fino: 200;
+
+    --tamanio-14: 14px; 
+    --tamanio-15: 15px;
+    --tamanio-16: 16px;
+    --tamanio-20: 20px;
+    --tamanio-24: 24px;
 }
 
 
@@ -72,13 +78,14 @@ a {
     text-decoration: none;
 }
 
-
+.oculto {
+    display: none;
+}
 
 
 
 
 /* ------------------- Login ------------------- */
-
 
 
 
@@ -373,7 +380,6 @@ header {
     display: block;
     margin: 0;
 }
-
 
 
 

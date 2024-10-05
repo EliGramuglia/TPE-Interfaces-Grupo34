@@ -37,7 +37,6 @@
         </div>
     </aside>
 
-
     <!-- Perfil desplegable -->
     <aside id="contendor-perfil-desplegable">
         <div class="perfil-desplegable">
@@ -97,38 +96,36 @@
         </div>
     </aside>
    
-
-    <!-- Tarjeta de juego -->
-    <section id="juegos">
-        <div>
-            <h1>Juegos de acción</h1>
-        </div>
-        <div>
-            <div id="contenedor-imagen-tarjeta">
-                <img src="img/cards/ac_chicken-defense.png" alt="Juego de acción">
-                <button id="icono-corazon-favoritos">
-                    <img src="img/iconos/tarjetas-juegos/corazon-blanco.png" alt="Corazón para clickear los juegos favoritos">
-                </button>
-                <div id="puntaje-juego">
-                    <img src="img/iconos/tarjetas-juegos/Estrella.png" alt="Estrella de puntaje juego">
-                    <p>0.0</p>
+    <!-- Contenedor principal -->
+    <main id="home">
+        <!-- Tarjeta de juego -->
+        <section id="juegos">
+            <div>
+                <h1>Juegos de acción</h1>
+            </div>
+            <div>
+                <div id="contenedor-imagen-tarjeta">
+                    <img src="img/cards/ac_chicken-defense.png" alt="Juego de acción">
+                    <button id="icono-corazon-favoritos">
+                        <img src="img/iconos/tarjetas-juegos/corazon-blanco.png"
+                            alt="Corazón para clickear los juegos favoritos">
+                    </button>
+                    <div id="puntaje-juego">
+                        <img src="img/iconos/tarjetas-juegos/Estrella.png" alt="Estrella de puntaje juego">
+                        <p>0.0</p>
+                    </div>
                 </div>
-            </div> 
-            <div id="contenedor-texto-tarjeta">
-                <div>
-                    <p id="tarjeta-nombre-juego">Nombre del juego</p>
-                    <p id="tarjeta-precio-juego">$000.00</p>
+                <div id="contenedor-texto-tarjeta">
+                    <div>
+                        <p id="tarjeta-nombre-juego">Nombre del juego</p>
+                        <p id="tarjeta-precio-juego">$000.00</p>
+                    </div>
+                    <button class="iconos-tarjetas-play-carrito">
+                        <img src="img/iconos/tarjetas-juegos/icono-play.png" alt="Icono play">
+                    </button>
                 </div>
-                <button class="iconos-tarjetas-play-carrito">
-                    <img src="img/iconos/tarjetas-juegos/icono-play.png" alt="Icono play">
-                </button> 
-            </div> 
-        </div>
-    </section>
-   
-
-    <main>
-
+            </div>
+        </section>
     </main>
 
 
@@ -136,12 +133,53 @@
 
 
     <footer>
-        
+        <div class="contenedor-footer">
+            <ul>
+                <li class="titulo-columna">Sitio</li>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Ayuda</a></li>
+                <li><a href="#">Cookies</a></li>
+                <li><a href="#">Términos y condiciones</a></li>
+                <li><a href="#">Políticas de privacidad</a></li>
+            </ul>
+            <ul>
+                <li class="titulo-columna">Categorías</li>
+                <li><a href="#">Nuevos</a></li>
+                <li><a href="#">Recientes</a></li>
+                <li><a href="#">Favoritos</a></li>
+                <li><a href="#">Etiquetas</a></li>
+                <li><a href="#">Todos los juegos</a></li>
+            </ul>
+            <ul>
+                <li class="titulo-columna">Comunidad</li>
+                <li><a href="#">Foro de Winnit</a></li>
+                <li><a href="#">Preguntas frecuentes</a></li>
+                <li><a href="#"></a>Reglas de la comunidad</li>
+                <li><a href="#"></a>Participá en nuestra encuesta</li>
+                <li><a href="#"></a>Eventos y torneos</li>
+            </ul>
+            <ul>
+                <li class="titulo-columna">Empresa</li>
+                <li><a href="#">Contactanos</a></li>
+                <li><a href="#">Sobre nosotros</a></li>
+                <li><a href="#">Trabajá con nosotros</a></li>
+                <li><a href="#">Asociaciones y colaboraciones</a></li>
+                <li><a href="#">Proyectos en curso</a></li>
+            </ul>
+
+            <div class="suscripcion">
+                <img src="img/iconos/logo.png" alt="Logo Winnit" id="logo-winnit">
+                <p>¡No te pierdas ninguna novedad!</p>
+                <form action="">
+                    <input type="text" placeholder="ejemplo@email.com">
+                    <button type="submit"></button>
+                </form>
+            </div>
+        </div>
+
+    
+
     </footer>
-
-
-
-
 
     <script src="js/perfilDesplegable.js"></script>
     <script src="js/menuCategorias.js"></script>

@@ -80,6 +80,10 @@ a {
     text-decoration: none;
 }
 
+input {
+    color: var(--gris-muy-oscuro);
+}
+
 .oculto {
     display: none;
 }
@@ -311,10 +315,47 @@ header {
 
 /* --------------------- Footer --------------------- */
 footer {
-    width: 100vw;
+    width: 100%;
     height: 360px;
+    padding: 28px;
     background-color: var(--gris-semi-claro);
-    
+}
+
+footer .contenedor-footer {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 25px;
+}
+
+footer ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+footer .titulo-columna {
+    font-weight: var(--grosor-grueso);
+    font-size: var(--tamanio-24);
+}
+
+footer li {
+    font-weight: var(--grosor-fino);
+}
+
+footer .suscripcion {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+footer .suscripcion input {
+    height: 40px;
+    min-width: 100%;
+    border-radius: 100vw;
+    padding: 2px 20px;
 }
 
 
@@ -324,7 +365,8 @@ footer {
 }
 
 .contenedor-formulario-inicio{
-    height: 90vh;
+    min-height: calc(100vh - 60px - 360px);
+    /* height: 90vh; */
     display: grid;
     grid-template-columns: repeat(2,1fr);
 }
@@ -396,22 +438,22 @@ form{
     padding: 0 5%;
 }
 .input-capcha img{
-width: 100px;
+    width: 100px;
 }
 
 
 /* ------------------- Home ------------------- */
 
-/* Tarjeta de juego */
-#juegos{
-    margin-left: 44px;
-    margin-left: 44px;
+/* Main */
+main#home {
+    min-height: calc(100vh - 60px - 360px); /* Altura mínima del main (restando altura del header y footer) */
+    padding: 28px;
 }
 
+/* Tarjeta de juego */
 #juegos h1 {
     font-size: var(--tamanio-20);
     margin-bottom: 10px;
-    margin-top: 28px;
 }
 
 #contenedor-imagen-tarjeta {

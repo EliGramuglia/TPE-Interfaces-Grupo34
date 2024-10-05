@@ -297,10 +297,6 @@ header {
     font-weight: var(--grosor-grueso);
 }
 
-#cerrar-sesion p {
-    color: var(--acento-semi-claro);
-}
-
 #cerrar-sesion img, #cerrar-sesion p {
     margin-bottom: 20px;
 }
@@ -327,7 +323,7 @@ header {
 }
 
 #items-perfil-desplegable a:hover p {
-    color: var(--gris-claro);
+    color: var(--acento-semi-claro);
     font-size: 17px;
 }
 

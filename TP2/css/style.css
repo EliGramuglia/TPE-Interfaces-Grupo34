@@ -555,7 +555,13 @@ a.link-activo{
 /* Main */
 main#home {
     min-height: calc(100vh - 60px - 360px); /* Altura mínima del main (restando altura del header y footer) */
-    padding: 28px;
+    padding: 28px 44px;
+}
+
+div#carrusel-accion {
+    display: flex;
+    width: 100%;
+    gap: 10px;
 }
 
 /* Tarjeta de juego */

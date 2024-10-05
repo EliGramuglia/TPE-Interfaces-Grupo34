@@ -306,7 +306,7 @@ header {
 }
 
 .redes-sociales a img {
-    transition: transform 0.2s ease, filter 0.2s ease;
+    transition: transform 0.3s ease, filter 0.2s ease;
 }
 
 .redes-sociales a:hover img {
@@ -314,9 +314,11 @@ header {
     filter: brightness(1.4);
 }
 
-.redes-sociales a:hover{
-    color: var(--acento-semi-claro);
+#items-perfil-desplegable a:hover p {
+    color: var(--gris-claro);
+    font-size: 17px;
 }
+
 
 
 /* --------------------- Footer --------------------- */

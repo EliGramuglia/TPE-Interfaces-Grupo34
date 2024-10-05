@@ -727,6 +727,10 @@ main#juego {
     top: -3px;
 }
 
+#acceder a:hover p {
+    color: var(--acento-semi-claro);
+}
+
 #banner {
     display: flex;
     justify-content: flex-end;
@@ -743,7 +747,45 @@ main#juego {
     background-color: var(--gris-oscuro);
     margin-top: 40px;
     border-radius: 10px;
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 15px 20px 10px 20px;
 }
+
+.avatar {
+    width: 45px;
+    height: 45px;
+}
+
+#caja-avatar {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    gap: 15px;
+}
+
+#caja-avatar p {
+    font-size: var(--tamanio-16);
+    font-weight: var(--grosor-mediano);
+}
+
+.estrella {
+    width: 25px;
+    height: 25px;
+}
+
+#contenedor-estrellas {
+    margin-left: 50px;
+    margin-bottom: 15px;
+}
+
+#caja-para-escribir {
+    height: 55px;
+    background-color: #FAFBFF;
+    border-radius: 10px;
+}
+
 
 
 /* ------------------- Login ------------------- */

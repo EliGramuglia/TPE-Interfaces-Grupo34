@@ -314,8 +314,7 @@ footer {
     width: 100vw;
     height: 360px;
     background-color: var(--gris-semi-claro);
-    position: absolute;
-    bottom: 0;
+    
 }
 
 

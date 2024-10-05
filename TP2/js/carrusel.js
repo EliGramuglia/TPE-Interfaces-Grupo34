@@ -35,19 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     const tarjetasDestacados = [
-        { nombre: "", img: "ds_drift-boss.png", precio: 0, puntaje: 0 },
-        { nombre: "", img: "", precio: 0, puntaje: 0 },
-        { nombre: "", img: "", precio: 0, puntaje: 0 },
-        { nombre: "", img: "", precio: 0, puntaje: 0 },
-        { nombre: "", img: "", precio: 0, puntaje: 0 },
+
     ];
 
     const tarjetasFutbol = [
-        { nombre: "", img: "", precio: 0, puntaje: 0 },
-        { nombre: "", img: "", precio: 0, puntaje: 0 },
-        { nombre: "", img: "", precio: 0, puntaje: 0 },
-        { nombre: "", img: "", precio: 0, puntaje: 0 },
-        { nombre: "", img: "", precio: 0, puntaje: 0 },
+
     ];
 
     const carruselAccion = document.querySelector("#carrusel-accion");

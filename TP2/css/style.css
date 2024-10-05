@@ -297,10 +297,6 @@ header {
     font-weight: var(--grosor-grueso);
 }
 
-#cerrar-sesion p {
-    color: var(--acento-semi-claro);
-}
-
 #cerrar-sesion img, #cerrar-sesion p {
     margin-bottom: 20px;
 }
@@ -318,7 +314,7 @@ header {
 }
 
 .redes-sociales a img {
-    transition: transform 0.2s ease, filter 0.2s ease;
+    transition: transform 0.3s ease, filter 0.2s ease;
 }
 
 .redes-sociales a:hover img {
@@ -326,9 +322,11 @@ header {
     filter: brightness(1.4);
 }
 
-.redes-sociales a:hover{
+#items-perfil-desplegable a:hover p {
     color: var(--acento-semi-claro);
+    font-size: 17px;
 }
+
 
 
 /* --------------------- Footer --------------------- */
@@ -564,7 +562,13 @@ a.link-activo{
 /* Main */
 main#home {
     min-height: calc(100vh - 60px - 360px); /* Altura mínima del main (restando altura del header y footer) */
-    padding: 28px;
+    padding: 28px 44px;
+}
+
+div#carrusel-accion {
+    display: flex;
+    width: 100%;
+    gap: 10px;
 }
 
 /* Tarjeta de juego */
@@ -573,13 +577,13 @@ main#home {
     margin-bottom: 10px;
 }
 
-#contenedor-imagen-tarjeta {
+.contenedor-imagen-tarjeta {
     width: 240px;
     height: 140px;
     position: relative;
 }
 
-#contenedor-imagen-tarjeta img {
+.contenedor-imagen-tarjeta img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -587,7 +591,7 @@ main#home {
     border-top-right-radius: 5px;
 }
 
-#contenedor-texto-tarjeta {
+.contenedor-texto-tarjeta {
     width: 240px;
     height: 50px;
     background-color: var(--gris-oscuro);
@@ -600,21 +604,21 @@ main#home {
     padding: 0 6px;
 }
 
-#contenedor-texto-tarjeta p {
+.contenedor-texto-tarjeta p {
     color: var(--gris-muy-claro);
     font-size: var(--tamanio-14);
 }
 
-#tarjeta-nombre-juego {
+.tarjeta-nombre-juego {
     font-weight: var(--grosor-regular);
     margin-top: 5px;
 }
 
-#tarjeta-precio-juego {
+.tarjeta-precio-juego {
     font-weight: var(--grosor-grueso);
 }
 
-.iconos-tarjetas-play-carrito, #icono-corazon-favoritos {
+.iconos-tarjetas-play-carrito, .icono-corazon-favoritos {
     border-radius: 50%;
     width: 35px;
     height: 35px;
@@ -638,19 +642,19 @@ main#home {
     height: 12px;
 }
 
-#icono-corazon-favoritos {
+.icono-corazon-favoritos {
     background-color: #373952;
     position: absolute;
     top: 5px;
     left: 5px;
 }
 
-#icono-corazon-favoritos img {
+.icono-corazon-favoritos img {
     width: 16px;
     height: auto;
 }
 
-#puntaje-juego {
+.puntaje-juego {
     width: 43px;
     height: 25px;
     position: absolute;
@@ -664,13 +668,13 @@ main#home {
     border-radius: 3px;
 }
 
-#puntaje-juego img {
+.puntaje-juego img {
     width: 14px;
     height: auto;
     margin-right: 4px;
 }
 
-#puntaje-juego p {
+.puntaje-juego p {
     color: var(--gris-muy-claro);
     font-size: 11px;
     font-weight: var(--grosor-grueso);
@@ -679,6 +683,117 @@ main#home {
 
 /* ------------------- Juego ------------------- */
 
+main#juego {
+    min-height: calc(100vh - 60px - 360px); /* Altura mínima del main (restando altura del header y footer) */
+    padding: 28px 116px;
+}
+
+/* Contenedor general de la sección */
+#contenedor-seccion-comentarios {
+    display: flex; 
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#contenedor-comentarios {
+    width: 100%;
+    margin-right: 30px; /* Espacio entre el contenido y el banner */
+}
+
+#contenedor-titulo {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+#contenedor-titulo::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 1px; 
+    background-color: var(--gris-muy-claro);
+}
+
+#contenedor-titulo h1 {
+    font-size: var(--tamanio-24);
+}
+
+#acceder {
+    display: flex;
+    align-items: center;
+}
+
+#acceder p {
+    margin-right: 5px;
+    font-weight: var(--grosor-mediano);
+    font-size: var(--tamanio-16);
+}
+
+#acceder img {
+    position: relative;
+    top: -3px;
+}
+
+#acceder a:hover p {
+    color: var(--acento-semi-claro);
+}
+
+#banner {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#banner img {
+    width: 195;
+    height: 1000px;
+}
+
+#caja-comentarios {
+    width: 100%;
+    height: 223px;
+    background-color: var(--gris-oscuro);
+    margin-top: 40px;
+    border-radius: 10px;
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 15px 20px 10px 20px;
+}
+
+.avatar {
+    width: 45px;
+    height: 45px;
+}
+
+#caja-avatar {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    gap: 15px;
+}
+
+#caja-avatar p {
+    font-size: var(--tamanio-16);
+    font-weight: var(--grosor-mediano);
+}
+
+.estrella {
+    width: 25px;
+    height: 25px;
+}
+
+#contenedor-estrellas {
+    margin-left: 50px;
+    margin-bottom: 15px;
+}
+
+#caja-para-escribir {
+    height: 55px;
+    background-color: #FAFBFF;
+    border-radius: 10px;
+}
 
 
 

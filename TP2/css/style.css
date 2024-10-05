@@ -450,12 +450,13 @@ footer .redes-footer img:hover {
 }
 
 .contenedor-formulario {
-    background-image: linear-gradient(to top right, var(--gris-muy-oscuro), var(--primario-muy-oscuro));
+    background-image: linear-gradient(110deg,#1C1C1C 5%, var(--primario-muy-oscuro), var(--primario-oscuro));
     padding: 3% 10%;
 }
 
-form {
+form.formulario-ingreso, form.formulario-registro {
     display: flex;
+    margin: 30px 0;
     flex-direction: column;
     width: 100%;
     align-items: center;
@@ -469,12 +470,11 @@ form {
 .nav-registro h2 {
     text-align: center;
     width: 100%;
-    padding: 6px 0;
+    padding: 10px 0;
     font-size: var(--tamanio-16);
     border-bottom: var(--gris-claro) 2px solid;
 }
 
-/* Cosas pequeñas, estilos especificos de elementos */
 .input-formulario input {
     border-radius: 4px;
     padding: 10px;
@@ -510,13 +510,14 @@ form {
 }
 
 .input-capcha {
-    background-color: var(--violeta-muy-oscuro);
+    background-color: var(--primario-muy-oscuro);
     border: 1px solid var(--primario-semi-oscuro);
     justify-content: center;
     gap: 10px;
     align-items: center;
     border-radius: 10px;
     padding: 0 5%;
+    margin-bottom: 20px;
 }
 
 .input-capcha img {

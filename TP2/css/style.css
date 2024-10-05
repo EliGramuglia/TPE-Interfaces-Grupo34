@@ -317,7 +317,8 @@ header {
 footer {
     width: 100%;
     height: 360px;
-    padding: 28px;
+    padding: 35px;
+    position: relative;
     background-color: var(--gris-semi-claro);
 }
 
@@ -343,7 +344,7 @@ footer li {
     font-weight: var(--grosor-fino);
 }
 
-footer .suscripcion {
+footer .suscripcion-copyright {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -351,11 +352,77 @@ footer .suscripcion {
     text-align: center;
 }
 
-footer .suscripcion input {
-    height: 40px;
+footer div.form-suscripcion {
     min-width: 100%;
+    height: 40px;
     border-radius: 100vw;
-    padding: 2px 20px;
+    padding: 2px;
+    background-color: var(--gris-muy-claro);
+}
+
+footer .form-suscripcion form {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+}
+
+footer .form-suscripcion input {
+    min-width: 65%;
+    height: inherit;
+    padding: 0 15px;
+    border-radius: 100vw;
+}
+
+footer .form-suscripcion button {
+    min-width: 35%;
+    height: inherit;
+    background-color: var(--primario-semi-oscuro);
+    border-radius: 100vw;
+}
+
+footer .form-suscripcion button:hover {
+    background-color: var(--primario-semi-claro);
+}
+
+footer .suscripcion-copyright hr {
+    width: 70%;
+    height: 1px;
+    margin-top: 15px;
+    background-color: var(--gris-claro);
+}
+
+footer #copyright {
+    font-size: var(--tamanio-14);
+    font-weight: var(--grosor-fino);
+}
+
+footer .redes-footer {
+    width: 230px;
+    height: 50px;
+    padding: 8px;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top-left-radius: 100vw;
+    border-top-right-radius: 100vw;
+    background-color: var(--primario);
+}
+
+footer .redes-footer img {
+    width: 35px;
+    height: 35px;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+footer .redes-footer img:hover {
+    transform: scale(1.1);
+    filter:brightness(1.4);
 }
 
 
@@ -366,7 +433,6 @@ footer .suscripcion input {
 
 .contenedor-formulario-inicio{
     min-height: calc(100vh - 60px - 360px);
-    /* height: 90vh; */
     display: grid;
     grid-template-columns: repeat(2,1fr);
 }

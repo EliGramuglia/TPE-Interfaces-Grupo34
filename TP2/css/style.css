@@ -429,6 +429,9 @@ footer .redes-footer img:hover {
     transform: scale(1.1);
     filter: brightness(1.4);
 }
+footer a:hover{
+    color: var(--acento-semi-claro);
+}
 
 
 /* --------------------- Login --------------------- */
@@ -450,7 +453,7 @@ footer .redes-footer img:hover {
 }
 
 .contenedor-formulario {
-    background-image: linear-gradient(110deg,#1C1C1C 5%, var(--primario-muy-oscuro), var(--primario-oscuro));
+    background-image: linear-gradient(110deg,#1c1c1c91 2%, var(--primario-muy-oscuro), var(--primario-oscuro));
     padding: 3% 10%;
 }
 
@@ -523,7 +526,12 @@ form.formulario-ingreso, form.formulario-registro {
 .input-capcha img {
     width: 100px;
 }
-
+a.link-activo{
+    text-decoration: underline;
+}
+.negrita{
+    font-weight: var(--grosor-grueso);
+}
 
 /* ------------------- Home ------------------- */
 

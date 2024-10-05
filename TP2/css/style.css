@@ -294,8 +294,8 @@ header {
 }
 
 .redes-sociales img {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
 }
 
 .redes-sociales {
@@ -306,11 +306,16 @@ header {
 }
 
 .redes-sociales a img {
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, filter 0.2s ease;
 }
 
 .redes-sociales a:hover img {
     transform: scale(1.2); /* Aumenta el tamaño de la imagen */
+    filter: brightness(1.4);
+}
+
+.redes-sociales a:hover{
+    color: var(--acento-semi-claro);
 }
 
 

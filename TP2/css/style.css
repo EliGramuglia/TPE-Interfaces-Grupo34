@@ -131,6 +131,19 @@ header {
     height: 40px;
 }
 
+#logo-winnit:hover {
+    animation: animacion-logo 0.8s infinite; /* Animación en al hacer hover */
+}
+
+/* Definición de la animación de sacudida con rotación */
+@keyframes animacion-logo {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+    75% { transform: rotate(-3deg); }
+    100% { transform: rotate(0deg); }
+}
+
 #menu-hamburguesa {
     width: 35px;
     height: 35px;
@@ -163,12 +176,11 @@ header {
     padding: 0 10px 0 20px;
     background-color: var(--gris-oscuro);
     z-index: 1;
-    transition: left 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
 }
 
 .contenedor-menu-categorias.abierto {
-    position: fixed;
-    left: 0px;
+    transform: translateX(220px);
 }
 
 .menu-categorias {
@@ -294,8 +306,8 @@ header {
 }
 
 .redes-sociales img {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
 }
 
 .redes-sociales {
@@ -545,7 +557,13 @@ a.link-activo{
 /* Main */
 main#home {
     min-height: calc(100vh - 60px - 360px); /* Altura mínima del main (restando altura del header y footer) */
-    padding: 28px;
+    padding: 28px 44px;
+}
+
+div#carrusel-accion {
+    display: flex;
+    width: 100%;
+    gap: 10px;
 }
 
 /* Tarjeta de juego */

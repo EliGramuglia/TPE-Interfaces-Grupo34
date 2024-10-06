@@ -457,21 +457,15 @@ footer a:hover{
 .contenedor-formulario-inicio {
     min-height: calc(100vh - 60px - 360px);
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
 }
-
-.portada-formulario {
-    background-image: url(/img/portada_login.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center top 70%;
-}
-
 .contenedor-formulario {
     background-image: linear-gradient(110deg,#1c1c1c91 2%, var(--primario-muy-oscuro), var(--primario-oscuro));
     padding: 3% 10%;
 }
-
+.portada-formulario{
+    display: none;
+}
 .formulario-registro,.formulario-ingreso {
     display: flex;
     margin: 30px 0;
@@ -496,7 +490,7 @@ footer a:hover{
     border-bottom: 2px solid var(--gris-claro);
 }
 .active{
-    border-bottom: 2px solid var(--secundario);
+    border-bottom: 2px solid var(--secundario-semi-claro);
 }
 .input-formulario input {
     border-radius: 4px;
@@ -526,7 +520,7 @@ footer a:hover{
 
 .btn-principal {
     font-size: var(--tamanio-15);
-    background-color: var(--secundario);
+    background-color: var(--secundario-semi-claro);
     border-radius: 30px;
     padding: 14px;
     width: 250px;
@@ -802,7 +796,7 @@ main#juego {
 
 
 /* ------------------- Login ------------------- */
-@media only screen and (min-width:660px) {
+@media only screen and (min-width:800px) {
     .contenedor-input {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -810,5 +804,22 @@ main#juego {
 
     .ancho-completo {
         grid-column: span 2;
+    }
+    .contenedor-formulario-inicio {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .contenedor-imagen-tarjeta img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    .portada-formulario {
+        display: initial;
+        background-image: url(/img/portada_login.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center top 30%;
     }
 }

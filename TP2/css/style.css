@@ -8,7 +8,7 @@
     --primario-semi-oscuro: #6300e6;
     --primario-oscuro: #4d02b0;
     --primario-muy-oscuro: #2d0078;
-    
+
     /* Color secundario */
     --secundario-muy-claro: #7dee68;
     --secundario-claro: #31c71b;
@@ -45,7 +45,7 @@
     --grosor-regular: 400;
     --grosor-fino: 200;
 
-    --tamanio-14: 14px; 
+    --tamanio-14: 14px;
     --tamanio-15: 15px;
     --tamanio-16: 16px;
     --tamanio-20: 20px;
@@ -472,7 +472,7 @@ footer a:hover{
     padding: 3% 10%;
 }
 
-form.formulario-ingreso, form.formulario-registro {
+.formulario-registro,.formulario-ingreso {
     display: flex;
     margin: 30px 0;
     flex-direction: column;
@@ -490,9 +490,14 @@ form.formulario-ingreso, form.formulario-registro {
     width: 100%;
     padding: 10px 0;
     font-size: var(--tamanio-16);
-    border-bottom: var(--gris-claro) 2px solid;
+    cursor: pointer;
+}  
+.inactivo{
+    border-bottom: 2px solid var(--gris-claro);
 }
-
+.active{
+    border-bottom: 2px solid var(--secundario);
+}
 .input-formulario input {
     border-radius: 4px;
     padding: 10px;
@@ -509,7 +514,7 @@ form.formulario-ingreso, form.formulario-registro {
     margin: 8px 0;
 }
 
-.input-formulario>p {
+.input-formulario > p {
     margin: 4px 0;
     font-style: oblique;
 }
@@ -523,8 +528,9 @@ form.formulario-ingreso, form.formulario-registro {
     font-size: var(--tamanio-15);
     background-color: var(--secundario);
     border-radius: 30px;
-    padding: 10px 0;
-    width: 200px;
+    padding: 14px;
+    width: 250px;
+    cursor: pointer;
 }
 
 .input-capcha {
@@ -549,8 +555,6 @@ a.link-activo{
 }
 .contenedor-formulario .redes-sociales{
     gap: 20px;
-    border-top: 1px solid var(--gris-claro);
-    padding-top: 15px;
 }
 .contenedor-formulario .redes-sociales a img{
     width: 50px;
@@ -690,7 +694,7 @@ main#juego {
 
 /* Contenedor general de la sección */
 #contenedor-seccion-comentarios {
-    display: flex; 
+    display: flex;
     justify-content: space-between;
     align-items: flex-start;
 }
@@ -712,7 +716,7 @@ main#juego {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 1px; 
+    height: 1px;
     background-color: var(--gris-muy-claro);
 }
 
@@ -756,7 +760,7 @@ main#juego {
     background-color: var(--gris-oscuro);
     margin-top: 40px;
     border-radius: 10px;
-    display: flex; 
+    display: flex;
     flex-direction: column;
     justify-content: flex-start;
     padding: 15px 20px 10px 20px;

@@ -35,9 +35,10 @@
             <figure class="portada-formulario"></figure>
             <section class="contenedor-formulario">
                 <nav class="nav-registro">
-                    <h2>Iniciar Sesión</h2>
-                    <h2>Registro</h2>
+                    <h2 id="opcIngreso" class="active">Iniciar Sesión</h2>
+                    <h2 id="opcRegistro" class="inactivo">Registro</h2>
                 </nav>
+                <div id="formIngreso">
                 <form action="" class="formulario-ingreso">
                     <div class="contenedor-input">
                         <div class="input-formulario ancho-completo">
@@ -67,6 +68,8 @@
                         </a>
                     </div>
                 </form>
+            </div>
+            <div id="formRegistro" class="oculto">
                 <form class="formulario-registro" action="">
                     <div class="contenedor-input">
                         <div class="input-formulario">
@@ -128,6 +131,7 @@
                         </a>
                     </div>
                 </form>
+            </div>
             </section>
         </section>
     </main>
@@ -138,5 +142,5 @@
     </footer> 
 
 </body>
-
+<script src="js/formulario.js"></script>
 </html>

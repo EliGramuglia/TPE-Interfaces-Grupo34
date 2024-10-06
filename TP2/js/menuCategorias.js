@@ -1,33 +1,40 @@
 "use strict";
 
 document.addEventListener('DOMContentLoaded', () => {
+    class Categoria {
+        constructor(descripcion, img) {
+            this.descripcion = descripcion;
+            this.img = img;
+        }
+    }
+
     // Cada categoría es un JSON con una imágen y una descripción
     const categorias = [
-        { img: "inicio.png", descripcion: "Inicio" },
-        { img: "recientes.png", descripcion: "Recientes" },
-        { img: "favoritos.png", descripcion: "Favoritos" },
-        { img: "nuevos.png", descripcion: "Nuevos" },
-        { img: "trending.png", descripcion: "Trending" },
-        { img: "random.png", descripcion: "Random" },
-        { img: "accion.png", descripcion: "Acción" },
-        { img: "autos.png", descripcion: "Autos" },
-        { img: "aventura.png", descripcion: "Aventura" },
-        { img: "basquet.png", descripcion: "Básquet" },
-        { img: "billar.png", descripcion: "Billar" },
-        { img: "cartas.png", descripcion: "Cartas" },
-        { img: "clasicos.png", descripcion: "Clásicos" },
-        { img: "defensa-torre.png", descripcion: "Defensa de torre" },
-        { img: "disparos.png", descripcion: "Disparos" },
-        { img: "escape.png", descripcion: "Escape" },
-        { img: "futbol.png", descripcion: "Fútbol" },
-        { img: "flash.png", descripcion: "Flash" },
-        { img: "logica.png", descripcion: "Lógica" },
-        { img: "minecraft.png", descripcion: "Minecraft" },
-        { img: "motos.png", descripcion: "Motos" },
-        { img: "multijugador.png", descripcion: "Multijugador" },
-        { img: "puzzle.png", descripcion: "Puzzle" },
-        { img: "terror.png", descripcion: "Terror" },
-        { img: "etiquetas.png", descripcion: "Etiquetas" }
+        new Categoria("Inicio", "inicio.png"),
+        new Categoria("Recientes", "recientes.png"),
+        new Categoria("Favoritos", "favoritos.png"),
+        new Categoria("Nuevos", "nuevos.png"),
+        new Categoria("Trending", "trending.png"),
+        new Categoria("Random", "random.png"),
+        new Categoria("Acción", "accion.png"),
+        new Categoria("Autos", "autos.png"),
+        new Categoria("Aventura", "aventura.png"),
+        new Categoria("Básquet", "basquet.png"),
+        new Categoria("Billar", "billar.png"),
+        new Categoria("Cartas", "cartas.png"),
+        new Categoria("Clásicos", "clasicos.png"),
+        new Categoria("Defensa de torre", "defensa-torre.png"),
+        new Categoria("Disparos", "disparos.png"),
+        new Categoria("Escape", "escape.png"),
+        new Categoria("Fútbol", "futbol.png"),
+        new Categoria("Flash", "flash.png"),
+        new Categoria("Lógica", "logica.png"),
+        new Categoria("Minecraft", "minecraft.png"),
+        new Categoria("Motos", "motos.png"),
+        new Categoria("Multijugador", "multijugador.png"),
+        new Categoria("Puzzle", "puzzle.png"),
+        new Categoria("Terror", "terror.png"),
+        new Categoria("Etiquetas", "etiquetas.png")
     ];
 
     // Creación de lista de categorías
@@ -49,7 +56,21 @@ document.addEventListener('DOMContentLoaded', () => {
         a.appendChild(span);
         li.appendChild(a);
         listaCategorias.appendChild(li);
+
+        // Comportamiento al hacer hover en cada ítem
+        a.addEventListener('mouseenter', () => {
+            a.classList.add('seleccionado');
+            span.classList.add('seleccionado');
+        });
+        
+        a.addEventListener('mouseleave', () => {
+            a.classList.remove('seleccionado');
+            span.classList.remove('seleccionado');
+        });
     }
+
+
+
 
     // Menú hamburguesa
     const iconoMenu = document.querySelector('#menu-hamburguesa');

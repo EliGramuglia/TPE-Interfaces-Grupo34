@@ -100,7 +100,13 @@ header {
 
 .iconos {
     display: flex;
+    align-items: center;
     gap: 25px;
+}
+
+.iconos a {
+    display: flex;
+    align-items: center;
 }
 
 .imagen-iconos {
@@ -174,8 +180,9 @@ header {
     position: fixed;
     left: -220px;
     padding: 0 10px 0 20px;
-    background-color: var(--gris-oscuro);
-    z-index: 1;
+    background-color: rgba(17, 19, 28, 0.92);
+    backdrop-filter: blur(10px);
+    z-index: 2;
     transition: transform 0.5s ease-in-out;
 }
 
@@ -207,15 +214,33 @@ header {
     border-radius: 100vw;
 }
 
-.menu-categorias ul li {
-    margin-bottom: 10px;
-    font-weight: var(--grosor-mediano);
+.menu-categorias ul {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .menu-categorias ul li a {
-    width: 100%;
+    width: 95%;
+    padding: 5px;
     display: flex;
     align-items: center;
+    overflow: hidden;
+}
+
+.menu-categorias ul li a.seleccionado {
+    background-color: var(--gris);
+}
+
+.menu-categorias ul li a span {
+    width: 100%;
+    font-weight: var(--grosor-mediano);
+    transition: transform 0.2s ease;
+    transform: translateX(0px);
+}
+
+.menu-categorias ul li a span.seleccionado {
+    transform: translateX(4px);
 }
 
 .menu-categorias img {
@@ -637,7 +662,7 @@ div#carrusel-accion {
 }
 
 button.icono-corazon-favoritos, div.puntaje-juego {
-    background-color: rgb(54, 55, 69, 0.9);
+    background-color: rgba(17, 19, 28, 0.8);
 }
 
 .iconos-tarjetas-play-carrito {

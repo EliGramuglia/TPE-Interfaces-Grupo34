@@ -787,7 +787,7 @@ main#juego {
 
 #caja-comentarios {
     width: 100%;
-    height: 223px;
+    height: 260px;
     background-color: var(--gris-oscuro);
     margin-top: 40px;
     border-radius: 10px;
@@ -835,6 +835,37 @@ main#juego {
     font-weight: var(--grosor-regular);
     font-style: oblique;
     padding: 10px 0px 0px 30px;
+}
+
+#iconos-comentarios {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding-top: 25px;
+}
+
+.icono-con-linea {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.icono-con-linea::after {
+    content: '';
+    position: absolute;
+    right: -15px;
+    height: 24px; 
+    width: 1px; 
+    background-color: var(--gris-claro);
+}
+
+.icono-con-linea:last-child::after {
+    display: none;
+}
+
+#iconos-comentarios img {
+    height: 24px;
+    width: auto;
 }
 
 /* ------------------- Login desktop ------------------- */

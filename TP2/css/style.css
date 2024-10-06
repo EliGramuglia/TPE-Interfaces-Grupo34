@@ -518,7 +518,7 @@ footer a:hover{
 
 .btn-principal {
     font-size: var(--tamanio-15);
-    background-color: var(--secundario-semi-claro);
+    background-color: var(--secundario);
     border-radius: 30px;
     padding: 14px;
     width: 250px;
@@ -755,23 +755,23 @@ main#juego {
     font-size: var(--tamanio-24);
 }
 
-#acceder {
+#acceder-comentarios {
     display: flex;
     align-items: center;
 }
 
-#acceder p {
+#acceder-comentarios p {
     margin-right: 5px;
     font-weight: var(--grosor-mediano);
     font-size: var(--tamanio-16);
 }
 
-#acceder img {
+#acceder-comentarios img {
     position: relative;
     top: -3px;
 }
 
-#acceder a:hover p {
+#acceder-comentarios a:hover p {
     color: var(--acento-semi-claro);
 }
 
@@ -837,11 +837,17 @@ main#juego {
     padding: 10px 0px 0px 30px;
 }
 
+#caja-iconos-boton {
+    display: flex;
+    align-items: center;
+    padding-top: 25px;
+    justify-content: space-between;
+}
+
 #iconos-comentarios {
     display: flex;
     align-items: center;
     gap: 30px;
-    padding-top: 25px;
 }
 
 .icono-con-linea {
@@ -854,7 +860,7 @@ main#juego {
     content: '';
     position: absolute;
     right: -15px;
-    height: 24px; 
+    height: 22px; 
     width: 1px; 
     background-color: var(--gris-claro);
 }
@@ -864,8 +870,23 @@ main#juego {
 }
 
 #iconos-comentarios img {
-    height: 24px;
+    height: 22px;
     width: auto;
+}
+
+/*#caja-boton { /*borrar si se cambia el diseño*/
+ /*   margin-right: 300px; /***************************************podria estar en el extremo derecho (consultar con lso chicos) y corregir en figma*/
+/*}*/
+
+.btn-comentar-responder {
+    font-size: var(--tamanio-15);
+    background-color: var(--secundario);
+    font-weight: var(--grosor-grueso);
+    border-radius: 30px;
+    padding: 8px;
+    width: 120px;
+    cursor: pointer;
+    text-align: center;
 }
 
 /* ------------------- Login desktop ------------------- */

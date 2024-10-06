@@ -466,25 +466,24 @@ footer a:hover{
 .portada-formulario{
     display: none;
 }
-.formulario-registro,.formulario-ingreso {
+.nav-registro, .input-capcha,.formulario-registro,.formulario-ingreso,.input-formulario  {
     display: flex;
-    margin: 30px 0;
+}
+.formulario-registro,.formulario-ingreso {
     flex-direction: column;
-    width: 100%;
     align-items: center;
+    margin: 30px 0;
     gap: 10px;
+    width: 100%;
 }
 
-.nav-registro, .input-capcha {
-    display: flex;
-}
 
 .nav-registro h2 {
     text-align: center;
-    width: 100%;
-    padding: 10px 0;
-    font-size: var(--tamanio-16);
     cursor: pointer;
+    font-size: var(--tamanio-16);
+    padding: 10px 0;
+    width: 100%;
 }  
 .inactivo{
     border-bottom: 2px solid var(--gris-claro);
@@ -502,15 +501,14 @@ footer a:hover{
 }
 
 .input-formulario {
-    display: flex;
     flex-direction: column;
     gap: 4px;
     margin: 8px 0;
 }
 
 .input-formulario > p {
-    margin: 4px 0;
     font-style: oblique;
+    margin: 4px 0;
 }
 
 .contenedor-input {
@@ -525,16 +523,17 @@ footer a:hover{
     padding: 14px;
     width: 250px;
     cursor: pointer;
+    text-align: center;
 }
 
 .input-capcha {
     background-color: var(--primario-muy-oscuro);
     border: 1px solid var(--primario-semi-oscuro);
     justify-content: center;
-    gap: 10px;
     align-items: center;
     border-radius: 10px;
     padding: 0 5%;
+    gap: 10px;
     margin-bottom: 20px;
 }
 
@@ -685,7 +684,41 @@ main#juego {
     min-height: calc(100vh - 60px - 360px); /* Altura mínima del main (restando altura del header y footer) */
     padding: 28px 116px;
 }
-
+.contenedor-pantalla-juego,.pantalla-juego{
+    display: flex;
+    flex-direction: column;
+}
+.contenedor-pantalla-juego{
+    background-image: url(/img/tarjetas/4enLinea.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 550px;
+    justify-content: flex-end;
+}
+.pantalla-juego{
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.55);
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.nav-juego{
+    background-color: rgb(0, 121, 177);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-juego a{
+    background-color: #1dc917;
+}
+.nav-juego #logo-winnit{
+    background-color: red;
+}
+.opciones-juego img{
+    width: 25px;
+    margin: 0 5px;
+    cursor: pointer;
+}
 /* Contenedor general de la sección */
 #contenedor-seccion-comentarios {
     display: flex;
@@ -795,7 +828,7 @@ main#juego {
 
 
 
-/* ------------------- Login ------------------- */
+/* ------------------- Login desktop ------------------- */
 @media only screen and (min-width:800px) {
     .contenedor-input {
         display: grid;

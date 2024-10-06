@@ -719,11 +719,15 @@ main#juego {
     margin: 0 5px;
     cursor: pointer;
 }
-/* Contenedor general de la sección */
-#contenedor-seccion-comentarios {
+
+
+/* Sección de comentarios */
+
+#contenedor-seccion-comentarios { /* Contenedor general de la sección */
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    margin-top: 100px;
 }
 
 #contenedor-comentarios {
@@ -826,7 +830,12 @@ main#juego {
     border-radius: 10px;
 }
 
-
+#caja-para-escribir p {
+    color: var(--gris-semi-oscuro);
+    font-weight: var(--grosor-regular);
+    font-style: oblique;
+    padding: 10px 0px 0px 30px;
+}
 
 /* ------------------- Login desktop ------------------- */
 @media only screen and (min-width:800px) {

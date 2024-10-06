@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (t.precio == 0) {
                 pPrecioJuego.textContent = "Gratis";
             } else {
-                pPrecioJuego.textContent = `$${t.precio.toFixed(2)}`; // Precio con dos decimales
+                pPrecioJuego.textContent = `$ ${t.precio.toFixed(2)}`; // Precio con dos decimales
             }
         
             // Se agrega nombre y precio al contenedor de texto

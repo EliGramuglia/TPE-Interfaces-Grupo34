@@ -598,12 +598,16 @@ div#carrusel-accion {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 6px;
+    padding: 0 60px 0 6px;
 }
 
 .contenedor-texto-tarjeta p {
+    width: 180px;
     color: var(--gris-muy-claro);
     font-size: var(--tamanio-14);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .tarjeta-nombre-juego {

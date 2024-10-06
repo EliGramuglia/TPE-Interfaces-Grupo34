@@ -782,7 +782,7 @@ main#juego {
 
 #banner img {
     width: 195;
-    height: 1000px;
+    height: 1300px;
 }
 
 #caja-comentarios {
@@ -888,6 +888,31 @@ main#juego {
     cursor: pointer;
     text-align: center;
 }
+
+#titulo-historial-comentarios {
+    display: inline-flex;
+    justify-content: flex-end;
+    margin-left: auto;
+    margin-top: 60px;
+    gap: 15px;
+    font-size: var(--tamanio-15);
+    font-weight: var(--grosor-mediano);
+    background-color: var(--primario-muy-oscuro);
+    padding: 8px 12px;
+    border-radius: 10px 10px 0 0;
+}
+
+#caja-titulo-historial-comentarios {
+    text-align: right; 
+    width: 100%;
+}
+
+#contenedor-historial-comentarios {
+    background-color: var(--primario-muy-oscuro);
+    height: 780px;
+    border-radius: 10px 0px 0 0;
+}
+
 
 /* ------------------- Login desktop ------------------- */
 @media only screen and (min-width:800px) {

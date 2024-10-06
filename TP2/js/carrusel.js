@@ -71,10 +71,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const divPuntaje = document.createElement('div');
             divPuntaje.className = "puntaje-juego";
             const imgEstrella = document.createElement('img');
-            imgEstrella.src = "img/iconos/tarjetas-juegos/Estrella.png";
+            imgEstrella.src = "img/iconos/tarjetas-juegos/estrella.png";
             imgEstrella.alt = "Estrella de puntaje de juego";
             const pPuntaje = document.createElement('p');
-            pPuntaje.textContent = t.puntaje.toFixed(1); // Se formatea el puntaje a un decimal
+            pPuntaje.textContent = t.puntaje.toFixed(1); // Puntaje con un solo decimal
             divPuntaje.appendChild(imgEstrella);
             divPuntaje.appendChild(pPuntaje);
         
@@ -132,8 +132,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-/* 
-<div id="t">
+/*
+--- HTML de la tarjeta ---
+
+<div id="tarjeta">
     <div id="contenedor-imagen-tarjeta">
         <img src="img/cards/ac_chicken-defense.png" alt="Juego de acción">
         <button id="icono-corazon-favoritos">
@@ -141,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 alt="Corazón para clickear los juegos favoritos">
         </button>
         <div id="puntaje-juego">
-            <img src="img/iconos/tarjetas-juegos/Estrella.png" alt="Estrella de puntaje juego">
+            <img src="img/iconos/tarjetas-juegos/estrella.png" alt="Estrella de puntaje juego">
             <p>0.0</p>
         </div>
     </div>

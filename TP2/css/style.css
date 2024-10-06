@@ -627,6 +627,15 @@ div#carrusel-accion {
     cursor: pointer;
 }
 
+.icono-corazon-favoritos {
+    width: 30px;
+    height: 30px;
+}
+
+button.icono-corazon-favoritos, div.puntaje-juego {
+    background-color: rgb(54, 55, 69, 0.9);
+}
+
 .iconos-tarjetas-play-carrito {
     background-color: var(--secundario);
     right: 12px;
@@ -639,39 +648,37 @@ div#carrusel-accion {
     height: 12px;
 }
 
-.icono-corazon-favoritos {
-    background-color: #373952;
+button.icono-corazon-favoritos { /* Contenedor de corazón */
     position: absolute;
     top: 5px;
     left: 5px;
 }
 
-.icono-corazon-favoritos img {
-    width: 16px;
+button.icono-corazon-favoritos img { /* Imágen de corazón */
+    width: 17px;
     height: auto;
 }
 
-.puntaje-juego {
+div.puntaje-juego { /* Cucarda */
     width: 43px;
     height: 25px;
+    padding: 2px;
     position: absolute;
-    background-color: #373952;
     top: 5px;
     right: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2px;
     border-radius: 3px;
 }
 
-.puntaje-juego img {
+div.puntaje-juego img { /* Imagen de estrella */
     width: 14px;
     height: auto;
     margin-right: 4px;
 }
 
-.puntaje-juego p {
+.puntaje-juego p { /* Puntaje numérico */
     color: var(--gris-muy-claro);
     font-size: 11px;
     font-weight: var(--grosor-grueso);

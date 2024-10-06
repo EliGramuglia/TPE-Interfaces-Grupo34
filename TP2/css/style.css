@@ -913,6 +913,12 @@ main#juego {
     border-radius: 10px 0px 0 0;
 }
 
+#contenedor-comentario-realizado {
+    background-color: var(--gris-oscuro);
+    margin: 0px 20px;
+    border-radius: 10px;
+}
+
 
 /* ------------------- Login desktop ------------------- */
 @media only screen and (min-width:800px) {

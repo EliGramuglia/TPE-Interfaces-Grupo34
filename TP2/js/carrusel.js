@@ -96,11 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Se crea el precio del juego
             const pPrecioJuego = document.createElement('p');
             pPrecioJuego.className = "tarjeta-precio-juego";
-            if (t.precio == 0) {
-                pPrecioJuego.textContent = "Gratis";
-            } else {
-                pPrecioJuego.textContent = `$ ${t.precio.toFixed(2)}`; // Precio con dos decimales
-            }
+            pPrecioJuego.textContent = t.precio == 0 ? "Gratis" : `$ ${t.precio.toFixed(2)}`;
         
             // Se agrega nombre y precio al contenedor de texto
             divTextoInterno.appendChild(pNombreJuego);
@@ -124,6 +120,18 @@ document.addEventListener("DOMContentLoaded", () => {
         
             // Se agrega la tarjeta al carrusel
             carruselAccion.appendChild(divTarjeta);
+
+            // Se agrega comportamiento al botón de favoritos
+            let activado = false;
+            btnFavoritos.addEventListener('click', () => {
+                if (activado) {
+                    imgCorazon.src = "img/iconos/tarjetas-juegos/corazon-blanco.png";
+                    activado = false;
+                } else {
+                    imgCorazon.src = "img/iconos/tarjetas-juegos/corazon-rosa.png";
+                    activado = true;
+                }
+            });
         }
     }
 

@@ -676,6 +676,10 @@ button.icono-corazon-favoritos, div.puntaje-juego {
     transform: translateY(-50%);
 }
 
+.iconos-tarjetas-play-carrito:hover {
+    background-color: var(--secundario-semi-claro);
+}
+
 .iconos-tarjetas-play-carrito img {
     width: 10px;
     height: 12px;
@@ -688,7 +692,7 @@ button.icono-corazon-favoritos { /* Contenedor de corazón */
 }
 
 button.icono-corazon-favoritos img { /* Imágen de corazón */
-    width: 17px;
+    width: 16px;
     height: auto;
 }
 

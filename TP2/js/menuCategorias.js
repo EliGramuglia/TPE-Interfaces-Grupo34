@@ -52,6 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const span = document.createElement('span');
         span.textContent = c.descripcion;
 
+        // Se agregan al documento
+        a.appendChild(img);
+        a.appendChild(span);
+        li.appendChild(a);
+        listaCategorias.appendChild(li);
+
         // Se agrega comportamiento al hacer hover en cada ítem
         a.addEventListener('mouseenter', () => {
             a.classList.add('seleccionado');
@@ -62,12 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
             a.classList.remove('seleccionado');
             span.classList.remove('seleccionado');
         });
-
-        // Se agregan al documento
-        a.appendChild(img);
-        a.appendChild(span);
-        li.appendChild(a);
-        listaCategorias.appendChild(li);
     }
 
     // Menú hamburguesa

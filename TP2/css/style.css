@@ -957,7 +957,7 @@ main#juego {
     font-size: var(--tamanio-15);
     font-weight: var(--grosor-mediano);
     background-color: var(--primario-muy-oscuro);
-    padding: 8px 12px;
+    padding: 8px 12px 0px 12px;
     border-radius: 10px 10px 0 0;
     /*Revisar clolor de fondo*/
 }
@@ -994,14 +994,14 @@ main#juego {
     background-color: var(--gris-oscuro);
     margin: 0px 20px;
     border-radius: 10px;
-    height: 180px;
+    height: 190px;
 
 }
 
 #contenedor-iconos-historial-comentarios {
     display: flex;
     justify-content: flex-end;
-    gap: 15px;
+    gap: 30px;
 }
 
 #contenedor-iconos-historial-comentarios img {
@@ -1009,6 +1009,42 @@ main#juego {
     width: auto;
 }
 
+#caja-avatar-contenedor-estrellas {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px 0px 20px;
+}
+
+#tiempo-comentario {
+    font-style: oblique;
+    color: var(--gris-claro);
+}
+
+#caja-avatar #tiempo-comentario {
+    font-size: var(--tamanio-14);
+}
+
+.estrella-puntuada {
+    width: 25px;
+    height: 25px;
+}
+
+#contenedor-estrellas-puntuadas {
+    margin-left: 77px;
+}
+
+#comentario-historico {
+    font-size: var(--tamanio-16);
+    font-weight: var(--grosor-mediano);
+    color: #D6D4D4;
+    padding: 10px 0px 0px 70px;
+}
+
+#caja-boton-responder {
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px 20px;
+}
 
 /* ------------------- Login desktop ------------------- */
 @media only screen and (min-width:800px) {

@@ -965,6 +965,22 @@ main#juego {
     width: 100%;
 }
 
+#titulo-historial-comentarios a {
+    position: relative;
+    text-decoration: none; 
+    padding-bottom: 5px; 
+}
+
+#titulo-historial-comentarios a:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0; 
+    height: 2.5px;
+    background-color: var(--secundario-claro);
+}
+
 #contenedor-historial-comentarios {
     background-color: var(--primario-muy-oscuro);
     height: 780px;

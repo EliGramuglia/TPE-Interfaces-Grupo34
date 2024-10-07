@@ -40,24 +40,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Creación de lista de categorías
     const listaCategorias = document.querySelector("#lista-categorias");
     for (let c of categorias) {
-        // Se crean elementos HTML
+        // Se crean elementos HTML y establecen atributos
         const li = document.createElement('li');
+        
         const a = document.createElement('a');
-        const img = document.createElement('img');
-        const span = document.createElement('span');
-    
-        // Se establecen atributos
-        img.src = `img/menu-categorias/${c.img}`;
-        span.textContent = c.descripcion;
         a.href = '#';
+        
+        const img = document.createElement('img');
+        img.src = `img/menu-categorias/${c.img}`;
+        
+        const span = document.createElement('span');
+        span.textContent = c.descripcion;
 
-        // Se agregan al documento
-        a.appendChild(img);
-        a.appendChild(span);
-        li.appendChild(a);
-        listaCategorias.appendChild(li);
-
-        // Comportamiento al hacer hover en cada ítem
+        // Se agrega comportamiento al hacer hover en cada ítem
         a.addEventListener('mouseenter', () => {
             a.classList.add('seleccionado');
             span.classList.add('seleccionado');
@@ -67,6 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
             a.classList.remove('seleccionado');
             span.classList.remove('seleccionado');
         });
+
+        // Se agregan al documento
+        a.appendChild(img);
+        a.appendChild(span);
+        li.appendChild(a);
+        listaCategorias.appendChild(li);
     }
 
     // Menú hamburguesa

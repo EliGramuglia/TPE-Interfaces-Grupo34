@@ -12,6 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     cruzSalir.addEventListener('click', () => {
-        perfilDesplegable.classList.remove('abierto'); //le reasigno el valor None para ocultar el perfil desplegable
+        perfilDesplegable.classList.remove('abierto');
     });
 });

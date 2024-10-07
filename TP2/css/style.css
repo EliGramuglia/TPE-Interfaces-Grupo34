@@ -764,6 +764,43 @@ main#juego {
     cursor: pointer;
 }
 
+.contenedor-descripcion-juego {
+    background-color:blueviolet;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    justify-items: center;
+    padding: 20px 20px;
+    column-gap: 20px;
+}
+.icono-compartir{
+    width: 30px;
+    justify-self: flex-end;
+    grid-column: span 2;
+}
+.titulo-descripcion,.caja-valoracion-juego{
+    background-color: aqua;
+    display: flex;
+    gap: 10px;
+}
+.contenedor-informacion-juego{
+    background-color: yellowgreen;
+}
+.caja-valoracion-juego{
+    background-color: aliceblue;
+    padding: 4px 8px;
+    align-items: center;
+    gap: 4px;
+    border-radius: 30px;
+}
+.caja-valoracion-juego img{
+    width: 18px;
+    height: 18px;
+    align-self: flex-start;
+}
+
+.contenedor-videos-recomendados{
+    background-color: blanchedalmond;
+}
 
 /* Sección de comentarios */
 

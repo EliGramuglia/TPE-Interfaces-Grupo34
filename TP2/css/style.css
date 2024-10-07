@@ -950,6 +950,7 @@ main#juego {
 #titulo-historial-comentarios {
     display: inline-flex;
     justify-content: flex-end;
+    align-items: center;
     margin-left: auto;
     margin-top: 60px;
     gap: 15px;
@@ -958,6 +959,7 @@ main#juego {
     background-color: var(--primario-muy-oscuro);
     padding: 8px 12px;
     border-radius: 10px 10px 0 0;
+    /*Revisar clolor de fondo*/
 }
 
 #caja-titulo-historial-comentarios {
@@ -985,12 +987,26 @@ main#juego {
     background-color: var(--primario-muy-oscuro);
     height: 780px;
     border-radius: 10px 0px 0 0;
+    padding: 40px 0px 0px 0px;
 }
 
 #contenedor-comentario-realizado {
     background-color: var(--gris-oscuro);
     margin: 0px 20px;
     border-radius: 10px;
+    height: 180px;
+
+}
+
+#contenedor-iconos-historial-comentarios {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+#contenedor-iconos-historial-comentarios img {
+    height: 25px;
+    width: auto;
 }
 
 

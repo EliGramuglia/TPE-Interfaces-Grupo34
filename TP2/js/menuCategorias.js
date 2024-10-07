@@ -69,9 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
-
-
     // Menú hamburguesa
     const iconoMenu = document.querySelector('#menu-hamburguesa');
     const menuCategorias = document.querySelector('.contenedor-menu-categorias');

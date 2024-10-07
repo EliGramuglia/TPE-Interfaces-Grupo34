@@ -252,10 +252,14 @@ header {
 
 /* ------------------ Perfil desplegable ------------------ */
 #contendor-perfil-desplegable {
-    position: absolute;
-    right: 0;
-    display: none;
-    z-index: 1;
+    position: fixed;
+    right: -334px;
+    z-index: 2;
+    transition: transform 0.5s ease-in-out;
+}
+
+#contendor-perfil-desplegable.abierto {
+    transform: translateX(-334px);
 }
 
 .perfil-desplegable {

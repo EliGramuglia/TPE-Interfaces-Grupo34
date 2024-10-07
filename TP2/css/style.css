@@ -863,6 +863,10 @@ main#juego {
     height: 25px;
 }
 
+.estrella:hover {
+    filter: brightness(1.5);
+}
+
 #contenedor-estrellas {
     margin-left: 50px;
     margin-bottom: 15px;
@@ -907,6 +911,7 @@ main#juego {
 .icono-con-linea a:hover {
     height: 24px;
     width: auto;
+    filter: brightness(1.5);
 }
 
 .icono-con-linea::after {

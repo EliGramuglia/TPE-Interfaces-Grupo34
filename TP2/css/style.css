@@ -888,6 +888,10 @@ main#juego {
     justify-content: space-between;
 }
 
+.btn-comentar-responder:hover {
+    background-color: var(--secundario-semi-claro);
+}
+
 #iconos-comentarios {
     display: flex;
     align-items: center;
@@ -898,6 +902,11 @@ main#juego {
     position: relative;
     display: flex;
     align-items: center;
+}
+
+.icono-con-linea a:hover {
+    height: 24px;
+    width: auto;
 }
 
 .icono-con-linea::after {

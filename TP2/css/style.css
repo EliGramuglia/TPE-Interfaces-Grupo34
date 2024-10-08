@@ -180,7 +180,7 @@ header {
     position: fixed;
     left: -220px;
     padding: 0 10px 0 20px;
-    background-color: rgba(17, 19, 28, 0.92);
+    background-color: rgba(17, 19, 28, 0.9);
     backdrop-filter: blur(10px);
     z-index: 2;
     transition: transform 0.5s ease-in-out;
@@ -591,7 +591,13 @@ main#home {
     padding: 28px 44px;
 }
 
-div#carrusel-accion {
+#juegos {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+div.carrusel {
     display: flex;
     width: 100%;
     gap: 10px;

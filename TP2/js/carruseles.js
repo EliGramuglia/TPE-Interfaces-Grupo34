@@ -23,20 +23,31 @@ document.addEventListener("DOMContentLoaded", () => {
             new Tarjeta("Build & Crush", "av_build-and-crush.png", 1399, 4.0),
             new Tarjeta("Hero 3", "av_hero-3.png", 399, 3.7),
             new Tarjeta("Ninja Parkour", "av_ninja-parkour.png", 0, 4.5),
-            new Tarjeta("Space Wars", "av_space-wars.png", 0, 4.7)
+            new Tarjeta("Space Wars", "av_space-wars.png", 0, 4.7),
         ],
         clasicos: [
             new Tarjeta("DuckPark.io", "cl_duckpark-io.png", 599, 4.8),
             new Tarjeta("Shell Shockers", "cl_shell-shockers.png", 799, 4.3),
-            new Tarjeta("Snake.io", "cl_snake-io.png", 599, 3.2),
+            new Tarjeta("Snake.io", "cl_snake-io.png", 1299, 3.2),
             new Tarjeta("Taming.io", "cl_taming-io.png", 0, 4.9),
-            new Tarjeta("Worm Hunt", "cl_worm-hunt.png", 0, 3.9)
+            new Tarjeta("Worm Hunt", "cl_worm-hunt.png", 0, 3.9),
         ],
         destacados: [
-            
+            new Tarjeta("BloxD.io", "ds_bloxd-io.png", 1399, 4.5),
+            new Tarjeta("Crazy Flips 3D", "ds_crazy-flips-3d.png", 599, 4.1),
+            new Tarjeta("Doodle Road", "ds_doodle-road.png", 399, 4.6),
+            new Tarjeta("Drift Boss", "ds_drift-boss.png", 0, 4.3),
+            new Tarjeta("Jump Guys", "ds_jump-guys.png", 0, 4.8),
+            new Tarjeta("Kour.io", "ds_kour-io.png", 799, 4.2),
+            new Tarjeta("Lines", "ds_lines.png", 2999, 4.4),
+            new Tarjeta("Smash Karts", "ds_smash-karts.png", 499, 4.7),
         ],
         futbol: [
-
+            new Tarjeta("International Super Animal Soccer", "fb_international-super-animal-soccer.png", 1599, 4.5),
+            new Tarjeta("Mini Caps Soccer", "fb_mini-caps-soccer.png", 0, 4.1),
+            new Tarjeta("Penalty Rivals", "fb_penalty-rivals.png", 0, 4.3),
+            new Tarjeta("Pill Soccer", "fb_pill-soccer.png", 799, 4.2),
+            new Tarjeta("Soccer Challenge", "fb_soccer-challenge.png", 0, 4.6),
         ]
     }
 

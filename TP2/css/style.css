@@ -88,6 +88,24 @@ input {
     display: none;
 }
 
+/* Estilos de scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: inherit;
+}
+
+::-webkit-scrollbar-track {
+    margin-block: 15px;
+    background-color: var(--gris-semi-oscuro);
+    border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--gris-semi-claro);
+    border-radius: 100vw;
+}
+
 /* --------------------- Header --------------------- */
 header {
     height: 60px;
@@ -195,23 +213,6 @@ header {
     height: calc(100vh - 60px);
     padding: 15px 0;
     overflow-y: scroll;
-}
-
-.menu-categorias::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-    background-color: inherit;
-}
-
-.menu-categorias::-webkit-scrollbar-track {
-    margin-block: 15px;
-    background-color: var(--gris-semi-oscuro);
-    border-radius: 100vw;
-}
-
-.menu-categorias::-webkit-scrollbar-thumb {
-    background-color: var(--gris-semi-claro);
-    border-radius: 100vw;
 }
 
 .menu-categorias ul {
@@ -488,16 +489,20 @@ footer a:hover{
     display: grid;
     grid-template-columns: 1fr;
 }
+
 .contenedor-formulario {
     background-image: linear-gradient(110deg,#1c1c1c91 2%, var(--primario-muy-oscuro), var(--primario-oscuro));
     padding: 3% 10%;
 }
+
 .portada-formulario{
     display: none;
 }
+
 .nav-registro, .input-capcha,.formulario-registro,.formulario-ingreso,.input-formulario  {
     display: flex;
 }
+
 .formulario-registro,.formulario-ingreso {
     flex-direction: column;
     align-items: center;
@@ -506,20 +511,22 @@ footer a:hover{
     width: 100%;
 }
 
-
 .nav-registro h2 {
     text-align: center;
     cursor: pointer;
     font-size: var(--tamanio-16);
     padding: 10px 0;
     width: 100%;
-}  
-.inactivo{
+}
+
+.inactivo {
     border-bottom: 2px solid var(--gris-claro);
 }
-.active{
+
+.active {
     border-bottom: 2px solid var(--secundario-semi-claro);
 }
+
 .input-formulario input {
     border-radius: 4px;
     padding: 10px;
@@ -569,16 +576,20 @@ footer a:hover{
 .input-capcha img {
     width: 100px;
 }
-a.link-activo{
+
+a.link-activo {
     text-decoration: underline;
 }
-.negrita{
+
+.negrita {
     font-weight: var(--grosor-grueso);
 }
-.contenedor-formulario .redes-sociales{
+
+.contenedor-formulario .redes-sociales {
     gap: 20px;
 }
-.contenedor-formulario .redes-sociales a img{
+
+.contenedor-formulario .redes-sociales a img {
     width: 50px;
     height: 50px;
 }
@@ -597,18 +608,19 @@ main#home {
     gap: 40px;
 }
 
-div.carrusel {
-    display: flex;
-    width: 100%;
-    gap: 10px;
-}
-
-/* Tarjeta de juego */
 #juegos h1 {
     font-size: var(--tamanio-20);
     margin-bottom: 10px;
 }
 
+div.carrusel {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    overflow-x:auto;
+}
+
+/* Tarjeta de juego */
 .contenedor-imagen-tarjeta {
     width: 240px;
     height: 140px;

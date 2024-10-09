@@ -799,12 +799,14 @@ main#juego {
 }
 
 .contenedor-descripcion-juego {
-    background-color:blueviolet;
+    margin-top: 32px;
+    border-radius: 10px;
+    background-image: linear-gradient(100deg,#1c1c1c91 1%, var(--primario-muy-oscuro), var(--primario-oscuro));
     display: grid;
     grid-template-columns: 1fr 2fr;
     justify-items: center;
-    padding: 20px 20px;
-    column-gap: 20px;
+    padding: 20px 20px 20px 40px;
+    column-gap: 40px;
 }
 .icono-compartir{
     width: 30px;
@@ -812,28 +814,65 @@ main#juego {
     grid-column: span 2;
 }
 .titulo-descripcion,.caja-valoracion-juego{
-    background-color: aqua;
     display: flex;
     gap: 10px;
 }
-.contenedor-informacion-juego{
-    background-color: yellowgreen;
+.titulo-descripcion{
+    margin-bottom: 18px;
 }
+
 .caja-valoracion-juego{
-    background-color: aliceblue;
+    background-color: var(--gris-claro);
     padding: 4px 8px;
     align-items: center;
     gap: 4px;
     border-radius: 30px;
 }
+.caja-valoracion-juego p{
+    color: var(--gris-muy-oscuro);
+    font-weight: var(--grosor-grueso);
+    font-size: 14px;
+}
 .caja-valoracion-juego img{
     width: 18px;
-    height: 18px;
-    align-self: flex-start;
+    align-self: center;
+    filter: brightness(0);
+}
+.letra-cursiva{
+    font-style: oblique;
+}
+.detalles-descripcion{
+    margin-top: 12px;
+}
+.contenedor-videos-recomendados{
+    margin-top: 18px;
+}
+.contenedor-videos-recomendados h3{
+    font-size: 16px;
+    font-size: var(--grosor-mediano);
+}
+ul.lista-videos{
+    margin-top: 8px;
+    display: flex;
+    gap: 8px;
+    padding: 4px 0;
+
+}
+ul.lista-videos li{
+    width: 100px;
+    height: 70px;
+    background-image: url(/img/tarjetas/4enLinea.png);
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 4px;
+    filter:brightness();
 }
 
-.contenedor-videos-recomendados{
-    background-color: blanchedalmond;
+.video-recomendado img{
+    width: 14px;
 }
 
 /* Sección de comentarios */

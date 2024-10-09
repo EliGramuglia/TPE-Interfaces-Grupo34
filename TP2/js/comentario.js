@@ -127,26 +127,26 @@ function renderizarComentario(rutaImagen, nombreUsuario, tiempoComentarioRealiza
 // Llamar a la función para renderizar el comentario
     renderizarComentario(
         'img/iconos/comentarios-juego/avatar-gato.png',
-        'Lalalala',
-        'Hace un mes',
-        4,
-        'Que juegazooooo!!!'
+        'Eliana G',
+        'Hace 5 días',
+        5,
+        'Es una adicción, ¡no puedo parar de jugar! Aguanten los perritos<3'
     );
 
     renderizarComentario(
         'img/iconos/comentarios-juego/avatar-gato.png',
-        'Lalalala',
-        'Hace un mes',
+        'Julieta S',
+        'Hace 6 días',
         4,
-        'Que juegazooooo!!!'
+        'El juego está buenísimo!!! Me encantan los michis :3'
     );
 
     renderizarComentario(
         'img/iconos/comentarios-juego/avatar-gato.png',
-        'Lalalala',
+        'Franco G',
         'Hace un mes',
         4,
-        'Que juegazooooo!!!'
+        'Que juegazooooo!!! Me encanta!!! Soy team perritos'
     );
 
 

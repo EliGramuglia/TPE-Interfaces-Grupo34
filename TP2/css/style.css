@@ -1081,20 +1081,28 @@ ul.lista-videos li{
     width: 100%;
 }
 
-#titulo-historial-comentarios a {
+#seccion-mejores {
     position: relative;
+    padding-bottom: 5px;
+}
+
+#seccion-mejores::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2.5px;
+    background-color: var(--secundario-semi-claro)
+}
+
+#titulo-historial-comentarios a {
     text-decoration: none; 
     padding-bottom: 5px; 
 }
 
 #titulo-historial-comentarios a:hover::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0; 
-    height: 2.5px;
-    background-color: var(--secundario-claro);
+    content: none; /*Elimina el hover*/
 }
 
 #contenedor-historial-comentarios {

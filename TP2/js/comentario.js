@@ -1,5 +1,157 @@
 "use strict";
 
+const contenedorComentarioPersonal = document.querySelector('#contenedor-historial-comentarios');
+
+// Función para renderizar el comentario
+function renderizarComentario(rutaImagen, nombreUsuario, tiempoComentarioRealizado, puntaje, comentario) {
+    // Crear el contenedor principal
+    const contenedorComentario = document.createElement('div');
+    contenedorComentario.id = "contenedor-comentario-realizado";
+
+    // Crear caja de avatar y estrellas
+    const cajaAvatarContenedorEstrellas = document.createElement('div');
+    cajaAvatarContenedorEstrellas.id = "caja-avatar-contenedor-estrellas";
+
+    // Crear caja de avatar
+    const cajaAvatar = document.createElement('div');
+    cajaAvatar.id = "caja-avatar";
+
+    // Crear imagen de avatar
+    const avatarImg = document.createElement('img');
+    avatarImg.src = rutaImagen;
+    avatarImg.alt = "Avatar de usuario";
+    avatarImg.className = "avatar";
+
+    // Crear contenedor de texto del avatar
+    const textoAvatar = document.createElement('div');
+
+    // Crear el nombre del comentarista
+    const nombreComentario = document.createElement('p');
+    nombreComentario.textContent = nombreUsuario;
+
+    // Crear el tiempo del comentario
+    const tiempoComentario = document.createElement('p');
+    tiempoComentario.id = "tiempo-comentario";
+    tiempoComentario.textContent = tiempoComentarioRealizado;
+
+    // Agregar el texto al contenedor de texto
+    textoAvatar.appendChild(nombreComentario);
+    textoAvatar.appendChild(tiempoComentario);
+
+    // Agregar imagen y texto a la caja de avatar
+    cajaAvatar.appendChild(avatarImg);
+    cajaAvatar.appendChild(textoAvatar);
+
+    // Crear contenedor de iconos de historial de comentarios
+    const contenedorIconos = document.createElement('div');
+    contenedorIconos.id = "contenedor-iconos-historial-comentarios";
+
+    // Crear iconos
+    const iconos = [
+        { src: "img/iconos/comentarios-juego/icono-compartir.png", alt: "Icono para compartir" },
+        { src: "img/iconos/comentarios-juego/icono-bandera.png", alt: "Icono bandera" },
+        { src: "img/iconos/comentarios-juego/icono-corazon.png", alt: "Icono corazón para poner me gusta al comentario" }
+    ];
+
+    iconos.forEach(icono => {
+        const iconoDiv = document.createElement('div');
+        iconoDiv.className = "icono-con-linea";
+
+        const iconoImg = document.createElement('img');
+        iconoImg.src = icono.src;
+        iconoImg.alt = icono.alt;
+
+        iconoDiv.appendChild(iconoImg);
+        contenedorIconos.appendChild(iconoDiv);
+    });
+
+    // Agregar la caja de avatar y el contenedor de iconos al contenedor principal
+    cajaAvatarContenedorEstrellas.appendChild(cajaAvatar);
+    cajaAvatarContenedorEstrellas.appendChild(contenedorIconos);
+    contenedorComentario.appendChild(cajaAvatarContenedorEstrellas);
+
+    // Crear contenedor de estrellas puntuadas
+    const contenedorEstrellas = document.createElement('div');
+    contenedorEstrellas.id = "contenedor-estrellas-puntuadas";
+
+    // Crear estrellas
+    for (let i = 0; i < puntaje; i++) {
+        const estrellaAmarilla = document.createElement('img');
+        estrellaAmarilla.src = "img/iconos/comentarios-juego/estrella-amarilla.png";
+        estrellaAmarilla.alt = "Icono estrella";
+        estrellaAmarilla.className = "estrella-puntuada";
+        contenedorEstrellas.appendChild(estrellaAmarilla);
+    }
+
+    for (let i = 0; i < 5 - puntaje; i++) {
+        const estrellaBlanca = document.createElement('img');
+        estrellaBlanca.src = "img/iconos/comentarios-juego/estrella-blanca.png";
+        estrellaBlanca.alt = "Icono estrella";
+        estrellaBlanca.className = "estrella-puntuada";
+        contenedorEstrellas.appendChild(estrellaBlanca);
+    }
+
+    // Agregar el contenedor de estrellas al contenedor principal
+    contenedorComentario.appendChild(contenedorEstrellas);
+
+    // Crear el comentario histórico
+    const comentarioHistorico = document.createElement('div');
+    const comentarioTexto = document.createElement('p');
+    comentarioTexto.id = "comentario-historico";
+    comentarioTexto.textContent = comentario;
+    comentarioHistorico.appendChild(comentarioTexto);
+    
+    // Agregar el comentario histórico al contenedor principal
+    contenedorComentario.appendChild(comentarioHistorico);
+
+    // Crear caja para el botón de responder
+    const cajaBotonResponder = document.createElement('div');
+    cajaBotonResponder.id = "caja-boton-responder";
+
+    // Crear botón
+    const botonResponder = document.createElement('button');
+    botonResponder.className = "btn-comentar-responder";
+    botonResponder.textContent = "Responder";
+
+    // Agregar el botón a la caja de botón responder
+    cajaBotonResponder.appendChild(botonResponder);
+    
+    // Agregar la caja de botón responder al contenedor principal
+    contenedorComentario.appendChild(cajaBotonResponder);
+
+    // Agregar el contenedor principal al DOM
+    contenedorComentarioPersonal.appendChild(contenedorComentario); // Cambia esto si necesitas agregarlo a un contenedor específico
+}
+
+
+// Llamar a la función para renderizar el comentario
+    renderizarComentario(
+        'img/iconos/comentarios-juego/avatar-gato.png',
+        'Lalalala',
+        'Hace un mes',
+        4,
+        'Que juegazooooo!!!'
+    );
+
+    renderizarComentario(
+        'img/iconos/comentarios-juego/avatar-gato.png',
+        'Lalalala',
+        'Hace un mes',
+        4,
+        'Que juegazooooo!!!'
+    );
+
+    renderizarComentario(
+        'img/iconos/comentarios-juego/avatar-gato.png',
+        'Lalalala',
+        'Hace un mes',
+        4,
+        'Que juegazooooo!!!'
+    );
+
+
+
+
 
 //Selecciona todas las estrellas
 const estrellas = document.querySelectorAll('.estrella');
@@ -19,3 +171,42 @@ for (let i = 0; i < estrellas.length; i++) {
         }
     });
 }
+
+
+/*
+ <div id="contenedor-comentario-realizado">
+    <div id="caja-avatar-contenedor-estrellas">
+        <div id="caja-avatar">
+            <img src="img/iconos/comentarios-juego/avatar-gato.png" alt="Avatar con imágen de gato" class="avatar">
+            <div>
+                <p>Lalalalal</p>
+                <p id="tiempo-comentario">Hace un mes</p>
+            </div>
+        </div>
+        <div id="contenedor-iconos-historial-comentarios">
+            <div class="icono-con-linea">
+                <img src="img/iconos/comentarios-juego/icono-compartir.png" alt="Icono para compartir">
+            </div>
+            <div class="icono-con-linea">
+                <img src="img/iconos/comentarios-juego/icono-bandera.png" alt="Icono bandera">
+            </div>
+            <div class="icono-con-linea">
+                <img src="img/iconos/comentarios-juego/icono-corazon.png" alt="Icono corazón para poner me gusta al comentario">
+            </div>
+        </div>
+    </div>
+    <div id="contenedor-estrellas-puntuadas">
+        <img src="img/iconos/comentarios-juego/estrella-amarilla.png" alt="Icono estrella" class="estrella-puntuada">
+        <img src="img/iconos/comentarios-juego/estrella-amarilla.png" alt="Icono estrella" class="estrella-puntuada">
+        <img src="img/iconos/comentarios-juego/estrella-amarilla.png" alt="Icono estrella" class="estrella-puntuada">
+        <img src="img/iconos/comentarios-juego/estrella-blanca.png" alt="Icono estrella" class="estrella-puntuada">
+        <img src="img/iconos/comentarios-juego/estrella-blanca.png" alt="Icono estrella" class="estrella-puntuada">
+    </div>
+    <div>
+        <p id="comentario-historico">Es una adicción, ¡no puedo parar de jugar! Aguanten los perritos<3</p>
+    </div>
+    <div id="caja-boton-responder">
+        <button class="btn-comentar-responder">Responder</button>
+    </div>
+</div>
+*/

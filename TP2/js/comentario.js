@@ -150,6 +150,7 @@ function renderizarComentario(rutaImagen, nombreUsuario, tiempoComentarioRealiza
     );
 
 
+    
 
 
 

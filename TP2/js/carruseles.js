@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
             new Tarjeta("Worm Hunt", "cl_worm-hunt.png", 0, 3.9),
         ],
         destacados: [
-            new Tarjeta("BloxD.io", "ds_bloxd-io.png", 1399, 4.5),
+            new Tarjeta("Bloxd.io", "ds_bloxd-io.png", 1399, 4.5),
             new Tarjeta("Crazy Flips 3D", "ds_crazy-flips-3d.png", 599, 4.1),
             new Tarjeta("Doodle Road", "ds_doodle-road.png", 399, 4.6),
             new Tarjeta("Drift Boss", "ds_drift-boss.png", 0, 4.3),

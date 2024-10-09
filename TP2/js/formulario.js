@@ -30,3 +30,17 @@ opciones.forEach(opcion => {
 });
 
 
+const btnRegistro = document.querySelector('#btn-registro');
+const btnLogin = document.querySelector('#btn-login');
+
+btnRegistro.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    window.location.href = 'login.html';
+})
+
+btnLogin.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    window.location.href = 'index.html';
+})

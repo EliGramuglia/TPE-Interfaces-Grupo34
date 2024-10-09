@@ -760,7 +760,7 @@ div.puntaje-juego img { /* Imagen de estrella */
 
 main#juego {
     min-height: calc(100vh - 60px - 360px); /* Altura mínima del main (restando altura del header y footer) */
-    padding: 28px 116px;
+    padding: 28px 116px 0px 116px;
 }
 .contenedor-pantalla-juego,.pantalla-juego{
     display: flex;

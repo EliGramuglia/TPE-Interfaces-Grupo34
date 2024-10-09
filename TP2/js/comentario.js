@@ -6,8 +6,7 @@ const estrellas = document.querySelectorAll('.estrella');
 
 for (let i = 0; i < estrellas.length; i++) {
     //Añade un evento de escucha a cada estrella
-    estrellas[i].addEventListener('click', function(e) {
-        e.preventDefault(); //evita que con href la pag se desplace hacia arriva
+    estrellas[i].addEventListener('click', function() {
 
         for (let j = 0; j < estrellas.length; j++) {
             if (j <= i) {

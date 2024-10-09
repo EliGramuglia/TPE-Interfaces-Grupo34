@@ -838,21 +838,23 @@ main#juego {
     align-self: center;
     filter: brightness(0);
 }
-.letra-cursiva{
+span.letra-cursiva{
     font-style: oblique;
+    font-weight: var(--grosor-regular);
 }
 .detalles-descripcion{
     margin-top: 12px;
+    font-weight: var(--grosor-mediano);
 }
 .contenedor-videos-recomendados{
     margin-top: 18px;
 }
 .contenedor-videos-recomendados h3{
-    font-size: 16px;
+    font-size: 10px;
     font-size: var(--grosor-mediano);
 }
 ul.lista-videos{
-    margin-top: 8px;
+    margin-top: 4px;
     display: flex;
     gap: 8px;
     padding: 4px 0;
@@ -874,7 +876,9 @@ ul.lista-videos li{
 .video-recomendado img{
     width: 14px;
 }
-
+.contenedor-juegos-relacionados h1{
+    margin: 30px 0 10px 0;
+}
 /* Sección de comentarios */
 
 #contenedor-seccion-comentarios { /* Contenedor general de la sección */

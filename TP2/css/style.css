@@ -770,10 +770,11 @@ div.puntaje-juego img { /* Imagen de estrella */
 
 main#juego {
     min-height: calc(100vh - 60px - 360px); /* Altura mínima del main (restando altura del header y footer) */
-    padding: 28px 116px 0px 116px;
+    padding: 20px 116px 0px 116px;
 }
+/* estilos para breadcrumbs del inicio de la pagina del juego */
 nav#bread-crumbs{
-    margin: 14px 0;
+    margin: 10px 0;
 }
 nav#bread-crumbs ul{
     display: flex;
@@ -789,6 +790,7 @@ nav#bread-crumbs ul li:hover{
 nav#bread-crumbs ul img{
     width:6px;
 }
+/* estilos para pantalla donde se presenta el juego */
 .contenedor-pantalla-juego,.pantalla-juego{
     display: flex;
     flex-direction: column;
@@ -798,6 +800,7 @@ nav#bread-crumbs ul img{
     background-repeat: no-repeat;
     background-size: cover;
     height: 550px;
+    width: 100%;
     justify-content: flex-end;
 }
 .pantalla-juego{
@@ -807,25 +810,34 @@ nav#bread-crumbs ul img{
     align-items: center;
     gap: 10px;
 }
+/* estilos para el nav de la pantalla del juego */
 .nav-juego{
-    background-color: rgb(0, 121, 177);
+    background-color: var(--gris-semi-claro);
     display: flex;
     justify-content: space-between;
+    padding: 5px 15px;
 }
-.nav-juego a{
-    background-color: #1dc917;
+.nav-juego a,.opciones-juego{
     display: flex;
 }
-.nav-juego #logo-winnit{
-    background-color: red;
+.opciones-juego{
+    align-items: center;
+    gap: 10px;
 }
+hr {
+    border: 1px solid var(--gris-claro);
+    height: 50%;
+}
+
 .opciones-juego img{
-    width: 30px;
+    height: 25px;
     cursor: pointer;
-    border: #ff0000 solid 1px;
-
 }
 
+.opciones-juego img:hover{
+    filter: brightness(1.4);
+}
+/* estilos para la descripcion del juego */
 .contenedor-descripcion-juego {
     margin-top: 32px;
     border-radius: 10px;

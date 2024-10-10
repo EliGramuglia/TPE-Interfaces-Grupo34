@@ -772,6 +772,23 @@ main#juego {
     min-height: calc(100vh - 60px - 360px); /* Altura mínima del main (restando altura del header y footer) */
     padding: 28px 116px 0px 116px;
 }
+nav#bread-crumbs{
+    margin: 14px 0;
+}
+nav#bread-crumbs ul{
+    display: flex;
+    gap: 10px;
+    font-size: var(--tamanio-14);
+}
+nav#bread-crumbs ul li{
+    color: var(--gris-claro);
+}
+nav#bread-crumbs ul li:hover{
+    color: var(--gris-muy-claro);
+}
+nav#bread-crumbs ul img{
+    width:6px;
+}
 .contenedor-pantalla-juego,.pantalla-juego{
     display: flex;
     flex-direction: column;
@@ -794,18 +811,19 @@ main#juego {
     background-color: rgb(0, 121, 177);
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 .nav-juego a{
     background-color: #1dc917;
+    display: flex;
 }
 .nav-juego #logo-winnit{
     background-color: red;
 }
 .opciones-juego img{
-    width: 25px;
-    margin: 0 5px;
+    width: 30px;
     cursor: pointer;
+    border: #ff0000 solid 1px;
+
 }
 
 .contenedor-descripcion-juego {
@@ -868,8 +886,8 @@ ul.lista-videos{
     display: flex;
     gap: 8px;
     padding: 4px 0;
-
 }
+
 ul.lista-videos li{
     width: 100px;
     height: 70px;
@@ -880,7 +898,6 @@ ul.lista-videos li{
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 4px;
-    filter:brightness();
 }
 
 .video-recomendado img{

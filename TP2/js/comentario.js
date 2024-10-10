@@ -174,7 +174,8 @@ for (let i = 0; i < estrellas.length; i++) {
 }
 
 
-/*
+/* ----------------------------- Ejemplo de tarjeta generada en HTML -----------------------------
+
  <div id="contenedor-comentario-realizado">
     <div id="caja-avatar-contenedor-estrellas">
         <div id="caja-avatar">

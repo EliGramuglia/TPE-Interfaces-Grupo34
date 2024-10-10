@@ -687,6 +687,11 @@ div.carrusel {
     font-weight: var(--grosor-grueso);
 }
 
+.juego-gratis {
+    color: var(--secundario-semi-claro) !important;
+    font-weight: var(--grosor-grueso);
+}
+
 .iconos-tarjetas-play-carrito, .icono-corazon-favoritos {
     border-radius: 50%;
     width: 35px;
@@ -991,6 +996,10 @@ ul.lista-videos li{
     margin-bottom: 15px;
 }
 
+#contenedor-estrellas img {
+    cursor: pointer;
+}
+
 #caja-para-escribir {
     height: 55px;
     background-color: #FAFBFF;
@@ -1085,7 +1094,7 @@ ul.lista-videos li{
     background-color: var(--primario-muy-oscuro);
     padding: 8px 12px 0px 12px;
     border-radius: 10px 10px 0 0;
-    /*Revisar clolor de fondo*/
+    cursor: pointer;
 }
 
 #caja-titulo-historial-comentarios {

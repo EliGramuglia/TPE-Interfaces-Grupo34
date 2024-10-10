@@ -126,6 +126,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const pPrecioJuego = document.createElement('p');
             pPrecioJuego.className = "tarjeta-precio-juego";
             pPrecioJuego.textContent = t.precio == 0 ? "Gratis" : `$ ${t.precio.toFixed(2)}`;
+
+            // Si el juego es gratis, añadimos la clase para que cambie de color a verde
+            if (t.precio == 0) {
+                pPrecioJuego.className = "juego-gratis"; // Agregamos la clase 'juego-gratis' adicional
+            }
         
             // Se agrega nombre y precio al contenedor de texto
             divTextoInterno.appendChild(pNombreJuego);

@@ -160,16 +160,31 @@ header {
 }
 
 #logo-winnit:hover {
-    animation: animacion-logo 0.8s infinite; /* Animación en al hacer hover */
+    animation: animacion-logo 0.8s infinite;
+    /* Animación en al hacer hover */
 }
 
 /* Definición de la animación de sacudida con rotación */
 @keyframes animacion-logo {
-    0% { transform: rotate(0deg); }
-    25% { transform: rotate(-3deg); }
-    50% { transform: rotate(3deg); }
-    75% { transform: rotate(-3deg); }
-    100% { transform: rotate(0deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-3deg);
+    }
+
+    50% {
+        transform: rotate(3deg);
+    }
+
+    75% {
+        transform: rotate(-3deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
 }
 
 #menu-hamburguesa {
@@ -184,7 +199,8 @@ header {
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
-    pointer-events: none; /* Evita que la imagen interfiera con el input */
+    pointer-events: none;
+    /* Evita que la imagen interfiera con el input */
 }
 
 .icon-hover {
@@ -348,7 +364,8 @@ header {
     font-weight: var(--grosor-grueso);
 }
 
-#cerrar-sesion img, #cerrar-sesion p {
+#cerrar-sesion img,
+#cerrar-sesion p {
     margin-bottom: 20px;
 }
 
@@ -369,7 +386,8 @@ header {
 }
 
 .redes-sociales a:hover img {
-    transform: scale(1.2); /* Aumenta el tamaño de la imagen */
+    transform: scale(1.2);
+    /* Aumenta el tamaño de la imagen */
     filter: brightness(1.4);
 }
 
@@ -495,7 +513,8 @@ footer .redes-footer img:hover {
     transform: scale(1.1);
     filter: brightness(1.4);
 }
-footer a:hover{
+
+footer a:hover {
     color: var(--acento-semi-claro);
 }
 
@@ -512,19 +531,24 @@ footer a:hover{
 }
 
 .contenedor-formulario {
-    background-image: linear-gradient(110deg,#1c1c1c91 2%, var(--primario-muy-oscuro), var(--primario-oscuro));
+    background-image: linear-gradient(110deg, #1c1c1c91 2%, var(--primario-muy-oscuro), var(--primario-oscuro));
     padding: 3% 10%;
 }
 
-.portada-formulario{
+.portada-formulario {
     display: none;
 }
 
-.nav-registro, .input-capcha,.formulario-registro,.formulario-ingreso,.input-formulario  {
+.nav-registro,
+.input-capcha,
+.formulario-registro,
+.formulario-ingreso,
+.input-formulario {
     display: flex;
 }
 
-.formulario-registro,.formulario-ingreso {
+.formulario-registro,
+.formulario-ingreso {
     flex-direction: column;
     align-items: center;
     margin: 30px 0;
@@ -563,7 +587,7 @@ footer a:hover{
     margin: 8px 0;
 }
 
-.input-formulario > p {
+.input-formulario>p {
     font-style: oblique;
     margin: 4px 0;
 }
@@ -619,7 +643,8 @@ a.link-activo {
 
 /* Main */
 main#home {
-    min-height: calc(100vh - 60px - 360px); /* Altura mínima del main (restando altura del header y footer) */
+    min-height: calc(100vh - 60px - 360px);
+    /* Altura mínima del main (restando altura del header y footer) */
     padding: 28px 44px;
 }
 
@@ -638,7 +663,7 @@ div.carrusel {
     display: flex;
     width: 100%;
     gap: 10px;
-    overflow-x:auto;
+    overflow-x: auto;
 }
 
 /* Tarjeta de juego */
@@ -692,7 +717,8 @@ div.carrusel {
     font-weight: var(--grosor-grueso);
 }
 
-.iconos-tarjetas-play-carrito, .icono-corazon-favoritos {
+.iconos-tarjetas-play-carrito,
+.icono-corazon-favoritos {
     border-radius: 50%;
     width: 35px;
     height: 35px;
@@ -709,7 +735,8 @@ div.carrusel {
     height: 30px;
 }
 
-button.icono-corazon-favoritos, div.puntaje-juego {
+button.icono-corazon-favoritos,
+div.puntaje-juego {
     background-color: rgba(17, 19, 28, 0.8);
 }
 
@@ -729,18 +756,21 @@ button.icono-corazon-favoritos, div.puntaje-juego {
     height: 12px;
 }
 
-button.icono-corazon-favoritos { /* Contenedor de corazón */
+button.icono-corazon-favoritos {
+    /* Contenedor de corazón */
     position: absolute;
     top: 5px;
     left: 5px;
 }
 
-button.icono-corazon-favoritos img { /* Imágen de corazón */
+button.icono-corazon-favoritos img {
+    /* Imágen de corazón */
     width: 16px;
     height: auto;
 }
 
-div.puntaje-juego { /* Cucarda */
+div.puntaje-juego {
+    /* Cucarda */
     width: 43px;
     height: 25px;
     padding: 2px;
@@ -753,13 +783,15 @@ div.puntaje-juego { /* Cucarda */
     border-radius: 3px;
 }
 
-div.puntaje-juego img { /* Imagen de estrella */
+div.puntaje-juego img {
+    /* Imagen de estrella */
     width: 14px;
     height: auto;
     margin-right: 4px;
 }
 
-.puntaje-juego p { /* Puntaje numérico */
+.puntaje-juego p {
+    /* Puntaje numérico */
     color: var(--gris-muy-claro);
     font-size: 11px;
     font-weight: var(--grosor-grueso);
@@ -769,33 +801,42 @@ div.puntaje-juego img { /* Imagen de estrella */
 /* ------------------- Juego ------------------- */
 
 main#juego {
-    min-height: calc(100vh - 60px - 360px); /* Altura mínima del main (restando altura del header y footer) */
+    min-height: calc(100vh - 60px - 360px);
+    /* Altura mínima del main (restando altura del header y footer) */
     padding: 20px 116px 0px 116px;
 }
+
 /* estilos para breadcrumbs del inicio de la pagina del juego */
-nav#bread-crumbs{
+nav#bread-crumbs {
     margin: 10px 0;
 }
-nav#bread-crumbs ul{
+
+nav#bread-crumbs ul {
     display: flex;
     gap: 10px;
     font-size: var(--tamanio-14);
 }
-nav#bread-crumbs ul li{
+
+nav#bread-crumbs ul li {
     color: var(--gris-claro);
 }
-nav#bread-crumbs ul li:hover{
+
+nav#bread-crumbs ul li:hover {
     color: var(--gris-muy-claro);
 }
-nav#bread-crumbs ul img{
-    width:6px;
+
+nav#bread-crumbs ul img {
+    width: 6px;
 }
+
 /* estilos para pantalla donde se presenta el juego */
-.contenedor-pantalla-juego,.pantalla-juego{
+.contenedor-pantalla-juego,
+.pantalla-juego {
     display: flex;
     flex-direction: column;
 }
-.contenedor-pantalla-juego{
+
+.contenedor-pantalla-juego {
     background-image: url(/img/tarjetas/4enLinea.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -803,104 +844,153 @@ nav#bread-crumbs ul img{
     width: 100%;
     justify-content: flex-end;
 }
-.pantalla-juego{
+
+.pantalla-juego {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.55);
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
+
 /* estilos para el nav de la pantalla del juego */
-.nav-juego{
+.nav-juego {
     background-color: var(--gris-semi-claro);
     display: flex;
     justify-content: space-between;
     padding: 5px 15px;
 }
-.nav-juego a,.opciones-juego{
+
+.nav-juego a,
+.opciones-juego {
     display: flex;
 }
-.opciones-juego{
+
+.opciones-juego {
     align-items: center;
     gap: 10px;
 }
+
 hr {
     border: 1px solid var(--gris-claro);
     height: 50%;
 }
 
-.opciones-juego img{
+.opciones-juego img {
     height: 25px;
     cursor: pointer;
 }
 
-.opciones-juego img:hover{
+.opciones-juego img:hover {
     filter: brightness(1.4);
 }
+
 /* estilos para la descripcion del juego */
 .contenedor-descripcion-juego {
     margin-top: 32px;
     border-radius: 10px;
-    background-image: linear-gradient(100deg,#1c1c1c91 1%, var(--primario-muy-oscuro), var(--primario-oscuro));
+    background-image: linear-gradient(100deg, #1c1c1c91 1%, var(--primario-muy-oscuro), var(--primario-oscuro));
     display: grid;
     grid-template-columns: 1fr 2fr;
     justify-items: center;
     padding: 20px 20px 20px 40px;
     column-gap: 40px;
 }
-.icono-compartir{
-    width: 30px;
+
+.opciones-compartir {
     justify-self: flex-end;
     grid-column: span 2;
+    display: flex;
+    align-items: center;
 }
-.titulo-descripcion,.caja-valoracion-juego{
+
+.opciones-compartir ul {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 10px;
+    list-style: none;
+}
+.opciones-compartir ul li:hover,.opciones-compartir #btn-compartir-juego:hover{
+    filter: brightness(1.5);
+}
+.hidden{
+    opacity: 0;
+}
+.opciones-compartir img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+#btn-compartir-juego {
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    margin-left: 20px;
+}
+
+#btn-compartir-juego img {
+    width: 40px;
+    height: auto;
+}
+
+.titulo-descripcion,
+.caja-valoracion-juego {
     display: flex;
     gap: 10px;
 }
-.titulo-descripcion{
+
+.titulo-descripcion {
     margin-bottom: 18px;
 }
 
-.caja-valoracion-juego{
+.caja-valoracion-juego {
     background-color: var(--gris-claro);
     padding: 4px 8px;
     align-items: center;
     gap: 4px;
     border-radius: 30px;
 }
-.caja-valoracion-juego p{
+
+.caja-valoracion-juego p {
     color: var(--gris-muy-oscuro);
     font-weight: var(--grosor-grueso);
     font-size: 14px;
 }
-.caja-valoracion-juego img{
+
+.caja-valoracion-juego img {
     width: 18px;
     align-self: center;
     filter: brightness(0);
 }
-span.letra-cursiva{
+
+span.letra-cursiva {
     font-style: oblique;
     font-weight: var(--grosor-regular);
 }
-.detalles-descripcion{
+
+.detalles-descripcion {
     margin-top: 12px;
     font-weight: var(--grosor-mediano);
 }
-.contenedor-videos-recomendados{
+
+.contenedor-videos-recomendados {
     margin-top: 18px;
 }
-.contenedor-videos-recomendados h3{
+
+.contenedor-videos-recomendados h3 {
     font-size: 10px;
     font-size: var(--grosor-mediano);
 }
-ul.lista-videos{
+
+ul.lista-videos {
     margin-top: 4px;
     display: flex;
     gap: 8px;
     padding: 4px 0;
 }
 
-ul.lista-videos li{
+ul.lista-videos li {
     width: 100px;
     height: 70px;
     background-image: url(/img/tarjetas/4enLinea.png);
@@ -912,16 +1002,18 @@ ul.lista-videos li{
     border-radius: 4px;
 }
 
-.video-recomendado img{
+.video-recomendado img {
     width: 14px;
 }
-.contenedor-juegos-relacionados h1{
+
+.contenedor-juegos-relacionados h1 {
     margin: 30px 0 10px 0;
 }
 
 /* Sección de comentarios */
 
-#contenedor-seccion-comentarios { /* Contenedor general de la sección */
+#contenedor-seccion-comentarios {
+    /* Contenedor general de la sección */
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -930,7 +1022,8 @@ ul.lista-videos li{
 
 #contenedor-comentarios {
     width: 100%;
-    margin-right: 30px; /* Espacio entre el contenido y el banner */
+    margin-right: 30px;
+    /* Espacio entre el contenido y el banner */
 }
 
 #contenedor-titulo {
@@ -1083,8 +1176,8 @@ ul.lista-videos li{
     content: '';
     position: absolute;
     right: -15px;
-    height: 22px; 
-    width: 1px; 
+    height: 22px;
+    width: 1px;
     background-color: var(--gris-claro);
 }
 
@@ -1124,7 +1217,7 @@ ul.lista-videos li{
 }
 
 #caja-titulo-historial-comentarios {
-    text-align: right; 
+    text-align: right;
     width: 100%;
 }
 
@@ -1144,12 +1237,13 @@ ul.lista-videos li{
 }
 
 #titulo-historial-comentarios a {
-    text-decoration: none; 
-    padding-bottom: 5px; 
+    text-decoration: none;
+    padding-bottom: 5px;
 }
 
 #titulo-historial-comentarios a:hover::after {
-    content: none; /*Elimina el hover*/
+    content: none;
+    /*Elimina el hover*/
 }
 
 #contenedor-historial-comentarios {
@@ -1228,9 +1322,11 @@ ul.lista-videos li{
     .ancho-completo {
         grid-column: span 2;
     }
+
     .contenedor-formulario-inicio {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .contenedor-imagen-tarjeta img {
         width: 100%;
         height: 100%;
@@ -1238,6 +1334,7 @@ ul.lista-videos li{
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
     }
+
     .portada-formulario {
         display: initial;
         background-image: url(/img/portada_login.jpg);

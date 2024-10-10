@@ -127,6 +127,10 @@ header {
     align-items: center;
 }
 
+.iconos img {
+    cursor: pointer;
+}
+
 .imagen-iconos {
     width: 40px;
     height: 40px;
@@ -297,6 +301,7 @@ header {
     width: 12px;
     height: 12px;
     color: var(--gris-muy-claro);
+    cursor: pointer;
 }
 
 #foto-de-perfil {
@@ -1026,6 +1031,13 @@ ul.lista-videos li{
     height: 24px;
     width: auto;
     filter: brightness(1.5);
+}
+
+.icono-con-linea img:hover {
+    height: 24px;
+    width: auto;
+    filter: brightness(1.5);
+    cursor: pointer;
 }
 
 .icono-con-linea::after {

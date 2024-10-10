@@ -688,7 +688,7 @@ div.carrusel {
 }
 
 .juego-gratis {
-    color: var(--secundario-semi-claro) !important;
+    color: var(--secundario-muy-claro) !important;
     font-weight: var(--grosor-grueso);
 }
 
@@ -889,6 +889,7 @@ ul.lista-videos li{
 .contenedor-juegos-relacionados h1{
     margin: 30px 0 10px 0;
 }
+
 /* Sección de comentarios */
 
 #contenedor-seccion-comentarios { /* Contenedor general de la sección */
@@ -1066,10 +1067,6 @@ ul.lista-videos li{
     height: 22px;
     width: auto;
 }
-
-/*#caja-boton { /*borrar si se cambia el diseño*/
- /*   margin-right: 300px; /***************************************podria estar en el extremo derecho (consultar con lso chicos) y corregir en figma*/
-/*}*/
 
 .btn-comentar-responder {
     font-size: var(--tamanio-15);

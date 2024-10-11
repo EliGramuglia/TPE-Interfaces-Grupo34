@@ -63,39 +63,31 @@ document.addEventListener("DOMContentLoaded", () => {
     // Crea un carrusel de tarjetas en un contenedor dado
     function crearCarrusel(tarjetas, contenedor) {
         for (let t of tarjetas) {
-            // Se crea el contenedor principal de la tarjeta
+            // Contenedor principal de la tarjeta
             const divTarjeta = document.createElement('div');
             divTarjeta.className = "tarjeta";
         
-            // Se crea el contenedor de la imagen
+            // Contenedor de la imagen (que contiene imágen, botón de favoritos y puntaje)
             const divImagen = document.createElement('div');
             divImagen.className = "contenedor-imagen-tarjeta";
-        
-            // Se crea la imagen del juego
+            
+            // Ímagen del juego
             const imgJuego = document.createElement('img');
             imgJuego.src = `img/tarjetas/${t.img}`;
             imgJuego.alt = t.nombre;
         
-            // Se crea el botón de favoritos
+            // Botón de favoritos
             const btnFavoritos = document.createElement('button');
-            btnFavoritos.className = "icono-corazon-favoritos";
+            btnFavoritos.className = "icono-corazon";
             const imgCorazon = document.createElement('img');
             imgCorazon.src = "img/iconos/tarjetas-juegos/corazon-blanco.png";
             imgCorazon.alt = "Agregar a favoritos";
             btnFavoritos.appendChild(imgCorazon);
-
-            // Se agrega comportamiento al botón de favoritos
-            let activado = false;
+            let agregadoAFav = false;
             btnFavoritos.addEventListener('click', () => {
-                if (activado) {
-                    imgCorazon.src = "img/iconos/tarjetas-juegos/corazon-blanco.png";
-                    activado = false;
-                } else {
-                    imgCorazon.src = "img/iconos/tarjetas-juegos/corazon-rosa.png";
-                    activado = true;
-                }
-            });
-        
+                agregadoAFav = agregarAFavoritos(agregadoAFav, imgCorazon);
+            })
+
             // Se crea el contenedor de puntaje
             const divPuntaje = document.createElement('div');
             divPuntaje.className = "puntaje-juego";
@@ -107,53 +99,94 @@ document.addEventListener("DOMContentLoaded", () => {
             divPuntaje.appendChild(imgEstrella);
             divPuntaje.appendChild(pPuntaje);
         
-            // Se agrega la imagen y el botón de favoritos al contenedor de imagen
+            // Se agregan los elementos al contenedor
             divImagen.appendChild(imgJuego);
             divImagen.appendChild(btnFavoritos);
             divImagen.appendChild(divPuntaje);
         
-            // Se crea el contenedor de texto
+            // Contenedor de texto (que contiene nombre y precio del juego, y botón de jugar/comprar)
             const divTexto = document.createElement('div');
             divTexto.className = "contenedor-texto-tarjeta";
             const divTextoInterno = document.createElement('div');
         
-            // Se crea el nombre del juego
-            const pNombreJuego = document.createElement('p');
+            // Nombre del juego
+            const pNombreJuego = document.createElement('p'); 
             pNombreJuego.className = "tarjeta-nombre-juego";
             pNombreJuego.textContent = t.nombre;
         
-            // Se crea el precio del juego
-            const pPrecioJuego = document.createElement('p');
-            pPrecioJuego.className = "tarjeta-precio-juego";
-            pPrecioJuego.textContent = t.precio == 0 ? "Gratis" : `$ ${t.precio.toFixed(2)}`;
-
-            // Si el juego es gratis, añadimos la clase para que cambie de color a verde
+            // Precio del juego
+            const pPrecioJuego = document.createElement('p'); 
+            pPrecioJuego.className = "tarjeta-precio-juego"; 
             if (t.precio == 0) {
-                pPrecioJuego.className = "juego-gratis"; // Agregamos la clase 'juego-gratis' adicional
+                pPrecioJuego.textContent = "Gratis"
+                pPrecioJuego.className = "juego-gratis"; // Se agrega la clase CSS '.juego-gratis'
+            } else {
+                pPrecioJuego.textContent = `$ ${t.precio.toFixed(2)}`
             }
-        
-            // Se agrega nombre y precio al contenedor de texto
+      
+            // Se agregan los elementos al contenedor de texto
             divTextoInterno.appendChild(pNombreJuego);
             divTextoInterno.appendChild(pPrecioJuego);
             divTexto.appendChild(divTextoInterno);
-        
-            // Se crea el botón de jugar
-            const btnPlay = document.createElement('button');
-            btnPlay.className = "iconos-tarjetas-play-carrito";
-            const imgPlay = document.createElement('img');
-            imgPlay.src = "img/iconos/tarjetas-juegos/icono-play.png";
-            imgPlay.alt = "Play";
-            btnPlay.appendChild(imgPlay);
-        
-            // Se agrega el botón de jugar al contenedor de texto
-            divTexto.appendChild(btnPlay);
-        
+
+            // Botones de jugar/comprar
+            
+            if (t.precio == 0) {
+                // Botón Jugar
+                const btnJugar = document.createElement('button');
+                btnJugar.className = "icono-play";
+                const imgJugar = document.createElement('img');
+                imgJugar.src = "img/iconos/tarjetas-juegos/jugar.png";
+                imgJugar.alt = "Jugar";
+                btnJugar.appendChild(imgJugar);
+                divTexto.appendChild(btnJugar);
+            } else {
+                // Botón comprar
+                const btnComprar = document.createElement('button');
+                btnComprar.className = "icono-carrito";
+                const imgComprar = document.createElement('img');
+                imgComprar.src = "img/iconos/tarjetas-juegos/carrito-agregar.png";
+                imgComprar.alt = "Comprar";
+                btnComprar.appendChild(imgComprar);
+                divTexto.appendChild(btnComprar);
+                
+                // Comportamiento
+                let agregadoACarrito = false;
+                btnComprar.addEventListener('click', () => {
+                    agregadoACarrito = agregarACarrito(btnComprar, imgComprar, agregadoACarrito)
+                });
+            }
+            
             // Se agrega todos los elementos a la tarjeta
             divTarjeta.appendChild(divImagen);
             divTarjeta.appendChild(divTexto);
         
             // Se agrega la tarjeta al contenedor del carrusel
             contenedor.appendChild(divTarjeta);
+        }
+    }
+
+    // Agrega comportamiento al botón "Agregar a favoritos"
+    function agregarAFavoritos(agregadoAFav, imgCorazon) {
+        if (agregadoAFav) {
+            imgCorazon.src = "img/iconos/tarjetas-juegos/corazon-blanco.png";
+            return false;
+        } else {
+            imgCorazon.src = "img/iconos/tarjetas-juegos/corazon-rosa.png";
+            return true;
+        }
+    }
+
+    // Agrega comportamiento al botón "Agregar al carrito"
+    function agregarACarrito(btnComprar, imgComprar, agregadoACarrito) {
+        if (agregadoACarrito) {
+            btnComprar.classList.remove('quitar');
+            imgComprar.src = "img/iconos/tarjetas-juegos/carrito-agregar.png";
+            return false;
+        } else {
+            btnComprar.classList.add('quitar');
+            imgComprar.src = "img/iconos/tarjetas-juegos/carrito-quitar.png";
+            return true;
         }
     }
 });

@@ -692,7 +692,7 @@ div.carrusel {
     font-weight: var(--grosor-grueso);
 }
 
-.iconos-tarjetas-play-carrito, .icono-corazon-favoritos {
+.icono-play, .icono-carrito, .icono-corazon {
     border-radius: 50%;
     width: 35px;
     height: 35px;
@@ -704,38 +704,58 @@ div.carrusel {
     cursor: pointer;
 }
 
-.icono-corazon-favoritos {
+.icono-corazon {
     width: 30px;
     height: 30px;
 }
 
-button.icono-corazon-favoritos, div.puntaje-juego {
+button.icono-corazon, div.puntaje-juego {
     background-color: rgba(17, 19, 28, 0.8);
 }
 
-.iconos-tarjetas-play-carrito {
-    background-color: var(--secundario);
+.icono-play, .icono-carrito {
     right: 12px;
     top: 50%;
     transform: translateY(-50%);
 }
 
-.iconos-tarjetas-play-carrito:hover {
-    background-color: var(--secundario-semi-claro);
+.icono-play {
+    background-color: var(--secundario);
+
 }
 
-.iconos-tarjetas-play-carrito img {
+.icono-play img {
     width: 10px;
     height: 12px;
 }
 
-button.icono-corazon-favoritos { /* Contenedor de corazón */
-    position: absolute;
+.icono-carrito {
+    background-color: var(--gris-semi-claro);
+}
+
+.icono-carrito.quitar {
+    background-color: var(--acento);
+}
+
+.icono-carrito img, .icono-carrito.quitar:hover img {
+    width: 25px;
+    height: 25px;
+}
+
+.icono-play:hover, .icono-carrito:hover, .icono-carrito.quitar:hover {
+    filter: brightness(1.4);
+}
+
+button.icono-corazon { /* Contenedor de corazón */
     top: 5px;
     left: 5px;
 }
 
-button.icono-corazon-favoritos img { /* Imágen de corazón */
+button.icono-corazon:hover {
+    background-color: rgba(17, 19, 28, 1);
+}
+
+button.icono-corazon img { /* Imágen de corazón */
     width: 16px;
     height: auto;
 }

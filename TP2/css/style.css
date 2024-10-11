@@ -64,6 +64,7 @@
 }
 
 body {
+    padding-top: 60px;
     color: var(--gris-muy-claro);
     font-family: 'Nunito';
     font-weight: var(--grosor-regular);
@@ -105,8 +106,10 @@ input {
 
 /* --------------------- Header --------------------- */
 header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     height: 60px;
     background-color: var(--gris-semi-claro);
     display: flex;
@@ -164,27 +167,12 @@ header {
     /* Animación en al hacer hover */
 }
 
-/* Definición de la animación de sacudida con rotación */
-@keyframes animacion-logo {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    25% {
-        transform: rotate(-3deg);
-    }
-
-    50% {
-        transform: rotate(3deg);
-    }
-
-    75% {
-        transform: rotate(-3deg);
-    }
-
-    100% {
-        transform: rotate(0deg);
-    }
+@keyframes animacion-logo { /* Definición de la animación de sacudida */
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+    75% { transform: rotate(-3deg); }
+    100% { transform: rotate(0deg); }
 }
 
 #menu-hamburguesa {
@@ -290,13 +278,13 @@ header {
 /* ------------------ Perfil desplegable ------------------ */
 #contendor-perfil-desplegable {
     position: fixed;
-    right: -334px;
+    right: -339px;
     z-index: 2;
     transition: transform 0.5s ease-in-out;
 }
 
 #contendor-perfil-desplegable.abierto {
-    transform: translateX(-334px);
+    transform: translateX(-339px);
 }
 
 .perfil-desplegable {
@@ -304,7 +292,7 @@ header {
     height: 515px;
     background-color: var(--gris-semi-oscuro);
     border-radius: 10px;
-    margin-top: 5px;
+    margin: 5px 5px 0 0;
 }
 
 #cruz-salir {
@@ -643,8 +631,7 @@ a.link-activo {
 
 /* Main */
 main#home {
-    min-height: calc(100vh - 60px - 360px);
-    /* Altura mínima del main (restando altura del header y footer) */
+    min-height: calc(100vh - 60px - 360px); /* Altura mínima del main (restando altura del header y footer) */
     padding: 28px 44px;
 }
 
@@ -826,8 +813,7 @@ div.puntaje-juego img {
 /* ------------------- Juego ------------------- */
 
 main#juego {
-    min-height: calc(100vh - 60px - 360px);
-    /* Altura mínima del main (restando altura del header y footer) */
+    min-height: calc(100vh - 60px - 360px); /* Altura mínima del main (restando altura del header y footer) */
     padding: 20px 116px 0px 116px;
 }
 

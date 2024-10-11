@@ -11,12 +11,11 @@
 </head>
 
 <body>
+    <!-- Header -->
     <header>
         <div class="iconos">
-            <a href="#">
-                <img src="img/iconos/menu-hamburguesa.png" alt="Menú Hamburguesa" class="icon-hover" id="menu-hamburguesa">
-            </a>
-            <a href="index.html"><img src="img/iconos/logo.png" alt="Logo Winnit" id="logo-winnit"></a>
+            <img src="img/iconos/menu-hamburguesa.png" alt="Menú Hamburguesa" class="icon-hover" id="menu-hamburguesa">
+            <a href="index.html"><img src="img/iconos/logo-winnit.png" alt="Logo Winnit" id="logo-winnit"></a>
         </div>
         <div id="contenedor-buscador">
             <input type="text" placeholder="Buscar">
@@ -24,11 +23,87 @@
         </div>
         <div class="iconos">
             <img src="img/iconos/carrito.png" alt="Carrito de compras" class="imagen-iconos icon-hover">
-            <a href="#">
-                <img src="img/iconos/perfil.png" alt="Perfil de usuario" class="imagen-iconos icon-hover" id="icono-perfil">
-            </a>
+            <img src="img/iconos/perfil.png" alt="Perfil de usuario" class="imagen-iconos icon-hover" id="icono-perfil">
         </div>
     </header>
+
+    <!-- Menú de categorías -->
+    <aside class="contenedor-menu-categorias">
+        <div class="menu-categorias">
+            <ul id="lista-categorias"></ul>
+        </div>
+    </aside>
+
+    <!-- Perfil desplegable -->
+    <aside id="contendor-perfil-desplegable">
+        <div class="perfil-desplegable">
+            <div id="cruz-salir">
+                <img src="img/iconos/perfil-desplegable/cruz-salir.png" alt="Cruz para cerrar menú" id="cerrar-perfil">
+            </div>
+            <div id="avatar-mail">
+                <img src="img/iconos/perfil-desplegable/foto-de-perfil.png" alt="Ávatar del usuario" id="foto-de-perfil">
+                <p id="nikename">@Fulanito</p>
+                <p id="email">fulanito@mail.com</p>
+            </div>
+            <div id="items-perfil-desplegable">
+                <ul>
+                    <li>
+                        <img src="img/iconos/perfil-desplegable/icono-de-perfil.png" alt="Ícono de perfil">
+                        <a href="#">
+                            <p>Mi perfil</p>
+                        </a>
+                    </li>
+                    <li>
+                        <img src="img/iconos/perfil-desplegable/editar.png" alt="Ícono para editar perfil">
+                        <a href="#">
+                            <p>Editar perfil</p>
+                        </a>
+                    </li>
+                    <li>
+                        <img src="img/iconos/perfil-desplegable/privacidad-de-la-cuenta.png" alt="Ícono para configurar la privacidad de la cuenta">
+                        <a href="#">
+                            <p>Privacidad de la cuenta</p>
+                        </a>
+                    </li>
+                    <li>
+                        <img src="img/iconos/perfil-desplegable/configuracion.png" alt="Ícono para configurar la cuenta">
+                        <a href="#">
+                            <p>Configuración de la cuenta</p>
+                        </a>
+                    </li>
+                    <li id="cerrar-sesion"> 
+                        <img src="img/iconos/perfil-desplegable/logout.png" alt="Ícono para cerrar sesión">
+                        <a href="login.html">
+                            <p>Cerrar sesión</p>
+                        </a>
+                    </li>
+                    <li>
+                        <img src="img/iconos/perfil-desplegable/soporte.png" alt="Ícono de soporte técnico">
+                        <a href="#">
+                            <p>Soporte</p>
+                        </a>
+                    </li>
+                    <li>
+                        <img src="img/iconos/perfil-desplegable/descargar.png" alt="Ícono para descargar la aplicación">
+                        <a href="#">
+                            <p>Descargar aplicación</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="redes-sociales">
+                <a href="#">
+                    <img src="img/iconos/logo-facebook.png" alt="Facebook">
+                </a>
+                <a href="#">
+                    <img src="img/iconos/logo-instagram.png" alt="Instagram">
+                </a>
+                <a href="#">
+                    <img src="img/iconos/logo-youtube.png" alt="Youtube">
+                </a>
+            </div>
+        </div>
+    </aside>
 
     <main>
         <section class="contenedor-formulario-inicio">
@@ -174,7 +249,7 @@
             </ul>
 
             <div class="suscripcion-copyright">
-                <img src="img/iconos/logo.png" alt="Logo Winnit" id="logo-winnit">
+                <img src="img/iconos/logo-winnit.png" alt="Logo Winnit" id="logo-winnit">
                 <p>¡No te pierdas ninguna novedad!</p>
                 <div class="form-suscripcion">
                     <form action="">
@@ -189,13 +264,15 @@
 
         <nav class="redes-footer">
             <ul>
-                <li><a href="#"><img src="img/iconos/facebook.png" alt="Facebook"></a></li>
-                <li><a href="#"><img src="img/iconos/instagram.png" alt="Instagram"></a></li>
-                <li><a href="#"><img src="img/iconos/youtube.png" alt="YouTube"></a></li>
+                <li><a href="#"><img src="img/iconos/logo-facebook.png" alt="Facebook"></a></li>
+                <li><a href="#"><img src="img/iconos/logo-instagram.png" alt="Instagram"></a></li>
+                <li><a href="#"><img src="img/iconos/logo-youtube.png" alt="YouTube"></a></li>
             </ul>
         </nav>
-    </footer> 
+    </footer>
 
+    <script src="js/menuCategorias.js"></script>
+    <script src="js/perfilDesplegable.js"></script>
     <script src="js/formulario.js"></script>
 </body>
 </html>

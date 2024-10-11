@@ -150,17 +150,12 @@ function renderizarComentario(rutaImagen, nombreUsuario, tiempoComentarioRealiza
     );
 
 
-    
-
-
-
 //Selecciona todas las estrellas
 const estrellas = document.querySelectorAll('.estrella');
 
 for (let i = 0; i < estrellas.length; i++) {
     //Añade un evento de escucha a cada estrella
     estrellas[i].addEventListener('click', function() {
-
         for (let j = 0; j < estrellas.length; j++) {
             if (j <= i) {
                 //Cambia las estrellas anteriores a amarillas

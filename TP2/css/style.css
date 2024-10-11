@@ -566,7 +566,8 @@ footer a:hover {
 }
 
 .contenedor-formulario-inicio {
-    min-height: calc(100vh - 60px - 360px);
+    /* min-height: calc(100vh - 60px - 360px); */
+    height: 850px;
     display: grid;
     grid-template-columns: 1fr;
 }
@@ -621,7 +622,9 @@ footer a:hover {
 .input-formulario input[type="date"] {
     padding: 9px;
 }
-
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
 .input-formulario {
     flex-direction: column;
     gap: 4px;
@@ -1408,6 +1411,6 @@ ul.lista-videos li {
         background-image: url(/img/portada_login.jpg);
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: center top 30%;
+        background-position: center;
     }
 }

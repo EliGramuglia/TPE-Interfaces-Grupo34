@@ -63,11 +63,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Crea un carrusel de tarjetas en un contenedor dado
     function crearCarrusel(tarjetas, contenedor) {
         for (let t of tarjetas) {
-            // Contenedor principal de la tarjeta
+            // --- CONTENEDOR PRINCIPAL (posee contenedor de imágen y contenedor de texto) ---
             const divTarjeta = document.createElement('div');
             divTarjeta.className = "tarjeta";
         
-            // Contenedor de la imagen (que contiene imágen, botón de favoritos y puntaje)
+            // --- 1. CONTENEDOR DE IMAGEN ---
             const divImagen = document.createElement('div');
             divImagen.className = "contenedor-imagen-tarjeta";
             
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
             divImagen.appendChild(btnFavoritos);
             divImagen.appendChild(divPuntaje);
         
-            // Contenedor de texto (que contiene nombre y precio del juego, y botón de jugar/comprar)
+            // --- 2. CONTENEDOR DE TEXTO ---
             const divTexto = document.createElement('div');
             divTexto.className = "contenedor-texto-tarjeta";
             const divTextoInterno = document.createElement('div');
@@ -130,7 +130,6 @@ document.addEventListener("DOMContentLoaded", () => {
             divTexto.appendChild(divTextoInterno);
 
             // Botones de jugar/comprar
-            
             if (t.precio == 0) {
                 // Botón Jugar
                 const btnJugar = document.createElement('button');
@@ -190,7 +189,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
-
 
 /*
 ----------------------------- Ejemplo de tarjeta generada en HTML -----------------------------

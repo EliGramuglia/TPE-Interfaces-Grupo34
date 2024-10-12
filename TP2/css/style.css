@@ -766,11 +766,53 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .btn-principal {
     font-size: var(--tamanio-15);
     background-color: var(--secundario);
+    font-weight: var(--grosor-grueso);
     border-radius: 30px;
-    padding: 14px;
+    padding: 20px;
     width: 250px;
     cursor: pointer;
-    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-principal::after{
+    content: "";
+    width: 40%;
+    height: 90px;
+    position: absolute;
+    z-index: 1;
+    filter: blur(20px);
+    left: 0;
+    top: 0;
+    transform: skew(35deg);
+}
+.btn-principal:hover{
+    transform: scale(.98);
+}
+.btn-principal:hover:after {
+    animation: btnPrincipal 2s ease-in-out .5s infinite;
+}
+.btn-principal span {
+    position: relative;
+    z-index: 2;
+    transition: .3s ease all;
+}
+@keyframes btnPrincipal {
+    0% {
+        left: -150px;
+    background-color: var(--secundario-semi-claro);
+    }
+    40%{
+    background-color:  var(--secundario-claro);
+    }
+    100% {
+        background-color:  var(--secundario-semi-claro);
+        left: 320px;
+        transform: skew(10deg);
+    }
 }
 
 .input-capcha {

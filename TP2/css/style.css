@@ -1027,6 +1027,26 @@ nav#bread-crumbs ul img {
     gap: 15px;
 }
 
+.pantalla-juego img {
+    width: 220px;
+    height: auto;
+}
+
+.pantalla-juego h2 {
+    font-size: var(--tamanio-24);
+    font-weight: 800;
+}
+
+.pantalla-juego .btn-principal {
+    width: 140px;
+    height: 50px;
+    font-size: var(--tamanio-24);
+    font-weight: var(--grosor-grueso);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Estilos para el nav de la pantalla del juego */
 .nav-juego {
     background-color: var(--gris-semi-claro);

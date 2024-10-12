@@ -122,7 +122,16 @@ function renderizarComentario(rutaImagen, nombreUsuario, tiempoComentarioRealiza
     // Agregar el botón "Ver más comentarios"
     const botonVerMas = document.createElement('button'); 
     botonVerMas.className = "btn-ver-mas-comentarios"; 
-    botonVerMas.textContent = "Ver respuestas ▼"; 
+    botonVerMas.textContent = "Ver respuestas"; 
+    
+    // Crear un elemento de imagen para el icono
+    const iconoFlecha = document.createElement('img');
+    iconoFlecha.src = 'img/iconos/tarjetas-juegos/jugar.png'; // Ruta a tu imagen
+    iconoFlecha.alt = 'Icono flecha'; // Texto alternativo
+    iconoFlecha.className = 'icono-flecha-abajo'; // Clase para aplicar estilos si es necesario
+
+    // Agregar la imagen al botón
+    botonVerMas.appendChild(iconoFlecha);
 
     // Agregar el botón al contenedor principal
     contenedorComentario.appendChild(botonVerMas);
@@ -156,6 +165,20 @@ function renderizarComentario(rutaImagen, nombreUsuario, tiempoComentarioRealiza
         4,
         'Que juegazooooo!!! Me encanta!!! Soy team perritos'
     );
+
+
+// Función para agregar el botón "Más comentarios"
+function agregarBotonMasComentarios() {
+    const botonMasComentarios = document.createElement('button');
+    botonMasComentarios.textContent = "Más comentarios";
+    botonMasComentarios.className = "btn-mas-comentarios";
+
+    // Agregar el botón una sola vez, al final de los comentarios
+    contenedorComentarioPersonal.appendChild(botonMasComentarios);
+}
+
+// Agregar el botón "Más comentarios" al final de todos los comentarios
+agregarBotonMasComentarios();
 
 
 //Selecciona todas las estrellas

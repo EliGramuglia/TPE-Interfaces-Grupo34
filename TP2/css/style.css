@@ -1615,12 +1615,12 @@ ul.lista-videos li {
 
 #contenedor-historial-comentarios {
     background-color: var(--primario-muy-oscuro);
-    height: 780px;
+    height: 950px;
     border-radius: 10px 0px 0 0;
     padding: 40px 0px 0px 0px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 25px;
 }
 
 #contenedor-comentario-realizado {
@@ -1695,9 +1695,34 @@ ul.lista-videos li {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative; 
 }
 
 .btn-ver-mas-comentarios:hover {
+    background-color: var(--primario-semi-claro);
+}
+
+.icono-flecha-abajo {
+    width: 7px; 
+    height: auto; 
+    margin-left: 12px; 
+    transform: rotate(90deg);
+}
+
+.btn-mas-comentarios {
+    font-size: var(--tamanio-15);
+    background-color: var(--primario-semi-oscuro);
+    font-weight: var(--grosor-mediano);
+    border-radius: 30px;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    text-align: center;
+    display: block; 
+    margin: 20px auto;
+}
+
+.btn-mas-comentarios:hover {
     background-color: var(--primario-semi-claro);
 }
 

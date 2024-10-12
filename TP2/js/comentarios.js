@@ -119,8 +119,16 @@ function renderizarComentario(rutaImagen, nombreUsuario, tiempoComentarioRealiza
     // Agregar la caja de botón responder al contenedor principal
     contenedorComentario.appendChild(cajaBotonResponder);
 
+    // Agregar el botón "Ver más comentarios"
+    const botonVerMas = document.createElement('button'); 
+    botonVerMas.className = "btn-ver-mas-comentarios"; 
+    botonVerMas.textContent = "Ver respuestas ▼"; 
+
+    // Agregar el botón al contenedor principal
+    contenedorComentario.appendChild(botonVerMas);
+
     // Agregar el contenedor principal al DOM
-    contenedorComentarioPersonal.appendChild(contenedorComentario); // Cambia esto si necesitas agregarlo a un contenedor específico
+    contenedorComentarioPersonal.appendChild(contenedorComentario); 
 }
 
 

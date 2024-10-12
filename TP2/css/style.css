@@ -1181,6 +1181,7 @@ nav#bread-crumbs ul img {
     display: flex;
     justify-content: space-between;
     padding: 5px 15px;
+    border-radius: 0 0 10px 10px;
 }
 
 .nav-juego a,
@@ -1583,9 +1584,9 @@ ul.lista-videos li {
 #contenedor-comentario-realizado {
     background-color: var(--gris-oscuro);
     margin: 0px 20px;
-    border-radius: 10px;
+    border-radius: 10px 10px 10px 0px;
     height: 190px;
-
+    margin-bottom: 30px;
 }
 
 #contenedor-iconos-historial-comentarios {
@@ -1635,6 +1636,33 @@ ul.lista-videos li {
     justify-content: flex-end;
     padding: 8px 20px;
 }
+
+
+/*******************************/
+.btn-ver-mas-comentarios {
+    width: 150px;
+    height: 30px;
+    margin-top: 10px;
+    font-size: var(--tamanio-14);
+    font-weight: var(--grosor-grueso);
+    border: none; /* Sin borde */
+    border-radius: 0px 10px 10px 10px;
+    background-color: #6300E6;
+    color: var(--gris-muy-claro);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-ver-mas-comentarios:hover {
+    background-color: var(--primario-semi-claro);
+}
+
+
+/*******************************/
+
+
 
 /* ------------------- Login desktop ------------------- */
 @media only screen and (min-width: 800px) {

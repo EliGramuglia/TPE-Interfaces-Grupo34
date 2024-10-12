@@ -1157,11 +1157,22 @@ nav#bread-crumbs ul img {
 .pantalla-juego .btn-principal {
     width: 140px;
     height: 50px;
-    font-size: var(--tamanio-24);
+    font-size: 22px;
     font-weight: var(--grosor-grueso);
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.icono-play-boton {
+    display: inline-block;
+    font-size: 16px; 
+    transform: scale(0.9, 1.5);
+    margin-left: 8px;
+}
+
+.btn-principal:hover {
+    background-color: var(--secundario-semi-claro);
 }
 
 /* Estilos para el nav de la pantalla del juego */
@@ -1315,7 +1326,6 @@ ul.lista-videos li {
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 4px;
-    cursor: pointer;
 }
 
 .video-recomendado img {

@@ -1,3 +1,5 @@
+"use strict";
+
 // Elementos HTML
 const divPantallaCarga = document.createElement('div');
 divPantallaCarga.id = 'pantalla-carga';

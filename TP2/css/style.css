@@ -129,7 +129,7 @@ input {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 25px;
 }
 
 #logo-carga img {
@@ -139,7 +139,7 @@ input {
 }
 
 #porcentaje-carga {
-    font-size: var(--tamanio-20);
+    font-size: var(--tamanio-16);
 }
 
 @keyframes rotacion {
@@ -173,7 +173,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 40px;
-    z-index: 2;
+    z-index: 10;
 }
 
 .iconos {
@@ -262,7 +262,7 @@ header {
     padding: 0 10px 0 20px;
     background-color: rgba(17, 19, 28, 0.9);
     backdrop-filter: blur(10px);
-    z-index: 2;
+    z-index: 10;
     transition: transform 0.5s ease-in-out;
 }
 
@@ -333,7 +333,7 @@ header {
 #contendor-perfil-desplegable {
     position: fixed;
     right: -339px;
-    z-index: 2;
+    z-index: 10;
     transition: transform 0.5s ease-in-out;
 }
 
@@ -685,25 +685,55 @@ a.link-activo {
 /* Main */
 main#home {
     min-height: calc(100vh - 60px - 360px); /* Altura mínima del main (restando altura del header y footer) */
-    padding: 28px 44px;
+    padding: 44px;
 }
 
-#juegos {
+/* Carruseles de tarjetas */
+#carruseles-juegos {
     display: flex;
     flex-direction: column;
     gap: 40px;
 }
 
-#juegos h1 {
+#carruseles-juegos h1 {
     font-size: var(--tamanio-20);
     margin-bottom: 10px;
 }
 
 div.carrusel {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+div.carrusel-contenido {
     display: flex;
     width: 100%;
     gap: 10px;
-    overflow-x: auto;
+    overflow-x: hidden;
+}
+
+/* Flechas del carrusel */
+.flecha-carrusel-prev, .flecha-carrusel-sig {
+    position: absolute;
+    width: 50px;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.55);
+    cursor: pointer;
+    font-size: var(--tamanio-24);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.flecha-carrusel-prev {
+    left: 0;
+}
+
+.flecha-carrusel-sig {
+    right: 0;
 }
 
 /* Tarjeta de juego */
@@ -818,8 +848,7 @@ div.puntaje-juego {
     filter: brightness(1.4);
 }
 
-button.icono-corazon {
-    /* Contenedor de corazón */
+button.icono-corazon { /* Contenedor de corazón */
     top: 5px;
     left: 5px;
 }
@@ -828,14 +857,12 @@ button.icono-corazon:hover {
     background-color: rgba(17, 19, 28, 1);
 }
 
-button.icono-corazon img {
-    /* Imágen de corazón */
+button.icono-corazon img { /* Imágen de corazón */
     width: 16px;
     height: auto;
 }
 
-div.puntaje-juego {
-    /* Cucarda */
+div.puntaje-juego { /* Cucarda */
     width: 43px;
     height: 25px;
     padding: 2px;
@@ -848,15 +875,13 @@ div.puntaje-juego {
     border-radius: 3px;
 }
 
-div.puntaje-juego img {
-    /* Imagen de estrella */
+div.puntaje-juego img { /* Imagen de estrella */
     width: 14px;
     height: auto;
     margin-right: 4px;
 }
 
-.puntaje-juego p {
-    /* Puntaje numérico */
+.puntaje-juego p { /* Puntaje numérico */
     color: var(--gris-muy-claro);
     font-size: 11px;
     font-weight: var(--grosor-grueso);
@@ -864,7 +889,6 @@ div.puntaje-juego img {
 
 
 /* ------------------- Juego ------------------- */
-
 main#juego {
     min-height: calc(100vh - 60px - 360px); /* Altura mínima del main (restando altura del header y footer) */
     padding: 20px 116px 0px 116px;
@@ -893,7 +917,7 @@ nav#bread-crumbs ul img {
     width: 6px;
 }
 
-/* estilos para pantalla donde se presenta el juego */
+/* Estilos para pantalla donde se presenta el juego */
 .contenedor-pantalla-juego,
 .pantalla-juego {
     display: flex;
@@ -917,7 +941,7 @@ nav#bread-crumbs ul img {
     gap: 10px;
 }
 
-/* estilos para el nav de la pantalla del juego */
+/* Estilos para el nav de la pantalla del juego */
 .nav-juego {
     background-color: var(--gris-semi-claro);
     display: flex;
@@ -949,7 +973,7 @@ hr {
     filter: brightness(1.4);
 }
 
-/* estilos para la descripcion del juego */
+/* Estilos para la descripción del juego */
 .contenedor-descripcion-juego {
     margin-top: 32px;
     border-radius: 10px;
@@ -1061,7 +1085,7 @@ ul.lista-videos {
 ul.lista-videos li {
     width: 100px;
     height: 70px;
-    background-image: url(/img/tarjetas/4enLinea.png);
+    background-image: url(../img/tarjetas/4enLinea.png);
     display: inherit;
     justify-content: center;
     align-items: center;
@@ -1090,8 +1114,7 @@ ul.lista-videos li {
 
 #contenedor-comentarios {
     width: 100%;
-    margin-right: 30px;
-    /* Espacio entre el contenido y el banner */
+    margin-right: 30px; /* Espacio entre el contenido y el banner */
 }
 
 #contenedor-titulo {
@@ -1310,8 +1333,7 @@ ul.lista-videos li {
 }
 
 #titulo-historial-comentarios a:hover::after {
-    content: none;
-    /*Elimina el hover*/
+    content: none; /* Elimina el hover */
 }
 
 #contenedor-historial-comentarios {
@@ -1381,7 +1403,7 @@ ul.lista-videos li {
 }
 
 /* ------------------- Login desktop ------------------- */
-@media only screen and (min-width:800px) {
+@media only screen and (min-width: 800px) {
     .contenedor-input {
         display: grid;
         grid-template-columns: repeat(2, 1fr);

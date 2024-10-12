@@ -17,6 +17,11 @@ document.addEventListener("DOMContentLoaded", () => {
             new Tarjeta("Merge Tanks", "ac_merge-tanks.png", 1299, 4.0),
             new Tarjeta("Stickman Archero Fight", "ac_stickman-archero-fight.png", 0, 3.2),
             new Tarjeta("Stickman WWII", "ac_stickman-ww2.png", 2499, 4.9),
+            new Tarjeta("Battle Simulator", "ac_battle-simulator.png", 0, 4.7),
+            new Tarjeta("Merge Cannon: Chicken Defense", "ac_chicken-defense.png", 0, 3.8),
+            new Tarjeta("Merge Tanks", "ac_merge-tanks.png", 1299, 4.0),
+            new Tarjeta("Stickman Archero Fight", "ac_stickman-archero-fight.png", 0, 3.2),
+            new Tarjeta("Stickman WWII", "ac_stickman-ww2.png", 2499, 4.9),
         ],
         aventura: [
             new Tarjeta("Age of Tanks", "av_age-of-tanks.png", 0, 4.2),
@@ -24,8 +29,18 @@ document.addEventListener("DOMContentLoaded", () => {
             new Tarjeta("Hero 3", "av_hero-3.png", 399, 3.7),
             new Tarjeta("Ninja Parkour", "av_ninja-parkour.png", 0, 4.5),
             new Tarjeta("Space Wars", "av_space-wars.png", 0, 4.7),
+            new Tarjeta("Age of Tanks", "av_age-of-tanks.png", 0, 4.2),
+            new Tarjeta("Build & Crush", "av_build-and-crush.png", 1399, 4.0),
+            new Tarjeta("Hero 3", "av_hero-3.png", 399, 3.7),
+            new Tarjeta("Ninja Parkour", "av_ninja-parkour.png", 0, 4.5),
+            new Tarjeta("Space Wars", "av_space-wars.png", 0, 4.7),
         ],
         clasicos: [
+            new Tarjeta("DuckPark.io", "cl_duckpark-io.png", 599, 4.8),
+            new Tarjeta("Shell Shockers", "cl_shell-shockers.png", 799, 4.3),
+            new Tarjeta("Snake.io", "cl_snake-io.png", 1299, 3.2),
+            new Tarjeta("Taming.io", "cl_taming-io.png", 0, 4.9),
+            new Tarjeta("Worm Hunt", "cl_worm-hunt.png", 0, 3.9),
             new Tarjeta("DuckPark.io", "cl_duckpark-io.png", 599, 4.8),
             new Tarjeta("Shell Shockers", "cl_shell-shockers.png", 799, 4.3),
             new Tarjeta("Snake.io", "cl_snake-io.png", 1299, 3.2),
@@ -48,16 +63,27 @@ document.addEventListener("DOMContentLoaded", () => {
             new Tarjeta("Penalty Rivals", "fb_penalty-rivals.png", 0, 4.3),
             new Tarjeta("Pill Soccer", "fb_pill-soccer.png", 799, 4.2),
             new Tarjeta("Soccer Challenge", "fb_soccer-challenge.png", 0, 4.6),
+            new Tarjeta("International Super Animal Soccer", "fb_international-super-animal-soccer.png", 1599, 4.5),
+            new Tarjeta("Mini Caps Soccer", "fb_mini-caps-soccer.png", 0, 4.1),
+            new Tarjeta("Penalty Rivals", "fb_penalty-rivals.png", 0, 4.3),
+            new Tarjeta("Pill Soccer", "fb_pill-soccer.png", 799, 4.2),
+            new Tarjeta("Soccer Challenge", "fb_soccer-challenge.png", 0, 4.6),
         ]
     }
 
     // Para cada categoría, se obtiene su tipo y contenedor, y se crea el carrusel correspondiente
     document.querySelectorAll('.categoria').forEach(categoria => {
-        const tipo = categoria.dataset.tipo;
         const contenedorCarrusel = categoria.querySelector('.carrusel');
+        const divTarjetas = document.createElement('div');
+        divTarjetas.className = 'carrusel-contenido';
+        
+        const tipo = categoria.dataset.tipo;
         if (tarjetas[tipo]) {
-            crearCarrusel(tarjetas[tipo], contenedorCarrusel);
+            crearCarrusel(tarjetas[tipo], divTarjetas);
         }
+        
+        crearBotones(contenedorCarrusel, divTarjetas);
+        contenedorCarrusel.appendChild(divTarjetas);
     });
 
     // Crea un carrusel de tarjetas en un contenedor dado
@@ -156,11 +182,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             }
             
-            // Se agrega todos los elementos a la tarjeta
+            // Se agregan todos los elementos a la tarjeta y la tarjeta al carrusel
             divTarjeta.appendChild(divImagen);
             divTarjeta.appendChild(divTexto);
-        
-            // Se agrega la tarjeta al contenedor del carrusel
             contenedor.appendChild(divTarjeta);
         }
     }
@@ -187,6 +211,33 @@ document.addEventListener("DOMContentLoaded", () => {
             imgComprar.src = "img/iconos/tarjetas-juegos/carrito-quitar.png";
             return true;
         }
+    }
+
+    function crearBotones(contenedor, contenido) {
+        const btnPrev = document.createElement('button');
+        btnPrev.classList.add('flecha-carrusel-prev');
+        btnPrev.textContent = '⟨';
+
+        const btnSig = document.createElement('button');
+        btnSig.classList.add('flecha-carrusel-sig');
+        btnSig.textContent = "〉";
+
+        btnPrev.addEventListener('click', () => {
+            deslizarCarrusel(contenido, -window.innerWidth / 2)
+        });
+        btnSig.addEventListener('click', () => { 
+            deslizarCarrusel(contenido, window.innerWidth / 2)
+        });
+    
+        contenedor.appendChild(btnPrev);
+        contenedor.appendChild(btnSig);
+    }
+
+    function deslizarCarrusel(contenido, direccion) {
+        contenido.scrollBy({
+            left: direccion,
+            behavior: 'smooth'
+        });
     }
 });
 

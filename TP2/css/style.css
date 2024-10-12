@@ -445,7 +445,7 @@ header {
 
 
 /* --------------------- Footer --------------------- */
-footer {
+/* footer {
     width: 100%;
     height: 360px;
     padding: 35px;
@@ -562,8 +562,125 @@ footer .redes-footer img:hover {
 
 footer a:hover {
     color: var(--acento-semi-claro);
+} */
+
+footer{
+    background-color: #28293D;
+}
+.contenedor-footer{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    row-gap: 10px;
 }
 
+.titulo-columna{
+    width: 100%;
+    font-weight: var(--grosor-grueso);
+    font-size: var(--tamanio-20);
+    padding: 10px 0;
+}
+/* .oculto{
+    display: none;
+} */
+.lista-footer ul,.redes-footer ul{
+    list-style: none;
+}
+.lista-footer ul li{
+    margin: 10px 0;
+}
+.lista-footer{
+    background-color: black;
+    text-align: center;
+    border-radius: 10px;
+    width: 80%;
+}
+.suscripcion-copyright{
+    padding-top: 20px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+.suscripcion-copyright > p{
+    margin-top: 20px;
+    font-weight: bolder;
+}
+.form-suscripcion{
+    background-color: white;
+    width: 80%;
+    padding: 4px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.form-suscripcion input{
+    height: 100%;
+    width: 60%;
+    overflow: hidden;
+    border: none;
+    padding-left: 10px;
+}
+.form-suscripcion button{
+    background-color: #6300E6;
+    border: none;
+    width: 40%;
+    border-radius: 50px;
+    padding: 10px;
+}
+
+
+footer .suscripcion-copyright {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-image: linear-gradient(#150C2A 2%, var(--primario-muy-oscuro), var(--primario-oscuro));
+    border-radius: 10px;
+    grid-column: 1 / 1;
+    grid-row: 1 / 5;
+
+}
+
+
+footer .suscripcion-copyright hr {
+    background-color: var(--gris-claro);
+    height: 1px;
+}
+.contenedor-copyright{
+    display: none;
+}
+.redes-footer,.redes-footer ul,.redes-footer a{
+    display: flex;
+    justify-content: center;
+}
+.redes-footer ul{
+    background-color: #2d0078;
+    width: max-content;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 40px;
+    border-radius: 50px 50px 0 0;
+}
+
+footer .redes-footer a img {
+    width: 35px;
+    height: 35px;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+footer .redes-footer img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.4);
+}
+
+footer a:hover {
+    color: var(--acento-semi-claro);
+} 
 
 /* --------------------- Login --------------------- */
 .resaltado {
@@ -1538,5 +1655,32 @@ ul.lista-videos li {
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
+    }
+    /* footer desktop */
+    .contenedor-footer{
+        color: aliceblue;
+        display: grid;
+        grid-template-columns: repeat(4,1fr) 2fr;
+        row-gap: 10px;
+    }
+
+    footer .suscripcion-copyright{
+        background-image: none;
+        grid-column: 5 / 5;
+        grid-row: 1 / 1;
+    }
+    .contenedor-copyright{
+        display: initial;
+        width: max-content;
+
+    }
+    .contenedor-copyright>p{
+        margin-top: 14px;
+        font-size: 14px;
+    }
+    .lista-footer{
+        text-align: start;
+        background-color: transparent;
+        margin-top: 20px;
     }
 }

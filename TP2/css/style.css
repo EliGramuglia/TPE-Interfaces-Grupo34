@@ -50,6 +50,7 @@
     --tamanio-16: 16px;
     --tamanio-20: 20px;
     --tamanio-24: 24px;
+    --tamanio-50: 50px;
 }
 
 
@@ -79,6 +80,10 @@ h1 {
 a {
     color: inherit;
     text-decoration: none;
+}
+
+button {
+    font-family: 'Nunito';
 }
 
 input {
@@ -691,6 +696,71 @@ main#home {
     padding: 44px;
 }
 
+/* Imagen Hero */
+#imagen-hero {
+    width: 100%;
+    height: 400px;
+    padding: 10px 10px 10px 100px;
+    margin-bottom: 50px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url(../img/hero-mario-bros.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 10%;
+    border-radius: 15px;
+}
+
+#imagen-hero::before { /* Filtro que oscurece imágen */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 15px; /* Debe coincidir con el contenedor */
+    z-index: 1;
+}
+
+#imagen-hero #info-juego {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 2;
+}
+
+#imagen-hero #info-juego p {
+    font-size: var(--tamanio-20);
+    font-weight: var(--grosor-grueso);
+}
+
+#imagen-hero #info-juego h1 {
+    font-size: var(--tamanio-50);
+    font-weight: var(--grosor-grueso);
+}
+
+#imagen-hero #info-juego button {
+    width: fit-content;
+    height: auto;
+    padding: 8px 30px;
+    font-size: 22px;
+    font-weight: var(--grosor-grueso);
+    border-radius: 30px;
+    background-color: var(--secundario);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#imagen-hero #info-juego button:hover {
+    background-color: var(--secundario-semi-claro);
+}
+
 /* Carruseles de tarjetas */
 #carruseles-juegos {
     display: flex;
@@ -727,13 +797,20 @@ div.carrusel-contenido::-webkit-scrollbar {
     width: 50px;
     height: 100%;
     z-index: 2;
-    background-color: rgba(0, 0, 0, 0.55);
+    background-color: rgb(0, 0, 0);
+    opacity: 0;
     cursor: pointer;
     font-size: var(--tamanio-24);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     color: white;
+    transition: opacity 0.3s ease;
+}
+
+.flecha-carrusel-prev.visible, .flecha-carrusel-sig.visible {
+    opacity: 0.6;
+}
+
+.flecha-carrusel-prev:hover, .flecha-carrusel-sig:hover {
+    opacity: 0.8;
 }
 
 .flecha-carrusel-prev {
@@ -837,7 +914,7 @@ div.puntaje-juego {
 }
 
 .icono-carrito {
-    background-color: var(--gris-semi-claro);
+    background-color: var(--gris-semi-claro); /*gris o verdeeeeeeeeee???????????*/
 }
 
 .icono-carrito.quitar {
@@ -899,7 +976,7 @@ div.puntaje-juego img { /* Imagen de estrella */
 /* ------------------- Juego ------------------- */
 main#juego {
     min-height: calc(100vh - 60px - 360px); /* Altura mínima del main (restando altura del header y footer) */
-    padding: 20px 116px 0px 116px;
+    padding: 50px 116px 0px 116px;
 }
 
 /* estilos para breadcrumbs del inicio de la pagina del juego */
@@ -911,6 +988,7 @@ nav#bread-crumbs ul {
     display: flex;
     gap: 10px;
     font-size: var(--tamanio-14);
+    font-weight: var(--grosor-mediano);
 }
 
 nav#bread-crumbs ul li {
@@ -933,7 +1011,7 @@ nav#bread-crumbs ul img {
 }
 
 .contenedor-pantalla-juego {
-    background-image: url(/img/tarjetas/4enLinea.png);
+    background-image: url(../img/tarjetas/4enLinea.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 550px;
@@ -946,7 +1024,27 @@ nav#bread-crumbs ul img {
     background-color: rgba(0, 0, 0, 0.55);
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
+}
+
+.pantalla-juego img {
+    width: 220px;
+    height: auto;
+}
+
+.pantalla-juego h2 {
+    font-size: var(--tamanio-24);
+    font-weight: 800;
+}
+
+.pantalla-juego .btn-principal {
+    width: 140px;
+    height: 50px;
+    font-size: var(--tamanio-24);
+    font-weight: var(--grosor-grueso);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Estilos para el nav de la pantalla del juego */
@@ -1172,7 +1270,7 @@ ul.lista-videos li {
 }
 
 #banner img {
-    width: 195;
+    width: 195 px;
     height: 1300px;
 }
 
@@ -1436,7 +1534,7 @@ ul.lista-videos li {
 
     .portada-formulario {
         display: initial;
-        background-image: url(/img/portada_login.jpg);
+        background-image: url(../img/portada_login.jpg);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;

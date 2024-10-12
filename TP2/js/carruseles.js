@@ -216,11 +216,11 @@ document.addEventListener("DOMContentLoaded", () => {
     function crearBotones(contenedor, contenido) {
         const btnPrev = document.createElement('button');
         btnPrev.classList.add('flecha-carrusel-prev');
-        btnPrev.textContent = '⟨';
+        btnPrev.textContent = '❮';
 
         const btnSig = document.createElement('button');
         btnSig.classList.add('flecha-carrusel-sig');
-        btnSig.textContent = "〉";
+        btnSig.textContent = "❯";
 
         btnPrev.addEventListener('click', () => {
             deslizarCarrusel(contenido, -window.innerWidth / 2)
@@ -231,6 +231,15 @@ document.addEventListener("DOMContentLoaded", () => {
     
         contenedor.appendChild(btnPrev);
         contenedor.appendChild(btnSig);
+
+        contenedor.addEventListener('mouseenter', () => {
+            btnPrev.classList.add('visible');
+            btnSig.classList.add('visible');
+        });
+        contenedor.addEventListener('mouseleave', () => {
+            btnPrev.classList.remove('visible');
+            btnSig.classList.remove('visible');
+        });
     }
 
     function deslizarCarrusel(contenido, direccion) {

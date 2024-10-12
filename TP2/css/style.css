@@ -50,6 +50,7 @@
     --tamanio-16: 16px;
     --tamanio-20: 20px;
     --tamanio-24: 24px;
+    --tamanio-40: 40px;
 }
 
 
@@ -79,6 +80,10 @@ h1 {
 a {
     color: inherit;
     text-decoration: none;
+}
+
+button {
+    font-family: 'Nunito';
 }
 
 input {
@@ -691,6 +696,65 @@ main#home {
     padding: 44px;
 }
 
+/* Imagen Hero */
+#imagen-hero {
+    width: 100%;
+    height: 300px;
+    padding: 10px 10px 10px 200px;
+    margin-bottom: 40px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url(../img/hero-mario-bros.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 10%;
+    border-radius: 15px;
+}
+
+#imagen-hero::before { /* Filtro que oscurece imágen */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 15px; /* Debe coincidir con el contenedor */
+    z-index: 1;
+}
+
+#imagen-hero #info-juego {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 2;
+}
+
+#imagen-hero #info-juego p {
+    font-size: var(--tamanio-16);
+}
+
+#imagen-hero #info-juego h1 {
+    font-size: var(--tamanio-40);
+}
+
+#imagen-hero #info-juego button {
+    width: fit-content;
+    padding: 10px 40px;
+    font-size: var(--tamanio-16);
+    font-weight: var(--grosor-grueso);
+    border-radius: 15px;
+    background-color: var(--secundario);
+    cursor: pointer;
+}
+
+#imagen-hero #info-juego button:hover {
+    background-color: var(--secundario-semi-claro);
+}
+
 /* Carruseles de tarjetas */
 #carruseles-juegos {
     display: flex;
@@ -727,13 +791,20 @@ div.carrusel-contenido::-webkit-scrollbar {
     width: 50px;
     height: 100%;
     z-index: 2;
-    background-color: rgba(0, 0, 0, 0.55);
+    background-color: rgb(0, 0, 0);
+    opacity: 0;
     cursor: pointer;
     font-size: var(--tamanio-24);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     color: white;
+    transition: opacity 0.3s ease;
+}
+
+.flecha-carrusel-prev.visible, .flecha-carrusel-sig.visible {
+    opacity: 0.6;
+}
+
+.flecha-carrusel-prev:hover, .flecha-carrusel-sig:hover {
+    opacity: 0.8;
 }
 
 .flecha-carrusel-prev {
@@ -1435,7 +1506,7 @@ ul.lista-videos li {
 
     .portada-formulario {
         display: initial;
-        background-image: url(/img/portada_login.jpg);
+        background-image: url(../img/portada_login.jpg);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;

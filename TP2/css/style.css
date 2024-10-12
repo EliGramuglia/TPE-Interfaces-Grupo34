@@ -50,7 +50,7 @@
     --tamanio-16: 16px;
     --tamanio-20: 20px;
     --tamanio-24: 24px;
-    --tamanio-40: 40px;
+    --tamanio-50: 50px;
 }
 
 
@@ -699,8 +699,8 @@ main#home {
 /* Imagen Hero */
 #imagen-hero {
     width: 100%;
-    height: 300px;
-    padding: 10px 10px 10px 200px;
+    height: 400px;
+    padding: 10px 10px 10px 100px;
     margin-bottom: 50px;
     position: relative;
     display: flex;
@@ -734,21 +734,27 @@ main#home {
 }
 
 #imagen-hero #info-juego p {
-    font-size: var(--tamanio-16);
+    font-size: var(--tamanio-20);
+    font-weight: var(--grosor-grueso);
 }
 
 #imagen-hero #info-juego h1 {
-    font-size: var(--tamanio-40);
+    font-size: var(--tamanio-50);
+    font-weight: var(--grosor-grueso);
 }
 
 #imagen-hero #info-juego button {
     width: fit-content;
-    padding: 10px 40px;
-    font-size: var(--tamanio-16);
+    height: auto;
+    padding: 8px 30px;
+    font-size: 22px;
     font-weight: var(--grosor-grueso);
-    border-radius: 15px;
+    border-radius: 30px;
     background-color: var(--secundario);
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #imagen-hero #info-juego button:hover {
@@ -908,7 +914,7 @@ div.puntaje-juego {
 }
 
 .icono-carrito {
-    background-color: var(--gris-semi-claro);
+    background-color: var(--gris-semi-claro); /*gris o verdeeeeeeeeee???????????*/
 }
 
 .icono-carrito.quitar {
@@ -970,7 +976,7 @@ div.puntaje-juego img { /* Imagen de estrella */
 /* ------------------- Juego ------------------- */
 main#juego {
     min-height: calc(100vh - 60px - 360px); /* Altura mínima del main (restando altura del header y footer) */
-    padding: 20px 116px 0px 116px;
+    padding: 50px 116px 0px 116px;
 }
 
 /* estilos para breadcrumbs del inicio de la pagina del juego */
@@ -982,6 +988,7 @@ nav#bread-crumbs ul {
     display: flex;
     gap: 10px;
     font-size: var(--tamanio-14);
+    font-weight: var(--grosor-mediano);
 }
 
 nav#bread-crumbs ul li {
@@ -1004,7 +1011,7 @@ nav#bread-crumbs ul img {
 }
 
 .contenedor-pantalla-juego {
-    background-image: url(/img/tarjetas/4enLinea.png);
+    background-image: url(../img/tarjetas/4enLinea.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 550px;
@@ -1017,7 +1024,7 @@ nav#bread-crumbs ul img {
     background-color: rgba(0, 0, 0, 0.55);
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 /* Estilos para el nav de la pantalla del juego */
@@ -1242,7 +1249,7 @@ ul.lista-videos li {
 }
 
 #banner img {
-    width: 195;
+    width: 195 px;
     height: 1300px;
 }
 

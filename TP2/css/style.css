@@ -378,7 +378,7 @@ header {
     align-items: center;
 }
 
-#avatar-mail #nikename {
+#avatar-mail #nickname {
     font-size: var(--tamanio-20);
     font-weight: var(--grosor-grueso);
     margin-top: 8px;
@@ -865,11 +865,20 @@ main#home {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-image: url(../img/hero-mario-bros.jpg);
+    border-radius: 15px;
+    background-image: url(../img/hero/super-mario-bros.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 0 10%;
-    border-radius: 15px;
+    animation: deslizar-imagen 120s linear infinite;
+}
+
+@keyframes deslizar-imagen {
+    0%, 100% {
+        background-position: center top;
+    }
+    50% {
+        background-position: center bottom;
+    }
 }
 
 #imagen-hero::before { /* Filtro que oscurece imágen */
@@ -882,6 +891,41 @@ main#home {
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 15px; /* Debe coincidir con el contenedor */
     z-index: 1;
+}
+
+button.hero-flecha-izquierda, button.hero-flecha-derecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
+    padding: 15px;
+    font-size: var(--tamanio-50);
+    color: var(--gris-muy-claro);
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 3;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+button.hero-flecha-izquierda:hover, button.hero-flecha-derecha:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+button.hero-flecha-izquierda.visible, button.hero-flecha-derecha.visible {
+    opacity: 1;
+}
+
+button.hero-flecha-izquierda {
+    left: 0;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+button.hero-flecha-derecha {
+    right: 0;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 #imagen-hero #info-juego {

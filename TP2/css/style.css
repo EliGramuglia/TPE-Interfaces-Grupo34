@@ -1143,32 +1143,28 @@ nav#bread-crumbs ul img {
     gap: 15px;
     position: relative;
     z-index: 1;
-    
 }
-#caja-instrucciones{
+
+#caja-instrucciones {
     position: absolute;
     z-index: 2;
     right: 50px;
     bottom: 0;
     opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s linear;
 }
-@keyframes mostrarInstrucciones {
-    0%{
-        right: 50px;
-        bottom: 0;
-        opacity: 100%;
-    }
 
-    100%{
-        bottom: 20px;
-        opacity: 100%;
-    }
+#caja-instrucciones.visible {
+    bottom: 20px;
+    opacity: 1;
+    visibility: visible;
 }
+
 /* #caja-instrucciones:hover{
     bottom: 20px;
     opacity: 100%;
 } */
-
 
 .pantalla-juego img {
     width: 220px;
@@ -1192,7 +1188,7 @@ nav#bread-crumbs ul img {
 
 .icono-play-boton {
     display: inline-block;
-    font-size: 16px; 
+    font-size: 16px;
     transform: scale(0.9, 1.5);
     margin-left: 8px;
 }
@@ -1200,6 +1196,7 @@ nav#bread-crumbs ul img {
 .btn-principal:hover {
     background-color: var(--secundario-semi-claro);
 }
+
 /* Estilos para la card de instrucciones del juego */
 .contenedor-controles-juego {
     background-color: #212233;
@@ -1215,17 +1212,17 @@ nav#bread-crumbs ul img {
     gap: 14px;
     font-size: 20px;
 }
-.reglas-contenedor button{
+
+.reglas-contenedor button {
     background-color: transparent;
     border: none;
     width: 12px;
     cursor: pointer;
 }
-/* cruz de salida */
-.reglas-contenedor img{
+
+.reglas-contenedor img { /* cruz de salida */
     width: 100%;
 }
-
 
 .caja-reglas>img {
     width: 200px;
@@ -1236,37 +1233,43 @@ nav#bread-crumbs ul img {
     font-size: 16px;
     font-weight: bold;
 }
-.caja-reglas{
+
+.caja-reglas {
     padding: 10px;
     display: grid;
     grid-template-columns: 2fr 1fr 2fr;
     align-items: center;
     justify-items: center;
 }
-#circulos-instrucciones{
+
+#circulos-instrucciones {
     display: flex;
     flex-direction: column-reverse;
     gap: 5px;
     justify-content: center;
     align-items: center;
 }
-#circulos-instrucciones p{
-    background-color: rgb(12, 13, 20,60%);
+
+#circulos-instrucciones p {
+    background-color: rgb(12, 13, 20, 60%);
     padding: 5px 10px;
     border-radius: 30px;
-    border: 1px solid rgb(224, 6, 113,70%);
-}
-.caja-reglas #clickMouse{
-    width: 80px;
-}
-#circulos-instrucciones p:hover{
-    background-color: rgb(224, 6, 113,50%);
+    border: 1px solid rgb(224, 6, 113, 70%);
 }
 
-.caja-reglas h3{
+.caja-reglas #clickMouse {
+    width: 80px;
+}
+
+#circulos-instrucciones p:hover {
+    background-color: rgb(224, 6, 113, 50%);
+}
+
+.caja-reglas h3 {
     width: max-content;
     grid-column: 3;
 }
+
 hr {
     border: 1px solid #666;
     width: 100%;

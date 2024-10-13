@@ -446,8 +446,9 @@ header {
 
 /* --------------------- Footer --------------------- */
 footer {
-    background-color: #28293D;
+    background-color: var(--gris-semi-claro);
 }
+
 .contenedor-footer {
     display: grid;
     grid-template-columns: 1fr;
@@ -462,34 +463,39 @@ footer {
     font-size: var(--tamanio-20);
     padding-bottom: 10px;
 }
-/* .oculto{
-    display: none;
-} */
-.lista-footer ul,.redes-footer ul{
+
+.lista-footer ul,
+.redes-footer ul {
     list-style: none;
 }
-.lista-footer ul li{
+
+.lista-footer ul li {
     padding: 10px 0;
 }
-.lista-footer{
+
+.lista-footer {
     background-color: black;
     text-align: center;
     border-radius: 10px;
     width: 100%;
     padding: 20px 0;
 }
-.suscripcion-copyright{
+
+.suscripcion-copyright {
     width: 100%;
     display: flex;
     flex-direction: column;
     padding-top: 20px;
 }
-.suscripcion-copyright > p{
+
+.suscripcion-copyright>p {
+    text-align: center;
     margin-top: 20px;
     font-weight: bolder;
 }
-.form-suscripcion{
-    background-color: white;
+
+.form-suscripcion {
+    background-color: var(--gris-muy-claro);
     width: 350px;
     padding: 4px;
     border-radius: 50px;
@@ -499,7 +505,7 @@ footer {
     margin: 20px 0;
 }
 
-.form-suscripcion input{
+.form-suscripcion input {
     height: 100%;
     width: 60%;
     overflow: hidden;
@@ -511,7 +517,7 @@ footer {
     outline: none;
 }
 
-.form-suscripcion button{
+.form-suscripcion button {
     background-color: var(--primario-semi-oscuro);
     border: none;
     width: 40%;
@@ -519,6 +525,7 @@ footer {
     cursor: pointer;
     padding: 10px;
 }
+
 footer .form-suscripcion button:hover {
     background-color: var(--primario-semi-claro);
 }
@@ -578,8 +585,7 @@ footer a:hover {
 }
 
 .contenedor-formulario-inicio {
-    /* min-height: calc(100vh - 60px - 360px); */
-    height: 850px;
+    height: auto;
     display: grid;
     grid-template-columns: 1fr;
 }
@@ -649,6 +655,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .contenedor-input {
+    margin-top: 20px;
     column-gap: 4px;
     width: 100%;
 }
@@ -998,7 +1005,6 @@ div.puntaje-juego {
 
 .icono-play {
     background-color: var(--secundario);
-
 }
 
 .icono-play img {
@@ -1007,7 +1013,7 @@ div.puntaje-juego {
 }
 
 .icono-carrito {
-    background-color: var(--gris-semi-claro); /*gris o verdeeeeeeeeee???????????*/
+    background-color: var(--gris-semi-claro);
 }
 
 .icono-carrito.quitar {
@@ -1085,7 +1091,7 @@ main#juego {
     padding: 50px 116px 0px 116px;
 }
 
-/* estilos para breadcrumbs del inicio de la pagina del juego */
+/* Estilos para breadcrumbs del inicio de la página del juego */
 nav#bread-crumbs {
     margin: 10px 0;
 }
@@ -1327,7 +1333,6 @@ ul.lista-videos li {
 }
 
 /* Sección de comentarios */
-
 #contenedor-seccion-comentarios {
     /* Contenedor general de la sección */
     display: flex;
@@ -1630,15 +1635,13 @@ ul.lista-videos li {
     padding: 8px 20px;
 }
 
-
-/*******************************/
 .btn-ver-mas-comentarios {
     width: 150px;
     height: 30px;
     margin-top: 10px;
     font-size: var(--tamanio-14);
     font-weight: var(--grosor-grueso);
-    border: none; /* Sin borde */
+    border: none;
     border-radius: 0px 10px 10px 10px;
     background-color: #6300E6;
     color: var(--gris-muy-claro);
@@ -1677,12 +1680,7 @@ ul.lista-videos li {
     background-color: var(--primario-semi-claro);
 }
 
-
-/*******************************/
-
-
-
-/* ------------------- Login desktop ------------------- */
+/* ------------------- Login Desktop ------------------- */
 @media only screen and (min-width: 800px) {
     .contenedor-input {
         display: grid;
@@ -1694,6 +1692,7 @@ ul.lista-videos li {
     }
 
     .contenedor-formulario-inicio {
+        height: 1000px;
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -1712,7 +1711,8 @@ ul.lista-videos li {
         background-size: cover;
         background-position: center;
     }
-    /* footer desktop */
+
+    /* Footer Desktop */
     .contenedor-footer{
         display: grid;
         grid-template-columns: repeat(5,1fr);
@@ -1722,7 +1722,7 @@ ul.lista-videos li {
         padding: 30px 50px;
     }
 
-    footer .suscripcion-copyright{
+    footer .suscripcion-copyright {
         justify-content: start;
         background-image: none;
         grid-column: 5 / 5;
@@ -1731,25 +1731,30 @@ ul.lista-videos li {
         padding: 0;
         justify-self: end;
     }
-    .contenedor-copyright{
+
+    .contenedor-copyright {
         display: initial;
         width: max-content;
 
     }
-    .contenedor-copyright>p{
+
+    .contenedor-copyright > p {
         margin-top: 14px;
         font-size: 14px;
     }
-    .lista-footer{
+
+    .lista-footer {
         text-align: start;
         background-color: transparent;
     }
-    .form-suscripcion{
+
+    .form-suscripcion {
         width: 100%;
         max-width: 350px;
-        min-width: 250px;
+        min-width: 200px;
     }
-    .lista-footer{
+
+    .lista-footer {
         padding: 0;
     }
 }

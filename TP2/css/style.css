@@ -623,7 +623,10 @@ footer a:hover {
     gap: 20px;
     width: 100%;
 }
+.formulario-registro{
+    position: relative;
 
+}
 .nav-registro h2 {
     text-align: center;
     cursor: pointer;
@@ -778,7 +781,39 @@ a.link-activo {
     width: 50px;
     height: 50px;
 }
+.contenedor-msgConfirmacion{
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    bottom: 8%;
+    padding: 10px;
 
+}
+#msg-confirmacion{
+    animation: confirmacionLogin 3s ease-in-out forwards;
+}   
+@keyframes confirmacionLogin {
+    0% {
+        opacity: 1;
+        transform: translateX(0); 
+        letter-spacing: 0; 
+        color: var(--secundario-claro);
+    }
+    50% {
+        transform: translateX(40%);
+        letter-spacing: 0;   
+        letter-spacing: 1.5px; 
+        font-size: 18px;
+        color: var(--secundario-muy-claro);
+        font-weight: bold;
+    }  
+    100% {
+        transform: translateX(40%);
+        color: var(--secundario-claro);
+        letter-spacing: 0; 
+        font-weight: bold;
+    }
+}
 /* ------------------- Home ------------------- */
 
 /* Main */

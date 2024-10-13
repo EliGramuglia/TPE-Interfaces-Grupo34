@@ -49,8 +49,13 @@ btnRegistro.addEventListener('click', (e) => {
     e.preventDefault();
     let inputForm = document.querySelectorAll('#formRegistro form input[required]');
     advertenciaInput(inputForm);
+    //si todos los campos del formulario estan completados
+    //muestro la animacion de confirmacion y luego redirijo al home
     if (validandoFormulario(inputForm)) {
-        window.location.href = 'index.html';
+        mostrarConfirmacion();
+        setTimeout(() => {
+            window.location.href = 'index.html';; 
+        }, 5000);
     }
 })
 
@@ -80,6 +85,12 @@ function advertenciaInput(inputForm) {
             input.classList.remove('inputFaltante');
         }
     })
+}
+function mostrarConfirmacion(){
+    const cajaConfirmacion = document.querySelector('.contenedor-msgConfirmacion');
+    const msg = document.getElementById('msg-confirmacion');
+    cajaConfirmacion.classList.remove('oculto');
+    console.log('msg confirmacion')
 }
 
 

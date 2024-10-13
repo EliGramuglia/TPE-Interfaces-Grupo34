@@ -30,4 +30,3 @@ document.addEventListener('DOMContentLoaded', () => {
         caja.classList.remove('visible');
     });
 });
-    

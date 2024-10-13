@@ -635,6 +635,7 @@ footer a:hover {
 .input-formulario input {
     border-radius: 4px;
     padding: 10px;
+    border: 2px solid;
 }
 
 .input-formulario input[type="date"] {
@@ -648,7 +649,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     gap: 4px;
     margin: 8px 0;
 }
+.inputFaltante{
+    animation: inputFaltante 1.5s linear .5s infinite;
+}
 
+@keyframes inputFaltante {
+
+    25% {
+        border: 2px solid var(--acento-semi-oscuro);
+    }
+
+    50% {
+        border: 2px solid var(--acento);
+    }
+
+}
 .input-formulario>p {
     font-style: oblique;
     margin: 4px 0;
@@ -689,9 +704,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .btn-principal:hover {
     transform: scale(.98);
-}
+} 
 
-.btn-principal:hover:after {
+.btn-principal::after {
     animation: btnPrincipal 2s ease-in-out .5s infinite;
 }
 
@@ -1194,7 +1209,7 @@ nav#bread-crumbs ul img {
     margin-left: 8px;
 }
 
-.btn-principal:hover {
+.pantalla-juego .btn-principal:hover {
     background-color: var(--secundario-semi-claro);
 }
 

@@ -51,11 +51,11 @@
                     <div class="contenedor-input">
                         <div class="input-formulario ancho-completo">
                             <label class="texto" for="email-login">Email<span class="resaltado">*</span></label>
-                            <input type="email" name="" id="email-login" placeholder="nombre@email.com">
+                            <input type="email" name="" id="email-login" placeholder="nombre@email.com" required>
                         </div>
                         <div class="input-formulario ancho-completo">
                             <label for="password-login">Contraseña <span class="resaltado">*</span></label>
-                            <input type="password" name="" id="password-login" placeholder="*********">
+                            <input type="password" name="" id="password-login" placeholder="*********" required>
                             <a href="#" class="link-activo">Olvidé mi contraseña</a>
                         </div>
                         <div>
@@ -83,12 +83,12 @@
                     <div class="contenedor-input">
                         <div class="input-formulario">
                             <label for="nombre">Nombre<span class="resaltado">*</span></label>
-                            <input type="text" id="nombre" placeholder="nombre">
+                            <input type="text" id="nombre" placeholder="nombre" required>
                         </div>
         
                         <div class="input-formulario">
                             <label for="apellido">Apellido<span class="resaltado">*</span></label>
-                            <input type="text" id="apellido" placeholder="apellido">
+                            <input type="text" id="apellido" placeholder="apellido" required>
                         </div>
         
                         <div class="input-formulario">
@@ -98,36 +98,37 @@
         
                         <div class="input-formulario">
                             <label for="fechaNac">Fecha de nacimiento <span class="resaltado">*</span></label>
-                            <input type="date" id="fechaNac">
+                            <input type="date" id="fechaNac" required>
                         </div>
         
                         <div class="input-formulario ancho-completo">
                             <label for="email-registro">Email <span class="resaltado">*</span></label>
-                            <input type="email" id="email-registro" placeholder="nombre@email.com">
+                            <input type="email" id="email-registro" placeholder="nombre@email.com" required>
                         </div>
         
                         <div class="input-formulario ancho-completo">
                             <label for="password-registro">Contraseña<span class="resaltado">*</span></label>
-                            <input type="password" id="password-registro" placeholder="*********">
+                            <input type="password" id="password-registro" placeholder="*********" required>
                         </div>
         
                         <div class="input-formulario ancho-completo">
                             <label for="confirmarContraseña">Repetir contraseña <span class="resaltado">*</span></label>
-                            <input type="password" id="confirmarContraseña" placeholder="*********">
+                            <input type="password" id="confirmarContraseña" placeholder="*********" required>
                             <p>La contraseña debe tener al menos 6 caracteres e incluir letras y números</p>
                         </div>
                     </div>
                     <div class="input-capcha">
-                        <input type="checkbox" name="" id="capcha">
+                        <input type="checkbox" name="capcha" id="capcha" required>
                         <label for="capcha">No soy un robot</label>
                         <img src="img/iconos/recaptcha-logo.svg" alt="img captcha">
                     </div>
                     <div>
-                        <input type="checkbox" name="" id="condiciones">
+                        <input type="checkbox" name="condiciones" id="condiciones" required>
                         <label for="condiciones">Al registrarte aceptás los <a href="#" class="negrita">Terminos y condiciones de
                                 Winnit</a></label>
                     </div>
                     <button id="btn-registro" class="btn-principal"><span>Registrarse</span></button>
+                    <p id="mg-login"></p>
                     <div class="redes-sociales">
                         <a href="#">
                             <img src="img/iconos/logo-google.png" alt="Google">

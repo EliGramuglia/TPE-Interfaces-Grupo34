@@ -1740,8 +1740,6 @@ ul.lista-videos li {
     padding: 8px 20px;
 }
 
-
-/*******************************/
 .btn-ver-mas-comentarios {
     width: 150px;
     height: 30px;
@@ -1786,9 +1784,6 @@ ul.lista-videos li {
 .btn-mas-comentarios:hover {
     background-color: var(--primario-semi-claro);
 }
-
-
-/*******************************/
 
 
 

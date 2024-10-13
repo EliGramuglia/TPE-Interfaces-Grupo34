@@ -445,170 +445,58 @@ header {
 
 
 /* --------------------- Footer --------------------- */
-/* footer {
-    width: 100%;
-    height: 360px;
-    padding: 35px;
-    position: relative;
+footer {
     background-color: var(--gris-semi-claro);
 }
 
-footer .contenedor-footer {
-    display: flex;
-    justify-content: space-evenly;
-    gap: 25px;
-}
-
-footer ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 15px;
-}
-
-footer .titulo-columna {
-    font-weight: var(--grosor-grueso);
-    font-size: var(--tamanio-24);
-}
-
-footer li {
-    font-weight: var(--grosor-fino);
-}
-
-footer .suscripcion-copyright {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    text-align: center;
-}
-
-footer div.form-suscripcion {
-    min-width: 100%;
-    height: 40px;
-    border-radius: 100vw;
-    padding: 2px;
-    background-color: var(--gris-muy-claro);
-}
-
-footer .form-suscripcion form {
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0;
-}
-
-footer .form-suscripcion input {
-    min-width: 65%;
-    height: inherit;
-    padding: 0 15px;
-    border-radius: 100vw;
-}
-
-footer .form-suscripcion button {
-    min-width: 35%;
-    height: inherit;
-    background-color: var(--primario-semi-oscuro);
-    border-radius: 100vw;
-}
-
-footer .form-suscripcion button:hover {
-    background-color: var(--primario-semi-claro);
-}
-
-footer .suscripcion-copyright hr {
-    width: 70%;
-    height: 1px;
-    margin-top: 15px;
-    background-color: var(--gris-claro);
-}
-
-footer #copyright {
-    font-size: var(--tamanio-14);
-    font-weight: var(--grosor-fino);
-}
-
-footer .redes-footer {
-    width: 230px;
-    height: 56px;
-    padding: 12px;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    border-top-left-radius: 100vw;
-    border-top-right-radius: 100vw;
-    background-color: var(--primario);
-}
-
-footer .redes-footer ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 18px;
-}
-
-footer .redes-footer a img {
-    width: 35px;
-    height: 35px;
-    transition: transform 0.2s ease, filter 0.2s ease;
-}
-
-footer .redes-footer img:hover {
-    transform: scale(1.1);
-    filter: brightness(1.4);
-}
-
-footer a:hover {
-    color: var(--acento-semi-claro);
-} */
-
-footer{
-    background-color: #28293D;
-}
-.contenedor-footer{
-    padding: 20px;
+.contenedor-footer {
     display: grid;
     grid-template-columns: 1fr;
-    justify-items: center;
-    row-gap: 10px;
+    justify-content: center;
+    padding: 15px 20px;
+    row-gap: 14px;
 }
 
-.titulo-columna{
+.titulo-columna {
     width: 100%;
     font-weight: var(--grosor-grueso);
     font-size: var(--tamanio-20);
-    padding: 10px 0;
+    padding-bottom: 10px;
 }
-/* .oculto{
-    display: none;
-} */
-.lista-footer ul,.redes-footer ul{
+
+.lista-footer ul,
+.redes-footer ul {
     list-style: none;
 }
-.lista-footer ul li{
-    margin: 10px 0;
+
+.lista-footer ul li {
+    padding: 10px 0;
 }
-.lista-footer{
+
+.lista-footer {
     background-color: black;
     text-align: center;
     border-radius: 10px;
-    width: 80%;
+    width: 100%;
+    padding: 20px 0;
 }
-.suscripcion-copyright{
-    padding-top: 20px;
-    width: 80%;
+
+.suscripcion-copyright {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    padding-top: 20px;
 }
-.suscripcion-copyright > p{
+
+.suscripcion-copyright>p {
+    text-align: center;
     margin-top: 20px;
     font-weight: bolder;
 }
-.form-suscripcion{
-    background-color: white;
-    width: 80%;
+
+.form-suscripcion {
+    background-color: var(--gris-muy-claro);
+    width: 350px;
     padding: 4px;
     border-radius: 50px;
     display: flex;
@@ -617,21 +505,30 @@ footer{
     margin: 20px 0;
 }
 
-.form-suscripcion input{
+.form-suscripcion input {
     height: 100%;
     width: 60%;
     overflow: hidden;
     border: none;
     padding-left: 10px;
 }
-.form-suscripcion button{
-    background-color: #6300E6;
+
+.form-suscripcion input:focus {
+    outline: none;
+}
+
+.form-suscripcion button {
+    background-color: var(--primario-semi-oscuro);
     border: none;
     width: 40%;
     border-radius: 50px;
+    cursor: pointer;
     padding: 10px;
 }
 
+footer .form-suscripcion button:hover {
+    background-color: var(--primario-semi-claro);
+}
 
 footer .suscripcion-copyright {
     display: flex;
@@ -658,7 +555,7 @@ footer .suscripcion-copyright hr {
     justify-content: center;
 }
 .redes-footer ul{
-    background-color: #2d0078;
+    background-color: var(--primario-semi-oscuro);
     width: max-content;
     justify-content: center;
     align-items: center;
@@ -688,8 +585,7 @@ footer a:hover {
 }
 
 .contenedor-formulario-inicio {
-    /* min-height: calc(100vh - 60px - 360px); */
-    height: 850px;
+    height: auto;
     display: grid;
     grid-template-columns: 1fr;
 }
@@ -759,6 +655,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .contenedor-input {
+    margin-top: 20px;
     column-gap: 4px;
     width: 100%;
 }
@@ -778,7 +675,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     overflow: hidden;
 }
 
-.btn-principal::after{
+.btn-principal::after {
     content: "";
     width: 40%;
     height: 90px;
@@ -789,17 +686,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     top: 0;
     transform: skew(35deg);
 }
-.btn-principal:hover{
+
+.btn-principal:hover {
     transform: scale(.98);
 }
+
 .btn-principal:hover:after {
     animation: btnPrincipal 2s ease-in-out .5s infinite;
 }
+
 .btn-principal span {
     position: relative;
     z-index: 2;
     transition: .3s ease all;
 }
+
 @keyframes btnPrincipal {
     0% {
         left: -150px;
@@ -881,7 +782,7 @@ main#home {
     }
 }
 
-#imagen-hero::before { /* Filtro que oscurece imágen */
+#imagen-hero::before { /* Filtro que oscurece imagen */
     content: '';
     position: absolute;
     top: 0;
@@ -1108,7 +1009,6 @@ div.puntaje-juego {
 
 .icono-play {
     background-color: var(--secundario);
-
 }
 
 .icono-play img {
@@ -1117,7 +1017,7 @@ div.puntaje-juego {
 }
 
 .icono-carrito {
-    background-color: var(--gris-semi-claro); /*gris o verdeeeeeeeeee???????????*/
+    background-color: var(--gris-semi-claro);
 }
 
 .icono-carrito.quitar {
@@ -1195,7 +1095,7 @@ main#juego {
     padding: 50px 116px 0px 116px;
 }
 
-/* estilos para breadcrumbs del inicio de la pagina del juego */
+/* Estilos para breadcrumbs del inicio de la página del juego */
 nav#bread-crumbs {
     margin: 10px 0;
 }
@@ -1241,7 +1141,34 @@ nav#bread-crumbs ul img {
     justify-content: center;
     align-items: center;
     gap: 15px;
+    position: relative;
+    z-index: 1;
+    
 }
+#caja-instrucciones{
+    position: absolute;
+    z-index: 2;
+    right: 50px;
+    bottom: 0;
+    opacity: 0;
+}
+@keyframes mostrarInstrucciones {
+    0%{
+        right: 50px;
+        bottom: 0;
+        opacity: 100%;
+    }
+
+    100%{
+        bottom: 20px;
+        opacity: 100%;
+    }
+}
+/* #caja-instrucciones:hover{
+    bottom: 20px;
+    opacity: 100%;
+} */
+
 
 .pantalla-juego img {
     width: 220px;
@@ -1272,6 +1199,78 @@ nav#bread-crumbs ul img {
 
 .btn-principal:hover {
     background-color: var(--secundario-semi-claro);
+}
+/* Estilos para la card de instrucciones del juego */
+.contenedor-controles-juego {
+    background-color: #212233;
+    padding: 10px;
+    width: 750px;
+    height: 415px;
+    border-radius: 20px;
+}
+
+.reglas-contenedor {
+    display: flex;
+    padding: 10px;
+    gap: 14px;
+    font-size: 20px;
+}
+.reglas-contenedor button{
+    background-color: transparent;
+    border: none;
+    width: 12px;
+    cursor: pointer;
+}
+/* cruz de salida */
+.reglas-contenedor img{
+    width: 100%;
+}
+
+
+.caja-reglas>img {
+    width: 200px;
+    border-radius: 10px;
+}
+
+.titulo-reglas {
+    font-size: 16px;
+    font-weight: bold;
+}
+.caja-reglas{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    align-items: center;
+    justify-items: center;
+}
+#circulos-instrucciones{
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+#circulos-instrucciones p{
+    background-color: rgb(12, 13, 20,60%);
+    padding: 5px 10px;
+    border-radius: 30px;
+    border: 1px solid rgb(224, 6, 113,70%);
+}
+.caja-reglas #clickMouse{
+    width: 80px;
+}
+#circulos-instrucciones p:hover{
+    background-color: rgb(224, 6, 113,50%);
+}
+
+.caja-reglas h3{
+    width: max-content;
+    grid-column: 3;
+}
+hr {
+    border: 1px solid #666;
+    width: 100%;
+    margin: 10px 0;
 }
 
 /* Estilos para el nav de la pantalla del juego */
@@ -1426,6 +1425,7 @@ ul.lista-videos li {
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 4px;
+    
 }
 
 .video-recomendado img {
@@ -1437,7 +1437,6 @@ ul.lista-videos li {
 }
 
 /* Sección de comentarios */
-
 #contenedor-seccion-comentarios {
     /* Contenedor general de la sección */
     display: flex;
@@ -1746,7 +1745,7 @@ ul.lista-videos li {
     margin-top: 10px;
     font-size: var(--tamanio-14);
     font-weight: var(--grosor-grueso);
-    border: none; /* Sin borde */
+    border: none;
     border-radius: 0px 10px 10px 10px;
     background-color: #6300E6;
     color: var(--gris-muy-claro);
@@ -1786,6 +1785,9 @@ ul.lista-videos li {
 }
 
 
+/*******************************/
+
+
 
 /* ------------------- Login desktop ------------------- */
 @media only screen and (min-width: 800px) {
@@ -1794,11 +1796,16 @@ ul.lista-videos li {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    #formIngreso .contenedor-input {
+        row-gap: 10px;
+    }
+
     .ancho-completo {
         grid-column: span 2;
     }
 
     .contenedor-formulario-inicio {
+        height: 1000px;
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -1817,31 +1824,50 @@ ul.lista-videos li {
         background-size: cover;
         background-position: center;
     }
-    /* footer desktop */
+
+    /* Footer Desktop */
     .contenedor-footer{
-        color: aliceblue;
         display: grid;
-        grid-template-columns: repeat(4,1fr) 2fr;
+        grid-template-columns: repeat(5,1fr);
         row-gap: 10px;
+        column-gap: 30px;
+        justify-content: flex-start;
+        padding: 30px 50px;
     }
 
-    footer .suscripcion-copyright{
+    footer .suscripcion-copyright {
+        justify-content: start;
         background-image: none;
         grid-column: 5 / 5;
         grid-row: 1 / 1;
+        width: 100%;
+        padding: 0;
+        justify-self: end;
     }
-    .contenedor-copyright{
+
+    .contenedor-copyright {
         display: initial;
         width: max-content;
 
     }
-    .contenedor-copyright>p{
+
+    .contenedor-copyright > p {
         margin-top: 14px;
         font-size: 14px;
     }
-    .lista-footer{
+
+    .lista-footer {
         text-align: start;
         background-color: transparent;
-        margin-top: 20px;
+    }
+
+    .form-suscripcion {
+        width: 100%;
+        max-width: 350px;
+        min-width: 200px;
+    }
+
+    .lista-footer {
+        padding: 0;
     }
 }

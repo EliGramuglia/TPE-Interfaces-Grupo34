@@ -30,8 +30,8 @@ opciones.forEach(opcion => {
 });
 
 
-const btnRegistro = document.querySelector('#btn-registro');
-const btnLogin = document.querySelector('#btn-login');
+const btnLogin = document.getElementById('btn-login');
+const btnRegistro = document.getElementById('btn-registro');
 
 btnRegistro.addEventListener('click', (e) => {
     e.preventDefault();
@@ -44,3 +44,34 @@ btnLogin.addEventListener('click', (e) => {
 
     window.location.href = 'index.html';
 })
+
+
+//funcionalidades para validacion de inputs
+//arreglar problema de que se envia igual los btn, no importa el preventDefault
+const formularioIngreso = document.querySelector('#formIngreso form');
+const formularioRegistro = document.querySelector('#formRegistro form');
+
+
+function advertenciaInput(inputForm) {
+    inputForm.forEach(input => {
+        if(input.value === ""){
+            input.classList.add('inputFaltante');
+        }else{
+            input.classList.remove('inputFaltante');
+        }
+})
+}
+function prevenirEnvio(e) {
+    e.preventDefault();
+}
+btnLogin.addEventListener('click', (e) => {
+    let inputForm = document.querySelectorAll('#formIngreso form input');
+    e.preventDefault();
+    advertenciaInput(inputForm);
+});
+
+btnRegistro.addEventListener('click', (e) => {
+    let inputForm = document.querySelectorAll('#formRegistro form input');
+    e.preventDefault();
+    advertenciaInput(inputForm);
+});

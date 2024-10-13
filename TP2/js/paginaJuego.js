@@ -15,3 +15,15 @@ botonCorazon.addEventListener('click', () => {
     indice = (indice + 1) % imgEstados.length;
     botonCorazon.src = imgEstados[indice];
 });
+
+//------------------ funcionalidad de btn instrucciones
+const btnInstrucciones = document.getElementById('opc-instrucciones');
+const caja = document.getElementById('caja-instrucciones');
+const btbCerrar = document.getElementById('btn-cerrar-instrucciones');
+
+
+btnInstrucciones.addEventListener('click', () =>{
+    console.log('dentro de la funcion de btn instrucciones')
+    caja.style.animation = 'mostrarInstrucciones .2s linear forwards';
+
+})

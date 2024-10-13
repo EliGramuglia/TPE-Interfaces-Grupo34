@@ -22,8 +22,9 @@
             <img src="img/iconos/lupa.png" alt="Ícono lupa" id="imagen-lupa">
         </div>
         <div class="iconos">
-            <img src="img/iconos/carrito.png" alt="Carrito de compras" class="imagen-iconos icon-hover">
-            <img src="img/iconos/perfil.png" alt="Perfil de usuario" class="imagen-iconos icon-hover" id="icono-perfil">
+            <a href="login.html">
+                <img src="img/iconos/perfil.png" alt="Perfil de usuario" class="imagen-iconos icon-hover" id="icono-perfil">
+            </a>
         </div>
     </header>
 
@@ -34,96 +35,27 @@
         </div>
     </aside>
 
-    <!-- Perfil desplegable -->
-    <!-- <aside id="contendor-perfil-desplegable">
-        <div class="perfil-desplegable">
-            <div id="cruz-salir">
-                <img src="img/iconos/perfil-desplegable/cruz-salir.png" alt="Cruz para cerrar menú" id="cerrar-perfil">
-            </div>
-            <div id="avatar-mail">
-                <img src="img/iconos/perfil-desplegable/foto-de-perfil.png" alt="Ávatar del usuario" id="foto-de-perfil">
-                <p id="nickname">@Fulanito</p>
-                <p id="email">fulanito@mail.com</p>
-            </div>
-            <div id="items-perfil-desplegable">
-                <ul>
-                    <li>
-                        <img src="img/iconos/perfil-desplegable/icono-de-perfil.png" alt="Ícono de perfil">
-                        <a href="#">
-                            <p>Mi perfil</p>
-                        </a>
-                    </li>
-                    <li>
-                        <img src="img/iconos/perfil-desplegable/editar.png" alt="Ícono para editar perfil">
-                        <a href="#">
-                            <p>Editar perfil</p>
-                        </a>
-                    </li>
-                    <li>
-                        <img src="img/iconos/perfil-desplegable/privacidad-de-la-cuenta.png" alt="Ícono para configurar la privacidad de la cuenta">
-                        <a href="#">
-                            <p>Privacidad de la cuenta</p>
-                        </a>
-                    </li>
-                    <li>
-                        <img src="img/iconos/perfil-desplegable/configuracion.png" alt="Ícono para configurar la cuenta">
-                        <a href="#">
-                            <p>Configuración de la cuenta</p>
-                        </a>
-                    </li>
-                    <li id="cerrar-sesion"> 
-                        <img src="img/iconos/perfil-desplegable/logout.png" alt="Ícono para cerrar sesión">
-                        <a href="login.html">
-                            <p>Cerrar sesión</p>
-                        </a>
-                    </li>
-                    <li>
-                        <img src="img/iconos/perfil-desplegable/soporte.png" alt="Ícono de soporte técnico">
-                        <a href="#">
-                            <p>Soporte</p>
-                        </a>
-                    </li>
-                    <li>
-                        <img src="img/iconos/perfil-desplegable/descargar.png" alt="Ícono para descargar la aplicación">
-                        <a href="#">
-                            <p>Descargar aplicación</p>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="redes-sociales">
-                <a href="#">
-                    <img src="img/iconos/logo-facebook.png" alt="Facebook">
-                </a>
-                <a href="#">
-                    <img src="img/iconos/logo-instagram.png" alt="Instagram">
-                </a>
-                <a href="#">
-                    <img src="img/iconos/logo-youtube.png" alt="Youtube">
-                </a>
-            </div>
-        </div>
-    </aside> -->
-
     <!-- Contenedor principal -->
-    <main>
-        <section class="contenedor-formulario-inicio">
-            <figure class="portada-formulario"></figure>
-            <section class="contenedor-formulario">
-                <nav class="nav-registro">
-                    <h2 id="opcIngreso" class="active">Iniciar Sesión</h2>
-                    <h2 id="opcRegistro" class="inactivo">Registro</h2>
-                </nav>
-                <div id="formIngreso">
+    <main class="contenedor-formulario-inicio">
+        <!-- Imágen de portada -->
+        <figure class="portada-formulario"></figure>
+
+        <!-- Login / Registro -->
+        <section class="contenedor-formulario">
+            <nav class="nav-registro">
+                <h2 id="opcIngreso" class="active">Iniciar Sesión</h2>
+                <h2 id="opcRegistro" class="inactivo">Registro</h2>
+            </nav>
+            <section id="formIngreso">
                 <form action="" class="formulario-ingreso">
                     <div class="contenedor-input">
                         <div class="input-formulario ancho-completo">
-                            <label class="texto" for="email">Email<span class="resaltado">*</span></label>
-                            <input type="email" name="" id="email" placeholder="nombre@email.com">
+                            <label class="texto" for="email-login">Email<span class="resaltado">*</span></label>
+                            <input type="email" name="" id="email-login" placeholder="nombre@email.com">
                         </div>
                         <div class="input-formulario ancho-completo">
-                            <label for="contraseña">Contraseña <span class="resaltado">*</span></label>
-                            <input type="password" name="" id="contraseña" placeholder="*********">
+                            <label for="password-login">Contraseña <span class="resaltado">*</span></label>
+                            <input type="password" name="" id="password-login" placeholder="*********">
                             <a href="#" class="link-activo">Olvidé mi contraseña</a>
                         </div>
                         <div>
@@ -131,7 +63,7 @@
                             <label for="recordar-usuario">Recordame</label>
                         </div>
                     </div>
-                    <button id="btn-registro" class="btn-principal dos"><span>Ingresar</span></button>
+                    <button id="btn-login" class="btn-principal"><span>Ingresar</span></button>
                     <div class="redes-sociales">
                         <a href="#">
                             <img src="img/iconos/logo-google.png" alt="Google">
@@ -144,22 +76,23 @@
                         </a>
                     </div>
                 </form>
-            </div>
+            </section>
+        
             <div id="formRegistro" class="oculto">
                 <form class="formulario-registro" action="">
                     <div class="contenedor-input">
                         <div class="input-formulario">
-                            <label for="nombre">Nombre <span class="resaltado">*</span></label>
+                            <label for="nombre">Nombre<span class="resaltado">*</span></label>
                             <input type="text" id="nombre" placeholder="nombre">
                         </div>
         
                         <div class="input-formulario">
-                            <label for="apellido">Apellido <span class="resaltado">*</span></label>
+                            <label for="apellido">Apellido<span class="resaltado">*</span></label>
                             <input type="text" id="apellido" placeholder="apellido">
                         </div>
         
                         <div class="input-formulario">
-                            <label for="nickName">Nickname </label>
+                            <label for="nickName">Nickname</label>
                             <input type="text" id="nickName" placeholder="nombre de usuario">
                         </div>
         
@@ -169,13 +102,13 @@
                         </div>
         
                         <div class="input-formulario ancho-completo">
-                            <label for="email">Email <span class="resaltado">*</span></label>
-                            <input type="email" id="email" placeholder="nombre@email.com">
+                            <label for="email-registro">Email <span class="resaltado">*</span></label>
+                            <input type="email" id="email-registro" placeholder="nombre@email.com">
                         </div>
         
                         <div class="input-formulario ancho-completo">
-                            <label for="contraseña">Contraseña <span class="resaltado">*</span></label>
-                            <input type="password" id="contraseña" placeholder="*********">
+                            <label for="password-registro">Contraseña<span class="resaltado">*</span></label>
+                            <input type="password" id="password-registro" placeholder="*********">
                         </div>
         
                         <div class="input-formulario ancho-completo">
@@ -194,7 +127,7 @@
                         <label for="condiciones">Al registrarte aceptás los <a href="#" class="negrita">Terminos y condiciones de
                                 Winnit</a></label>
                     </div>
-                    <button id="btn-registro" class="btn-principal dos"><span>Registrarse</span></button>
+                    <button id="btn-registro" class="btn-principal"><span>Registrarse</span></button>
                     <div class="redes-sociales">
                         <a href="#">
                             <img src="img/iconos/logo-google.png" alt="Google">
@@ -208,7 +141,6 @@
                     </div>
                 </form>
             </div>
-            </section>
         </section>
     </main>
 
@@ -280,7 +212,6 @@
     </footer>
 
     <script src="js/menuCategorias.js"></script>
-    <!-- <script src="js/perfilDesplegable.js"></script> -->
     <script src="js/formulario.js"></script>
 </body>
 </html>

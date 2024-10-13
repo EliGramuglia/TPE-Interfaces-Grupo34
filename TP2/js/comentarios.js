@@ -144,7 +144,7 @@ function renderizarComentario(rutaImagen, nombreUsuario, tiempoComentarioRealiza
 // Llamar a la función para renderizar el comentario
     renderizarComentario(
         'img/iconos/comentarios-juego/avatar-perro-shitzu.png',
-        'Eliana G',
+        'Eliana',
         'Hace 5 días',
         5,
         'Es una adicción, ¡no puedo parar de jugar! Aguanten los perritos<3'
@@ -152,7 +152,7 @@ function renderizarComentario(rutaImagen, nombreUsuario, tiempoComentarioRealiza
 
     renderizarComentario(
         'img/iconos/comentarios-juego/avatar-gatito.png',
-        'Julieta S',
+        'Julieta',
         'Hace 6 días',
         4,
         'El juego está buenísimo!!! Me encantan los michis :3'
@@ -160,7 +160,7 @@ function renderizarComentario(rutaImagen, nombreUsuario, tiempoComentarioRealiza
 
     renderizarComentario(
         'img/iconos/comentarios-juego/avatar-perro-galgo.png',
-        'Franco G',
+        'Franco',
         'Hace un mes',
         4,
         'Que juegazooooo!!! Me encanta!!! Soy team perritos'

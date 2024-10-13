@@ -675,7 +675,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     overflow: hidden;
 }
 
-.btn-principal::after{
+.btn-principal::after {
     content: "";
     width: 40%;
     height: 90px;
@@ -686,17 +686,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     top: 0;
     transform: skew(35deg);
 }
-.btn-principal:hover{
+
+.btn-principal:hover {
     transform: scale(.98);
 }
+
 .btn-principal:hover:after {
     animation: btnPrincipal 2s ease-in-out .5s infinite;
 }
+
 .btn-principal span {
     position: relative;
     z-index: 2;
     transition: .3s ease all;
 }
+
 @keyframes btnPrincipal {
     0% {
         left: -150px;
@@ -1685,6 +1689,10 @@ ul.lista-videos li {
     .contenedor-input {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    #formIngreso .contenedor-input {
+        row-gap: 10px;
     }
 
     .ancho-completo {

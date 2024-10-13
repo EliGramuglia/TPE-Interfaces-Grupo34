@@ -1082,7 +1082,7 @@ div.puntaje-juego img { /* Imagen de estrella */
     margin-top: 90px;
     border-radius: 10px;
     overflow: hidden;
-    background-image: url(../img/banner-home.jpg);
+    background-image: url(../img/banners/banner-home.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     animation: deslizar-vertical 120s linear infinite;
@@ -1093,7 +1093,7 @@ div.puntaje-juego img { /* Imagen de estrella */
 /* ------------------- Juego ------------------- */
 main#juego {
     min-height: calc(100vh - 60px - 360px); /* Altura mínima del main (restando altura del header y footer) */
-    padding: 50px 116px;
+    padding: 50px 116px 0px 116px;
 }
 
 /* Estilos para breadcrumbs del inicio de la página del juego */
@@ -1499,20 +1499,20 @@ ul.lista-videos li {
 
 #banner-juego {
     width: 220px;
-    height: 1400px;
+    height: 1338px;
     background-image: url(../img/banners/banner-juego.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 10px;
-    animation: deslizar-horizontal 180s linear infinite;
+    animation: deslizar-horizontal 120s linear infinite;
 }
 
 @keyframes deslizar-horizontal {
     0%, 100% {
-        background-position: center left;
+        background-position: 50% center;
     }
     50% {
-        background-position: center right;
+        background-position: 20% center;
     }
 }
 
@@ -1687,7 +1687,7 @@ ul.lista-videos li {
 
 #contenedor-historial-comentarios {
     background-color: var(--primario-muy-oscuro);
-    height: 965px;
+    height: 900px;
     border-radius: 10px 0 10px 10px;
     padding-top: 40px;
     display: flex;

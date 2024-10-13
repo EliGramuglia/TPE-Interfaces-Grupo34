@@ -121,13 +121,37 @@
                 <img src="img/tarjetas/4enLinea.png" alt="" class="mini-portada-juego">
                 <h2 class="titulo-juego">4 en línea</h2>
                 <btn-jugar class="btn-principal">Jugar <span class="icono-play-boton">⯈</span></btn-jugar>
+                <!-- contenedor instrucciones del juego -->
+                <section id="caja-instrucciones" class="contenedor-controles-juego" >
+                    <div class="reglas-contenedor">
+                        <h1 class="titulo-reglas">Reglas</h1>
+                        <hr>
+                        <button id="btn-cerrar-instrucciones"><img src="img/iconos/perfil-desplegable/cruz-salir.png" alt="btn cerrar instrucciones"></button>
+                    </div>
+                    <div class="caja-reglas">
+                        <img src="img/pagJuego/img1-reglas.png" alt="">
+                        <img id="clickMouse" src="img/pagJuego/mouse-click.png" alt="mouse haciendo click">
+                        <p>Clickea el lugar en el que quieres colocar tu ficha, ya sea horizontal, vertical o diagonal</p>
+                    </div>
+                    <div class="caja-reglas">
+                        <img src="img/pagJuego/img2-reglas.png" alt="">
+                        <div id="circulos-instrucciones">
+                            <p>1</p>
+                            <p>2</p>
+                            <p>3</p>
+                            <p>4</p>
+                        </div>
+                        <p>Tienes que crear una línea de cuatro fichas de tu color para ganar</p>
+                        <h3 class="resaltado">¡Ya puedes empezar!</h3>
+                    </div>
+                </section>
             </div>
             <nav class="nav-juego">
                 <a href="index.html"><img src="img/iconos/logo-winnit.png" alt="Logo Winnit" id="logo-winnit"></a>
             <div class="opciones-juego">                
                 <img id="opc-corazon" src="img/iconos/comentarios-juego/icono-corazon.png" alt="mg">
                 <hr>
-                <img src="img/iconos/icono-control.png" alt="informacion de controles de juego">
+                <img id="opc-instrucciones" src="img/iconos/icono-control.png" alt="informacion de controles de juego">
                 <hr>
                 <img src="img/iconos/comentarios-juego/icono-expandir.png" alt="expandir pantalla">
             </div>

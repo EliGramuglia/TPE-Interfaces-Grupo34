@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const divTextoInterno = document.createElement('div');
         
             // Nombre del juego
-            const pNombreJuego = document.createElement('p'); 
+            const pNombreJuego = document.createElement('p');
             pNombreJuego.className = "tarjeta-nombre-juego";
             pNombreJuego.textContent = t.nombre;
         

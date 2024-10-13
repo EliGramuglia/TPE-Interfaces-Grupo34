@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         new Juego('Alien Hominid', 'Juegos de acción', 'alien-hominid.jpg'),
         new Juego('Among Us', 'Juegos multijugador', 'among-us.webp'),
         new Juego('Super Mario Bros', 'Juegos clásicos', 'super-mario-bros.jpg'),
+        new Juego('Rabbids', 'Juegos populares', 'rabbids.jpg'),
     ];
 
     // Contenedor de imagen hero

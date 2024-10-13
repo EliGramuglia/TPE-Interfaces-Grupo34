@@ -770,10 +770,10 @@ main#home {
     background-image: url(../img/hero/super-mario-bros.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    animation: deslizar-imagen 120s linear infinite;
+    animation: deslizar-vertical 120s linear infinite;
 }
 
-@keyframes deslizar-imagen {
+@keyframes deslizar-vertical {
     0%, 100% {
         background-position: center top;
     }
@@ -1075,24 +1075,25 @@ div.puntaje-juego img { /* Imagen de estrella */
     font-weight: var(--grosor-grueso);
 }
 
+/* Banner home */
 #banner-home {
     width: 100%;
     height: 200px;
+    margin-top: 90px;
     border-radius: 10px;
-    overflow: hidden; 
+    overflow: hidden;
+    background-image: url(../img/banner-home.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: deslizar-vertical 120s linear infinite;
 }
 
-#banner-home img {
-    width: 100%;
-    height: 100%; 
-    object-fit: cover; 
-}
 
 
 /* ------------------- Juego ------------------- */
 main#juego {
     min-height: calc(100vh - 60px - 360px); /* Altura mínima del main (restando altura del header y footer) */
-    padding: 50px 116px 0px 116px;
+    padding: 50px 116px;
 }
 
 /* Estilos para breadcrumbs del inicio de la página del juego */
@@ -1496,15 +1497,23 @@ ul.lista-videos li {
     color: var(--acento-semi-claro);
 }
 
-#banner {
-    display: flex;
-    justify-content: flex-end;
+#banner-juego {
+    width: 220px;
     height: 1400px;
+    background-image: url(../img/banners/banner-juego.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    animation: deslizar-horizontal 180s linear infinite;
 }
 
-#banner img {
-    height: 100%;
-    width: 100%;
+@keyframes deslizar-horizontal {
+    0%, 100% {
+        background-position: center left;
+    }
+    50% {
+        background-position: center right;
+    }
 }
 
 #caja-comentarios {
@@ -1678,9 +1687,9 @@ ul.lista-videos li {
 
 #contenedor-historial-comentarios {
     background-color: var(--primario-muy-oscuro);
-    height: 960px;
-    border-radius: 10px 0px 0 0;
-    padding: 40px 0px 0px 0px;
+    height: 965px;
+    border-radius: 10px 0 10px 10px;
+    padding-top: 40px;
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -1790,6 +1799,10 @@ ul.lista-videos li {
 
 /* ------------------- Login desktop ------------------- */
 @media only screen and (min-width: 800px) {
+    main#login {
+        padding: 50px 116px;
+    }
+
     .contenedor-input {
         display: grid;
         grid-template-columns: repeat(2, 1fr);

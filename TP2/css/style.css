@@ -568,18 +568,18 @@ footer{
     background-color: #28293D;
 }
 .contenedor-footer{
-    padding: 20px;
     display: grid;
     grid-template-columns: 1fr;
-    justify-items: center;
-    row-gap: 10px;
+    justify-content: center;
+    padding: 15px 20px;
+    row-gap: 14px;
 }
 
 .titulo-columna{
     width: 100%;
     font-weight: var(--grosor-grueso);
     font-size: var(--tamanio-20);
-    padding: 10px 0;
+    padding-bottom: 10px;
 }
 /* .oculto{
     display: none;
@@ -588,19 +588,20 @@ footer{
     list-style: none;
 }
 .lista-footer ul li{
-    margin: 10px 0;
+    padding: 10px 0;
 }
 .lista-footer{
     background-color: black;
     text-align: center;
     border-radius: 10px;
-    width: 80%;
+    width: 100%;
+    padding: 20px 0;
 }
 .suscripcion-copyright{
-    padding-top: 20px;
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
+    padding-top: 20px;
 }
 .suscripcion-copyright > p{
     margin-top: 20px;
@@ -608,7 +609,7 @@ footer{
 }
 .form-suscripcion{
     background-color: white;
-    width: 80%;
+    width: 350px;
     padding: 4px;
     border-radius: 50px;
     display: flex;
@@ -625,13 +626,16 @@ footer{
     padding-left: 10px;
 }
 .form-suscripcion button{
-    background-color: #6300E6;
+    background-color: var(--primario-semi-oscuro);
     border: none;
     width: 40%;
     border-radius: 50px;
+    cursor: pointer;
     padding: 10px;
 }
-
+footer .form-suscripcion button:hover {
+    background-color: var(--primario-semi-claro);
+}
 
 footer .suscripcion-copyright {
     display: flex;
@@ -658,7 +662,7 @@ footer .suscripcion-copyright hr {
     justify-content: center;
 }
 .redes-footer ul{
-    background-color: #2d0078;
+    background-color: var(--primario-semi-oscuro);
     width: max-content;
     justify-content: center;
     align-items: center;
@@ -1807,16 +1811,22 @@ ul.lista-videos li {
     }
     /* footer desktop */
     .contenedor-footer{
-        color: aliceblue;
         display: grid;
-        grid-template-columns: repeat(4,1fr) 2fr;
+        grid-template-columns: repeat(5,1fr);
         row-gap: 10px;
+        column-gap: 30px;
+        justify-content: flex-start;
+        padding: 30px 50px;
     }
 
     footer .suscripcion-copyright{
+        justify-content: start;
         background-image: none;
         grid-column: 5 / 5;
         grid-row: 1 / 1;
+        width: 100%;
+        padding: 0;
+        justify-self: end;
     }
     .contenedor-copyright{
         display: initial;
@@ -1830,6 +1840,13 @@ ul.lista-videos li {
     .lista-footer{
         text-align: start;
         background-color: transparent;
-        margin-top: 20px;
+    }
+    .form-suscripcion{
+        width: 100%;
+        max-width: 350px;
+        min-width: 250px;
+    }
+    .lista-footer{
+        padding: 0;
     }
 }

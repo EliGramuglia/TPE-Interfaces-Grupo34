@@ -1498,6 +1498,7 @@ ul.lista-videos li {
 }
 
 #banner-juego {
+    display: none;
     width: 220px;
     height: 1400px;
     background-image: url(../img/banners/banner-juego.jpg);
@@ -1881,5 +1882,9 @@ ul.lista-videos li {
 
     .lista-footer {
         padding: 0;
+    }
+
+    #banner-juego {
+        display: block;
     }
 }

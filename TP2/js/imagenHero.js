@@ -31,20 +31,27 @@ document.addEventListener('DOMContentLoaded', () => {
         flechaDer.classList.remove('visible');
     });
 
-    // Generación de imagen hero
-    const titulo = document.querySelector('#info-juego h1');
-    const categoria = document.querySelector('#info-juego p');
-    const frecuencia = 10000; // Frecuencia de cambio en milisegundos
-    const cantidadJuegos = juegos.length;
+    // Tiempo de espera antes de activar la animación
+    setTimeout(() => {
+        animarHero();
+    }, 7000);
 
-    let i = 0;
-    const intervalo = setInterval(() => {
-        if (i >= cantidadJuegos) {
-            i = 0;
-        } 
-        titulo.textContent = juegos[i].titulo
-        categoria.textContent = juegos[i].categoria;
-        sectionHero.style.backgroundImage = `url('img/hero/${juegos[i].img}')`;
-        i++;
-    }, frecuencia);
+    function animarHero() {
+        // Generación de imagen hero
+        const titulo = document.querySelector('#info-juego h1');
+        const categoria = document.querySelector('#info-juego p');
+        const frecuencia = 10000; // Frecuencia de cambio en milisegundos
+        const cantidadJuegos = juegos.length;
+
+        let i = 0;
+        const intervalo = setInterval(() => {
+            if (i >= cantidadJuegos) {
+                i = 0;
+            }
+            titulo.textContent = juegos[i].titulo
+            categoria.textContent = juegos[i].categoria;
+            sectionHero.style.backgroundImage = `url('img/hero/${juegos[i].img}')`;
+            i++;
+        }, frecuencia);
+    }
 });

@@ -453,14 +453,14 @@ footer {
 
 .lista-footer {
     overflow: hidden;
-    background-color: black;
+    background-color: var(--gris-muy-oscuro);
     text-align: center;
     border-radius: 10px;
     width: 100%;
 }
 
 .lista-footer.desplegada {
-    box-shadow: 0 0 7px rgba(200, 200, 200, 0.5);
+    box-shadow: 0 0 7px var(--gris-oscuro);
 }
 
 .lista-footer .titulo-columna {
@@ -1320,24 +1320,23 @@ nav#bread-crumbs ul img {
 }
 
 .caja-reglas {
-    padding: 10px;
     display: grid;
-    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-columns: 1.5fr 1fr 2fr;
     align-items: center;
     justify-items: center;
+    padding-bottom: 10px;
 }
 
 #circulos-instrucciones {
     display: flex;
     flex-direction: column-reverse;
     gap: 5px;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
 #circulos-instrucciones p {
     background-color: rgb(12, 13, 20, 60%);
-    padding: 5px 10px;
+    padding: 4px 10px;
     border-radius: 30px;
     border: 1px solid rgb(224, 6, 113, 70%);
 }
@@ -1418,6 +1417,8 @@ hr {
     flex-direction: row-reverse;
     gap: 10px;
     list-style: none;
+    transition: opacity .3s ease-in-out;
+
 }
 
 .opciones-compartir ul li:hover,
@@ -1463,6 +1464,10 @@ hr {
     align-items: center;
     gap: 4px;
     border-radius: 30px;
+    transition: all .2s ease-in-out;
+}
+.caja-valoracion-juego:hover{
+    background-color: var(--gris-muy-claro);
 }
 
 .caja-valoracion-juego p {
@@ -1471,10 +1476,14 @@ hr {
     font-size: 14px;
 }
 
-.caja-valoracion-juego img {
+#img-estrella{
     width: 18px;
     align-self: center;
+    transition: all .2s ease-in-out;
+}
+.filtro-oscuro{
     filter: brightness(0);
+
 }
 
 span.letra-cursiva {
@@ -1513,7 +1522,7 @@ ul.lista-videos li {
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 4px;
-    
+    cursor: pointer;
 }
 
 .video-recomendado img {

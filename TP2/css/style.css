@@ -866,11 +866,24 @@ main#home {
     z-index: 1;
 }
 
+#imagen-hero.difuminar-fondo::before {
+    animation: difuminar-fondo 1s ease forwards;
+}
+
+@keyframes difuminar-fondo {
+    0%, 100% {
+        backdrop-filter: blur(0px);
+    }
+    50% {
+        backdrop-filter: blur(30px);
+    }
+}
+
 button.hero-flecha-izquierda, button.hero-flecha-derecha {
     display: none;
 }
 
-#imagen-hero #info-juego {
+#imagen-hero #info-juego { /* Información del juego */
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -885,12 +898,45 @@ button.hero-flecha-izquierda, button.hero-flecha-derecha {
     text-overflow: ellipsis;
 }
 
+/* Categoría del juego */
 #imagen-hero #info-juego p {
     font-size: var(--tamanio-16);
 }
 
+#imagen-hero #info-juego p.fade-out-in {
+    animation: fade-out-in 1s ease forwards;
+}
+
+@keyframes fade-out-in {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Título del juego */
 #imagen-hero #info-juego h1 {
     font-size: var(--tamanio-24);
+}
+
+#imagen-hero #info-juego h1.desplazar {
+    animation: desplazar 1s ease forwards;
+}
+
+@keyframes desplazar {
+    0%, 100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    50% {
+        opacity: 0;
+        transform: translateX(5%);
+    }
+    51% {
+        transform: translateX(-5%);
+    }
 }
 
 #imagen-hero #info-juego button {

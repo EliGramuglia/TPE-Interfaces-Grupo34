@@ -692,12 +692,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /* Botón de ingreso/registro */
 .btn-principal {
-    font-size: var(--tamanio-15);
+    font-size: var(--tamanio-16);
     background-color: var(--secundario);
     font-weight: var(--grosor-grueso);
     border-radius: 30px;
-    padding: 20px;
-    width: 250px;
+    width: 260px;
+    height: 42px;
     cursor: pointer;
     display: inline-flex;
     align-items: center;

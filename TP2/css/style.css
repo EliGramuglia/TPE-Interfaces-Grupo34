@@ -1212,7 +1212,7 @@ nav#bread-crumbs ul img {
 }
 
 .contenedor-pantalla-juego {
-    background-image: url(../img/tarjetas/4-en-linea.png);
+    background-image: url(../img/tarjetas/4EnLinea.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 550px;
@@ -1445,6 +1445,11 @@ hr {
 
 #btn-compartir-juego img {
     width: 40px;
+    height: auto;
+}
+
+#info-4-en-linea {
+    width: 300px;
     height: auto;
 }
 

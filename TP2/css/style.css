@@ -709,7 +709,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-weight: var(--grosor-grueso);
     border-radius: 30px;
     width: 260px;
-    height: 45px;
+    height: 42px;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
@@ -1993,15 +1993,15 @@ ul.lista-videos li {
     /* ------ Página de Login ------ */
     main#login {
         min-height: 1100px;
-        padding: 50px 8%;   /*Probar si lo dejamos o no */
+        padding: 50px 8%;
     }
 
     .portada-formulario {
-        border-radius: 10px 0px 0px 10px; /*Probar si lo dejamos o no */
+        border-radius: 10px 0px 0px 10px;
     }
 
     .contenedor-formulario {
-        border-radius: 0px 10px 10px 0px; /*Probar si lo dejamos o no */
+        border-radius: 0px 10px 10px 0px;
     }
 
     .contenedor-input {

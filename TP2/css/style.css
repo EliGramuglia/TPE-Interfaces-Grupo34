@@ -1477,7 +1477,7 @@ ul.lista-videos li {
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 4px;
-    
+    cursor: pointer;
 }
 
 .video-recomendado img {

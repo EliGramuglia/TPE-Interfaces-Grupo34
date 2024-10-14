@@ -620,6 +620,7 @@ footer a:hover {
     text-align: center;
     cursor: pointer;
     font-size: var(--tamanio-16);
+    font-weight: var(--grosor-regular);
     padding: 10px 0;
     width: 100%;
 }
@@ -915,7 +916,7 @@ div.carrusel {
 div.carrusel-contenido {
     display: flex;
     width: 100%;
-    gap: 10px;
+    gap: 15px;
     overflow-x: auto;
     scrollbar-width: none;
 }
@@ -1977,6 +1978,14 @@ ul.lista-videos li {
         padding: 50px 8%;
     }
 
+    .portada-formulario {
+        border-radius: 10px 0px 0px 10px;
+    }
+
+    .contenedor-formulario {
+        border-radius: 0px 10px 10px 0px;
+    }
+
     .contenedor-input {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -2005,6 +2014,21 @@ ul.lista-videos li {
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
+    }
+
+    .nav-registro, .formulario-ingreso, .formulario-registro {
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%; /*Ancho reducido*/
+        max-width: 600px; 
+    }
+
+    .nav-registro {
+        margin-top: 40px;
+    }
+
+    .formulario-ingreso, .formulario-registro {
+        margin-top: 20px;
     }
 
     /* ------ Página de juego ------ */

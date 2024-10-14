@@ -1274,24 +1274,23 @@ nav#bread-crumbs ul img {
 }
 
 .caja-reglas {
-    padding: 10px;
     display: grid;
-    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-columns: 1.5fr 1fr 2fr;
     align-items: center;
     justify-items: center;
+    padding-bottom: 10px;
 }
 
 #circulos-instrucciones {
     display: flex;
     flex-direction: column-reverse;
     gap: 5px;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
 #circulos-instrucciones p {
     background-color: rgb(12, 13, 20, 60%);
-    padding: 5px 10px;
+    padding: 4px 10px;
     border-radius: 30px;
     border: 1px solid rgb(224, 6, 113, 70%);
 }

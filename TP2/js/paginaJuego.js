@@ -30,3 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
         caja.classList.remove('visible');
     });
 });
+//------------------------- caja de valoracion en pag juego
+const cajaValoracion = document.querySelector('.caja-valoracion-juego');
+const estrella = document.getElementById('img-estrella');
+
+cajaValoracion.addEventListener('mouseover', () => {
+    estrella.classList.remove('filtro-oscuro');
+});
+
+cajaValoracion.addEventListener('mouseout', () => {
+    estrella.classList.add('filtro-oscuro');
+});

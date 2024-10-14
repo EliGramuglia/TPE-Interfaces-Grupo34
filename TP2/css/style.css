@@ -1372,6 +1372,8 @@ hr {
     flex-direction: row-reverse;
     gap: 10px;
     list-style: none;
+    transition: opacity .3s ease-in-out;
+
 }
 
 .opciones-compartir ul li:hover,
@@ -1417,6 +1419,10 @@ hr {
     align-items: center;
     gap: 4px;
     border-radius: 30px;
+    transition: all .2s ease-in-out;
+}
+.caja-valoracion-juego:hover{
+    background-color: var(--gris-muy-claro);
 }
 
 .caja-valoracion-juego p {
@@ -1425,10 +1431,14 @@ hr {
     font-size: 14px;
 }
 
-.caja-valoracion-juego img {
+#img-estrella{
     width: 18px;
     align-self: center;
+    transition: all .2s ease-in-out;
+}
+.filtro-oscuro{
     filter: brightness(0);
+
 }
 
 span.letra-cursiva {

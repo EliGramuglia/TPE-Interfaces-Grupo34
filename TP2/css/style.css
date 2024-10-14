@@ -625,6 +625,10 @@ footer a:hover {
     width: 100%;
 }
 
+.nav-registro h2.active {
+    font-weight: var(--grosor-grueso)
+}
+
 .inactivo {
     border-bottom: 2px solid var(--gris-claro);
 }

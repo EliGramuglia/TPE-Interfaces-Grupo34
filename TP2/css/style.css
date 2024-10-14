@@ -451,11 +451,29 @@ footer {
     row-gap: 14px;
 }
 
-.titulo-columna {
+.lista-footer {
+    overflow: hidden;
+    background-color: black;
+    text-align: center;
+    border-radius: 10px;
     width: 100%;
+}
+
+.lista-footer.desplegada {
+    box-shadow: 0 0 7px rgba(200, 200, 200, 0.5);
+}
+
+.lista-footer .titulo-columna {
+    width: 100%;
+    padding: 12px;
     font-weight: var(--grosor-grueso);
     font-size: var(--tamanio-20);
-    padding-bottom: 10px;
+}
+
+.lista-footer ul {
+    max-height: 0; /* Empieza oculto */
+    overflow: hidden;
+    transition: max-height 0.5s ease;
 }
 
 .lista-footer ul,
@@ -467,14 +485,6 @@ footer {
     padding: 10px 0;
 }
 
-.lista-footer {
-    background-color: black;
-    text-align: center;
-    border-radius: 10px;
-    width: 100%;
-    padding: 20px 0;
-}
-
 .suscripcion-copyright {
     width: 100%;
     display: flex;
@@ -482,10 +492,10 @@ footer {
     padding-top: 20px;
 }
 
-.suscripcion-copyright>p {
+.suscripcion-copyright > p {
     text-align: center;
     margin-top: 20px;
-    font-weight: bolder;
+    font-weight: var(--grosor-grueso);
 }
 
 .form-suscripcion {
@@ -498,7 +508,7 @@ footer {
     display: flex;
     align-items: center;
     overflow: hidden;
-    margin: 20px 0;
+    margin-top: 20px;
 }
 
 .form-suscripcion input {
@@ -539,19 +549,21 @@ footer .suscripcion-copyright {
 
 }
 
-
 footer .suscripcion-copyright hr {
     background-color: var(--gris-claro);
     height: 1px;
 }
-.contenedor-copyright{
+
+.contenedor-copyright {
     display: none;
 }
-.redes-footer,.redes-footer ul,.redes-footer a{
+
+.redes-footer,.redes-footer ul,.redes-footer a {
     display: flex;
     justify-content: center;
 }
-.redes-footer ul{
+
+.redes-footer ul {
     background-color: var(--primario-semi-oscuro);
     width: max-content;
     justify-content: center;
@@ -1893,8 +1905,13 @@ ul.lista-videos li {
     }
 
     .lista-footer {
+        padding: 0;
         text-align: start;
         background-color: transparent;
+    }
+
+    .lista-footer .titulo-columna {
+        padding: 12px 0;
     }
 
     .form-suscripcion {
@@ -1903,9 +1920,6 @@ ul.lista-videos li {
         min-width: 200px;
     }
 
-    .lista-footer {
-        padding: 0;
-    }
 
     /* ------ Home ------ */
     #imagen-hero {

@@ -453,14 +453,14 @@ footer {
 
 .lista-footer {
     overflow: hidden;
-    background-color: black;
+    background-color: var(--gris-muy-oscuro);
     text-align: center;
     border-radius: 10px;
     width: 100%;
 }
 
 .lista-footer.desplegada {
-    box-shadow: 0 0 7px rgba(200, 200, 200, 0.5);
+    box-shadow: 0 0 7px var(--gris-oscuro);
 }
 
 .lista-footer .titulo-columna {

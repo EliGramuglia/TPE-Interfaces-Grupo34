@@ -620,8 +620,13 @@ footer a:hover {
     text-align: center;
     cursor: pointer;
     font-size: var(--tamanio-16);
+    font-weight: var(--grosor-regular);
     padding: 10px 0;
     width: 100%;
+}
+
+.nav-registro h2.active {
+    font-weight: var(--grosor-grueso)
 }
 
 .inactivo {
@@ -687,12 +692,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /* Botón de ingreso/registro */
 .btn-principal {
-    font-size: var(--tamanio-15);
+    font-size: var(--tamanio-16);
     background-color: var(--secundario);
     font-weight: var(--grosor-grueso);
     border-radius: 30px;
-    padding: 20px;
-    width: 250px;
+    width: 260px;
+    height: 45px;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
@@ -915,7 +920,7 @@ div.carrusel {
 div.carrusel-contenido {
     display: flex;
     width: 100%;
-    gap: 10px;
+    gap: 15px;
     overflow-x: auto;
     scrollbar-width: none;
 }
@@ -1958,6 +1963,7 @@ ul.lista-videos li {
     }
 
     #banner-home {
+        display: block;
         width: 100%;
         height: 200px;
         margin-top: 90px;
@@ -1973,7 +1979,15 @@ ul.lista-videos li {
     /* ------ Página de Login ------ */
     main#login {
         min-height: 1100px;
-        padding: 50px 8%;
+        padding: 50px 8%;   /*Probar si lo dejamos o no */
+    }
+
+    .portada-formulario {
+        border-radius: 10px 0px 0px 10px; /*Probar si lo dejamos o no */
+    }
+
+    .contenedor-formulario {
+        border-radius: 0px 10px 10px 0px; /*Probar si lo dejamos o no */
     }
 
     .contenedor-input {
@@ -2004,6 +2018,21 @@ ul.lista-videos li {
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
+    }
+
+    .nav-registro, .formulario-ingreso, .formulario-registro {
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%; /*Ancho reducido*/
+        max-width: 600px; 
+    }
+
+    .nav-registro {
+        margin-top: 40px;
+    }
+
+    .formulario-ingreso, .formulario-registro {
+        margin-top: 20px;
     }
 
     /* ------ Página de juego ------ */

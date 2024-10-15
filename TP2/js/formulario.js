@@ -90,7 +90,6 @@ function mostrarConfirmacion(){
     const cajaConfirmacion = document.querySelector('.contenedor-msgConfirmacion');
     const msg = document.getElementById('msg-confirmacion');
     cajaConfirmacion.classList.remove('oculto');
-    console.log('msg confirmacion')
 }
 
 

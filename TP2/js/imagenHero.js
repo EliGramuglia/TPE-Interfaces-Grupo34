@@ -82,4 +82,17 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => { 
         animarHero();
     }, 7000);
+
+    
+    // Botón de jugar
+    const botonJugar = document.querySelector('#info-juego button');
+    const flechaJugar = document.querySelector('#flecha-jugar');
+
+    botonJugar.addEventListener('mouseenter', () => {
+        flechaJugar.classList.add('desplazamiento-jugar');
+    });
+
+    botonJugar.addEventListener('mouseleave', () => {
+        flechaJugar.classList.remove('desplazamiento-jugar');
+    });
 });

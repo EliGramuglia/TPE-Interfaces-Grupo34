@@ -946,16 +946,47 @@ button.hero-flecha-izquierda, button.hero-flecha-derecha {
     font-size: var(--tamanio-16);
     font-weight: var(--grosor-grueso);
     border-radius: 30px;
-    background-color: var(--secundario);
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--secundario);
+    transition: background-color 0.2s ease;
 }
 
 #imagen-hero #info-juego button:hover {
     background-color: var(--secundario-semi-claro);
 }
+
+#imagen-hero #info-juego button span {
+    margin-left: 8px;
+}
+
+#imagen-hero #info-juego button span.desplazamiento-jugar {
+    animation: desplazamiento-jugar 4s ease infinite;
+}
+
+@keyframes desplazamiento-jugar {
+    0% {
+        transform: translateX(0) rotate(0deg); /* inicial */
+    }
+    30% {
+        transform: translateX(0) rotate(360deg); /* gira sentido reloj */
+    }
+    40% {
+        transform: translateX(50%) rotate(360deg); /* avanza */
+    }
+    50% {
+        transform: translateX(0) rotate(360deg); /* vuelve */
+    }
+    80% {
+        transform: translateX(0) rotate(0deg); /* gira sentido contrareloj */
+    }
+    90% {
+        transform: translateX(0) rotate(0deg);
+    }
+}
+
 
 /* Carruseles de tarjetas */
 #carruseles-juegos {

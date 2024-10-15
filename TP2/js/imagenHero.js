@@ -44,14 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     flechaIzq.addEventListener('click', () => {
         indice = (indice - 1 + juegos.length) % juegos.length;
-        console.log(indice);
         cambiarJuego();
         animarHero();
     });
 
     flechaDer.addEventListener('click', () => {
         indice = (indice + 1) % juegos.length;
-        console.log(indice);
         cambiarJuego();
         animarHero();
     });
@@ -60,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(intervalo); // Cada vez que se llama, se reinicia el intervalo
         intervalo = setInterval(() => {
             indice = (indice + 1) % juegos.length;
-            console.log(indice);
             cambiarJuego();
         }, frecuencia);
     }

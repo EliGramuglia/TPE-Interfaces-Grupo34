@@ -8,9 +8,9 @@
 El presente trabajo fue desarrollado en el marco de la materia "Interfaces de usuario e interacción" (Facultad de Ciencias Exactas, UNICEN, Tandil). El mismo propone desarrollar en HTML, CSS y JavaScript realizado en el Ejercicio Entregable N1.
 
 La plataforma solicitada incluye las siguientes 3 páginas:
-1. Home con listado de juegos
-2. Página de juego en modo ejecución usando “4 en línea” cómo juego a mostrar
-3. Página de registración (login) a la pagina.
+1. Home con listado de juegos (<index.html>)
+2. Página de juego en modo ejecución usando “4 en línea” como juego a mostrar (<juego.html>)
+3. Página de registración e inicio de sesión a la página (<login.html>).
 
 A continuación, se enumeran algunas de las funcionalidades que posee el sitio:
 ### 1. Elementos comunes a todas las páginas
@@ -47,12 +47,12 @@ La página de inicio presenta una imagen hero, carruseles de juegos ordenados po
 - Incluye una imagen que se desliza verticalmente.
 
 ### 3. Login
-- Se presentan un formulario que se adapta a mobile y desktop con 2 opciones:  un fomulario de ingreso y otro de registro
-- formulario de inicio de sesión: los usuarios registrados pueden ingresar con su correo electrónico y contraseña validos.
-- formulario de registro: los usuarios nuevos pueden crearse una nueva cuenta con el ingreso de su nombre, apellido, fecha de nacimiento, email, contraseña, confirmar contraseña, capcha y la aceptación de los terminos y condiciones de winnit
+- Se presenta un formulario que se adapta a mobile y desktop con 2 opciones:  un fomulario de ingreso y otro de registro.
+- Formulario de inicio de sesión: los usuarios registrados pueden ingresar con su correo electrónico y contraseña válidos.
+- Formulario de registro: los usuarios nuevos pueden crearse una nueva cuenta con el ingreso de su nombre, apellido, fecha de nacimiento, email, contraseña (la cual debe confirmarse), capcha y la aceptación de los términos y condiciones del sitio.
 
 ### 4. Página de juego
-- En la parte superior tiene un mapa del sitio que permite visualizar donde esta actualmente el usuario
-- Sigue con la pantalla donde se podra jugar con sus respectivas opciones de ir al inicio, agregar a favoritos, visualizar las intrucciones del juego, expandir la pantalla a fullscreen
+- En la parte superior tiene un mapa del sitio (breadcrumbs) que permite visualizar dónde está actualmente el usuario.
+- A continuación se encuentra la sección de juego, la cual contiene el juego en sí, y las opciones de ir al inicio, agregar a favoritos, visualizar las instrucciones del juego y expandir la pantalla a fullscreen.
 - Se presenta una descripción detallada del juego, incluyendo portada, nombre, valoración, opciones para compartir y videos recomendados 
-- Por ultimo tiene una sección de comentarios, donde se puede subir un comentario propio o visualizar los comentarios de otros usuarios
+- Por ultimo tiene una sección de comentarios, donde se puede subir un comentario propio o visualizar los comentarios de otros usuarios.

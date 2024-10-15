@@ -41,3 +41,26 @@ cajaValoracion.addEventListener('mouseover', () => {
 cajaValoracion.addEventListener('mouseout', () => {
     estrella.classList.add('filtro-oscuro');
 });
+// funcionalidad para expandir pantalla del juego
+const btnExpandir = document.getElementById('opc-expandir');
+
+function pantallaCompleta() {
+    const pantallaJuego = document.querySelector('.contenedor-pantalla-juego');
+    if (!document.fullscreenElement) {
+        pantallaJuego.requestFullscreen();
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+
+        }
+    }
+}
+
+btnExpandir.addEventListener('click', pantallaCompleta);

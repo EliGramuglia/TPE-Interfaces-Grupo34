@@ -47,5 +47,12 @@ La página de inicio presenta una imagen hero, carruseles de juegos ordenados po
 - Incluye una imagen que se desliza verticalmente.
 
 ### 3. Login
+- Se presentan un formulario que se adapta a mobile y desktop con 2 opciones:  un fomulario de ingreso y otro de registro
+- formulario de inicio de sesión: los usuarios registrados pueden ingresar con su correo electrónico y contraseña validos.
+- formulario de registro: los usuarios nuevos pueden crearse una nueva cuenta con el ingreso de su nombre, apellido, fecha de nacimiento, email, contraseña, confirmar contraseña, capcha y la aceptación de los terminos y condiciones de winnit
 
 ### 4. Página de juego
+- En la parte superior tiene un mapa del sitio que permite visualizar donde esta actualmente el usuario
+- Sigue con la pantalla donde se podra jugar con sus respectivas opciones de ir al inicio, agregar a favoritos, visualizar las intrucciones del juego, expandir la pantalla a fullscreen
+- Se presenta una descripción detallada del juego, incluyendo portada, nombre, valoración, opciones para compartir y videos recomendados 
+- Por ultimo tiene una sección de comentarios, donde se puede subir un comentario propio o visualizar los comentarios de otros usuarios

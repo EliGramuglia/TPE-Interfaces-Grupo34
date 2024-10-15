@@ -839,7 +839,7 @@ main#home {
     flex-direction: column;
     justify-content: center;
     border-radius: 15px;
-    background-image: url(../img/hero/super-mario-bros.jpg);
+    background-image: url(../img/hero/4-en-linea.png);
     background-repeat: no-repeat;
     background-size: cover;
     animation: deslizar-vertical 120s linear infinite;

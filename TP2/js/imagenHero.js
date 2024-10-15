@@ -2,19 +2,21 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     class Juego {
-        constructor(titulo, categoria, img) {
+        constructor(titulo, categoria, img, url) {
             this.titulo = titulo;
             this.categoria = categoria;
             this.img = img;
+            this.url = url;
         }
     }
 
     const juegos = [
-        new Juego('Bloxd.io', 'Juegos de aventura', 'bloxd-io.jpeg'),
-        new Juego('Alien Hominid', 'Juegos de acción', 'alien-hominid.jpg'),
+        new Juego('4 en línea', 'Juegos clásicos', '4-en-linea.png', 'juego.html'),
+        new Juego('Super Mario Bros', 'Juegos clásicos', 'super-mario-bros.jpg', ''),
+        new Juego('Rabbids', 'Juegos populares', 'rabbids.jpg', ''),
+        new Juego('Bloxd.io', 'Juegos de aventura', 'bloxd-io.jpeg', ''),
+        new Juego('Alien Hominid', 'Juegos de acción', 'alien-hominid.jpg', ''),
         new Juego('Among Us', 'Juegos multijugador', 'among-us.webp'),
-        new Juego('Super Mario Bros', 'Juegos clásicos', 'super-mario-bros.jpg'),
-        new Juego('Rabbids', 'Juegos populares', 'rabbids.jpg'),
     ];
 
     // Elementos HTML
@@ -23,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const categoria = document.querySelector('#info-juego p');
     const flechaIzq = document.querySelector('.hero-flecha-izquierda');
     const flechaDer = document.querySelector('.hero-flecha-derecha');
-    
+
     // Visibilidad de flechas
     sectionHero.addEventListener('mouseenter', () => {
         flechaIzq.classList.add('visible');
@@ -38,16 +40,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cambio de imágenes
     const frecuencia = 10000; // Frecuencia de cambio de imágenes (ms)
     let intervalo; // Intervalo de cambio de imágenes
-    let indice = 0; // Índice de imagen
+    let indice = 0; // Índice de imagen (comienza con '4 en línea')
 
     flechaIzq.addEventListener('click', () => {
         indice = (indice - 1 + juegos.length) % juegos.length;
+        console.log(indice);
         cambiarJuego();
         animarHero();
     });
 
     flechaDer.addEventListener('click', () => {
         indice = (indice + 1) % juegos.length;
+        console.log(indice);
         cambiarJuego();
         animarHero();
     });
@@ -56,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(intervalo); // Cada vez que se llama, se reinicia el intervalo
         intervalo = setInterval(() => {
             indice = (indice + 1) % juegos.length;
+            console.log(indice);
             cambiarJuego();
         }, frecuencia);
     }
@@ -83,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
         animarHero();
     }, 7000);
 
-    
     // Botón de jugar
     const botonJugar = document.querySelector('#info-juego button');
     const flechaJugar = document.querySelector('#flecha-jugar');
@@ -94,5 +98,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     botonJugar.addEventListener('mouseleave', () => {
         flechaJugar.classList.remove('desplazamiento-jugar');
+    });
+
+    botonJugar.addEventListener('click', () => {
+        if (juegos[indice].titulo === '4 en línea') {
+            window.location.href = 'juego.html';
+        }
     });
 });

@@ -880,7 +880,29 @@ main#home {
 }
 
 button.hero-flecha-izquierda, button.hero-flecha-derecha {
-    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
+    padding: 10px;
+    font-size: var(--tamanio-24);
+    color: var(--gris-muy-claro);
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 3;
+    cursor: pointer;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+button.hero-flecha-izquierda {
+    left: 0;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+button.hero-flecha-derecha {
+    right: 0;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 #imagen-hero #info-juego { /* Información del juego */
@@ -2020,17 +2042,8 @@ ul.lista-videos li {
     }
 
     button.hero-flecha-izquierda, button.hero-flecha-derecha {
-        display: block;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        height: 100%;
         padding: 15px;
         font-size: var(--tamanio-50);
-        color: var(--gris-muy-claro);
-        background-color: rgba(0, 0, 0, 0);
-        z-index: 3;
-        cursor: pointer;
         opacity: 0;
         transition: opacity 0.3s ease, background-color 0.3s ease;
     }
@@ -2041,18 +2054,6 @@ ul.lista-videos li {
     
     button.hero-flecha-izquierda.visible, button.hero-flecha-derecha.visible {
         opacity: 1;
-    }
-    
-    button.hero-flecha-izquierda {
-        left: 0;
-        border-top-left-radius: 15px;
-        border-bottom-left-radius: 15px;
-    }
-    
-    button.hero-flecha-derecha {
-        right: 0;
-        border-top-right-radius: 15px;
-        border-bottom-right-radius: 15px;
     }
 
     #imagen-hero #info-juego p {

@@ -72,6 +72,10 @@ body {
     height: 100vh;
     background-color: var(--violeta-muy-oscuro);
 }
+/* clase para evitar que se haga scroll en el inicio al ponerse la animacion de carga */
+.no-scroll {
+    overflow: hidden;
+}
 
 h1 {
     font-weight: var(--grosor-grueso);
@@ -414,12 +418,16 @@ header div#contenedor-buscador, header div#contenedor-buscador input {
     width: 30px;
     height: 30px;
 }
-
-.redes-sociales {
+.text-redes-sociales{
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-top: 35px;
+    padding: 0 14px;
+}
+.redes-sociales{
+    display: flex;
+    justify-content: center;
+    margin-top: 14px;
 }
 
 .redes-sociales a img {

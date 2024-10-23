@@ -29,6 +29,7 @@ const objetivo = 100; // Objetivo del contador (100%)
 const duracion = 5000; // Duración total en milisegundos
 const intervalo = 50; // Intervalo de actualización en milisegundos
 const pasos = objetivo / (duracion / intervalo); // Cantidad de pasos para alcanzar el objetivo
+document.body.classList.add('no-scroll');
 
 const intervaloContador = setInterval(() => {
     contador += pasos;
@@ -42,6 +43,7 @@ const intervaloContador = setInterval(() => {
         divContenedorCarga.style.animation = 'implosion 1.6s ease-in-out forwards';
         divPantallaCarga.classList.add('finalizada');
         setTimeout(() => {
+            document.body.classList.remove('no-scroll');
             divPantallaCarga.remove(); 
         }, 2000);
     }

@@ -526,13 +526,72 @@ footer {
     outline: none;
 }
 
-.form-suscripcion button {
+.form-suscripcion .btn-subscribirse {
     background-color: var(--primario-semi-oscuro);
     border: none;
     width: 40%;
+    height: 40px;
     border-radius: 50px;
     cursor: pointer;
     padding: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transition: background-color .4s linear;
+}
+.btn-subscribirse .img-email {
+    position: absolute;
+    bottom: -35px;
+    transition: all 0.5s ease-in-out;
+    animation: subirIcono 0.8s linear;
+}
+
+.btn-subscribirse:hover .img-email {
+    animation: subirIcono 0.8s linear;
+    bottom: 0;
+}
+
+.btn-subscribirse .txt-btn-subscribirse {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.5s ease-in-out;
+    animation: subirTexto 0.5s ease-in-out;
+}
+
+.btn-subscribirse:hover .txt-btn-subscribirse  {
+    animation: subirTexto 0.5s ease-in-out;
+    top: -20px;
+}
+.img-email {
+    width: 30px;
+}
+
+.img-email img {
+    width: 100%;
+    filter: brightness(5);
+}
+
+@keyframes subirIcono {
+    0% {
+        transform: translateY(-35px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes subirTexto {
+    0% {
+        transform: translateY(-50%);
+    }
+
+    100% {
+        transform: translateY(-70px);
+    }
 }
 
 footer .form-suscripcion button:hover {

@@ -639,9 +639,11 @@ footer a:hover {
     padding: 10px 0;
     width: 100%;
 }
+
 #formRegistro{
     position: relative;
 }
+
 .nav-registro h2.active {
     font-weight: var(--grosor-grueso)
 }
@@ -787,11 +789,13 @@ a.link-activo {
 .contenedor-formulario .redes-sociales {
     gap: 20px;
 }
+
 .contenedor-formulario .redes-sociales a img {
     width: 50px;
     height: 50px;
 }
-.mensaje-confirmacion{
+
+.mensaje-confirmacion {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -800,27 +804,29 @@ a.link-activo {
     height: 300px;
     gap: 20px;
     position: absolute;
-    border-radius: 10px;
-    top: 0;
+    top: 30%;
     left: 20%;
+    border-radius: 10px;
     transform: scale(0);
-
+    transform-origin: center;
 }
-.animacion-msg-confirmacion{
-    animation: entradaMagistral 1.5s 1s linear 1 forwards;
+
+.animacion-msg-confirmacion {
+    animation: entradaMagistral 1.7s 1s cubic-bezier(0.5, 0.4, 0.31, 1.09) 1 forwards;
 }
 
 @keyframes entradaMagistral {
     0% {
         transform: scale(0);
+        opacity: 0;
     }
     100% {
         transform: scale(1);
         opacity: 100%;
-
     }
 }
-.circulo{
+
+.circulo {
     width: 85px;
     height: 85px;
     transition: transform 2s linear;
@@ -834,7 +840,8 @@ a.link-activo {
     position: relative;
     overflow: hidden;
 }
-.circulo::after{
+
+.circulo::after {
     content: "";
     width: 50px;
     height: 70px;
@@ -845,6 +852,7 @@ a.link-activo {
     transform: skew(25deg);
     animation: brillo 2s linear .5s infinite;
 }
+
 @keyframes brillo {
     0% {
         transform:  skew(10deg) translateX(-100px) scale(1);
@@ -853,27 +861,30 @@ a.link-activo {
         transform: skew(10deg) translateX(80px)  scale(1);
     }
 }
-.circulo img{
+
+.circulo img {
     width: 60px;
     position: relative;
     z-index: 2;
     filter: brightness(100);
     }
 
-.contenedor-form-redes .redes-sociales{
+.contenedor-form-redes .redes-sociales {
     margin-top: 20px;
 }
-.text-redes-sociales{
+
+.text-redes-sociales {
     display: flex;
     justify-content: center;
     gap: 10px;
     padding: 0 14px;
 }
 
-.desaparece-caja{
+.desaparece-caja {
     opacity: 0;
     transition: opacity 1s linear;
 }
+
 /* ------------------- Home ------------------- */
 
 /* Main */

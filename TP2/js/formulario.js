@@ -55,7 +55,7 @@ btnRegistro.addEventListener('click', (e) => {
         mostrarConfirmacion();
         setTimeout(() => {
             window.location.href = 'login.html'; 
-        }, 4000);
+        }, 5000);
     }
 })
 

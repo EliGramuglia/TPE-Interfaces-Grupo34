@@ -12,20 +12,8 @@
 
 <body>
     <!-- Header -->
-    <header>
-        <div class="iconos">
-            <img src="img/iconos/menu-hamburguesa.png" alt="Menú Hamburguesa" class="icon-hover" id="menu-hamburguesa">
+    <header id="header-login">
             <a href="index.html"><img src="img/iconos/logo-winnit.png" alt="Logo Winnit" id="logo-winnit"></a>
-        </div>
-        <div id="contenedor-buscador">
-            <input type="text" placeholder="Buscar">
-            <img src="img/iconos/lupa.png" alt="Ícono lupa" id="imagen-lupa">
-        </div>
-        <div class="iconos">
-            <a href="login.html">
-                <img src="img/iconos/perfil.png" alt="Perfil de usuario" class="imagen-iconos icon-hover" id="icono-perfil">
-            </a>
-        </div>
     </header>
 
     <!-- Menú de categorías -->
@@ -135,9 +123,6 @@
                                 Winnit</a></label>
                     </div>
                     <button id="btn-registro" class="btn-principal"><span>Registrarse</span></button>
-                    <div class="contenedor-msgConfirmacion oculto">
-                        <p id="msg-confirmacion">¡Registro exitoso!</p>
-                    </div>
                     <div class="contenedor-form-redes">
                         <span class="text-redes-sociales"> 
                             <hr>
@@ -157,76 +142,15 @@
                         </div>
                     </div>
                 </form>
+                    <div class="mensaje-confirmacion">
+                            <div class="circulo">
+                                <img src="img/iconos/icon-ok.png" alt="icono de ok">
+                            </div>
+                        <h2>¡Ya estas registrado!</h2>
+                    </div>
             </div>
         </section>
     </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="contenedor-footer">
-            <div class="lista-footer">
-                <h3 class="titulo-columna">Sitio</h3>
-                <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Ayuda</a></li>
-                    <li><a href="#">Cookies</a></li>
-                    <li><a href="#">Términos y condiciones</a></li>
-                    <li><a href="#">Políticas de privacidad</a></li>
-                </ul>
-            </div>
-            <div class="lista-footer">
-                <h3 class="titulo-columna">Categorías</h3>
-                <ul>
-                    <li><a href="#">Nuevos</a></li>
-                    <li><a href="#">Recientes</a></li>
-                    <li><a href="#">Favoritos</a></li>
-                    <li><a href="#">Etiquetas</a></li>
-                    <li><a href="#">Todos los juegos</a></li>
-                </ul>
-            </div>
-            <div class="lista-footer">
-                <h3 class="titulo-columna">Comunidad</h3>
-                <ul>
-                    <li><a href="#">Foro de Winnit</a></li>
-                    <li><a href="#">Preguntas frecuentes</a></li>
-                    <li><a href="#">Reglas de la comunidad</a></li>
-                    <li><a href="#">Participá en nuestra encuesta</a></li>
-                    <li><a href="#">Eventos y torneos</a></li>
-                </ul>
-            </div>
-            <div class="lista-footer">
-                <h3 class="titulo-columna">Empresa</h3>
-                <ul>
-                    <li><a href="#">Contactanos</a></li>
-                    <li><a href="#">Sobre nosotros</a></li>
-                    <li><a href="#">Trabajá con nosotros</a></li>
-                    <li><a href="#">Asociaciones y colaboraciones</a></li>
-                    <li><a href="#">Proyectos en curso</a></li>
-                </ul>
-            </div>
-
-            <div class="suscripcion-copyright">
-                <a href="index.html"><img src="img/iconos/logo-winnit.png" alt="Logo Winnit" id="logo-winnit"></a>
-                <p>¡No te pierdas ninguna novedad!</p>
-                <form action="" class="form-suscripcion">
-                    <input type="email" placeholder="ejemplo@email.com">
-                    <button type="submit">Suscribirse</button>
-                </form>
-                <div class="contenedor-copyright">
-                    <hr>
-                    <p id="copyright" class="">&copy; Copyright 2024 Winnit</p>
-                </div>
-            </div>
-        </div>
-
-        <nav class="redes-footer">
-            <ul>
-                <li><a href="#"><img src="img/iconos/logo-facebook.png" alt="Facebook"></a></li>
-                <li><a href="#"><img src="img/iconos/logo-instagram.png" alt="Instagram"></a></li>
-                <li><a href="#"><img src="img/iconos/logo-youtube.png" alt="YouTube"></a></li>
-            </ul>
-        </nav>
-    </footer>
 
     <script src="js/menuCategorias.js"></script>
     <script src="js/formulario.js"></script>

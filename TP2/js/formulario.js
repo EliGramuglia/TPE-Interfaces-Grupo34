@@ -54,8 +54,8 @@ btnRegistro.addEventListener('click', (e) => {
     if (validandoFormulario(inputForm)) {
         mostrarConfirmacion();
         setTimeout(() => {
-            window.location.href = 'index.html';; 
-        }, 5000);
+            window.location.href = 'login.html'; 
+        }, 4000);
     }
 })
 
@@ -87,11 +87,10 @@ function advertenciaInput(inputForm) {
     })
 }
 function mostrarConfirmacion(){
-    const cajaConfirmacion = document.querySelector('.contenedor-msgConfirmacion');
-    const msg = document.getElementById('msg-confirmacion');
-    cajaConfirmacion.classList.remove('oculto');
+    formularioRegistro.classList.add('desaparece-caja');
+    const msgConfirmacion = document.querySelector('.mensaje-confirmacion');
+    msgConfirmacion.classList.add('animacion-msg-confirmacion');
 }
-
 
 
 

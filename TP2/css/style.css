@@ -1273,8 +1273,8 @@ div.puntaje-juego { /* Cucarda */
     border-radius: 3px;
 }
 
-div.puntaje-juego img { /* Imagen de estrella */
-    width: 14px;
+.puntaje-juego img { /* Imagen de estrella */
+    width: 12px;
     height: auto;
     margin-right: 4px;
 }
@@ -2146,6 +2146,11 @@ ul.lista-videos li {
         animation: deslizar-vertical 120s linear infinite;
     }
 
+    .puntaje-juego img { /* Imagen de estrella */
+        width: 14px;
+        height: auto;
+        margin-right: 4px;
+    }
 
     /* ------ Página de Login ------ */
     main#login {

@@ -710,7 +710,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 /* Botón de ingreso/registro */
-.btn-principal {
+.btn-principal, #btn-jugar-especial {
     font-size: var(--tamanio-16);
     background-color: var(--secundario);
     font-weight: var(--grosor-grueso);
@@ -765,6 +765,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         transform: skew(10deg);
     }
 }
+
+
 
 /* Captcha */
 .input-capcha {
@@ -1379,7 +1381,7 @@ nav#bread-crumbs ul img {
     font-weight: 800;
 }
 
-.pantalla-juego .btn-principal {
+.pantalla-juego #btn-jugar-especial {
     width: 140px;
     height: 50px;
     font-size: 22px;
@@ -1399,6 +1401,31 @@ nav#bread-crumbs ul img {
 .pantalla-juego .btn-principal:hover {
     background-color: var(--secundario-semi-claro);
 }
+
+
+
+#btn-jugar-especial {
+    transition: background-color 200ms ease;
+    animation: 1.2s cubic-bezier(0.8, 0, 0, 1) 0s infinite normal none running btn-pulsado;
+    box-shadow: var(--secundario-semi-claro) 0px 0px 0px 0px;
+    transition: transform 300ms ease-in-out;
+}
+
+#btn-jugar-especial:hover {
+    transform: scale(1.04);
+    background-color: var(--secundario-semi-claro);
+    color: white;
+  }
+
+@keyframes btn-pulsado {
+    100% {
+        box-shadow: 0 0 0 20px rgba(193, 246, 215, 0);
+    }
+}
+
+
+
+
 
 /* Estilos para la card de instrucciones del juego */
 .contenedor-controles-juego {

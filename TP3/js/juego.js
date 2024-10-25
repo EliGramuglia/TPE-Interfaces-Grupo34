@@ -1,8 +1,8 @@
 "use strict";
 
-import { Ficha } from './Ficha.js';
-import { Jugador } from './Jugador.js';
-import { Tablero } from './Tablero.js';
+// import { Ficha } from './Ficha.js';
+// import { Jugador } from './Jugador.js';
+// import { Tablero } from './Tablero.js';
 
 /**
  * Esta clase representa el juego "4 en línea", con su canvas, tablero y jugadores.
@@ -105,5 +105,12 @@ export class Juego {
         for (let f of this.fichas) {
             f.dibujar(this.ctx);
         }
+    }
+    cuentaRegrasiva(cantSeg){
+        //tendra una cuenta regresiva de N s para activarse en cada turno
+        for(i = cantSeg; i >= 0; i--){
+            console.log('Cuenta regresiva:' + i)
+        }
+        //cambiar turno() -> habilita y desabilita las fichas del equipo contrincante
     }
 }

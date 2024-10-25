@@ -7,6 +7,7 @@ export class Casillero {
     constructor(fila, columna) {
         this.fila = fila;
         this.columna = columna;
+        this.ficha = ficha;
     }
 
     actualizar() {
@@ -16,8 +17,11 @@ export class Casillero {
     dibujar() {
 
     }
-
-    tieneFicha() {
-
+    set ficha(f){
+        this.ficha = f;
+    }
+    tieneFicha() { 
+        return ficha != null;
+        //el tablero pregunta si tiene ficha, para evitar permitir tirar en un mismo casillero mas de una ficha
     }
 }

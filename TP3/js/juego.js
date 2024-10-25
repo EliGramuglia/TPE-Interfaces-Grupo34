@@ -23,10 +23,6 @@ export class Juego {
             x: undefined,
             y: undefined
         };
-        this.offset = {
-            x: undefined,
-            y: undefined
-        }
 
         // Elementos del juego
         this.tablero = new Tablero();
@@ -54,17 +50,14 @@ export class Juego {
             
             if (this.fichaSeleccionada) {
                 this.fichaSeleccionada.seleccionada = true;
-                this.arrastrando = true;
-                this.offset.x = this.mouse.x - this.fichaSeleccionada.x;
-                this.offset.y = this.mouse.y - this.fichaSeleccionada.y;
             }
         });
 
         this.canvas.addEventListener('mousemove', (e) => {
             if (this.fichaSeleccionada) {
                 this.mouse = this.obtenerCoordenadasMouse(e);
-                this.fichaSeleccionada.x = this.mouse.x - this.offset.x;
-                this.fichaSeleccionada.y = this.mouse.y - this.offset.y;
+                this.fichaSeleccionada.x = this.mouse.x;
+                this.fichaSeleccionada.y = this.mouse.y;
             }
         });
 

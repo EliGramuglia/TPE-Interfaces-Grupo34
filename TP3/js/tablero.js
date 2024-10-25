@@ -1,6 +1,6 @@
 "use strict";
 
-import { Casillero } from "./casillero";
+import { Casillero } from "./Casillero.js";
 
 /**
  * Esta clase representa el tablero de juego, el cual consiste en una matriz bidimensional de casilleros.
@@ -17,12 +17,12 @@ export class Tablero {
             }
         }
     }
-    
-    dibujar() {
-
-    }
 
     actualizar() {
+
+    }
+    
+    dibujar() {
 
     }
 

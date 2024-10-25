@@ -8,12 +8,12 @@ export class Casillero {
         this.fila = fila;
         this.columna = columna;
     }
-    
-    dibujar() {
-
-    }
 
     actualizar() {
+
+    }
+    
+    dibujar() {
 
     }
 

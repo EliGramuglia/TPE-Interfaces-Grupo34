@@ -45,6 +45,19 @@ export class Tablero {
 
     verificarLinea() {
         //recorre la matriz de forma creciente o decreciente para evaluar la fila, columna, o diagonal  (fila,columna)
+        //Tener en cuenta: Se puede recorrer a partir de: 
+        // 1. desde el lugar que se tiro la ficha -> se analiza para los lados y las diagonales, subiendo una columna y una fila o bajando. 
+            // teniendo en cuenta que la ficha soltada puede ser la del medio de la union
+            /*   ↖  ↑  ↗     
+                ←   O   →     O → | | | | |
+                 ↙  ↓  ↘      ↓   | | | | |
+            */
+        // 2. Recorrer toda la matriz, desde la posicion [0,0] y evaluar si hay num° fichas seguidas de un bando para encontrar ganador [NO ES EFICIENTE]
+        // 3.  Desde la posicion del casillero disponible donde se va a poner la ficha
+            //recorrer la direccion (fila o columna) por si hay una coleccion ganadora en ella 
+                //(comenzando desde el inicio de la fila o columna)  |c inicio| |c| |c| |c|                              ←   ←   ←  - pos +   →   →   →       
+                //comenzando desde la posicion, yendo para adelante y para atras de la posicion de la ficha |c | |c| |c| |f| |c| |c| |c|
+            //recorrer la columna por si hay una coleccion ganadora (comenzando desde el inicio de la columna)
     }
 
     hayGanador() {

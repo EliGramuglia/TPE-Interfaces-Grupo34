@@ -106,7 +106,7 @@ export class Juego {
             f.dibujar(this.ctx);
         }
     }
-    cuentaRegrasiva(cantSeg){
+    cuentaRegresiva(cantSeg){
         //tendra una cuenta regresiva de N s para activarse en cada turno
         for(i = cantSeg; i >= 0; i--){
             console.log('Cuenta regresiva:' + i)

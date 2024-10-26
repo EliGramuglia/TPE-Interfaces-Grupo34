@@ -76,6 +76,7 @@ export class Tablero {
     posicionRandom(){
         //retonra un casillero disponible al azar
         //utiliza la funcion quedanCasillas() y tieneFicha()-> de tablero
+        //sirve para cuando se acaba la cuenta regresiva del turno y el jugador todavia no eligio ninguna columna donde tirar la ficha, el juego la tira al azar
     }
 }
 

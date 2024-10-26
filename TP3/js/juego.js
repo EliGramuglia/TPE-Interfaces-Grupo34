@@ -1,8 +1,8 @@
 "use strict";
 
-import { Ficha } from './ficha.js';
+import { Ficha } from './Ficha.js';
 import { Jugador } from './jugador.js';
-import { Tablero } from './tablero.js';
+import { Tablero } from './Tablero.js';
 
 /**
  * Esta clase representa el juego "4 en línea", con su canvas, tablero y jugadores.

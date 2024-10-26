@@ -6,17 +6,32 @@ import { Casillero } from "./Casillero.js";
  * Esta clase representa el tablero de juego, el cual consiste en una matriz bidimensional de casilleros.
  * 
  */
+
+
 export class Tablero {
     constructor(cantFilas, cantColumnas) {
-        this.cantFilas = cantFilas;
-        this.cantColumnas = cantColumnas;
-        this.casilleros = [];
+        this.maxFilas = cantFilas;
+        this.maxColumnas = cantColumnas;
+        this.tablero = this.crearMatriz(this.maxFilas,this.maxColumnas);
 
-        for (let fila = 0; fila < cantFilas; fila++) {
-            for (let col = 0; col < cantColumnas; col++) {
-                this.casilleros.push(new Casillero(fila, col));
-            }
+        // for (let fila = 0; fila < cantFilas; fila++) {
+        //     for (let col = 0; col < cantColumnas; col++) {
+        //         this.casilleros.push(new Casillero(fila, col));
+        //     }
+        // }
+
+    }
+
+
+    crearMatriz(filas,columnas){
+        const matriz = [];
+        for (let f = 0; f < filas; f++) {
+        matriz[f] = [];
+        for (let c = 0; c < columnas; c++) {
+            matriz[f][c] = new Casillero(f,c);
         }
+        }
+        return matriz;
     }
 
     actualizar() {
@@ -25,6 +40,7 @@ export class Tablero {
     
     dibujar() {
         //Se definen los estilos visuales que tomara la clase
+        console.log(this.tablero);
     }
 
     verificarLinea() {
@@ -49,3 +65,4 @@ export class Tablero {
         //utiliza la funcion quedanCasillas() y tieneFicha()-> de tablero
     }
 }
+

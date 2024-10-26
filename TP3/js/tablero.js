@@ -4,33 +4,27 @@ import { Casillero } from "./Casillero.js";
 
 /**
  * Esta clase representa el tablero de juego, el cual consiste en una matriz bidimensional de casilleros.
- * 
  */
-
-
 export class Tablero {
-    constructor(cantFilas, cantColumnas) {
-        this.maxFilas = cantFilas;
-        this.maxColumnas = cantColumnas;
-        this.tablero = this.crearMatriz(this.maxFilas,this.maxColumnas);
-
-        // for (let fila = 0; fila < cantFilas; fila++) {
-        //     for (let col = 0; col < cantColumnas; col++) {
-        //         this.casilleros.push(new Casillero(fila, col));
-        //     }
-        // }
-
+    constructor(maxFilas, maxColumnas) {
+        this.maxFilas = maxFilas;
+        this.maxColumnas = maxColumnas;
+        this.tamanioCasillero = 90;
+        this.ancho = this.maxColumnas * this.tamanioCasillero;
+        this.alto = this.maxFilas * this.tamanioCasillero;
+        this.casilleros = this.crearMatriz(this.maxFilas,this.maxColumnas);
     }
 
-
-    crearMatriz(filas,columnas){
+    crearMatriz(filas, columnas) {
         const matriz = [];
+
         for (let f = 0; f < filas; f++) {
-        matriz[f] = [];
-        for (let c = 0; c < columnas; c++) {
-            matriz[f][c] = new Casillero(f,c);
+            matriz[f] = [];
+            for (let c = 0; c < columnas; c++) {
+                matriz[f][c] = new Casillero(f, c, this.tamanioCasillero);
+            }
         }
-        }
+
         return matriz;
     }
 
@@ -38,9 +32,15 @@ export class Tablero {
 
     }
     
-    dibujar() {
-        //Se definen los estilos visuales que tomara la clase
-        console.log(this.tablero);
+    dibujar(ctx) {
+        const desplazamientoX = (ctx.canvas.width - this.ancho) / 2;
+        const desplazamientoY = (ctx.canvas.height - this.alto) / 2;
+
+        for (let f = 0; f < this.casilleros.length; f++) {
+            for (let c = 0; c < this.casilleros[f].length; c++) {
+                this.casilleros[f][c].dibujar(ctx, desplazamientoX, desplazamientoY);
+            }
+        }
     }
 
     verificarLinea() {
@@ -65,15 +65,16 @@ export class Tablero {
         //retorna que jugador es el ganador, dependiendo de que tipo de ficha sea (perro o gato)
     }
 
-    quedanCasillas(){
+    quedanCasillas() {
         //retorna si quedan casilleros vacios en el tablero,
         //en el caso de que no hayan mas disponibles, y que no queden mas fichas sera un empate
     }
-    zonaPermitida(){
+
+    zonaPermitida() {
         //evalua si la ficha se suelta desde la parte superior del tablero, retorna un booleano
     }
 
-    posicionRandom(){
+    posicionRandom() {
         //retonra un casillero disponible al azar
         //utiliza la funcion quedanCasillas() y tieneFicha()-> de tablero
         //sirve para cuando se acaba la cuenta regresiva del turno y el jugador todavia no eligio ninguna columna donde tirar la ficha, el juego la tira al azar

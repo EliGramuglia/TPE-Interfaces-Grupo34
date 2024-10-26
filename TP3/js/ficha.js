@@ -46,12 +46,12 @@ export class Ficha {
         return distancia <= this.radio;
     }
 
-    getPosicion(){
+    getPosicion() {
         //retorna la posicion en x,y de la ficha (mouse) 
         //sirve para saber si la ficha esta en la zona permitida del tablero
     }
 
-    estado(){
+    estado() {
         //normal(quieta), clikeada, en movimietno o soltada
         //siento que podria servir saber el estado de la ficha, para activar ciertos eventos o no
         // como una animacion

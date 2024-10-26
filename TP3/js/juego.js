@@ -8,15 +8,15 @@ import { Tablero } from './Tablero.js';
  * Esta clase representa el juego "4 en línea", con su canvas, tablero y jugadores.
  */
 export class Juego {
-    constructor(canvasId, width, height) {
+    constructor(canvasId, ancho, alto) {
         // Canvas
         this.canvas = document.querySelector(canvasId);
         this.ctx = this.canvas.getContext('2d');
-        this.width = width;
-        this.height = height;
-        this.canvas.width = this.width;
-        this.canvas.height = this.height;
-        this.colorFondo = '#222222';
+        this.ancho = ancho;
+        this.alto = alto;
+        this.canvas.width = this.ancho;
+        this.canvas.height = this.alto;
+        this.colorFondo = '#bbbbbb';
 
         // Coordenadas del cursor del mouse
         this.mouse = {
@@ -42,6 +42,9 @@ export class Juego {
             let tonoRandom = Math.random() * 360;
             this.fichas.push(new Ficha(i * 50, yRandom, `hsla(${tonoRandom}, 40%, 50%, 0.8)`));
         }
+
+        // Tablero
+        this.tablero = new Tablero(6, 7);
 
         // Event listeners
         this.canvas.addEventListener('mousedown', (e) => {
@@ -79,7 +82,7 @@ export class Juego {
 
     jugar() {
         // Se limpia el canvas
-        this.ctx.clearRect(0, 0, this.width, this.height); 
+        this.ctx.clearRect(0, 0, this.ancho, this.alto); 
 
         // Se actualizan y dibujan los elementos del juego
         this.actualizar();
@@ -99,18 +102,22 @@ export class Juego {
     dibujar() {
         // Fondo
         this.ctx.fillStyle = this.colorFondo;
-        this.ctx.fillRect(0, 0, this.width, this.height);
+        this.ctx.fillRect(0, 0, this.ancho, this.alto);
 
         // Fichas
         for (let f of this.fichas) {
             f.dibujar(this.ctx);
         }
+
+        // Tablero
+        this.tablero.dibujar(this.ctx);
     }
-    cuentaRegresiva(cantSeg){
-        //tendra una cuenta regresiva de N s para activarse en cada turno
-        for(i = cantSeg; i >= 0; i--){
+
+    cuentaRegresiva(cantSeg) {
+        // tendra una cuenta regresiva de N s para activarse en cada turno
+        for (i = cantSeg; i >= 0; i--) {
             console.log('Cuenta regresiva:' + i)
         }
-        //cambiar turno() -> habilita y desabilita las fichas del equipo contrincante
+        // cambiar turno() -> habilita y desabilita las fichas del equipo contrincante
     }
 }

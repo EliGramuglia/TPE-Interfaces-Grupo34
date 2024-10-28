@@ -5,18 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Canvas</title>
+    <link rel="stylesheet" href="css/estilosJuego.css">
 </head>
 
 <body>
-    <div class="contenedor-canvas">
-        <div class="contenedor-modos-tablero">
-            <h2>Seleccionar modo juego para comenzar a jugar</h2>
-            <button id="btn-opc1">4x5</button>
-            <button id="btn-opc2">5x6</button>
-            <button id="btn-opc3">7x8</button>
+    <div class="pantalla-juego">
+        <div class="previsualizacion">
+            <img src="" alt="">
+            <h2>4 en linea</h2>
+            <button id="btn-jugar-especial">jugar</button>
+            <div id="animacion-carga" class="oculto"></div> 
         </div>
-        <canvas id="canvas"></canvas>
+        <div class="contenedor-modos-tablero oculto">
+            <img id="tituloJuego" src="img/tituloJuego.png" alt="">
+            <h2>Seleccionar el tipo de tablero para comenzar a jugar</h2>
+            <button id="btn-opc1" class="btn-tipoTablero">4x5</button>
+            <button id="btn-opc2" class="btn-tipoTablero">5x6</button>
+            <button id="btn-opc3" class="btn-tipoTablero">7x8</button>
+        </div>
+        <canvas id="canvas" class="oculto"></canvas>
     </div>
+    <script type="module" src="js/opcionesJuego.js"></script>
     <script type="module" src="js/Casillero.js"></script>
     <script type="module" src="js/Tablero.js"></script>
     <script type="module" src="js/Ficha.js"></script>

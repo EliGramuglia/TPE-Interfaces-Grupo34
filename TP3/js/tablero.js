@@ -24,7 +24,6 @@ export class Tablero {
                 matriz[f][c] = new Casillero(f, c, this.tamanioCasillero);
             }
         }
-
         return matriz;
     }
 
@@ -63,11 +62,33 @@ export class Tablero {
     hayGanador() {
         //se recorre vertical, horizontal y diagonalmente para verificar que haya N cantidad de fichas iguales
         //retorna que jugador es el ganador, dependiendo de que tipo de ficha sea (perro o gato)
-    }
+        let ganador = false;
 
+        if (ganador === false) {
+            ganador = recorrerColumna(columna, cantFichasParaGanar);
+        }
+        else if (ganador === false) {
+            ganador = busquedaPorColumna();
+        }
+        else if (ganador === false) {
+            ganador = busquedaPorDiagonalIzquierda();
+        }
+        else if (ganador === false) {
+            ganador = busquedaPorDiagonalDerecha();
+        }
+        return ganador
+    }
+//no la pude probar a la funcion, asi que no se si esta bien -_-
     quedanCasillas() {
-        //retorna si quedan casilleros vacios en el tablero,
-        //en el caso de que no hayan mas disponibles, y que no queden mas fichas sera un empate
+        for (let fila = 0; fila < maxFilas; fila++) {
+            for (let columna = 0; columna < maxColumnas; columna++) {
+                //mientras quede un lugar se puede seguir jugando
+                if (!casilleros[fila][columna].tieneFicha()) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     zonaPermitida() {
@@ -79,5 +100,27 @@ export class Tablero {
         //utiliza la funcion quedanCasillas() y tieneFicha()-> de tablero
         //sirve para cuando se acaba la cuenta regresiva del turno y el jugador todavia no eligio ninguna columna donde tirar la ficha, el juego la tira al azar
     }
-}
+    recorrerColumna(columna, cantFichasParaGanar){
+        let contador = cantFichasParaGanar;
+        for(let fila = 0; fila < this.maxFilas; fila++){
+            if(this.casilleros[fila][columna].tieneFicha()){
+                //me fijo de que equipo es la ficha
+            }
+        }
+    }
+    recorrerFila(fila, cantFichasParaGanar){
+        let contador = cantFichasParaGanar;
+        for(let colum = 0; colum < this.maxColumnas; Colum++){
+            if(this.casilleros[fila][colum].tieneFicha()){
+                //me fijo de que equipo es la ficha
+            } 
+        }
+    }
 
+    RecorrerDiagonalDerecha(){
+
+    }
+    RecorrerDiagonalIzquierda(){
+
+    }
+}

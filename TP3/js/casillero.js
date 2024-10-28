@@ -14,7 +14,7 @@ export class Casillero {
         this.img.src = './img/casillero.png';
         this.imgCargada = false;
         this.img.onload = () => {
-           this.imgCargada = true;
+        this.imgCargada = true;
         };
     }
 
@@ -39,5 +39,6 @@ export class Casillero {
     tieneFicha() { 
         return ficha != null;
         //el tablero pregunta si tiene ficha, para evitar permitir tirar en un mismo casillero mas de una ficha
+        return ficha != null;
     }
 }

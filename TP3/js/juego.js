@@ -6,17 +6,23 @@ import { Tablero } from './Tablero.js';
 
 /**
  * Esta clase representa el juego "4 en línea", con su canvas, tablero y jugadores.
- */
+*/
+//guardo el ancho y alto de la resolucion de pantalla
+let fullWidth = screen.width;
+let fullHeight = screen.height;
+
 export class Juego {
-    constructor(canvasId, ancho, alto) {
+    constructor(canvasId, ancho, alto, filas) {
         // Canvas
         this.canvas = document.querySelector(canvasId);
         this.ctx = this.canvas.getContext('2d');
-        this.ancho = ancho;
-        this.alto = alto;
+        this.ancho = fullWidth;
+        this.alto = fullHeight;
         this.canvas.width = this.ancho;
         this.canvas.height = this.alto;
         this.colorFondo = '#bbbbbb';
+        this.filas = filas;
+        this.columnas = filas + 1;
 
         // Coordenadas del cursor del mouse
         this.mouse = {
@@ -29,7 +35,8 @@ export class Juego {
         this.j1 = new Jugador();
         this.j2 = new Jugador();
         this.fichas = [];
-        this.cantFichas = 20;
+        this.cantFichas = filas * this.columnas;
+        console.log("cantidad fichas" + this.cantFichas);
         this.fichaSeleccionada; // Determina qué ficha está siendo arrastrada
 
         this.inicializar();
@@ -44,7 +51,7 @@ export class Juego {
         }
 
         // Tablero
-        this.tablero = new Tablero(6, 7);
+        this.tablero = new Tablero(this.filas, this.columnas);
 
         // Event listeners
         this.canvas.addEventListener('mousedown', (e) => {

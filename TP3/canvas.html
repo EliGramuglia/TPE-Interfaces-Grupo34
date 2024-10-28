@@ -8,8 +8,15 @@
 </head>
 
 <body>
-    <canvas id="canvas"></canvas>
-
+    <div class="contenedor-canvas">
+        <div class="contenedor-modos-tablero">
+            <h2>Seleccionar modo juego para comenzar a jugar</h2>
+            <button id="btn-opc1">4x5</button>
+            <button id="btn-opc2">5x6</button>
+            <button id="btn-opc3">7x8</button>
+        </div>
+        <canvas id="canvas"></canvas>
+    </div>
     <script type="module" src="js/Casillero.js"></script>
     <script type="module" src="js/Tablero.js"></script>
     <script type="module" src="js/Ficha.js"></script>

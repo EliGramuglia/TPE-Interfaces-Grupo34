@@ -1,4 +1,4 @@
-import { Juego } from './Juego.js';
+import { Juego } from './juego.js';
 
 
 document.addEventListener('DOMContentLoaded', () => {

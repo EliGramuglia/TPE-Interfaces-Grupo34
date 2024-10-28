@@ -33,7 +33,11 @@ export class Casillero {
     }
 
     colocarFicha(ficha) {
-        this.ficha = ficha;
+        if (!this.tieneFicha()) { 
+            this.ficha = ficha;
+            return true; // Retorna verdadero si colocó la ficha con éxito
+        }
+        return false; // Retorna falso si ya tenía una ficha
     }
 
     tieneFicha() { 

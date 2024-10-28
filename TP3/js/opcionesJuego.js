@@ -1,5 +1,5 @@
 "use strict"
-import { Juego } from './Juego.js';
+import { Juego } from './juego.js';
 
 let btnJugar = document.getElementById('btn-jugar-especial');
 btnJugar.addEventListener('click', mostrarConfiguracionJuego);

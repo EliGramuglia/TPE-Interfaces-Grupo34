@@ -51,9 +51,9 @@ export class Juego {
         // Event listeners
         this.canvas.addEventListener('mousedown', (e) => {
             this.mouse = this.obtenerCoordenadasMouse(e);
-            this.fichaSeleccionada = this.fichas.find(f => f.sobreCoordenadasMouse(this.mouse));
+            this.fichaSeleccionada = this.fichas.find(f => f.enCoordenadas(this.mouse));
             
-            if (this.fichaSeleccionada && !this.fichaSeleccionada.enTablero) {
+            if (this.fichaSeleccionada && !this.fichaSeleccionada.posicionada) {
                 this.fichaSeleccionada.seleccionada = true;
             }
         });
@@ -75,18 +75,6 @@ export class Juego {
         });
     }
 
-    colocarFichaEnTablero(columna, ficha) {
-        for (let fila = this.maxfilas - 1; fila >= 0; fila--) { // Empezamos desde la fila más baja
-            let casillero = this.tablero.obtenerCasillero(fila, columna); // Obtener casillero de la fila y columna
-            if (!casillero.tieneFicha()) {
-                casillero.colocarFicha(ficha);
-                return true; // Colocamos la ficha y salimos
-            }
-        }
-        console.log("No se puede colocar la ficha; la columna está llena");
-        return false; // Retorna falso si la columna está llena
-    }
-
     obtenerCoordenadasMouse(evento) {
         const rect = this.canvas.getBoundingClientRect()
         return {
@@ -95,27 +83,45 @@ export class Juego {
         }
     }
 
+    /**
+     * Genera fichas y las reparte a cada jugador.
+     */
     generarFichas() {
         const radio = 30;
+        const rutaImagenPerros = "./img/ficha-perro-1.png";
+        const rutaImagenGatos = "./img/ficha-gato-1.png";
+
+        const separacionFichas = 20;
         const margenInferior = this.alto - 20;
         const margenLateral = 20;
-        const separacionFichas = 20;
         
         // Jugador 1
         for (let i = 0; i < this.cantFichas / 2; i++) {
             const x = margenLateral + radio;
             const y = margenInferior - i * separacionFichas - radio;
-            let tonoRandom = Math.random() * 360;
-            this.j1.agregarFicha(new Ficha(x, y, radio, `hsla(${tonoRandom}, 40%, 50%, 0.8)`));
+            this.j1.agregarFicha(new Ficha(x, y, radio, rutaImagenPerros));
         }
 
         // Jugador 2
         for (let i = 0; i < this.cantFichas / 2; i++) {
             const x = this.ancho - margenLateral - radio;
             const y = margenInferior - i * separacionFichas - radio;
-            let tonoRandom = Math.random() * 360;
-            this.j2.agregarFicha(new Ficha(x, y, radio, `hsla(${tonoRandom}, 40%, 50%, 0.8)`));
+            this.j2.agregarFicha(new Ficha(x, y, radio, rutaImagenGatos));
         }
+    }
+
+    /**
+     * Coloca una ficha en una columna dada. Retorna true si se pudo colocar la ficha, y false en caso conrario.
+     */
+    colocarFichaEnTablero(columna, ficha) {
+        for (let fila = this.maxfilas - 1; fila >= 0; fila--) { // Se empieza desde la fila inferior
+            let casillero = this.tablero.obtenerCasillero(fila, columna); // Se obtiene cada casillero de la fila
+            if (!casillero.tieneFicha()) {
+                casillero.colocarFicha(ficha);
+                return true;
+            }
+        }
+        return false;
     }
 
     jugar() {
@@ -160,19 +166,20 @@ export class Juego {
     }
 
     cuentaRegresiva(cantSeg) {
-        // tendra una cuenta regresiva de N s para activarse en cada turno
+        
+        
         for (i = cantSeg; i >= 0; i--) {
-            console.log('Cuenta regresiva:' + i)
+            console.log('Cuenta regresiva: ' + i)
         }
-        // cambiar turno() -> habilita y desabilita las fichas del equipo contrincante
+        // cambiarTurno() -> habilita y desabilita las fichas de cada jugador
     }
 
-    terminaJuego() {
-        //pregunto si hay ganador al tablero cada vez qeu se tire una ficha
+    hayGanador() {
+        // pregunto si hay ganador al tablero cada vez qeu se tire una ficha
         if (this.tablero.hayGanador()) {
             console.log("ganador: jugador 1");
-            //sino pregunto si quedan casillas y fichas para seguir jugando
-        }else if(!this.tablero.quedanCasillas() && this.cantFichas > 0){
+            // sino pregunto si quedan casillas y fichas para seguir jugando
+        } else if (!this.tablero.quedanCasillas() && this.cantFichas > 0) {
             console.log("no quedan lugares para seguir jugando");
         }
     }

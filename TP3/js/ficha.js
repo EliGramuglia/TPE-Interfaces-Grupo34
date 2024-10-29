@@ -4,22 +4,28 @@
  * Esta clase representa una ficha del juego con su posición x-y, radio, velocidad x-y e imagen.
  */
 export class Ficha {
-    constructor(x, y, radio, imagen) {
+    constructor(x, y, radio, rutaImagen) {
         this.x = x;
         this.y = y;
         this.radio = radio;
-        this.imagen = imagen;
         this.vx = 0;
         this.vy = 1;
         this.friccion = 0.6; // Fricción que disminuye fuerza de rebote
         this.gravedad = 0.3; // Gravedad que afecta caída
         this.seleccionada = false;
-        this.cayendo = false;
-        this.enTablero = false;
+        this.enCaida = false;
+        this.posicionada = false;
+
+        this.img = new Image();
+        this.img.src = rutaImagen;
+        this.imgCargada = false;
+        this.img.onload = () => {
+            this.imgCargada = true;
+        };
     }
 
     actualizar(canvas) {
-        if (this.cayendo && !this.seleccionada && this.vy != 0) {
+        if (this.enCaida && !this.posicionada) {
             this.vy += this.gravedad;
             this.y += this.vy;
             
@@ -32,14 +38,26 @@ export class Ficha {
     }
 
     dibujar(ctx) {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radio, 0, Math.PI * 2);
-        ctx.fillStyle = this.imagen;
-        ctx.fill();
-        ctx.closePath();
+        // ctx.beginPath();
+        // ctx.arc(this.x, this.y, this.radio, 0, Math.PI * 2);
+        // ctx.fillStyle = this.imagen;
+        // ctx.fill();
+        // ctx.closePath();
+
+        if (this.imgCargada) {
+            ctx.drawImage(
+                this.img, 
+                this.x - this.radio, 
+                this.y - this.radio, 
+                this.radio * 2, 
+                this.radio * 2
+            );
+        }
     }
 
-    sobreCoordenadasMouse(coordenadasMouse) {
+
+
+    enCoordenadas(coordenadasMouse) {
         const distX = coordenadasMouse.x - this.x;
         const distY = coordenadasMouse.y - this.y;
         const distancia = Math.sqrt(distX * distX + distY * distY);
@@ -48,14 +66,5 @@ export class Ficha {
         return distancia <= this.radio;
     }
 
-    getPosicion() {
-        //retorna la posicion en x,y de la ficha (mouse) 
-        //sirve para saber si la ficha esta en la zona permitida del tablero
-    }
-
-    estado() {
-        //normal(quieta), clikeada, en movimietno o soltada
-        //siento que podria servir saber el estado de la ficha, para activar ciertos eventos o no
-        // como una animacion
-    }
+    
 }

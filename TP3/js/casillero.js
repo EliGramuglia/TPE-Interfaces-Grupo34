@@ -18,10 +18,6 @@ export class Casillero {
         };
     }
 
-    actualizar() {
-
-    }
-    
     dibujar(ctx, desplazamientoX, desplazamientoY) {
         ctx.drawImage(
             this.img, 

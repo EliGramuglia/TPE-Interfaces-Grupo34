@@ -43,6 +43,5 @@ export class Casillero {
     tieneFicha() { 
         return ficha != null;
         //el tablero pregunta si tiene ficha, para evitar permitir tirar en un mismo casillero mas de una ficha
-        return ficha != null;
     }
 }

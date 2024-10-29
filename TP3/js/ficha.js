@@ -14,10 +14,12 @@ export class Ficha {
         this.friccion = 0.6; // Fricción que disminuye fuerza de rebote
         this.gravedad = 0.3; // Gravedad que afecta caída
         this.seleccionada = false;
+        this.cayendo = false;
+        this.enTablero = false;
     }
 
     actualizar(canvas) {
-        if (this.vy != 0 && !this.seleccionada) {
+        if (this.cayendo && !this.seleccionada && this.vy != 0) {
             this.vy += this.gravedad;
             this.y += this.vy;
             

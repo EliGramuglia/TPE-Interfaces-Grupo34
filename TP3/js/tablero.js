@@ -12,20 +12,31 @@ export class Tablero {
         this.tamanioCasillero = 70;
         this.ancho = this.maxColumnas * this.tamanioCasillero;
         this.alto = this.maxFilas * this.tamanioCasillero;
-        this.casilleros = this.crearMatriz(this.maxFilas,this.maxColumnas);
+        this.casilleros = this.crearMatriz(this.maxFilas, this.maxColumnas);
+        this.zonaLanzamiento = this.inicializarZonaLanzamiento();
     }
 
+    /**
+     * El tablero se compone por un arreglo de columnas. Cada columna es un arreglo de casilleros.
+     */
     crearMatriz(filas, columnas) {
-        const matriz = [];
-
-        for (let f = 0; f < filas; f++) {
-            matriz[f] = [];
-            for (let c = 0; c < columnas; c++) {
-                matriz[f][c] = new Casillero(f, c, this.tamanioCasillero);
+        const arreglo = new Array(columnas);
+        for (let c = 0; c < columnas; c++) {
+            arreglo[c] = []; // Inicializa la columna
+            for (let f = 0; f < filas; f++) {
+                arreglo[c][f] = new Casillero(f, c, this.tamanioCasillero);
             }
         }
-        return matriz;
+        return arreglo;
     }
+
+    /**
+     * Inicializa casilleros de lanzamiento.
+     */
+    inicializarZonaLanzamiento() {
+        return null;
+    }
+
 
     actualizar() {
 
@@ -42,44 +53,123 @@ export class Tablero {
         }
     }
 
-    verificarLinea() {
-        //recorre la matriz de forma creciente o decreciente para evaluar la fila, columna, o diagonal  (fila,columna)
-        //Tener en cuenta: Se puede recorrer a partir de: 
-        // 1. desde el lugar que se tiro la ficha -> se analiza para los lados y las diagonales, subiendo una columna y una fila o bajando. 
-            // teniendo en cuenta que la ficha soltada puede ser la del medio de la union
-            /*   ↖  ↑  ↗     
-                ←   O   →     O → | | | | |
-                 ↙  ↓  ↘      ↓   | | | | |
-            */
-        // 2. Recorrer toda la matriz, desde la posicion [0,0] y evaluar si hay num° fichas seguidas de un bando para encontrar ganador [NO ES EFICIENTE]
-        // 3.  Desde la posicion del casillero disponible donde se va a poner la ficha
-            //recorrer la direccion (fila o columna) por si hay una coleccion ganadora en ella 
-                //(comenzando desde el inicio de la fila o columna)  |c inicio| |c| |c| |c|                              ←   ←   ←  - pos +   →   →   →       
-                //comenzando desde la posicion, yendo para adelante y para atras de la posicion de la ficha |c | |c| |c| |f| |c| |c| |c|
-            //recorrer la columna por si hay una coleccion ganadora (comenzando desde el inicio de la columna)
+    hayGanador(fila, columna, cantFichasParaGanar) {
+        return this.verificarFila(fila, cantFichasParaGanar) ||
+               this.verificarColumna(columna, cantFichasParaGanar) ||
+               this.verificarDiagonalIzquierda(fila, columna, cantFichasParaGanar) ||
+               this.verificarDiagonalDerecha(fila, columna, cantFichasParaGanar);
     }
 
-    hayGanador() {
-        //se recorre vertical, horizontal y diagonalmente para verificar que haya N cantidad de fichas iguales
-        //retorna que jugador es el ganador, dependiendo de que tipo de ficha sea (perro o gato)
-        let ganador = false;
-
-        if (ganador === false) {
-            ganador = recorrerColumna(columna, cantFichasParaGanar);
+    verificarFila(fila, cantFichasParaGanar) {
+        let contador = 0;
+        let fichaActual = null;
+    
+        for (let col = 0; col < this.maxColumnas; col++) {
+            const casillero = this.casilleros[col][fila];
+            if (casillero.tieneFicha()) {
+                if (fichaActual === null) {
+                    fichaActual = casillero.ficha; // Suponiendo que `ficha` almacena el jugador (perro o gato)
+                    contador = 1;
+                } else if (casillero.ficha === fichaActual) {
+                    contador++;
+                    if (contador === cantFichasParaGanar) {
+                        return true; // Se encontró una secuencia ganadora
+                    }
+                } else {
+                    fichaActual = casillero.ficha;
+                    contador = 1;
+                }
+            } else {
+                contador = 0; // Reiniciar contador si no hay ficha
+                fichaActual = null;
+            }
         }
-        else if (ganador === false) {
-            ganador = busquedaPorColumna();
-        }
-        else if (ganador === false) {
-            ganador = busquedaPorDiagonalIzquierda();
-        }
-        else if (ganador === false) {
-            ganador = busquedaPorDiagonalDerecha();
-        }
-        return ganador
+        return false; // No se encontró secuencia ganadora en esta fila
     }
-//no la pude probar a la funcion, asi que no se si esta bien -_-
-    quedanCasillas() {
+    
+    verificarColumna(columna, cantFichasParaGanar) {
+        let contador = 0;
+        let fichaActual = null;
+    
+        for (let fila = 0; fila < this.maxFilas; fila++) {
+            const casillero = this.casilleros[columna][fila];
+            if (casillero.tieneFicha()) {
+                if (fichaActual === null) {
+                    fichaActual = casillero.ficha;
+                    contador = 1;
+                } else if (casillero.ficha === fichaActual) {
+                    contador++;
+                    if (contador === cantFichasParaGanar) {
+                        return true;
+                    }
+                } else {
+                    fichaActual = casillero.ficha;
+                    contador = 1;
+                }
+            } else {
+                contador = 0;
+                fichaActual = null;
+            }
+        }
+        return false;
+    }
+    
+    verificarDiagonalIzquierda(fila, columna, cantFichasParaGanar) {
+        let contador = 0;
+        let fichaActual = null;
+    
+        for (let d = -Math.min(fila, columna); d <= Math.min(this.maxFilas - 1 - fila, this.maxColumnas - 1 - columna); d++) {
+            const casillero = this.casilleros[columna + d][fila + d];
+            if (casillero.tieneFicha()) {
+                if (fichaActual === null) {
+                    fichaActual = casillero.ficha;
+                    contador = 1;
+                } else if (casillero.ficha === fichaActual) {
+                    contador++;
+                    if (contador === cantFichasParaGanar) {
+                        return true;
+                    }
+                } else {
+                    fichaActual = casillero.ficha;
+                    contador = 1;
+                }
+            } else {
+                contador = 0;
+                fichaActual = null;
+            }
+        }
+        return false;
+    }
+    
+    verificarDiagonalDerecha(fila, columna, cantFichasParaGanar) {
+        let contador = 0;
+        let fichaActual = null;
+    
+        for (let d = -Math.min(fila, this.maxColumnas - 1 - columna); d <= Math.min(this.maxFilas - 1 - fila, columna); d++) {
+            const casillero = this.casilleros[columna - d][fila + d];
+            if (casillero.tieneFicha()) {
+                if (fichaActual === null) {
+                    fichaActual = casillero.ficha;
+                    contador = 1;
+                } else if (casillero.ficha === fichaActual) {
+                    contador++;
+                    if (contador === cantFichasParaGanar) {
+                        return true;
+                    }
+                } else {
+                    fichaActual = casillero.ficha;
+                    contador = 1;
+                }
+            } else {
+                contador = 0;
+                fichaActual = null;
+            }
+        }
+        return false;
+    }
+
+    //no la pude probar a la funcion, asi que no se si esta bien -_-
+    quedanCasilleros() {
         for (let fila = 0; fila < maxFilas; fila++) {
             for (let columna = 0; columna < maxColumnas; columna++) {
                 //mientras quede un lugar se puede seguir jugando
@@ -91,36 +181,9 @@ export class Tablero {
         return false;
     }
 
-    zonaPermitida() {
-        //evalua si la ficha se suelta desde la parte superior del tablero, retorna un booleano
-    }
-
     posicionRandom() {
         //retonra un casillero disponible al azar
         //utiliza la funcion quedanCasillas() y tieneFicha()-> de tablero
         //sirve para cuando se acaba la cuenta regresiva del turno y el jugador todavia no eligio ninguna columna donde tirar la ficha, el juego la tira al azar
-    }
-    recorrerColumna(columna, cantFichasParaGanar){
-        let contador = cantFichasParaGanar;
-        for(let fila = 0; fila < this.maxFilas; fila++){
-            if(this.casilleros[fila][columna].tieneFicha()){
-                //me fijo de que equipo es la ficha
-            }
-        }
-    }
-    recorrerFila(fila, cantFichasParaGanar){
-        let contador = cantFichasParaGanar;
-        for(let colum = 0; colum < this.maxColumnas; Colum++){
-            if(this.casilleros[fila][colum].tieneFicha()){
-                //me fijo de que equipo es la ficha
-            } 
-        }
-    }
-
-    RecorrerDiagonalDerecha(){
-
-    }
-    RecorrerDiagonalIzquierda(){
-
     }
 }

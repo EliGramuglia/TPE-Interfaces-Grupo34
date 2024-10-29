@@ -53,7 +53,7 @@ export class Juego {
             this.mouse = this.obtenerCoordenadasMouse(e);
             this.fichaSeleccionada = this.fichas.find(f => f.sobreCoordenadasMouse(this.mouse));
             
-            if (this.fichaSeleccionada) {
+            if (this.fichaSeleccionada && !this.fichaSeleccionada.enTablero) {
                 this.fichaSeleccionada.seleccionada = true;
             }
         });

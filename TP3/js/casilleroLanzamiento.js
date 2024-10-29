@@ -18,16 +18,17 @@ export class CasilleroLanzamiento {
         };
 
         this.contadorMovimiento = 0;
-        this.cambioDireccion = 60; // Cantidad de frames antes de un cambio de direccion
+        this.framesCambioDireccion = 60; // Cantidad de frames antes de un cambio de dirección
         this.vy = .5; // Velocidad de movimiento en Y de la imagen
     }
 
     actualizar() {
-        if (this.contadorMovimiento < this.cambioMovimiento) {
+        this.contadorMovimiento++;
+        if (this.contadorMovimiento < this.framesCambioDireccion) {
             this.posYImg += this.vy;
         } else {
-            this.cambioMovimiento = 0;
-            this.vy *= -1;
+            this.contadorMovimiento = 0;
+            this.vy *= -1; // Se invierte la dirección
         }
     }
 

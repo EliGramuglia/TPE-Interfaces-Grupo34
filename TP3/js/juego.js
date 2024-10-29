@@ -40,6 +40,9 @@ export class Juego {
         this.fichaSeleccionada; // Determina qué ficha está siendo arrastrada
         this.j1 = null;
         this.j2 = null;
+        this.jugadorActual = null;
+        this.tiempoTurno; // Tiempo máximo de cada turno (en FPS)
+        this.contadorTurno; // Contador de tiempo de turno (en FPS)
 
         this.inicializar();
     }
@@ -51,9 +54,14 @@ export class Juego {
         // Jugadores
         this.j1 = new Jugador("Pedro", "Perros");
         this.j2 = new Jugador("Juan", "Gatos");
+        this.jugadorActual = this.j1;
 
         // Fichas
         this.generarFichas();
+
+        // Tiempo de turno y contador
+        this.tiempoTurno = 300; // (3600 FPS = 60 seg)
+        this.contadorTurno = this.tiempoTurno;
 
         // Event listeners
         this.canvas.addEventListener('mousedown', (e) => {
@@ -75,16 +83,16 @@ export class Juego {
 
         this.canvas.addEventListener('mouseup', (e) => {
             if (this.fichaSeleccionada) {
-                //this.colocarFichaEnTablero(this.fichaSeleccionada);
-                this.fichaSeleccionada.seleccionada = false;
-                this.fichaSeleccionada = undefined;
-
                 if (sePuedeColocar(this.fichaSeleccionada)) {
-
+                    this.fichaSeleccionada.enCaida = true;
+                    // this.colocarFichaEnTablero(this.fichaSeleccionada);
                 } else {
                     this.fichaSeleccionada.x = this.fichaSeleccionada.xOriginal;
                     this.fichaSeleccionada.y = this.fichaSeleccionada.yOriginal;
                 }
+
+                this.fichaSeleccionada.seleccionada = false;
+                this.fichaSeleccionada = undefined;
             }
         });
     }
@@ -113,14 +121,14 @@ export class Juego {
         for (let i = 0; i < this.cantFichas / 2; i++) {
             const x = margenLateral + radio;
             const y = margenInferior - i * separacionFichas - radio;
-            this.j1.agregarFicha(new Ficha(x, y, radio, rutaImagenPerros));
+            this.j1.agregarFicha(new Ficha(x, y, radio, "Perros", rutaImagenPerros));
         }
 
         // Jugador 2
         for (let i = 0; i < this.cantFichas / 2; i++) {
             const x = this.ancho - margenLateral - radio;
             const y = margenInferior - i * separacionFichas - radio;
-            this.j2.agregarFicha(new Ficha(x, y, radio, rutaImagenGatos));
+            this.j2.agregarFicha(new Ficha(x, y, radio, "Gatos", rutaImagenGatos));
         }
     }
 
@@ -141,6 +149,9 @@ export class Juego {
     jugar() {
         // Se limpia el canvas
         this.ctx.clearRect(0, 0, this.ancho, this.alto); 
+
+        // Tiempo de cada turno
+        this.cuentaRegresiva();
 
         // Se actualizan y dibujan los elementos del juego
         // this.actualizar();
@@ -180,13 +191,26 @@ export class Juego {
         this.tablero.dibujar(this.ctx);
     }
 
-    cuentaRegresiva(cantSeg) {
-        
-        
-        for (i = cantSeg; i >= 0; i--) {
-            console.log('Cuenta regresiva: ' + i)
+    cuentaRegresiva() {
+        if (this.contadorTurno % 60 === 0) { // 0 60 120 180 ... -> FPS
+            console.log(this.contadorTurno / 60); // 0 1 2 3 ... -> seg
         }
-        // cambiarTurno() -> habilita y desabilita las fichas de cada jugador
+        
+        this.contadorTurno--;
+
+        if (this.contadorTurno <= 0) {
+            this.cambiarTurno();
+            this.contadorTurno = this.tiempoTurno;
+        }
+    }
+
+    cambiarTurno() {
+        if (this.jugadorActual === this.j1) {
+            this.jugadorActual = this.j2;
+        } else {
+            this.jugadorActual = this.j1;
+        }
+        console.log("Turno de " + this.jugadorActual.nombre);
     }
 
     hayGanador() {

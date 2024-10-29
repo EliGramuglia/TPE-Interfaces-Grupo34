@@ -1,14 +1,14 @@
 "use strict";
 
 /**
- * Esta clase representa una ficha del juego con su posición x-y, radio, velocidad x-y y color.
+ * Esta clase representa una ficha del juego con su posición x-y, radio, velocidad x-y e imagen.
  */
 export class Ficha {
-    constructor(x, y, color) {
+    constructor(x, y, radio, imagen) {
         this.x = x;
         this.y = y;
-        this.color = color;
-        this.radio = 36;
+        this.radio = radio;
+        this.imagen = imagen;
         this.vx = 0;
         this.vy = 1;
         this.friccion = 0.6; // Fricción que disminuye fuerza de rebote
@@ -32,7 +32,7 @@ export class Ficha {
     dibujar(ctx) {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radio, 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
+        ctx.fillStyle = this.imagen;
         ctx.fill();
         ctx.closePath();
     }

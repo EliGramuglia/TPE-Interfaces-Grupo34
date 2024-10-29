@@ -7,14 +7,14 @@ export class Casillero {
     constructor(fila, columna, tamanio) {
         this.fila = fila;
         this.columna = columna;
-        this.ficha = null;
         this.tamanio = tamanio; 
+        this.ficha = null;
         
         this.img = new Image();
         this.img.src = './img/casillero.png';
         this.imgCargada = false;
         this.img.onload = () => {
-        this.imgCargada = true;
+            this.imgCargada = true;
         };
     }
 

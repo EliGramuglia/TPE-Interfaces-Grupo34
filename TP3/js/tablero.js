@@ -1,6 +1,6 @@
 "use strict";
 
-import { Casillero } from "./Casillero.js";
+import { Casillero } from "./casillero.js";
 
 /**
  * Esta clase representa el tablero de juego, el cual consiste en una matriz bidimensional de casilleros.
@@ -9,7 +9,7 @@ export class Tablero {
     constructor(maxFilas, maxColumnas) {
         this.maxFilas = maxFilas;
         this.maxColumnas = maxColumnas;
-        this.tamanioCasillero = 90;
+        this.tamanioCasillero = 70;
         this.ancho = this.maxColumnas * this.tamanioCasillero;
         this.alto = this.maxFilas * this.tamanioCasillero;
         this.casilleros = this.crearMatriz(this.maxFilas,this.maxColumnas);

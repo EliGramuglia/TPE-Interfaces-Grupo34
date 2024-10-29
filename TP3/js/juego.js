@@ -60,14 +60,19 @@ export class Juego {
         this.generarFichas();
 
         // Tiempo de turno y contador
-        this.tiempoTurno = 300; // (3600 FPS = 60 seg)
+        this.tiempoTurno = 3600; // (3600 FPS = 60 seg)
         this.contadorTurno = this.tiempoTurno;
 
         // Event listeners
         this.canvas.addEventListener('mousedown', (e) => {
             this.mouse = this.obtenerCoordenadasMouse(e);
-            this.fichaSeleccionada = this.fichas.find(f => f.enCoordenadas(this.mouse));
             
+            if (this.jugadorActual === this.j1) {
+                this.fichaSeleccionada = this.j1.fichas.find(f => f.enCoordenadas(this.mouse));
+            } else {
+                this.fichaSeleccionada = this.j2.fichas.find(f => f.enCoordenadas(this.mouse));
+            }
+
             if (this.fichaSeleccionada && !this.fichaSeleccionada.posicionada) {
                 this.fichaSeleccionada.seleccionada = true;
             }
@@ -83,7 +88,7 @@ export class Juego {
 
         this.canvas.addEventListener('mouseup', (e) => {
             if (this.fichaSeleccionada) {
-                if (sePuedeColocar(this.fichaSeleccionada)) {
+                if (this.sePuedeSoltarFicha(this.fichaSeleccionada)) {
                     this.fichaSeleccionada.enCaida = true;
                     // this.colocarFichaEnTablero(this.fichaSeleccionada);
                 } else {
@@ -109,7 +114,7 @@ export class Juego {
      * Genera fichas y las reparte a cada jugador.
      */
     generarFichas() {
-        const radio = 30;
+        const radio = 40;
         const rutaImagenPerros = "./img/ficha-perro-1.png";
         const rutaImagenGatos = "./img/ficha-gato-1.png";
 
@@ -130,6 +135,10 @@ export class Juego {
             const y = margenInferior - i * separacionFichas - radio;
             this.j2.agregarFicha(new Ficha(x, y, radio, "Gatos", rutaImagenGatos));
         }
+    }
+
+    sePuedeSoltarFicha() {
+        return true;
     }
 
     /**

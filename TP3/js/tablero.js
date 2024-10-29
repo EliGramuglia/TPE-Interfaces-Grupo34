@@ -9,7 +9,7 @@ export class Tablero {
     constructor(maxFilas, maxColumnas) {
         this.maxFilas = maxFilas;
         this.maxColumnas = maxColumnas;
-        this.tamanioCasillero = 70;
+        this.tamanioCasillero = 80;
         this.ancho = this.maxColumnas * this.tamanioCasillero;
         this.alto = this.maxFilas * this.tamanioCasillero;
         this.casilleros = this.crearMatriz(this.maxFilas, this.maxColumnas);

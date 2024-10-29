@@ -53,8 +53,8 @@ export class Ficha {
     }
 
     enCoordenadas(coordenadasMouse) {
-        const distX = coordenadasMouse.x - this.x;
-        const distY = coordenadasMouse.y - this.y;
+        const distX = coordenadasMouse.x - (this.x);
+        const distY = coordenadasMouse.y - (this.y);
         const distancia = Math.sqrt(distX * distX + distY * distY);
         
         // Si la distancia es menor o igual al radio, el mouse está sobre la ficha

@@ -68,10 +68,23 @@ export class Juego {
 
         this.canvas.addEventListener('mouseup', (e) => {
             if (this.fichaSeleccionada) {
+                //this.colocarFichaEnTablero(this.fichaSeleccionada);
                 this.fichaSeleccionada.seleccionada = false;
                 this.fichaSeleccionada = undefined;
             }
         });
+    }
+
+    colocarFichaEnTablero(columna, ficha) {
+        for (let fila = this.maxfilas - 1; fila >= 0; fila--) { // Empezamos desde la fila más baja
+            let casillero = this.tablero.obtenerCasillero(fila, columna); // Obtener casillero de la fila y columna
+            if (!casillero.tieneFicha()) {
+                casillero.colocarFicha(ficha);
+                return true; // Colocamos la ficha y salimos
+            }
+        }
+        console.log("No se puede colocar la ficha; la columna está llena");
+        return false; // Retorna falso si la columna está llena
     }
 
     obtenerCoordenadasMouse(evento) {
@@ -159,8 +172,8 @@ export class Juego {
         if (this.tablero.hayGanador()) {
             console.log("ganador: jugador 1");
             //sino pregunto si quedan casillas y fichas para seguir jugando
-        } else if (!this.tablero.quedanCasillas() && this.cantFichas > 0) {
-            console.log("quedan lugares para seguir jugando");
+        }else if(!this.tablero.quedanCasillas() && this.cantFichas > 0){
+            console.log("no quedan lugares para seguir jugando");
         }
     }
 }

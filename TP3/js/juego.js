@@ -16,9 +16,16 @@ export class Juego {
         this.alto = 700;
         this.canvas.width = this.ancho;
         this.canvas.height = this.alto;
-        this.colorFondo = '#bbbbbb';
         this.maxfilas = filas;
         this.maxColumnas = filas + 1;
+        
+        // Imagen de fondo
+        this.imgFondo = new Image();
+        this.imgFondo.src = './img/fondo-parque.png';
+        this.imgFondoCargada = false;
+        this.imgFondo.onload = () => {
+            this.imgFondoCargada = true;
+        };
 
         // Coordenadas del cursor del mouse
         this.mouse = {
@@ -71,6 +78,13 @@ export class Juego {
                 //this.colocarFichaEnTablero(this.fichaSeleccionada);
                 this.fichaSeleccionada.seleccionada = false;
                 this.fichaSeleccionada = undefined;
+
+                if (sePuedeColocar(this.fichaSeleccionada)) {
+
+                } else {
+                    this.fichaSeleccionada.x = this.fichaSeleccionada.xOriginal;
+                    this.fichaSeleccionada.y = this.fichaSeleccionada.yOriginal;
+                }
             }
         });
     }
@@ -149,8 +163,9 @@ export class Juego {
 
     dibujar() {
         // Fondo
-        this.ctx.fillStyle = this.colorFondo;
-        this.ctx.fillRect(0, 0, this.ancho, this.alto);
+        if (this.imgFondoCargada) {
+            this.ctx.drawImage(this.imgFondo, 0, 0, this.ancho, this.alto);
+        }
 
         // Fichas
         for (let f of this.j1.fichas) {

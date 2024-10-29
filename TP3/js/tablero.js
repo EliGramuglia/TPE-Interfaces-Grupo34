@@ -13,7 +13,7 @@ export class Tablero {
         this.ancho = this.maxColumnas * this.tamanioCasillero;
         this.alto = this.maxFilas * this.tamanioCasillero;
         this.casilleros = this.crearMatriz(this.maxFilas, this.maxColumnas);
-        this.zonaLanzamiento = this.inicializarZonaLanzamiento();
+        this.casillerosLanzamiento = this.inicializarCasillerosLanzamiento();
     }
 
     /**
@@ -33,10 +33,15 @@ export class Tablero {
     /**
      * Inicializa casilleros de lanzamiento.
      */
-    inicializarZonaLanzamiento() {
+    inicializarCasillerosLanzamiento() {
         return null;
     }
 
+    mostrarCasillerosLanzamiento() {
+        for (let c of this.casillerosLanzamiento) {
+            c.visible = true;
+        }
+    }
 
     actualizar() {
 

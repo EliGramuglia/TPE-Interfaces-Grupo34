@@ -7,6 +7,9 @@ export class Ficha {
     constructor(x, y, radio, rutaImagen) {
         this.x = x;
         this.y = y;
+        this.xOriginal = this.x;
+        this.yOriginal = this.y;
+
         this.radio = radio;
         this.vx = 0;
         this.vy = 1;

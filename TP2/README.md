@@ -5,7 +5,7 @@
 - Gramuglia Eliana
 
 ## Ejercicio Entregable N2: Desarrollo de interfaz de usuario.
-El presente trabajo fue desarrollado en el marco de la materia "Interfaces de usuario e interacción" (Facultad de Ciencias Exactas, UNICEN, Tandil). El mismo propone desarrollar en HTML, CSS y JavaScript realizado en el Ejercicio Entregable N1.
+El presente trabajo fue desarrollado en el marco de la materia "Interfaces de usuario e interacción" (Facultad de Ciencias Exactas, UNICEN, Tandil). El mismo propone desarrollar en HTML, CSS y JavaScript el sitio realizado en el Ejercicio Entregable N1.
 
 La plataforma solicitada incluye las siguientes 3 páginas:
 1. Home con listado de juegos (<index.html>)

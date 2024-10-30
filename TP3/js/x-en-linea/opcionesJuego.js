@@ -8,7 +8,6 @@ let cantFilas = 6;
 let imgGato = './img/pagJuego/juego/ficha-gato-1.png';
 let imgPerro = './img/pagJuego/juego/ficha-perro-1.png';
 
-
 document.addEventListener('DOMContentLoaded', () => {
     //me traigo todos los elementos que voy a usar en la configuracion
     let btnJugar = document.getElementById('btn-jugar-especial');
@@ -18,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const contenedorConfig = document.getElementById('contenedor-configuracion-juego');
     const contenedorPantallaJuego = document.querySelector('.contenedor-pantalla-juego');
     const canvas = document.getElementById('canvas');
-
 
     //si clickean el btn se activa la funcion que muestra la configuracion
     btnJugar.addEventListener('click', mostrarConfiguracionJuego);
@@ -65,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    //funcion para habilitar el despliegue de las opciones de ficha
+    // funcion para habilitar el despliegue de las opciones de ficha
     function habilitarCambioFicha() {
         const btnCambarFichaGato = document.getElementById('btnModificarFichaGato');
         const btnCambarFichaPerro = document.getElementById('btnModificarFichaPerro');
@@ -74,26 +72,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const fichaprincipalGato = document.getElementById('fichaPrincipalGato');
         const fichaprincipalPerro = document.getElementById('fichaPrincipalPerro');
 
-
-
-        console.log('dentro')
         btnCambarFichaGato.addEventListener('click', () => {
             contenedorOpcFichasGato.classList.toggle('objInvisible');
         })
         btnCambarFichaPerro.addEventListener('click', () => {
             contenedorOpcFichasPerro.classList.toggle('objInvisible');
         })
-        //LA FICHA MAS GRANDE TOME EL VALOR DEL BTN OPC FICHA seleccionado
+
+        // LA FICHA MAS GRANDE TOME EL VALOR DEL BTN OPC FICHA seleccionado
         let fichasGato = document.querySelectorAll('.imgs-cat');
-        console.log(fichasGato);
         fichasGato.forEach(btnFicha => {
             btnFicha.addEventListener('click', () => {
                 imgGato = btnFicha.src;
                 fichaprincipalGato.src = imgGato;
             });
         });
+
         let fichasPerro = document.querySelectorAll('.imgs-dog');
-        console.log(fichasPerro);
         fichasPerro.forEach(btnFicha => {
             btnFicha.addEventListener('click', () => {
                 imgPerro = btnFicha.src;
@@ -103,7 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     };
-
 
     function habilitarBotonesOpcTablero() {
         document.getElementById('btn-opc1').addEventListener('click', () => {

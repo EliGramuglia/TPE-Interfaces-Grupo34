@@ -4,21 +4,20 @@ import { Ficha } from './ficha.js';
 import { Jugador } from './jugador.js';
 import { Tablero } from './tablero.js';
 
-const idPantallaJuego = document.querySelector('.pantalla-juego');
 
 /**
  * Esta clase representa el juego "4 en línea", con su canvas, tablero y jugadores.
  */
 export class Juego {
-    constructor(canvasId, filas, j1Equipo, j2Equipo, fichaGato,fichaPerro) {
+    constructor(canvasId, filas, imgFichaGato,imgFichaPerro) {
         // Canvas
         this.canvas = document.querySelector(canvasId);
         this.ctx = this.canvas.getContext('2d');
-        this.ancho = 1200;
-        this.alto = 700;
+        this.alto = Math.floor(window.innerHeight * 0.7);
+        this.ancho = Math.floor(this.alto * 1.5);
         this.canvas.width = this.ancho;
         this.canvas.height = this.alto;
-        this.unidad = this.ancho / (filas * 2.5);
+        this.unidad = Math.floor(this.alto / (filas * 1.4));
         this.maxfilas = filas;
         this.maxColumnas = filas + 1;
         
@@ -48,10 +47,8 @@ export class Juego {
         this.contadorTurno; // Contador de tiempo de turno (en FPS)
 
         //datos del jugador
-        this.j1Equipo = j1Equipo;
-        this.j2Equipo = j2Equipo;
-        this.fichaGato = fichaGato;
-        this.fichaPerro = fichaPerro;
+        this.imgFichaGato = imgFichaGato;
+        this.imgFichaPerro = imgFichaPerro;
         this.inicializar();
     }
 
@@ -60,8 +57,8 @@ export class Juego {
         this.tablero = new Tablero(this.maxfilas, this.maxColumnas, this.unidad, this.canvas);
         
         // Jugadores
-        this.j1 = new Jugador("Pedro", this.j1Equipo);
-        this.j2 = new Jugador("Juan", this.j2Equipo);
+        this.j1 = new Jugador("Perros");
+        this.j2 = new Jugador("Gatos");
         this.jugadorActual = this.j1;
 
         // Fichas
@@ -139,27 +136,24 @@ export class Juego {
      */
     generarFichas() {
         const radio = this.unidad / 2;
-        const rutaImagenPerros = "./img/pagJuego/juego/ficha-perro-1.png";
-        const rutaImagenGatos = "./img/pagJuego/juego/ficha-gato-1.png";
-
         const alto = radio * (this.cantFichas / 2) + radio;
         const separacionFichas = radio / 2;
         const margenSuperior = (this.alto - alto) / 2 + alto / 4 ;
-        const margenLateral = this.unidad * 2;
+        const margenLateral = this.unidad;
         
         // Jugador 1 (Izquierda)
         for (let i = 0; i < this.cantFichas / 2; i++) {
             const x = margenLateral + radio;
             const y = margenSuperior + i * separacionFichas;
             //deberia de tomar de que equipo es el jugador 1 -> si es perro le pone la ficha de perro al crear en el lado izq
-            this.j1.agregarFicha(new Ficha(x, y, radio, "Perros", rutaImagenPerros));
+            this.j1.agregarFicha(new Ficha(x, y, radio, "Perros", this.imgFichaPerro));
         }
 
         // Jugador 2 (Derecha)
         for (let i = 0; i < this.cantFichas / 2; i++) {
             const x = this.ancho - margenLateral - radio;
             const y = margenSuperior + i * separacionFichas;
-            this.j2.agregarFicha(new Ficha(x, y, radio, "Gatos", rutaImagenGatos));
+            this.j2.agregarFicha(new Ficha(x, y, radio, "Gatos", this.imgFichaGato));
         }
     }
 

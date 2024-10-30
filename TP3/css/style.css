@@ -1403,11 +1403,12 @@ nav#bread-crumbs ul img {
     height: fit-content;
     justify-content: flex-end;
     margin: 0 auto;
+    background-position: center;
 }
 
 .pantalla-juego {
-    /*  height: 100%; -> le pongo una medida al principio, luego al colocarle el canvas lo modifico*/
-    height: 80vh;
+    height: 70vh; 
+    /* height: 470px; -> le pongo una medida al principio, luego al colocarle el canvas lo modifico*/
     width: 100%;
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.55);

@@ -4,8 +4,7 @@
  * Esta clase representa a cada jugador del juego, con su nombre, puntaje y equipo (perros o gatos).
  */
 export class Jugador {
-    constructor(nombre, equipo) {
-        this.nombre = nombre;
+    constructor(equipo) {
         this.equipo = equipo;
         this.puntaje = 0;
         this.fichas = [];

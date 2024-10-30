@@ -11,11 +11,12 @@ export class Ficha {
         this.xOriginal = this.x;
         this.yOriginal = this.y;
         this.radio = radio;
+        this.limiteInferior;
 
         // Movimiento
         this.vx = 0;
         this.vy = 1;
-        this.friccion = 0.6; // Fricción que disminuye fuerza de rebote
+        this.friccion = 0.3; // Fricción que disminuye fuerza de rebote
         this.gravedad = 0.3; // Gravedad que afecta caída
 
         // Estados
@@ -33,15 +34,19 @@ export class Ficha {
         };
     }
 
-    actualizar(canvas) {
+    actualizar() {
         if (this.enCaida) {
             this.vy += this.gravedad;
             this.y += this.vy;
             
-            if (this.y + this.radio > canvas.height) {
-                this.y = canvas.height - this.radio;
+            if (this.y + this.radio > this.limiteInferior) {
+                this.y = this.limiteInferior - this.radio;
                 this.vy *= -1;
                 this.vy *= this.friccion;
+            }
+
+            if (this.vy === 0) {
+                this.enCaida = false;
             }
         }
     }

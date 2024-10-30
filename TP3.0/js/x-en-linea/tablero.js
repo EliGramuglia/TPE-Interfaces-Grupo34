@@ -17,6 +17,7 @@ export class Tablero {
         this.casilleros = this.crearCasilleros(this.maxFilas, this.maxColumnas);
         this.casillerosLanzamiento = this.crearCasillerosLanzamiento(this.maxColumnas);
         this.casilleroLanzamientoActivo = null;
+        this.fichasPorColumna = new Array(this.maxColumnas);
     }
 
     /**
@@ -64,26 +65,23 @@ export class Tablero {
         }        
     }
 
-    actualizarCasilleroLanzamiento(ficha) {
+    obtenerCasilleroLanzamientoActivo(ficha) {
         for (let c of this.casillerosLanzamiento) {
+            c.activado = false;
             if (c.sePuedeSoltarFicha(ficha)) {
                 this.casilleroLanzamientoActivo = c;
+                this.casilleroLanzamientoActivo.activado = true;
                 return;
             }
+            c.activado = false;
         }
+
         this.casilleroLanzamientoActivo = null;
     }
 
-    activarCasilleroLanzamiento() {
-        this.casilleroLanzamientoActivo.activado = true;
-    }
-
-    desactivarCasilleroLanzamiento() {
-        this.casilleroLanzamientoActivo.activado = false;
-    }
-
     sePuedeSoltarFicha() {
-        return this.casilleroLanzamientoActivo != null;
+        return this.casilleroLanzamientoActivo != null && 
+               this.buscarCasilleroLibre(this.casilleroLanzamientoActivo.columna) != null;
     }
 
     coordenadasFichaLanzada() {
@@ -91,6 +89,25 @@ export class Tablero {
             return {
                 x: this.casilleroLanzamientoActivo.x + this.tamanioCasillero / 2, 
                 y: this.casilleroLanzamientoActivo.y + this.tamanioCasillero / 2
+            }
+        }
+        return null;
+    }
+
+    colocarFicha(ficha) {
+        const col = this.casilleroLanzamientoActivo.columna;
+        const casilleroLibre = this.buscarCasilleroLibre(col);
+        if (casilleroLibre) {
+            casilleroLibre.ficha = ficha;
+        }
+        return casilleroLibre;
+    }
+
+    buscarCasilleroLibre(columna) {
+        for (let fila = this.maxFilas - 1; fila >= 0; fila--) {
+            const casillero = this.casilleros[columna][fila];
+            if (!casillero.tieneFicha()) {
+                return casillero;
             }
         }
         return null;
@@ -211,17 +228,8 @@ export class Tablero {
         return false;
     }
 
-    //no la pude probar a la funcion, asi que no se si esta bien -_-
-    quedanCasilleros() {
-        for (let fila = 0; fila < maxFilas; fila++) {
-            for (let columna = 0; columna < maxColumnas; columna++) {
-                //mientras quede un lugar se puede seguir jugando
-                if (!casilleros[fila][columna].tieneFicha()) {
-                    return true;
-                }
-            }
-        }
-        return false;
+    quedanCasillerosDisponibles() {
+
     }
 
     colocarFichaAlAzar(ficha) {

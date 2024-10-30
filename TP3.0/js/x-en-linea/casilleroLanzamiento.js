@@ -51,7 +51,6 @@ export class CasilleroLanzamiento {
     sePuedeSoltarFicha(ficha) {
         const enRangoHorizontal = ficha.x >= this.x && ficha.x <= this.x + this.tamanio;
         const enRangoVertical = ficha.y >= this.y && ficha.y <= this.y + this.tamanio;
-        this.activado = enRangoHorizontal && enRangoVertical;
         return enRangoHorizontal && enRangoVertical;
     }
 }

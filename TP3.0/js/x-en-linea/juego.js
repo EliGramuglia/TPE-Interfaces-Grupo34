@@ -87,22 +87,27 @@ export class Juego {
                 this.mouse = this.obtenerCoordenadasMouse(e);
                 this.fichaSeleccionada.x = this.mouse.x;
                 this.fichaSeleccionada.y = this.mouse.y;
-
-                const casilleroActivo = this.tablero.actualizarCasilleroLanzamiento(this.fichaSeleccionada);
-                if (casilleroActivo) {
-                    this.tablero.activarCasilleroLanzamiento();
-                }
+                this.tablero.obtenerCasilleroLanzamientoActivo(this.fichaSeleccionada);
             }
         });
 
         this.canvas.addEventListener('mouseup', (e) => {
             if (this.fichaSeleccionada) {
                 if (this.tablero.sePuedeSoltarFicha(this.fichaSeleccionada)) {
-                    // Si se puede soltar la ficha, se activa la caída de la misma
+                    // Si se puede soltar la ficha, se alinea con la columna de lanzamiento
                     const coordenadasColumnaLanzamiento = this.tablero.coordenadasFichaLanzada(this.fichaSeleccionada);
                     this.fichaSeleccionada.x = coordenadasColumnaLanzamiento.x;
                     this.fichaSeleccionada.y = coordenadasColumnaLanzamiento.y;
+
+                    // Se activa la caída
                     this.fichaSeleccionada.enCaida = true;
+
+                    // Se coloca en el tablero
+                    const casilleroLibre = this.tablero.colocarFicha(this.fichaSeleccionada);
+                    this.fichaSeleccionada.limiteInferior = casilleroLibre.y + casilleroLibre.tamanio;
+
+                    // Se cambia de turno
+                    this.cambiarTurno();
                 } else {
                     // Si no, se reestablece su posición
                     this.fichaSeleccionada.x = this.fichaSeleccionada.xOriginal;
@@ -216,14 +221,13 @@ export class Juego {
 
     cuentaRegresiva() {
         if (this.contadorTurno % 60 === 0) { // 0 60 120 180 ... -> FPS
-            // console.log(this.contadorTurno / 60); // 0 1 2 3 ... -> seg
+            console.log(this.contadorTurno / 60); // 0 1 2 3 ... -> seg
         }
         
         this.contadorTurno--;
 
         if (this.contadorTurno <= 0) {
             this.cambiarTurno();
-            this.contadorTurno = this.tiempoTurno;
         }
     }
 
@@ -233,7 +237,8 @@ export class Juego {
         } else {
             this.jugadorActual = this.j1;
         }
-        console.log("Turno de " + this.jugadorActual.nombre);
+        console.log("Turno de " + this.jugadorActual.equipo);
+        this.contadorTurno = this.tiempoTurno;
     }
 
     hayGanador() {

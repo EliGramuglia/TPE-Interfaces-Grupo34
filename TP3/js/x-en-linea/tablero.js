@@ -121,111 +121,19 @@ export class Tablero {
     }
 
     verificarFila(fila, cantFichasParaGanar) {
-        let contador = 0;
-        let fichaActual = null;
-    
-        for (let col = 0; col < this.maxColumnas; col++) {
-            const casillero = this.casilleros[col][fila];
-            if (casillero.tieneFicha()) {
-                if (fichaActual === null) {
-                    fichaActual = casillero.ficha; // Suponiendo que `ficha` almacena el jugador (perro o gato)
-                    contador = 1;
-                } else if (casillero.ficha === fichaActual) {
-                    contador++;
-                    if (contador === cantFichasParaGanar) {
-                        return true; // Se encontró una secuencia ganadora
-                    }
-                } else {
-                    fichaActual = casillero.ficha;
-                    contador = 1;
-                }
-            } else {
-                contador = 0; // Reiniciar contador si no hay ficha
-                fichaActual = null;
-            }
-        }
-        return false; // No se encontró secuencia ganadora en esta fila
+
     }
     
     verificarColumna(columna, cantFichasParaGanar) {
-        let contador = 0;
-        let fichaActual = null;
-    
-        for (let fila = 0; fila < this.maxFilas; fila++) {
-            const casillero = this.casilleros[columna][fila];
-            if (casillero.tieneFicha()) {
-                if (fichaActual === null) {
-                    fichaActual = casillero.ficha;
-                    contador = 1;
-                } else if (casillero.ficha === fichaActual) {
-                    contador++;
-                    if (contador === cantFichasParaGanar) {
-                        return true;
-                    }
-                } else {
-                    fichaActual = casillero.ficha;
-                    contador = 1;
-                }
-            } else {
-                contador = 0;
-                fichaActual = null;
-            }
-        }
-        return false;
+
     }
     
     verificarDiagonalIzquierda(fila, columna, cantFichasParaGanar) {
-        let contador = 0;
-        let fichaActual = null;
-    
-        for (let d = -Math.min(fila, columna); d <= Math.min(this.maxFilas - 1 - fila, this.maxColumnas - 1 - columna); d++) {
-            const casillero = this.casilleros[columna + d][fila + d];
-            if (casillero.tieneFicha()) {
-                if (fichaActual === null) {
-                    fichaActual = casillero.ficha;
-                    contador = 1;
-                } else if (casillero.ficha === fichaActual) {
-                    contador++;
-                    if (contador === cantFichasParaGanar) {
-                        return true;
-                    }
-                } else {
-                    fichaActual = casillero.ficha;
-                    contador = 1;
-                }
-            } else {
-                contador = 0;
-                fichaActual = null;
-            }
-        }
-        return false;
+
     }
     
     verificarDiagonalDerecha(fila, columna, cantFichasParaGanar) {
-        let contador = 0;
-        let fichaActual = null;
-    
-        for (let d = -Math.min(fila, this.maxColumnas - 1 - columna); d <= Math.min(this.maxFilas - 1 - fila, columna); d++) {
-            const casillero = this.casilleros[columna - d][fila + d];
-            if (casillero.tieneFicha()) {
-                if (fichaActual === null) {
-                    fichaActual = casillero.ficha;
-                    contador = 1;
-                } else if (casillero.ficha === fichaActual) {
-                    contador++;
-                    if (contador === cantFichasParaGanar) {
-                        return true;
-                    }
-                } else {
-                    fichaActual = casillero.ficha;
-                    contador = 1;
-                }
-            } else {
-                contador = 0;
-                fichaActual = null;
-            }
-        }
-        return false;
+
     }
 
     quedanCasillerosDisponibles() {

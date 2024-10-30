@@ -18,7 +18,7 @@ export class Juego {
         this.alto = 700;
         this.canvas.width = this.ancho;
         this.canvas.height = this.alto;
-        this.unidad = this.ancho / 100; // La unidad de medida es un 1% del ancho del canvas
+        this.unidad = this.ancho / (filas * 2.5);
         this.maxfilas = filas;
         this.maxColumnas = filas + 1;
         
@@ -52,7 +52,7 @@ export class Juego {
 
     inicializar() {
         // Tablero
-        this.tablero = new Tablero(this.maxfilas, this.maxColumnas);
+        this.tablero = new Tablero(this.maxfilas, this.maxColumnas, this.unidad, this.canvas);
         
         // Jugadores
         this.j1 = new Jugador("Pedro", "Perros");
@@ -71,13 +71,14 @@ export class Juego {
             this.mouse = this.obtenerCoordenadasMouse(e);
             
             if (this.jugadorActual === this.j1) {
-                this.fichaSeleccionada = this.j1.fichas.find(f => f.enCoordenadas(this.mouse));
+                this.fichaSeleccionada = this.j1.fichas.find(f => f.enCoordenadasMouse(this.mouse));
             } else {
-                this.fichaSeleccionada = this.j2.fichas.find(f => f.enCoordenadas(this.mouse));
+                this.fichaSeleccionada = this.j2.fichas.find(f => f.enCoordenadasMouse(this.mouse));
             }
 
             if (this.fichaSeleccionada && !this.fichaSeleccionada.posicionada) {
                 this.fichaSeleccionada.seleccionada = true;
+                this.tablero.mostrarCasillerosLanzamiento();
             }
         });
 
@@ -86,26 +87,33 @@ export class Juego {
                 this.mouse = this.obtenerCoordenadasMouse(e);
                 this.fichaSeleccionada.x = this.mouse.x;
                 this.fichaSeleccionada.y = this.mouse.y;
+
+                const casilleroActivo = this.tablero.actualizarCasilleroLanzamiento(this.fichaSeleccionada);
+                if (casilleroActivo) {
+                    this.tablero.activarCasilleroLanzamiento();
+                }
             }
         });
 
         this.canvas.addEventListener('mouseup', (e) => {
             if (this.fichaSeleccionada) {
-                if (this.sePuedeSoltarFicha(this.fichaSeleccionada)) {
+                if (this.tablero.sePuedeSoltarFicha(this.fichaSeleccionada)) {
+                    // Si se puede soltar la ficha, se activa la caída de la misma
+                    const coordenadasColumnaLanzamiento = this.tablero.coordenadasFichaLanzada(this.fichaSeleccionada);
+                    this.fichaSeleccionada.x = coordenadasColumnaLanzamiento.x;
+                    this.fichaSeleccionada.y = coordenadasColumnaLanzamiento.y;
                     this.fichaSeleccionada.enCaida = true;
-                    // this.colocarFichaEnTablero(this.fichaSeleccionada);
                 } else {
+                    // Si no, se reestablece su posición
                     this.fichaSeleccionada.x = this.fichaSeleccionada.xOriginal;
                     this.fichaSeleccionada.y = this.fichaSeleccionada.yOriginal;
                 }
 
                 this.fichaSeleccionada.seleccionada = false;
                 this.fichaSeleccionada = undefined;
+                this.tablero.ocultarCasillerosLanzamiento();
             }
         });
-
-        // Al ajustarse las dimensiones de la ventana se recalcula la unidad de medida relativa
-        window.addEventListener('resize', this.ajustarDimensiones);
     }
 
     obtenerCoordenadasMouse(evento) {
@@ -120,31 +128,28 @@ export class Juego {
      * Genera fichas y las reparte a cada jugador.
      */
     generarFichas() {
-        const radio = this.unidad * 4;
+        const radio = this.unidad / 2;
         const rutaImagenPerros = "./img/pagJuego/juego/ficha-perro-1.png";
         const rutaImagenGatos = "./img/pagJuego/juego/ficha-gato-1.png";
 
-        const separacionFichas = 20;
-        const margenInferior = this.alto - 20;
-        const margenLateral = 20;
+        const alto = radio * (this.cantFichas / 2) + radio;
+        const separacionFichas = radio / 2;
+        const margenSuperior = (this.alto - alto) / 2 + alto / 4 ;
+        const margenLateral = this.unidad * 2;
         
-        // Jugador 1
+        // Jugador 1 (Izquierda)
         for (let i = 0; i < this.cantFichas / 2; i++) {
             const x = margenLateral + radio;
-            const y = margenInferior - i * separacionFichas - radio;
+            const y = margenSuperior + i * separacionFichas;
             this.j1.agregarFicha(new Ficha(x, y, radio, "Perros", rutaImagenPerros));
         }
 
-        // Jugador 2
+        // Jugador 2 (Derecha)
         for (let i = 0; i < this.cantFichas / 2; i++) {
             const x = this.ancho - margenLateral - radio;
-            const y = margenInferior - i * separacionFichas - radio;
+            const y = margenSuperior + i * separacionFichas;
             this.j2.agregarFicha(new Ficha(x, y, radio, "Gatos", rutaImagenGatos));
         }
-    }
-
-    sePuedeSoltarFicha() {
-        return true;
     }
 
     /**
@@ -169,7 +174,7 @@ export class Juego {
         this.cuentaRegresiva();
 
         // Se actualizan y dibujan los elementos del juego
-        // this.actualizar();
+        this.actualizar();
         this.dibujar();
 
         // Se solicita el próximo frame
@@ -177,6 +182,9 @@ export class Juego {
     }
 
     actualizar() {
+        // Tablero
+        this.tablero.actualizar();
+
         // Fichas
         for (let f of this.j1.fichas) {
             f.actualizar(this.canvas);
@@ -194,12 +202,12 @@ export class Juego {
         }
 
         // Fichas
-        for (let f of this.j1.fichas) {
-            f.dibujar(this.ctx);
+        for (let i = this.j1.fichas.length - 1; i >= 0; i--) {
+            this.j1.fichas[i].dibujar(this.ctx);
         }
 
-        for (let f of this.j2.fichas) {
-            f.dibujar(this.ctx);
+        for (let i = this.j2.fichas.length - 1; i >= 0; i--) {
+            this.j2.fichas[i].dibujar(this.ctx);
         }
 
         // Tablero
@@ -208,7 +216,7 @@ export class Juego {
 
     cuentaRegresiva() {
         if (this.contadorTurno % 60 === 0) { // 0 60 120 180 ... -> FPS
-            console.log(this.contadorTurno / 60); // 0 1 2 3 ... -> seg
+            // console.log(this.contadorTurno / 60); // 0 1 2 3 ... -> seg
         }
         
         this.contadorTurno--;

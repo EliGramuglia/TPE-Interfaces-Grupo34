@@ -1,40 +1,55 @@
 "use strict";
 
 import { Casillero } from "./casillero.js";
+import { CasilleroLanzamiento } from "./casilleroLanzamiento.js";
 
 /**
  * Esta clase representa el tablero de juego, el cual consiste en una matriz bidimensional de casilleros.
  */
 export class Tablero {
-    constructor(maxFilas, maxColumnas) {
+    constructor(maxFilas, maxColumnas, unidad, canvas) {
         this.maxFilas = maxFilas;
         this.maxColumnas = maxColumnas;
-        this.tamanioCasillero = 80;
+        this.tamanioCasillero = unidad;
+        this.canvas = canvas;
         this.ancho = this.maxColumnas * this.tamanioCasillero;
         this.alto = this.maxFilas * this.tamanioCasillero;
-        this.casilleros = this.crearMatriz(this.maxFilas, this.maxColumnas);
-        this.casillerosLanzamiento = this.inicializarCasillerosLanzamiento();
+        this.casilleros = this.crearCasilleros(this.maxFilas, this.maxColumnas);
+        this.casillerosLanzamiento = this.crearCasillerosLanzamiento(this.maxColumnas);
+        this.casilleroLanzamientoActivo = null;
     }
 
     /**
      * El tablero se compone por un arreglo de columnas. Cada columna es un arreglo de casilleros.
      */
-    crearMatriz(filas, columnas) {
+    crearCasilleros(filas, columnas) {
         const arreglo = new Array(columnas);
-        for (let c = 0; c < columnas; c++) {
-            arreglo[c] = []; // Inicializa la columna
-            for (let f = 0; f < filas; f++) {
-                arreglo[c][f] = new Casillero(f, c, this.tamanioCasillero);
+        const desplazamientoX = (this.canvas.width - this.ancho) / 2;
+        const desplazamientoY = (this.canvas.height - this.alto) / 2;
+        
+        for (let col = 0; col < columnas; col++) {
+            arreglo[col] = []; // Inicializa la columna
+            for (let fila = 0; fila < filas; fila++) {
+                const x = col * this.tamanioCasillero + desplazamientoX;
+                const y = fila * this.tamanioCasillero + desplazamientoY;
+                arreglo[col][fila] = new Casillero(x, y, fila, col, this.tamanioCasillero);
             }
         }
+
         return arreglo;
     }
 
     /**
      * Inicializa casilleros de lanzamiento.
      */
-    inicializarCasillerosLanzamiento() {
-        return null;
+    crearCasillerosLanzamiento(columnas) {
+        const casillerosLanzamiento = new Array(columnas);
+        for (let col = 0; col < columnas; col++) {
+            const x = this.casilleros[col][0].x;
+            const y = this.casilleros[col][0].y - this.tamanioCasillero;
+            casillerosLanzamiento[col] = new CasilleroLanzamiento(x, y, col, this.tamanioCasillero);
+        }
+        return casillerosLanzamiento;
     }
 
     mostrarCasillerosLanzamiento() {
@@ -43,19 +58,42 @@ export class Tablero {
         }
     }
 
-    actualizar() {
-
+    ocultarCasillerosLanzamiento() {
+        for (let c of this.casillerosLanzamiento) {
+            c.visible = false;
+        }        
     }
-    
-    dibujar(ctx) {
-        const desplazamientoX = (ctx.canvas.width - this.ancho) / 2;
-        const desplazamientoY = (ctx.canvas.height - this.alto) / 2;
 
-        for (let f = 0; f < this.casilleros.length; f++) {
-            for (let c = 0; c < this.casilleros[f].length; c++) {
-                this.casilleros[f][c].dibujar(ctx, desplazamientoX, desplazamientoY);
+    actualizarCasilleroLanzamiento(ficha) {
+        for (let c of this.casillerosLanzamiento) {
+            if (c.sePuedeSoltarFicha(ficha)) {
+                this.casilleroLanzamientoActivo = c;
+                return;
             }
         }
+        this.casilleroLanzamientoActivo = null;
+    }
+
+    activarCasilleroLanzamiento() {
+        this.casilleroLanzamientoActivo.activado = true;
+    }
+
+    desactivarCasilleroLanzamiento() {
+        this.casilleroLanzamientoActivo.activado = false;
+    }
+
+    sePuedeSoltarFicha() {
+        return this.casilleroLanzamientoActivo != null;
+    }
+
+    coordenadasFichaLanzada() {
+        if (this.casilleroLanzamientoActivo) {
+            return {
+                x: this.casilleroLanzamientoActivo.x + this.tamanioCasillero / 2, 
+                y: this.casilleroLanzamientoActivo.y + this.tamanioCasillero / 2
+            }
+        }
+        return null;
     }
 
     hayGanador(fila, columna, cantFichasParaGanar) {
@@ -186,9 +224,27 @@ export class Tablero {
         return false;
     }
 
-    posicionRandom() {
-        //retonra un casillero disponible al azar
-        //utiliza la funcion quedanCasillas() y tieneFicha()-> de tablero
-        //sirve para cuando se acaba la cuenta regresiva del turno y el jugador todavia no eligio ninguna columna donde tirar la ficha, el juego la tira al azar
+    colocarFichaAlAzar(ficha) {
+        
+    }
+
+    actualizar() {
+        for (let c of this.casillerosLanzamiento) {
+            c.actualizar();
+        }    
+    }
+    
+    dibujar(ctx) {
+        // Casilleros
+        for (let f = 0; f < this.casilleros.length; f++) {
+            for (let c = 0; c < this.casilleros[f].length; c++) {
+                this.casilleros[f][c].dibujar(ctx);
+            }
+        }
+
+        // Casilleros de lanzamiento
+        for (let cl of this.casillerosLanzamiento) {
+            cl.dibujar(ctx);
+        }
     }
 }

@@ -52,7 +52,7 @@ export class Ficha {
         }
     }
 
-    enCoordenadas(coordenadasMouse) {
+    enCoordenadasMouse(coordenadasMouse) {
         const distX = coordenadasMouse.x - (this.x);
         const distY = coordenadasMouse.y - (this.y);
         const distancia = Math.sqrt(distX * distX + distY * distY);

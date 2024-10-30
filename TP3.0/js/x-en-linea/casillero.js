@@ -4,7 +4,9 @@
  * Esta clase representa un casillero del tablero de juego. El mismo tiene un par de coordenadas x-y.
  */
 export class Casillero {
-    constructor(fila, columna, tamanio) {
+    constructor(x, y, fila, columna, tamanio) {
+        this.x = x;
+        this.y = y;
         this.fila = fila;
         this.columna = columna;
         this.tamanio = tamanio; 
@@ -18,26 +20,25 @@ export class Casillero {
         };
     }
 
-    dibujar(ctx, desplazamientoX, desplazamientoY) {
-        ctx.drawImage(
-            this.img, 
-            this.columna * this.tamanio + desplazamientoX, 
-            this.fila * this.tamanio + desplazamientoY, 
-            this.tamanio, 
-            this.tamanio
-        );
+    dibujar(ctx) {
+        ctx.drawImage(this.img, this.x, this.y, this.tamanio, this.tamanio);
     }
 
+    /**
+     * Coloca una ficha en el casillero. Retorna true si se pudo colocar, o false si ya había una ficha.
+     */
     colocarFicha(ficha) {
         if (!this.tieneFicha()) { 
             this.ficha = ficha;
-            return true; // Retorna verdadero si colocó la ficha con éxito
+            return true;
         }
-        return false; // Retorna falso si ya tenía una ficha
+        return false;
     }
 
+    /**
+     * Verifica si hay una ficha en el casillero.
+     */
     tieneFicha() { 
-        return ficha != null;
-        //el tablero pregunta si tiene ficha, para evitar permitir tirar en un mismo casillero mas de una ficha
+        return this.ficha != null;
     }
 }

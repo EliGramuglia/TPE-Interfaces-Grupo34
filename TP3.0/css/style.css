@@ -1394,19 +1394,28 @@ nav#bread-crumbs ul img {
     background-image: url(../img/tarjetas/4EnLinea.png);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 80vh;
-    width: 100%;
+    width: fit-content;
+    min-width: 100%;
+    height: fit-content;
     justify-content: flex-end;
+    margin: 0 auto;
 }
 
 .pantalla-juego {
     height: 100%;
+    width: 100%;
+    padding: 10px;
     background-color: rgba(0, 0, 0, 0.55);
     justify-content: center;
     align-items: center;
     gap: 15px;
     position: relative;
     z-index: 1;
+}
+
+.canvas {
+    align-self: center;
+    justify-self: center;
 }
 
 #caja-instrucciones {
@@ -1424,11 +1433,6 @@ nav#bread-crumbs ul img {
     opacity: 1;
     visibility: visible;
 }
-
-/* #caja-instrucciones:hover{
-    bottom: 20px;
-    opacity: 100%;
-} */
 
 .pantalla-juego img {
     width: 220px;
@@ -1461,8 +1465,6 @@ nav#bread-crumbs ul img {
     background-color: var(--secundario-semi-claro);
 }
 
-
-
 #btn-jugar-especial {
     transition: background-color 200ms ease;
     animation: 1.2s cubic-bezier(0.8, 0, 0, 1) 0s infinite normal none running btn-pulsado;
@@ -1481,10 +1483,6 @@ nav#bread-crumbs ul img {
         box-shadow: 0 0 0 20px rgba(193, 246, 215, 0);
     }
 }
-
-
-
-
 
 /* Estilos para la card de instrucciones del juego */
 .contenedor-controles-juego {

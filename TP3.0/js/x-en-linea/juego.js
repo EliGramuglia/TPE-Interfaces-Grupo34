@@ -4,6 +4,8 @@ import { Ficha } from './ficha.js';
 import { Jugador } from './jugador.js';
 import { Tablero } from './tablero.js';
 
+const idPantallaJuego = document.querySelector('.pantalla-juego');
+
 /**
  * Esta clase representa el juego "4 en línea", con su canvas, tablero y jugadores.
  */
@@ -12,16 +14,17 @@ export class Juego {
         // Canvas
         this.canvas = document.querySelector(canvasId);
         this.ctx = this.canvas.getContext('2d');
-        this.ancho = window.innerWidth;
-        this.alto = window.innerHeight;
+        this.ancho = 1200;
+        this.alto = 700;
         this.canvas.width = this.ancho;
         this.canvas.height = this.alto;
+        this.unidad = this.ancho / 100; // La unidad de medida es un 1% del ancho del canvas
         this.maxfilas = filas;
         this.maxColumnas = filas + 1;
         
         // Imagen de fondo
         this.imgFondo = new Image();
-        this.imgFondo.src = './img/fondo-parque.png';
+        this.imgFondo.src = './img/pagJuego/juego/fondo-parque.png';
         this.imgFondoCargada = false;
         this.imgFondo.onload = () => {
             this.imgFondoCargada = true;
@@ -100,6 +103,9 @@ export class Juego {
                 this.fichaSeleccionada = undefined;
             }
         });
+
+        // Al ajustarse las dimensiones de la ventana se recalcula la unidad de medida relativa
+        window.addEventListener('resize', this.ajustarDimensiones);
     }
 
     obtenerCoordenadasMouse(evento) {
@@ -114,9 +120,9 @@ export class Juego {
      * Genera fichas y las reparte a cada jugador.
      */
     generarFichas() {
-        const radio = 40;
-        const rutaImagenPerros = "./img/ficha-perro-1.png";
-        const rutaImagenGatos = "./img/ficha-gato-1.png";
+        const radio = this.unidad * 4;
+        const rutaImagenPerros = "./img/pagJuego/juego/ficha-perro-1.png";
+        const rutaImagenGatos = "./img/pagJuego/juego/ficha-gato-1.png";
 
         const separacionFichas = 20;
         const margenInferior = this.alto - 20;

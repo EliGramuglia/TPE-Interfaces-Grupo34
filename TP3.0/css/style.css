@@ -1538,14 +1538,14 @@ nav#bread-crumbs ul img {
     width: 10px;
     /* cuando le hacen click el angulo se vuelve negativo -90*/
 }
-#contenedor-configuracion-juego #btn-jugar-juego{
+#contenedor-configuracion-juego #btn-jugar-comenzar{
     padding: 5px 10px;
     border-radius: 30px;
     background-color: var(--secundario);
     cursor: pointer;
     transition: background-color .3s linear;
 }
-#contenedor-configuracion-juego #btn-jugar-juego:hover{
+#contenedor-configuracion-juego #btn-jugar-comenzar:hover{
     background-color: var(--secundario-semi-claro);
 }
 

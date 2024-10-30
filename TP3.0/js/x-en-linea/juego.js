@@ -10,7 +10,7 @@ const idPantallaJuego = document.querySelector('.pantalla-juego');
  * Esta clase representa el juego "4 en línea", con su canvas, tablero y jugadores.
  */
 export class Juego {
-    constructor(canvasId, filas) {
+    constructor(canvasId, filas, j1Equipo, j2Equipo, fichaGato,fichaPerro) {
         // Canvas
         this.canvas = document.querySelector(canvasId);
         this.ctx = this.canvas.getContext('2d');
@@ -47,6 +47,11 @@ export class Juego {
         this.tiempoTurno; // Tiempo máximo de cada turno (en FPS)
         this.contadorTurno; // Contador de tiempo de turno (en FPS)
 
+        //datos del jugador
+        this.j1Equipo = j1Equipo;
+        this.j2Equipo = j2Equipo;
+        this.fichaGato = fichaGato;
+        this.fichaPerro = fichaPerro;
         this.inicializar();
     }
 
@@ -55,8 +60,8 @@ export class Juego {
         this.tablero = new Tablero(this.maxfilas, this.maxColumnas, this.unidad, this.canvas);
         
         // Jugadores
-        this.j1 = new Jugador("Pedro", "Perros");
-        this.j2 = new Jugador("Juan", "Gatos");
+        this.j1 = new Jugador("Pedro", this.j1Equipo);
+        this.j2 = new Jugador("Juan", this.j2Equipo);
         this.jugadorActual = this.j1;
 
         // Fichas
@@ -146,6 +151,7 @@ export class Juego {
         for (let i = 0; i < this.cantFichas / 2; i++) {
             const x = margenLateral + radio;
             const y = margenSuperior + i * separacionFichas;
+            //deberia de tomar de que equipo es el jugador 1 -> si es perro le pone la ficha de perro al crear en el lado izq
             this.j1.agregarFicha(new Ficha(x, y, radio, "Perros", rutaImagenPerros));
         }
 

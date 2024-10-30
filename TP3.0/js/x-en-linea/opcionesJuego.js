@@ -19,8 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const contenedorOpcTablero = document.querySelector('.contenedor-modos-tablero');
     const contenedorConfig = document.getElementById('contenedor-configuracion-juego');
     const pantallaJuego = document.getElementById('pantallaJuego');
+    const contenedorPantallaJuego = document.querySelector('.contenedor-pantalla-juego');
     const canvas = document.getElementById('canvas');
-    const btnsCambiarFicha = document.querySelectorAll('.btn-modificar-ficha');
+
 
     //si clickean el btn se activa la funcion que muestra la configuracion
     btnJugar.addEventListener('click', mostrarConfiguracionJuego);
@@ -32,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 //funcion para comenzar a mostrar la configuracion y modficiar el modo tablero
     function mostrarConfigTablero() {
-        pantallaJuego.style.backgroundColor = '#16161D';
+        contenedorPantallaJuego.style.backgroundImage = 'none';
         contenedorOpcTablero.classList.add('contenedor-modos-tablero-activo');
         contenedorOpcTablero.classList.remove('oculto');
         habilitarBotonesOpcTablero();
@@ -53,22 +54,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 //funcion para variar quien es el jugador 1 y jugador 2
-    function gestionarDatosJuego(contenedorConfig) {
+    function gestionarDatosJuego() {
         const btnGato = document.getElementById('btn-equipo-gato');
         const btnPerro = document.getElementById('btn-equipo-perro');
         const h2Gato = btnGato.parentNode.querySelector('h2');
         const h2Perro = btnPerro.parentNode.querySelector('h2');
 
         btnGato.addEventListener('click', () => {
-            h2Gato.textContent = 'Jugador 1';
-            h2Perro.textContent = 'Jugador 2';
+            h2Gato.innerHTML = 'Jugador 1';
+            h2Perro.innerHTML = 'Jugador 2';
+            j1Equipo = 'gatos';
+            j2Equipo = 'perros';
         });
 
         btnPerro.addEventListener('click', () => {
-            h2Gato.textContent = 'Jugador 2';
-            h2Perro.textContent = 'Jugador 1';
+            h2Gato.innerHTML = 'Jugador 2';
+            h2Perro.innerHTML = 'Jugador 1';
+            j1Equipo = 'perros';
+            j2Equipo = 'gatos';
         });
+
         habilitarCambioFicha();
+        let btnComenzarJuego = document.getElementById('btn-jugar-comenzar');
+        btnComenzarJuego.addEventListener('click', () =>{
+            //oculto el contenedor de configuracion para mostrar el juego
+            contenedorConfig.classList.remove('contenedor-configuracion-juego-activo');
+            contenedorConfig.classList.add('oculto');
+            inicializarJuego();
+        })
+        //si se aprieta el btn jugar se activa la funcion que crea el juego con los datos recolectados
+
 
     }
 
@@ -78,6 +93,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const btnCambarFichaPerro = document.getElementById('btnModificarFichaPerro');
         const contenedorOpcFichasPerro = document.getElementById('cajas-opc-fichas-perro');
         const contenedorOpcFichasGato = document.getElementById('cajas-opc-fichas-gato');
+        const fichaprincipalGato = document.getElementById('fichaPrincipalGato');
+        const fichaprincipalPerro = document.getElementById('fichaPrincipalPerro');
+
+
+
         console.log('dentro')
         btnCambarFichaGato.addEventListener('click', () => {
             contenedorOpcFichasGato.classList.toggle('objInvisible');
@@ -85,49 +105,51 @@ document.addEventListener('DOMContentLoaded', () => {
         btnCambarFichaPerro.addEventListener('click', () => {
             contenedorOpcFichasPerro.classList.toggle('objInvisible');
         })
-        //ME FALTA QUE LA FICHA MAS GRANDE TOME EL VALOR DEL BTN OPC FICHA CLICKEADO
-        // Y LUEGO TODOS LOS DATOS PASARLOS AL JUEGO UNA VEZ QUE SE CLICKEA EL BTN JUGAR
-        //ahora no me anda el for que capta los eventos
+        //LA FICHA MAS GRANDE TOME EL VALOR DEL BTN OPC FICHA seleccionado
         let fichasGato = document.querySelectorAll('.imgs-cat');
         console.log(fichasGato);
         fichasGato.forEach(btnFicha => {
         btnFicha.addEventListener('click', () => {
-            console.log('Eligió:', btnFicha.querySelector('img').src); 
+            imgGato = btnFicha.src;
+            fichaprincipalGato.src = imgGato;
+        });
+        });
+        let fichasPerro = document.querySelectorAll('.imgs-dog');
+        console.log(fichasPerro);
+        fichasPerro.forEach(btnFicha => {
+        btnFicha.addEventListener('click', () => {
+            imgPerro = btnFicha.src;
+            fichaprincipalPerro.src = imgPerro;
         });
         });
     
 
     };
 
-    //funcionalidad para que si se clickea un btn de caja-opc-fichas, le saque la img al btn
-    // botonesFichas.forEach(boton => {
-    //     boton.addEventListener('click', () => {
-    //         console.log('clickeado');
-    //         imagenSeleccionada = boton.querySelector('img').src;
-    //         console.log('Imagen seleccionada:', imagenSeleccionada);
-    //         // Aquí puedes hacer algo con la imagen seleccionada, como mostrarla en otro lugar
-    //     });
-    // });
-
-
-
-
 
     function habilitarBotonesOpcTablero() {
         document.getElementById('btn-opc1').addEventListener('click', () => {
-            //const juego = new Juego('#canvas', 6);
-            //juego.jugar();
+            cantFilas = 6;
         });
 
         document.getElementById('btn-opc2').addEventListener('click', () => {
-            //const juego = new Juego('#canvas', 7);
-            //juego.jugar();
+            cantFilas = 7;
+
         });
 
         document.getElementById('btn-opc3').addEventListener('click', () => {
-            //const juego = new Juego('#canvas', 8);
-            //juego.jugar();
+            cantFilas = 8;
+
         });
     }
-
+    
+    function inicializarJuego(){
+        //creo la instancia juego con todos los datos necesarios y luego muestro el canvas
+        const juego = new Juego('#canvas', cantFilas,j1Equipo,j2Equipo,imgGato,imgPerro);
+        pantallaJuego.style.height = '100%';
+        canvas.classList.remove('oculto');
+        juego.jugar();
+    }
 });
+
+

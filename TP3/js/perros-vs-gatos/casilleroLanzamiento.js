@@ -6,7 +6,7 @@ export class CasilleroLanzamiento {
         this.columna = columna;
 
         this.img = new Image();
-        this.img.src = './img/pagJuego/juego/flecha-lanzamiento.png';
+        this.img.src = './img/pagina-juego/perros-vs-gatos/flecha-lanzamiento.png';
         this.anchoImg = 30;
         this.altoImg = 30;
         this.posYImg; // Se va a calcular cuando elijamos una imagen

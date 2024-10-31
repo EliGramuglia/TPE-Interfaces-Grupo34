@@ -48,7 +48,3 @@ const intervaloContador = setInterval(() => {
         }, 2000);
     }
 }, intervalo);
-
-function reestablecerRotacion() {
-
-}

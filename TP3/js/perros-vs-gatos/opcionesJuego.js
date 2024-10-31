@@ -5,8 +5,8 @@ import {Juego} from './juego.js';
 //variables que se setean en la config para el juego
 //ya estan cargadas previamente, por si se quiere apretar el btn jugar
 let cantFilas = 6;
-let imgGato = './img/pagJuego/juego/ficha-gato-1.png';
-let imgPerro = './img/pagJuego/juego/ficha-perro-1.png';
+let imgGato = './img/pagina-juego/perros-vs-gatos/ficha-gato-1.png';
+let imgPerro = './img/pagina-juego/perros-vs-gatos/ficha-perro-1.png';
 
 document.addEventListener('DOMContentLoaded', () => {
     //me traigo todos los elementos que voy a usar en la configuracion

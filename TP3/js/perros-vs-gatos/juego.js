@@ -23,7 +23,7 @@ export class Juego {
         
         // Imagen de fondo
         this.imgFondo = new Image();
-        this.imgFondo.src = './img/pagJuego/juego/fondo-parque.png';
+        this.imgFondo.src = './img/pagina-juego/perros-vs-gatos/fondo-parque.png';
         this.imgFondoCargada = false;
         this.imgFondo.onload = () => {
             this.imgFondoCargada = true;
@@ -67,7 +67,7 @@ export class Juego {
         this.generarFichas();
 
         // Tiempo de turno y contador
-        this.tiempoTurno = 300; // (3600F / 60FPS = 60 seg)
+        this.tiempoTurno = 3600; // (3600F / 60FPS = 60 seg)
         this.contadorTurno = this.tiempoTurno;
         
         // Event listeners

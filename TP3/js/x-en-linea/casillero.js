@@ -4,12 +4,12 @@
  * Esta clase representa un casillero del tablero de juego. El mismo tiene un par de coordenadas x-y.
  */
 export class Casillero {
-    constructor(x, y, fila, columna, tamanio) {
-        this.x = x;
-        this.y = y;
+    constructor(x, y, tamanio, fila, columna) {
+        this.x = Math.round(x);
+        this.y = Math.round(y);
+        this.tamanio = Math.round(tamanio);
         this.fila = fila;
         this.columna = columna;
-        this.tamanio = tamanio; 
         this.ficha = null;
         
         this.img = new Image();

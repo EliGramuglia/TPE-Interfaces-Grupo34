@@ -1,9 +1,9 @@
 export class CasilleroLanzamiento {
-    constructor(x, y, columna, tamanio) {
-        this.x = x;
-        this.y = y;
+    constructor(x, y, tamanio, columna) {
+        this.x = Math.round(x);
+        this.y = Math.round(y);
+        this.tamanio = Math.round(tamanio);
         this.columna = columna;
-        this.tamanio = tamanio;
 
         this.img = new Image();
         this.img.src = './img/pagJuego/juego/flecha-lanzamiento.png';

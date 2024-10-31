@@ -6,23 +6,24 @@
 export class Ficha {
     constructor(x, y, radio, equipo, rutaImagen) {
         // Tamaño y posición
-        this.x = x;
-        this.y = y;
+        this.x = Math.round(x); // Valor X del centro de la ficha
+        this.y = Math.round(y); // Valor Y del centro de la ficha
         this.xOriginal = this.x;
         this.yOriginal = this.y;
-        this.radio = radio;
+        this.radio = Math.round(radio);
         this.limiteInferior;
 
         // Movimiento
-        this.vx = 0;
-        this.vy = 1;
-        this.friccion = 0.3; // Fricción que disminuye fuerza de rebote
-        this.gravedad = 0.3; // Gravedad que afecta caída
+        this.vx = 0; // Velocidad horizontal
+        this.vy = 0; // Velocidad vertical
+        this.friccion = 0.2; // Fricción que disminuye fuerza de rebote
+        this.gravedad = 0.5; // Gravedad que afecta caída
 
         // Estados
         this.seleccionada = false;
+        this.preparada = false;
         this.enCaida = false;
-        this.posicionada = false;
+        this.colocada = false;
         this.equipo = equipo;
 
         // Carga de imagen
@@ -35,7 +36,7 @@ export class Ficha {
     }
 
     actualizar() {
-        if (this.enCaida) {
+        if (this.preparada && this.enCaida) {
             this.vy += this.gravedad;
             this.y += this.vy;
             
@@ -46,6 +47,7 @@ export class Ficha {
             }
 
             if (this.vy === 0) {
+                this.preparada = false;
                 this.enCaida = false;
             }
         }

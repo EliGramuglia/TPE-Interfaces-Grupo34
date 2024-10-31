@@ -18,6 +18,8 @@ export class Tablero {
         this.casillerosLanzamiento = this.crearCasillerosLanzamiento(this.maxColumnas);
         this.casilleroLanzamientoActivo = null;
         this.fichasPorColumna = new Array(this.maxColumnas);
+        this.preparandoFicha = false;
+        this.fichaEnPreparacion = null;
     }
 
     /**
@@ -33,7 +35,7 @@ export class Tablero {
             for (let fila = 0; fila < filas; fila++) {
                 const x = col * this.tamanioCasillero + desplazamientoX;
                 const y = fila * this.tamanioCasillero + desplazamientoY;
-                arreglo[col][fila] = new Casillero(x, y, fila, col, this.tamanioCasillero);
+                arreglo[col][fila] = new Casillero(x, y, this.tamanioCasillero, fila, col);
             }
         }
 
@@ -48,7 +50,7 @@ export class Tablero {
         for (let col = 0; col < columnas; col++) {
             const x = this.casilleros[col][0].x;
             const y = this.casilleros[col][0].y - this.tamanioCasillero;
-            casillerosLanzamiento[col] = new CasilleroLanzamiento(x, y, col, this.tamanioCasillero);
+            casillerosLanzamiento[col] = new CasilleroLanzamiento(x, y, this.tamanioCasillero, col);
         }
         return casillerosLanzamiento;
     }
@@ -65,18 +67,15 @@ export class Tablero {
         }        
     }
 
-    obtenerCasilleroLanzamientoActivo(ficha) {
+    activarCasilleroLanzamiento(ficha) {
         for (let c of this.casillerosLanzamiento) {
-            c.activado = false;
             if (c.sePuedeSoltarFicha(ficha)) {
+                c.activado = true;
                 this.casilleroLanzamientoActivo = c;
-                this.casilleroLanzamientoActivo.activado = true;
-                return;
+            } else {
+                c.activado = false;
             }
-            c.activado = false;
         }
-
-        this.casilleroLanzamientoActivo = null;
     }
 
     sePuedeSoltarFicha() {
@@ -84,14 +83,9 @@ export class Tablero {
                this.buscarCasilleroLibre(this.casilleroLanzamientoActivo.columna) != null;
     }
 
-    coordenadasFichaLanzada() {
-        if (this.casilleroLanzamientoActivo) {
-            return {
-                x: this.casilleroLanzamientoActivo.x + this.tamanioCasillero / 2, 
-                y: this.casilleroLanzamientoActivo.y + this.tamanioCasillero / 2
-            }
-        }
-        return null;
+    prepararFicha(ficha) {
+        this.fichaEnPreparacion = ficha;
+        this.preparandoFicha = true;
     }
 
     colocarFicha(ficha) {
@@ -99,8 +93,21 @@ export class Tablero {
         const casilleroLibre = this.buscarCasilleroLibre(col);
         if (casilleroLibre) {
             casilleroLibre.ficha = ficha;
+            ficha.limiteInferior = casilleroLibre.y + casilleroLibre.tamanio;
         }
         return casilleroLibre;
+    }
+
+    colocarFichaAlAzar(ficha) {
+        let indice = Math.floor(Math.random() * this.maxColumnas);
+        this.casilleroLanzamientoActivo = this.casillerosLanzamiento[indice];
+
+        while (!this.sePuedeSoltarFicha()) {
+            indice = Math.floor(Math.random() * this.maxColumnas);
+            this.casilleroLanzamientoActivo = this.casillerosLanzamiento[indice];            
+        }
+
+        this.colocarFicha(ficha)
     }
 
     buscarCasilleroLibre(columna) {
@@ -140,14 +147,55 @@ export class Tablero {
 
     }
 
-    colocarFichaAlAzar(ficha) {
-        
+    coordenadasCasilleroLanzamiento() {
+        let coordenadas = {
+            x: undefined,
+            y: undefined
+        }
+        if (this.casilleroLanzamientoActivo) {
+            coordenadas.x = this.casilleroLanzamientoActivo.x + this.tamanioCasillero / 2;
+            coordenadas.y = this.casilleroLanzamientoActivo.y + this.tamanioCasillero / 2;
+        }
+        return coordenadas;
+    }
+
+    moverFichaALanzamiento() {
+        // Se calcula la distancia entre la ficha y el destino
+        const destino = this.coordenadasCasilleroLanzamiento();
+        const dx = destino.x - this.fichaEnPreparacion.x;
+        const dy = destino.y - this.fichaEnPreparacion.y;
+        const distancia = Math.sqrt(dx * dx + dy * dy);
+
+        let velocidad = distancia * 0.1; // La velocidad varía con la distancia
+        const velocidadMinima = 0.5;
+        if (velocidad < velocidadMinima) {
+            velocidad = velocidadMinima;
+        }
+
+        if (distancia > velocidadMinima) {
+            // Se mueve la ficha hacia el casillero de lanzamiento
+            this.fichaEnPreparacion.x += (dx / distancia) * velocidad;
+            this.fichaEnPreparacion.y += (dy / distancia) * velocidad;
+        } else {
+            // Se coloca la ficha en la posición final
+            this.fichaEnPreparacion.x = destino.x;
+            this.fichaEnPreparacion.y = destino.y;
+            
+            // Se marca la ficha como preparada
+            this.fichaEnPreparacion.preparada = true;
+            this.fichaEnPreparacion = null;
+            this.preparandoFicha = false;
+        }
     }
 
     actualizar() {
         for (let c of this.casillerosLanzamiento) {
             c.actualizar();
-        }    
+        }
+
+        if (this.preparandoFicha) {
+            this.moverFichaALanzamiento();
+        }
     }
     
     dibujar(ctx) {

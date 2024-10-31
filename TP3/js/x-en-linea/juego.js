@@ -67,7 +67,7 @@ export class Juego {
         this.generarFichas();
 
         // Tiempo de turno y contador
-        this.tiempoTurno = 3600; // (3600F / 60FPS = 60 seg)
+        this.tiempoTurno = 300; // (3600F / 60FPS = 60 seg)
         this.contadorTurno = this.tiempoTurno;
         
         // Event listeners
@@ -84,7 +84,7 @@ export class Juego {
                 this.fichaSeleccionada = this.j2.fichas.find(f => f.enCoordenadasMouse(this.mouse));
             }
 
-            if (this.fichaSeleccionada && !this.fichaSeleccionada.posicionada) {
+            if (this.fichaSeleccionada && !this.fichaSeleccionada.colocada) {
                 this.fichaSeleccionada.seleccionada = true;
                 this.tablero.mostrarCasillerosLanzamiento();
             }
@@ -95,29 +95,28 @@ export class Juego {
                 this.mouse = this.obtenerCoordenadasMouse(e);
                 this.fichaSeleccionada.x = this.mouse.x;
                 this.fichaSeleccionada.y = this.mouse.y;
-                this.tablero.obtenerCasilleroLanzamientoActivo(this.fichaSeleccionada);
+                this.tablero.activarCasilleroLanzamiento(this.fichaSeleccionada);
             }
         });
 
         this.canvas.addEventListener('mouseup', (e) => {
             if (this.fichaSeleccionada) {
+                // Se verifica si se puede soltar la ficha
                 if (this.tablero.sePuedeSoltarFicha(this.fichaSeleccionada)) {
-                    // Si se puede soltar la ficha, se alinea con la columna de lanzamiento
-                    const coordenadasColumnaLanzamiento = this.tablero.coordenadasFichaLanzada(this.fichaSeleccionada);
-                    this.fichaSeleccionada.x = coordenadasColumnaLanzamiento.x;
-                    this.fichaSeleccionada.y = coordenadasColumnaLanzamiento.y;
+                    // Se prepara la ficha en el centro del casillero de lanzamiento
+                    this.tablero.prepararFicha(this.fichaSeleccionada);
 
-                    // Se activa la caída
+                    // Se suelta la ficha (activando su caída)
                     this.fichaSeleccionada.enCaida = true;
 
-                    // Se coloca en el tablero
+                    // Se coloca en el tablero y actualiza el límite inferior de rebote
                     const casilleroLibre = this.tablero.colocarFicha(this.fichaSeleccionada);
                     this.fichaSeleccionada.limiteInferior = casilleroLibre.y + casilleroLibre.tamanio;
 
                     // Se cambia de turno
                     this.cambiarTurno();
                 } else {
-                    // Si no, se reestablece su posición
+                    // Si no se puede soltar la ficha, se reestablece su posición
                     this.fichaSeleccionada.x = this.fichaSeleccionada.xOriginal;
                     this.fichaSeleccionada.y = this.fichaSeleccionada.yOriginal;
                 }
@@ -161,20 +160,6 @@ export class Juego {
             const y = margenSuperior + i * separacionFichas;
             this.j2.agregarFicha(new Ficha(x, y, radio, "Gatos", this.imgFichaGato));
         }
-    }
-
-    /**
-     * Coloca una ficha en una columna dada. Retorna true si se pudo colocar la ficha, y false en caso contrario.
-     */
-    colocarFichaEnTablero(columna, ficha) {
-        for (let fila = this.maxfilas - 1; fila >= 0; fila--) { // Se empieza desde la fila inferior
-            let casillero = this.tablero.obtenerCasillero(fila, columna); // Se obtiene cada casillero de la fila
-            if (!casillero.tieneFicha()) {
-                casillero.colocarFicha(ficha);
-                return true;
-            }
-        }
-        return false;
     }
 
     /**
@@ -245,6 +230,7 @@ export class Juego {
         this.contadorTurno--;
 
         if (this.contadorTurno <= 0) {
+            this.colocarFichaAlAzar(this.jugadorActual.fichas);
             this.cambiarTurno();
         }
     }
@@ -261,5 +247,20 @@ export class Juego {
         }
         console.log("Turno del equipo " + this.jugadorActual.equipo);
         this.contadorTurno = this.tiempoTurno;
+    }
+
+    /**
+     * Coloca una ficha en una columna al azar. Se utiliza cuando se termina el tiempo de un turno.
+     */
+    colocarFichaAlAzar(fichas) {
+        for (let f of fichas) {
+            if (!f.seleccionada && !f.enCaida && !f.colocada) {
+                console.log("Ficha al azar")
+                this.tablero.prepararFicha(f);
+                f.enCaida = true;
+                this.tablero.colocarFichaAlAzar(f);
+                return;
+            }
+        }
     }
 }

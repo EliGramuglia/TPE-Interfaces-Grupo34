@@ -86,6 +86,7 @@ export class Juego {
 
             if (this.fichaSeleccionada && !this.fichaSeleccionada.colocada) {
                 this.fichaSeleccionada.seleccionada = true;
+                this.tablero.casilleroLanzamientoActivo = null;
                 this.tablero.mostrarCasillerosLanzamiento();
             }
         });
@@ -255,7 +256,6 @@ export class Juego {
     colocarFichaAlAzar(fichas) {
         for (let f of fichas) {
             if (!f.seleccionada && !f.enCaida && !f.colocada) {
-                console.log("Ficha al azar")
                 this.tablero.prepararFicha(f);
                 f.enCaida = true;
                 this.tablero.colocarFichaAlAzar(f);

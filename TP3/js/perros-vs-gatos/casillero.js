@@ -5,7 +5,7 @@
  */
 export class Casillero {
     constructor(x, y, tamanio, fila, columna) {
-        this.x = Math.round(x);
+        this.x = Math.round(x); // x = 3.54 px -> 4px
         this.y = Math.round(y);
         this.tamanio = Math.round(tamanio);
         this.fila = fila;

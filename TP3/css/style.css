@@ -1405,11 +1405,11 @@ nav#bread-crumbs ul img {
     justify-content: flex-end;
     margin: 0 auto;
     background-position: center;
+    border-radius: 5px;
 }
 
 .pantalla-juego {
     height: 70vh; 
-    /* height: 470px; -> le pongo una medida al principio, luego al colocarle el canvas lo modifico*/
     width: 100%;
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.55);
@@ -1429,6 +1429,7 @@ nav#bread-crumbs ul img {
     flex-direction: column;
     align-items: center;
 }
+/* ANIMACION DE CARGA LISTA PARA COLOCAR
 
 #animacion-carga{
     border: 1px solid;
@@ -1460,22 +1461,59 @@ nav#bread-crumbs ul img {
     }
     
 }
+    */
+
 .contenedor-modos-tablero-activo{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 14px;
+    height: 100%;
+    transition: animation ease 1.2s;
 }
-.btn-tipoTablero{
-    border: none;
-    border-radius: 10px;
-    background-color: cornflowerblue;
-    padding: 14px 20px;
-    font-size: 20px;
+#logo-juego{
+    min-width: 35%;
+    animation: subeBajaLogo 2s ease-in-out infinite alternate-reverse;
+    border-radius: 100%;
+}
+@keyframes subeBajaLogo {
+    from{
+        transform: translateY(0);
+    }
+    to{
+        transform: translateY(20px);
+        
+
+    }
+}
+.contenedor-pantalla-juego .contenedor-modos-tablero-activo h2,.contenedor-pantalla-juego #contenedor-configuracion-juego h2{
+    text-shadow: 2px 1px 10px rgba(18, 18, 18, 0.6);
+    font-size: 18px;
+}
+.contenedor-pantalla-juego .contenedor-modos-tablero-activo  #grupo-opc-tablero{
+    display: flex;
+    gap: 10px;
+}
+.btn-tipoTablero {
+    border: 2px solid #5f98c4;
+    background-color: #5f98c4;
+    border-radius: 50px;
+    padding: .5rem 1rem; /* Utiliza rem para una mejor escalabilidad */
+    min-width: 100px; /* Establece un ancho mínimo */
+    font-size: .8rem; /* Utiliza rem para el tamaño de fuente */
+    font-weight: var(--grosor-grueso);
     cursor: pointer;
+    transition: all .5s ease;
+    display: flex; /* Utiliza Flexbox para distribuir el contenido */
+    justify-content: center;
+    align-items: center;
 }
+
 .btn-tipoTablero:hover{
-    background-color: rgb(79, 118, 189);
+    border: 2px white solid;
+    background-color: #70B3E6;
+    transform: scale(1.1);
 }
 
 /* Elementos para la pantalla de juego (Canvas) */
@@ -1531,28 +1569,26 @@ nav#bread-crumbs ul img {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.20);
+    background-color: #0c1b4a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 20px rgba(18, 18, 18, 0.5);
 }
 
 #contenedor-configuracion-juego #contenedor-opc-equipo{
     display: flex;
     gap: 14px;
 }
-#contenedor-configuracion-juego h2{
-    font-size: 16px;
-    font-weight: var(--grosor-regular);
-}
 
-#contenedor-configuracion-juego .nombre{
-    padding-top: 20px;
-    border-bottom: 1px solid var(--gris-muy-claro);
-}
 #contenedor-configuracion-juego #contenedor-opc-equipo h3{
     align-self: center;
 }
 #contenedor-configuracion-juego .caja-opc-equipo{
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 10px;
     align-items: center;
     justify-content: center;
 }
@@ -1570,10 +1606,20 @@ nav#bread-crumbs ul img {
     width: 100%;
     cursor: pointer;
 }
+#contenedor-configuracion-juego .cajas-opc-fichas img{
+    filter: brightness(90%);
+}
+
+#contenedor-configuracion-juego .cajas-opc-fichas img:hover{
+    width: 100%;
+    cursor: pointer;
+    filter: brightness(100%);
+}
 
 #contenedor-configuracion-juego .btn-modificar-ficha{
-    background-color: rgb(255, 196, 0);
-    border: none;
+    border: 2px solid #70b3e6;
+    background-color: var(--gris-muy-claro);
+    color: var(--gris-muy-oscuro);
     padding: 5px 10px;
     border-radius: 10px;
     font-weight: bolder;
@@ -1581,24 +1627,136 @@ nav#bread-crumbs ul img {
     align-items: center;
     gap: 10px;
     cursor: pointer;
-    color: var(--gris-muy-oscuro);
+    transition: all linear .3s;
 }
+#contenedor-configuracion-juego .btn-modificar-ficha:hover{
+    background-color: #d0d2dd;
+}
+
 #contenedor-configuracion-juego .btn-modificar-ficha  img{
     transform: rotate(90deg);
     width: 10px;
     /* cuando le hacen click el angulo se vuelve negativo -90*/
 }
-#contenedor-configuracion-juego #btn-jugar-comenzar{
-    padding: 5px 10px;
-    border-radius: 30px;
-    background-color: var(--secundario);
-    cursor: pointer;
-    transition: background-color .3s linear;
-}
-#contenedor-configuracion-juego #btn-jugar-comenzar:hover{
-    background-color: var(--secundario-semi-claro);
+#contenedor-configuracion-juego #caja-opc-volver-continuar{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
+#contenedor-configuracion-juego #caja-opc-volver-continuar #btn-volver-juego{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(30, 90, 143);
+    padding: 8px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+#contenedor-configuracion-juego #caja-opc-volver-continuar #btn-volver-juego img{
+    width: 25px;
+}
+#contenedor-configuracion-juego #btn-jugar-comenzar{
+    padding: 8px 26px;
+    border-radius: 30px;
+    border: 1px #5f98c4 solid;
+    background-color: #5f98c4;
+    color: white;
+    cursor: pointer;
+    font-weight: var(--grosor-grueso);
+    transition: background-color .3s linear;
+    transition: all .5s ease;
+    animation: balancearse 1s linear infinite alternate-reverse;
+}
+#contenedor-configuracion-juego #btn-jugar-comenzar:hover{
+    animation: none;
+    transform: scale(1.1);
+}
+@keyframes  balancearse{
+    0%{
+        transform: rotate(0);
+    }
+    25%{
+        transform: rotate(8deg);
+    }
+    50%{
+        transform: rotate(0);
+
+    }
+    100%{
+        transform: rotate(0);
+    }
+}
+/* estilos para card de ganador */
+.contenedor-card-ganador{
+    border:4px solid #C97A49;
+    background-color: #fff494;
+    border-radius: 10px;
+    width: 300px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    overflow: hidden;
+}
+
+.contenedor-card-ganador #titulo-card-ganador{
+    background-color: #C97A49;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+    padding: 14px 0;
+    
+}
+#img-ganador{
+    width: 80%;
+}
+/* despues elimiar esta estilo */
+#section-cards-ganador,#grupo-opc-confirmacion{
+    display: flex;
+    gap: 20px;
+}
+#contenedor-mensaje-confirmacion{
+    background-color: #fff494;
+    height: max-content;
+    padding: 20px 20px;
+    border-radius: 10px;
+}
+#contenedor-mensaje-confirmacion h2{
+    color: #C97A49;
+    font-size: 16px;
+}
+#contenedor-mensaje-confirmacion #grupo-opc-confirmacion{
+    padding-top: 14px;
+    justify-content: center;
+}
+#contenedor-mensaje-confirmacion button{
+    width: 50px;
+    height: 30px;
+    border-radius: 20px;
+    color: var(--gris-muy-oscuro);
+    font-weight: var(--grosor-grueso);
+    background-color: rgb(255, 243, 238);
+    box-shadow: 2px 2px 10px rgba(71, 71, 71, 0.411);
+    cursor: pointer;
+}
+#btn-reset{
+    background-color: var(--gris-muy-claro);
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 10px rgba(104, 103, 103, 0.5);
+    cursor: pointer;
+}
+#btn-reset img{
+    width: 60%;
+}
+/* sigue con los estilos de la pag juego */
 #caja-instrucciones {
     position: absolute;
     z-index: 2;

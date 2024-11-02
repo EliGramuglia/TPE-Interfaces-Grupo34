@@ -13,7 +13,7 @@ export class Casillero {
         this.ficha = null;
         
         this.img = new Image();
-        this.img.src = './img/pagina-juego/perros-vs-gatos/casillero.png';
+        this.img.src = './img/pagina-juego/perros-vs-gatos/casillero-madera-clara.png';
         this.imgCargada = false;
         this.img.onload = () => {
             this.imgCargada = true;

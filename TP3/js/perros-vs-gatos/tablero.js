@@ -96,7 +96,6 @@ export class Tablero {
             ficha.colocada = true;
             ficha.limiteInferior = casilleroLibre.y + casilleroLibre.tamanio;
         }
-        return casilleroLibre;
     }
 
     colocarFichaAlAzar(ficha) {
@@ -119,33 +118,6 @@ export class Tablero {
             }
         }
         return null;
-    }
-
-    hayGanador(fila, columna, cantFichasParaGanar) {
-        return this.verificarFila(fila, cantFichasParaGanar) ||
-               this.verificarColumna(columna, cantFichasParaGanar) ||
-               this.verificarDiagonalIzquierda(fila, columna, cantFichasParaGanar) ||
-               this.verificarDiagonalDerecha(fila, columna, cantFichasParaGanar);
-    }
-
-    verificarFila(fila, cantFichasParaGanar) {
-
-    }
-    
-    verificarColumna(columna, cantFichasParaGanar) {
-
-    }
-    
-    verificarDiagonalIzquierda(fila, columna, cantFichasParaGanar) {
-
-    }
-    
-    verificarDiagonalDerecha(fila, columna, cantFichasParaGanar) {
-
-    }
-
-    quedanCasillerosDisponibles() {
-
     }
 
     coordenadasCasilleroLanzamiento() {
@@ -184,9 +156,41 @@ export class Tablero {
             
             // Se marca la ficha como preparada
             this.fichaEnPreparacion.preparada = true;
+            this.fichaEnPreparacion.enCaida = true;
             this.fichaEnPreparacion = null;
             this.preparandoFicha = false;
         }
+    }
+
+    hayEmpate() {
+
+    }
+
+    quedanCasillerosDisponibles() {
+
+    }
+
+    hayGanador(fila, columna, cantFichasParaGanar) {
+        return this.verificarFila(fila, cantFichasParaGanar) ||
+               this.verificarColumna(columna, cantFichasParaGanar) ||
+               this.verificarDiagonalIzquierda(fila, columna, cantFichasParaGanar) ||
+               this.verificarDiagonalDerecha(fila, columna, cantFichasParaGanar);
+    }
+
+    verificarFila(fila, cantFichasParaGanar) {
+
+    }
+    
+    verificarColumna(columna, cantFichasParaGanar) {
+
+    }
+    
+    verificarDiagonalIzquierda(fila, columna, cantFichasParaGanar) {
+
+    }
+    
+    verificarDiagonalDerecha(fila, columna, cantFichasParaGanar) {
+
     }
 
     actualizar() {

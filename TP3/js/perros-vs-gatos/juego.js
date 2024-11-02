@@ -61,7 +61,7 @@ export class Juego {
         // Jugadores
         this.j1 = new Jugador("Perros");
         this.j2 = new Jugador("Gatos");
-        this.jugadorActual = this.j1;
+        this.jugadorActual = Math.floor(Math.random() * 2) === 0 ? this.j1 : this.j2;
 
         // Fichas
         this.generarFichas();

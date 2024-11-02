@@ -1389,6 +1389,7 @@ nav#bread-crumbs ul img {
 /* Estilos para pantalla donde se presenta el juego */
 .contenedor-pantalla-juego,
 .pantalla-juego {
+    position: relative;
     display: flex;
     flex-direction: column;
     /* es necesario en la pantalla-juego para el canvas el flex column para posicionarse? */
@@ -1476,6 +1477,46 @@ nav#bread-crumbs ul img {
 .btn-tipoTablero:hover{
     background-color: rgb(79, 118, 189);
 }
+
+/* Elementos para la pantalla de juego (Canvas) */
+
+.contenedor-canvas-juego {
+    position: relative;
+}
+
+.contenedor-botones-canva-juego {
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-end; 
+    position: absolute; 
+    top: 10px; 
+    right: 280px; 
+    z-index: 2;
+}
+
+.botones-juego-canvas {
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+    background-color: var(--gris-muy-claro);
+    border: none; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    cursor: pointer;
+    margin: 5px 0; 
+}
+
+#contenedor-canvas-juego .botones-juego-canvas img {
+    width: auto;
+    height: 25px;
+}
+
+
+
+
+
+
 
 /* seccion de la caja de configuracion del juego */
 .contenedor-configuracion-juego-activo{

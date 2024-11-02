@@ -28,11 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     //funcion para comenzar a mostrar la configuracion y modficiar el modo tablero
     function mostrarConfigTablero() {
-        contenedorPantallaJuego.style.backgroundImage = 'none';
+        console.log('cambiando img')
+        pantallaJuego.style.backgroundColor = 'black';
+        pantallaJuego.style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(2, 87, 214, 0.5))';
+        // contenedorPantallaJuego.style.backgroundImage = "url(./img/pagina-juego/perros-vs-gatos/fondo-huellitas.png)";
         contenedorOpcTablero.classList.add('contenedor-modos-tablero-activo');
         contenedorOpcTablero.classList.remove('oculto');
         habilitarBotonesOpcTablero();
-
 
         //si se aprieta alguna opcion de tablero, se sigue con la configuracion
         const botonesTablero = contenedorOpcTablero.querySelectorAll('.btn-tipoTablero');

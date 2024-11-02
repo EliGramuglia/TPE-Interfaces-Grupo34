@@ -45,11 +45,6 @@ export class Ficha {
                 this.vy *= -1;
                 this.vy *= this.friccion;
             }
-
-            if (this.vy === 0) {
-                this.preparada = false;
-                this.enCaida = false;
-            }
         }
     }
 

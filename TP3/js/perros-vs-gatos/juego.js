@@ -75,6 +75,10 @@ export class Juego {
 
     inicializarEventListeners() {
         this.canvas.addEventListener('mousedown', (e) => {
+            if (this.tablero.fichaEnPreparacion != null) {
+                return;
+            }
+
             this.coordenadasMouse = this.obtenerCoordenadasMouse(e);
             
             if (this.jugadorActual === this.j1) {
@@ -83,9 +87,7 @@ export class Juego {
                 this.fichaSeleccionada = this.j2.fichas.find(f => f.seleccionar(this.coordenadasMouse));
             }
 
-            console.log(this.fichaSeleccionada);
-
-            if (this.fichaSeleccionada && !this.fichaSeleccionada.colocada) {
+            if (this.fichaSeleccionada) {
                 this.fichaSeleccionada.seleccionada = true;
                 this.tablero.casilleroLanzamientoActivo = null;
                 this.tablero.mostrarCasillerosLanzamiento();
@@ -108,13 +110,9 @@ export class Juego {
                     // Se prepara la ficha en el centro del casillero de lanzamiento
                     this.tablero.prepararFicha(this.fichaSeleccionada);
 
-                    // Se suelta la ficha (activando su caída)
-                    this.fichaSeleccionada.enCaida = true;
-
                     // Se coloca en el tablero y actualiza el límite inferior de rebote
-                    const casilleroLibre = this.tablero.colocarFicha(this.fichaSeleccionada);
-                    this.fichaSeleccionada.limiteInferior = casilleroLibre.y + casilleroLibre.tamanio;
-
+                    this.tablero.colocarFicha(this.fichaSeleccionada);
+                    
                     // Se cambia de turno
                     this.cambiarTurno();
                 } else {

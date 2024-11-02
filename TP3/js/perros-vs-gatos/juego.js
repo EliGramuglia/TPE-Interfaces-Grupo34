@@ -30,7 +30,7 @@ export class Juego {
         };
 
         // Coordenadas del cursor del mouse
-        this.mouse = {
+        this.coordenadasMouse = {
             x: undefined,
             y: undefined
         };
@@ -38,7 +38,6 @@ export class Juego {
         // Elementos del juego
         this.tablero = null;
         this.cantFichas = this.maxfilas * this.maxColumnas;
-        this.fichas = [];
         this.fichaSeleccionada = null; // Determina qué ficha está siendo arrastrada
         this.j1 = null;
         this.j2 = null;
@@ -67,7 +66,7 @@ export class Juego {
         this.generarFichas();
 
         // Tiempo de turno y contador
-        this.tiempoTurno = 3600; // (3600F / 60FPS = 60 seg)
+        this.tiempoTurno = 1800; // (1800 frames / 60 FPS = 30 seg)
         this.contadorTurno = this.tiempoTurno;
         
         // Event listeners
@@ -76,13 +75,15 @@ export class Juego {
 
     inicializarEventListeners() {
         this.canvas.addEventListener('mousedown', (e) => {
-            this.mouse = this.obtenerCoordenadasMouse(e);
+            this.coordenadasMouse = this.obtenerCoordenadasMouse(e);
             
             if (this.jugadorActual === this.j1) {
-                this.fichaSeleccionada = this.j1.fichas.find(f => f.enCoordenadasMouse(this.mouse));
+                this.fichaSeleccionada = this.j1.fichas.find(f => f.seleccionar(this.coordenadasMouse));
             } else {
-                this.fichaSeleccionada = this.j2.fichas.find(f => f.enCoordenadasMouse(this.mouse));
+                this.fichaSeleccionada = this.j2.fichas.find(f => f.seleccionar(this.coordenadasMouse));
             }
+
+            console.log(this.fichaSeleccionada);
 
             if (this.fichaSeleccionada && !this.fichaSeleccionada.colocada) {
                 this.fichaSeleccionada.seleccionada = true;
@@ -92,10 +93,10 @@ export class Juego {
         });
 
         this.canvas.addEventListener('mousemove', (e) => {
-            if (this.fichaSeleccionada) {
-                this.mouse = this.obtenerCoordenadasMouse(e);
-                this.fichaSeleccionada.x = this.mouse.x;
-                this.fichaSeleccionada.y = this.mouse.y;
+            if (this.fichaSeleccionada && !this.fichaSeleccionada.colocada) {
+                this.coordenadasMouse = this.obtenerCoordenadasMouse(e);
+                this.fichaSeleccionada.x = this.coordenadasMouse.x;
+                this.fichaSeleccionada.y = this.coordenadasMouse.y;
                 this.tablero.activarCasilleroLanzamiento(this.fichaSeleccionada);
             }
         });

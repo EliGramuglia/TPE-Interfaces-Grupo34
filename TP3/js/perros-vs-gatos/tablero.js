@@ -93,6 +93,7 @@ export class Tablero {
         const casilleroLibre = this.buscarCasilleroLibre(col);
         if (casilleroLibre) {
             casilleroLibre.ficha = ficha;
+            ficha.colocada = true;
             ficha.limiteInferior = casilleroLibre.y + casilleroLibre.tamanio;
         }
         return casilleroLibre;

@@ -1492,6 +1492,7 @@ nav#bread-crumbs ul img {
     top: 10px; 
     right: 280px; 
     z-index: 2;
+    display: none;
 }
 
 .botones-juego-canvas {
@@ -1505,7 +1506,14 @@ nav#bread-crumbs ul img {
     align-items: center; 
     cursor: pointer;
     margin: 5px 0; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
+
+.botones-juego-canvas:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1); 
+}
+
 
 #contenedor-canvas-juego .botones-juego-canvas img {
     width: auto;

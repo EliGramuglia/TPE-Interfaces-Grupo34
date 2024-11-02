@@ -121,6 +121,8 @@ document.addEventListener('DOMContentLoaded', () => {
         //creo la instancia juego con todos los datos necesarios y luego muestro el canvas
         const juego = new Juego('#canvas', cantFilas, imgGato, imgPerro);
         canvas.classList.remove('oculto');
+        const contenedor = document.querySelector('#contenedor-botones-canva-juego');
+        contenedor.style.display = 'flex';
         juego.jugar();
     }
 });

@@ -1522,7 +1522,7 @@ nav#bread-crumbs ul img {
     position: relative;
 }
 
-.contenedor-botones-canva-juego {
+#contenedor-botones-canva-juego {
     display: flex; 
     flex-direction: column; 
     align-items: flex-end; 

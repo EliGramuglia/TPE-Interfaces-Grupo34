@@ -4,12 +4,11 @@ import { Ficha } from './ficha.js';
 import { Jugador } from './jugador.js';
 import { Tablero } from './tablero.js';
 
-
 /**
  * Esta clase representa el juego "4 en línea", con su canvas, tablero y jugadores.
  */
 export class Juego {
-    constructor(canvasId, filas, imgFichaGato,imgFichaPerro) {
+    constructor(canvasId, cantFichasEnLinea, imgFichaGato, imgFichaPerro) {
         // Canvas
         this.canvas = document.querySelector(canvasId);
         this.ctx = this.canvas.getContext('2d');
@@ -17,9 +16,9 @@ export class Juego {
         this.ancho = Math.floor(this.alto * 1.5);
         this.canvas.width = this.ancho;
         this.canvas.height = this.alto;
-        this.unidad = Math.floor(this.alto / (filas * 1.5));
-        this.maxfilas = filas;
-        this.maxColumnas = filas + 1;
+        this.maxFilas = cantFichasEnLinea + 2; // Por ejemplo, el 4 en línea necesita 6 filas
+        this.maxColumnas = this.maxFilas + 1; // Por ejemplo, si hay 6 filas se necesitan 7 columnas
+        this.unidad = Math.floor(this.alto / (this.maxFilas * 1.5));
         
         // Imagen de fondo
         this.imgFondo = new Image();
@@ -37,15 +36,18 @@ export class Juego {
 
         // Elementos del juego
         this.tablero = null;
-        this.cantFichas = this.maxfilas * this.maxColumnas;
+        this.cantFichas = this.maxFilas * this.maxColumnas;
+        this.cantFichasEnLinea = cantFichasEnLinea;
         this.fichaSeleccionada = null; // Determina qué ficha está siendo arrastrada
         this.j1 = null;
         this.j2 = null;
         this.jugadorActual = null;
+        this.ganador = null;
+        this.empate = false;
+        this.juegoTerminado = false;
         this.tiempoTurno; // Tiempo máximo de cada turno (en FPS)
         this.contadorTurno; // Contador de tiempo de turno (en FPS)
-
-        // Datos del jugador
+        this.contadorEstado; // Contador para verificar si hay ganador o empate
         this.imgFichaGato = imgFichaGato;
         this.imgFichaPerro = imgFichaPerro;
 
@@ -55,7 +57,7 @@ export class Juego {
 
     inicializar() {
         // Tablero
-        this.tablero = new Tablero(this.maxfilas, this.maxColumnas, this.unidad, this.canvas);
+        this.tablero = new Tablero(this.maxFilas, this.maxColumnas, this.unidad, this.canvas);
         
         // Jugadores
         this.j1 = new Jugador("Perros");
@@ -65,9 +67,10 @@ export class Juego {
         // Fichas
         this.generarFichas();
 
-        // Tiempo de turno y contador
+        // Tiempo de turno y contadores
         this.tiempoTurno = 1800; // (1800 frames / 60 FPS = 30 seg)
         this.contadorTurno = this.tiempoTurno;
+        this.contadorEstado = 120;
         
         // Event listeners
         this.inicializarEventListeners();
@@ -113,8 +116,8 @@ export class Juego {
                     // Se coloca en el tablero y actualiza el límite inferior de rebote
                     this.tablero.colocarFicha(this.fichaSeleccionada);
                     
-                    // Se cambia de turno
-                    this.cambiarTurno();
+                    // Se verifica estado del juego (empate, ganador o cambio de turno)
+                    this.verificarEstadoJuego();
                 } else {
                     // Si no se puede soltar la ficha, se reestablece su posición
                     this.fichaSeleccionada.x = this.fichaSeleccionada.xOriginal;
@@ -163,6 +166,64 @@ export class Juego {
     }
 
     /**
+     * Establece un temporizador para cada turno. Al finalizar el tiempo, se cambia el turno.
+     */
+    cuentaRegresiva() {
+        if (this.contadorTurno % 60 === 0) { // 0 60 120 180 ... -> FPS
+            // console.log(this.contadorTurno / 60); // 0 1 2 3 ... -> seg
+        }
+        
+        this.contadorTurno--;
+
+        if (this.contadorTurno <= 0) {
+            this.colocarFichaAlAzar(this.jugadorActual.fichas);
+            this.verificarEstadoJuego();
+        }
+    }
+
+    /**
+     * Coloca una ficha en una columna al azar. Se utiliza cuando se termina el tiempo de un turno.
+     */
+    colocarFichaAlAzar(fichas) {
+        for (let f of fichas) {
+            if (!f.seleccionada && !f.enCaida && !f.colocada) {
+                this.tablero.prepararFicha(f);
+                f.enCaida = true;
+                this.tablero.colocarFichaAlAzar(f);
+                return;
+            }
+        }
+    }
+
+    verificarEstadoJuego() {
+        // Se verifica si hay un empate o un ganador
+        if (this.tablero.hayEmpate()) {
+            this.empate = true;
+            this.juegoTerminado = true;
+        } else if (this.tablero.hayGanador(this.cantFichasEnLinea, this.jugadorActual.equipo)) {
+            this.ganador = this.jugadorActual;
+            this.juegoTerminado = true;
+        } else {
+            // Si no, se cambia de turno
+            this.cambiarTurno();
+        }
+    }
+
+    /**
+     * Cambia el turno entre jugadores. El turno se cambia cuando finaliza su tiempo o cuando
+     * se suelta una ficha en el tablero. 
+     */
+    cambiarTurno() {
+        if (this.jugadorActual === this.j1) {
+            this.jugadorActual = this.j2;
+        } else {
+            this.jugadorActual = this.j1;
+        }
+        console.log("Turno del equipo " + this.jugadorActual.equipo);
+        this.contadorTurno = this.tiempoTurno;
+    }
+
+    /**
      * Gameloop del juego.
      */
     jugar() {
@@ -175,6 +236,15 @@ export class Juego {
         // Se actualizan y dibujan los elementos del juego
         this.actualizar();
         this.dibujar();
+
+        if (this.juegoTerminado) {
+            this.contadorEstado--;
+            if (this.contadorEstado === 0 && this.empate) {
+                alert("Empate");
+            } else if (this.contadorEstado === 0 && this.ganador) {
+                alert("El ganador es el equipo " + this.ganador.equipo);
+            }
+        }
 
         // Se solicita el próximo frame
         requestAnimationFrame(() => { this.jugar() });
@@ -217,49 +287,5 @@ export class Juego {
 
         // Tablero
         this.tablero.dibujar(this.ctx);
-    }
-
-    /**
-     * Establece un temporizador para cada turno. Al finalizar el tiempo, se cambia el turno.
-     */
-    cuentaRegresiva() {
-        if (this.contadorTurno % 60 === 0) { // 0 60 120 180 ... -> FPS
-            console.log(this.contadorTurno / 60); // 0 1 2 3 ... -> seg
-        }
-        
-        this.contadorTurno--;
-
-        if (this.contadorTurno <= 0) {
-            this.colocarFichaAlAzar(this.jugadorActual.fichas);
-            this.cambiarTurno();
-        }
-    }
-
-    /**
-     * Cambia el turno entre jugadores. El turno se cambia cuando finaliza su tiempo o cuando
-     * se suelta una ficha en el tablero. 
-     */
-    cambiarTurno() {
-        if (this.jugadorActual === this.j1) {
-            this.jugadorActual = this.j2;
-        } else {
-            this.jugadorActual = this.j1;
-        }
-        console.log("Turno del equipo " + this.jugadorActual.equipo);
-        this.contadorTurno = this.tiempoTurno;
-    }
-
-    /**
-     * Coloca una ficha en una columna al azar. Se utiliza cuando se termina el tiempo de un turno.
-     */
-    colocarFichaAlAzar(fichas) {
-        for (let f of fichas) {
-            if (!f.seleccionada && !f.enCaida && !f.colocada) {
-                this.tablero.prepararFicha(f);
-                f.enCaida = true;
-                this.tablero.colocarFichaAlAzar(f);
-                return;
-            }
-        }
     }
 }

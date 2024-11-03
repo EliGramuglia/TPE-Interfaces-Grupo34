@@ -2,12 +2,6 @@
 
 import {Juego} from './juego.js';
 
-//variables que se setean en la config para el juego
-//ya estan cargadas previamente, por si se quiere apretar el btn jugar
-let cantFilas = 6;
-let imgGato = './img/pagina-juego/perros-vs-gatos/ficha-gato-1.png';
-let imgPerro = './img/pagina-juego/perros-vs-gatos/ficha-perro-1.png';
-
 document.addEventListener('DOMContentLoaded', () => {
     //me traigo todos los elementos que voy a usar en la configuracion
     let btnJugar = document.getElementById('btn-jugar-especial');
@@ -65,6 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
+
+    let imgGato = './img/pagina-juego/perros-vs-gatos/ficha-gato-1.png';
+    let imgPerro = './img/pagina-juego/perros-vs-gatos/ficha-perro-1.png';
+
     // funcion para habilitar el despliegue de las opciones de ficha
     function habilitarCambioFicha() {
         const btnCambarFichaGato = document.getElementById('btnModificarFichaGato');
@@ -97,28 +95,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 fichaprincipalPerro.src = imgPerro;
             });
         });
-
-
     };
+
+    let cantFichasEnLinea = 4;
 
     function habilitarBotonesOpcTablero() {
         document.getElementById('btn-opc1').addEventListener('click', () => {
-            cantFilas = 6;
+            cantFichasEnLinea = 4;
         });
 
         document.getElementById('btn-opc2').addEventListener('click', () => {
-            cantFilas = 7;
+            cantFichasEnLinea = 5;
 
         });
 
         document.getElementById('btn-opc3').addEventListener('click', () => {
-            cantFilas = 8;
+            cantFichasEnLinea = 6;
         });
     }
 
     function inicializarJuego() {
         //creo la instancia juego con todos los datos necesarios y luego muestro el canvas
-        const juego = new Juego('#canvas', cantFilas, imgGato, imgPerro);
+        const juego = new Juego('#canvas', 2, imgGato, imgPerro);
         canvas.classList.remove('oculto');
         const contenedor = document.querySelector('#contenedor-botones-canvas-juego');
         contenedor.style.display = 'flex';

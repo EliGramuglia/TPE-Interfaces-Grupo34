@@ -17,9 +17,8 @@ export class Tablero {
         this.casilleros = this.crearCasilleros(this.maxFilas, this.maxColumnas);
         this.casillerosLanzamiento = this.crearCasillerosLanzamiento(this.maxColumnas);
         this.casilleroLanzamientoActivo = null;
-        this.fichasPorColumna = new Array(this.maxColumnas);
-        this.preparandoFicha = false;
         this.fichaEnPreparacion = null;
+        this.cantFichasEnTablero = 0;
     }
 
     /**
@@ -85,16 +84,17 @@ export class Tablero {
 
     prepararFicha(ficha) {
         this.fichaEnPreparacion = ficha;
-        this.preparandoFicha = true;
     }
 
     colocarFicha(ficha) {
         const col = this.casilleroLanzamientoActivo.columna;
         const casilleroLibre = this.buscarCasilleroLibre(col);
         if (casilleroLibre) {
+            this.cantFichasEnTablero++;
             casilleroLibre.ficha = ficha;
             ficha.colocada = true;
             ficha.limiteInferior = casilleroLibre.y + casilleroLibre.tamanio / 2;
+            console.log(this.cantFichasEnTablero);
         }
     }
 
@@ -158,16 +158,12 @@ export class Tablero {
             this.fichaEnPreparacion.preparada = true;
             this.fichaEnPreparacion.enCaida = true;
             this.fichaEnPreparacion = null;
-            this.preparandoFicha = false;
         }
     }
 
     hayEmpate() {
-
-    }
-
-    quedanCasillerosDisponibles() {
-
+        // Si la cantidad de fichas en el tablero es igual a la cantidad de casilleros, hay empate
+        return this.cantFichasEnTablero === this.maxFilas * this.maxColumnas;
     }
 
     hayGanador(fila, columna, cantFichasParaGanar) {
@@ -198,7 +194,7 @@ export class Tablero {
             c.actualizar();
         }
 
-        if (this.preparandoFicha) {
+        if (this.fichaEnPreparacion != null) {
             this.moverFichaALanzamiento();
         }
     }

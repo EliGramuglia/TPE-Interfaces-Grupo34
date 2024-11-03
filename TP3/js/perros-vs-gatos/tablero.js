@@ -96,8 +96,10 @@ export class Tablero {
     }
 
     quitarResaltadoCasillero() {
-        this.casilleroResaltado.resaltado = false;
-        this.casilleroResaltado = null;
+        if (this.casilleroResaltado) {
+            this.casilleroResaltado.resaltado = false;
+            this.casilleroResaltado = null;
+        }
     }
 
     sePuedeSoltarFicha() {

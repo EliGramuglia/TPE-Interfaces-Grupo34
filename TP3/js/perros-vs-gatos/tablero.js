@@ -17,6 +17,7 @@ export class Tablero {
         this.casilleros = this.crearCasilleros(this.maxFilas, this.maxColumnas);
         this.casillerosLanzamiento = this.crearCasillerosLanzamiento(this.maxColumnas);
         this.casilleroLanzamientoActivo = null;
+        this.casilleroResaltado = null;
         this.fichaEnPreparacion = null;
         this.cantFichasEnTablero = 0;
     }
@@ -63,7 +64,7 @@ export class Tablero {
     ocultarCasillerosLanzamiento() {
         for (let c of this.casillerosLanzamiento) {
             c.visible = false;
-        }        
+        }
     }
 
     activarCasilleroLanzamiento(ficha) {
@@ -75,6 +76,28 @@ export class Tablero {
                 c.activado = false;
             }
         }
+        return this.casilleroLanzamientoActivo;
+    }
+
+    resaltarCasilleroLibre(casilleroLanzamiento) {
+        const col = casilleroLanzamiento.columna;
+        const casilleroLibre = this.buscarCasilleroLibre(col);
+        
+        for (let col = 0; col < this.maxColumnas; col++) {
+            for (let fila = 0; fila < this.maxFilas; fila++) {
+                if (this.casilleros[col][fila] === casilleroLibre) {
+                    this.casilleroResaltado = this.casilleros[col][fila];
+                    this.casilleros[col][fila].resaltado = true;
+                } else {
+                    this.casilleros[col][fila].resaltado = false;
+                }
+            }
+        }
+    }
+
+    quitarResaltadoCasillero() {
+        this.casilleroResaltado.resaltado = false;
+        this.casilleroResaltado = null;
     }
 
     sePuedeSoltarFicha() {

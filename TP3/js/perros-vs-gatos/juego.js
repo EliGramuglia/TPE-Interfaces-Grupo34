@@ -42,17 +42,24 @@ export class Juego {
         this.j1 = null;
         this.j2 = null;
         this.jugadorActual = null;
-        this.ganador = null;
-        this.empate = false;
-        this.juegoTerminado = false;
-        this.tiempoTurno; // Tiempo máximo de cada turno (en FPS)
-        this.contadorTurno; // Contador de tiempo de turno (en FPS)
-        this.contadorEstado; // Contador para verificar si hay ganador o empate
         this.imgFichaGato = imgFichaGato;
         this.imgFichaPerro = imgFichaPerro;
 
+        // Estado del juego
+        this.ganador = null;
+        this.empate = false;
+        this.juegoTerminado = false;
+
+        // Tiempo de turno y contadores
+        this.tiempoTurno = 1800; // Tiempo máximo de cada turno (en FPS)
+        this.contadorTurno = this.tiempoTurno; // Contador de tiempo de turno (en FPS)
+        this.contadorEstado; // Contador para verificar si hay ganador o empate
+
         // Se inicializa el juego
         this.inicializar();
+
+        // Event listeners
+        this.inicializarEventListeners();
     }
 
     inicializar() {
@@ -64,16 +71,18 @@ export class Juego {
         this.j2 = new Jugador("Gatos");
         this.jugadorActual = Math.floor(Math.random() * 2) === 0 ? this.j1 : this.j2;
 
-        // Fichas
-        this.generarFichas();
+        // Estado del juego
+        this.ganador = null;
+        this.empate = false;
+        this.juegoTerminado = false;
 
-        // Tiempo de turno y contadores
-        this.tiempoTurno = 1800; // (1800 frames / 60 FPS = 30 seg)
+        // Contadores
         this.contadorTurno = this.tiempoTurno;
         this.contadorEstado = 120;
-        
-        // Event listeners
-        this.inicializarEventListeners();
+
+        // Fichas
+        this.generarFichas();
+        this.fichaSeleccionada = null;
     }
 
     inicializarEventListeners() {
@@ -102,7 +111,10 @@ export class Juego {
                 this.coordenadasMouse = this.obtenerCoordenadasMouse(e);
                 this.fichaSeleccionada.x = this.coordenadasMouse.x;
                 this.fichaSeleccionada.y = this.coordenadasMouse.y;
-                this.tablero.activarCasilleroLanzamiento(this.fichaSeleccionada);
+                const casilleroLanzamiento = this.tablero.activarCasilleroLanzamiento(this.fichaSeleccionada);
+                if (casilleroLanzamiento) {
+                    this.tablero.resaltarCasilleroLibre(casilleroLanzamiento);
+                }
             }
         });
 
@@ -127,6 +139,7 @@ export class Juego {
                 this.fichaSeleccionada.seleccionada = false;
                 this.fichaSeleccionada = undefined;
                 this.tablero.ocultarCasillerosLanzamiento();
+                this.tablero.quitarResaltadoCasillero();
             }
         });
     }
@@ -239,8 +252,10 @@ export class Juego {
             this.contadorEstado--;
             if (this.contadorEstado === 0 && this.empate) {
                 alert("Empate");
+                this.inicializar();
             } else if (this.contadorEstado === 0 && this.ganador) {
                 alert("El ganador es el equipo " + this.ganador.equipo);
+                this.inicializar();
             }
         }
 

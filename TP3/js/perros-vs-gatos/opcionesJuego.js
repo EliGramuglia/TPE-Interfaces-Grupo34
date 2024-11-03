@@ -54,8 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
             inicializarJuego();
         })
         //si se aprieta el btn jugar se activa la funcion que crea el juego con los datos recolectados
-
-
     }
 
 
@@ -122,5 +120,3 @@ document.addEventListener('DOMContentLoaded', () => {
         juego.jugar();
     }
 });
-
-

@@ -12,6 +12,8 @@ export class Tablero {
         this.maxColumnas = maxColumnas;
         this.tamanioCasillero = unidad;
         this.canvas = canvas;
+        this.x;
+        this.y;
         this.ancho = this.maxColumnas * this.tamanioCasillero;
         this.alto = this.maxFilas * this.tamanioCasillero;
         this.casilleros = this.crearCasilleros(this.maxFilas, this.maxColumnas);
@@ -36,6 +38,12 @@ export class Tablero {
                 const x = col * this.tamanioCasillero + desplazamientoX;
                 const y = fila * this.tamanioCasillero + desplazamientoY;
                 arreglo[col][fila] = new Casillero(x, y, this.tamanioCasillero, fila, col);
+
+                if (col == 0 && fila == 0) {
+                    this.x = x;
+                    this.y = y;
+                }
+                
             }
         }
 

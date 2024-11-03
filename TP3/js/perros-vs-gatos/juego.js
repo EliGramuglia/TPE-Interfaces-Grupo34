@@ -50,6 +50,11 @@ export class Juego {
         this.empate = false;
         this.juegoTerminado = false;
 
+        // Estilos de texto
+        this.fuente = 'sans-serif';
+        this.tamanioFuente = 20;
+        this.colorFuente = 'white';
+
         // Tiempo de turno y contadores
         this.tiempoTurno = 1800; // Tiempo máximo de cada turno (en FPS)
         this.contadorTurno = this.tiempoTurno; // Contador de tiempo de turno (en FPS)
@@ -160,19 +165,19 @@ export class Juego {
         const alto = radio * (this.cantFichas / 2) + radio;
         const separacionFichas = radio / 2;
         const margenSuperior = (this.alto - alto) / 2 + alto / 4 ;
-        const margenLateral = this.unidad;
-        
+        const margenIzquierdo = this.tablero.x - this.unidad - radio;
+        const margenDerecho = this.tablero.x + this.tablero.ancho + this.unidad + radio;
+
         // Jugador 1 (Perros)
         for (let i = 0; i < this.cantFichas / 2; i++) {
-            const x = margenLateral + radio;
+            const x = margenIzquierdo;
             const y = margenSuperior + i * separacionFichas;
-            //deberia de tomar de que equipo es el jugador 1 -> si es perro le pone la ficha de perro al crear en el lado izq
             this.j1.agregarFicha(new Ficha(x, y, radio, "Perros", this.imgFichaPerro));
         }
 
         // Jugador 2 (Gatos)
         for (let i = 0; i < this.cantFichas / 2; i++) {
-            const x = this.ancho - margenLateral - radio;
+            const x = margenDerecho;
             const y = margenSuperior + i * separacionFichas;
             this.j2.agregarFicha(new Ficha(x, y, radio, "Gatos", this.imgFichaGato));
         }
@@ -182,10 +187,6 @@ export class Juego {
      * Establece un temporizador para cada turno. Al finalizar el tiempo, se cambia el turno.
      */
     cuentaRegresiva() {
-        if (this.contadorTurno % 60 === 0) { // 0 60 120 180 ... -> FPS
-            // console.log(this.contadorTurno / 60); // 0 1 2 3 ... -> seg
-        }
-        
         this.contadorTurno--;
 
         if (this.contadorTurno <= 0) {
@@ -300,5 +301,72 @@ export class Juego {
 
         // Tablero
         this.tablero.dibujar(this.ctx);
+
+        // Temporizador
+        this.dibujarTemporizador(this.ancho / 2, 40);
+
+        // Nombres de equipos
+        this.dibujarNombreEquipo(this.j1.fichas[0].xOriginal, this.alto - 40, this.j1.equipo); // Perros
+        this.dibujarNombreEquipo(this.j2.fichas[0].xOriginal, this.alto - 40, this.j2.equipo); // Gatos
+        
+    }
+
+    dibujarTemporizador(x, y) {
+        // Texto
+        const texto = `Tiempo restante: ${Math.ceil((this.contadorTurno / 60))}`;
+        this.ctx.font = `${this.tamanioFuente}px ${this.fuente}`;
+        const anchoTexto = this.ctx.measureText(texto).width;
+        
+        // Rectángulo
+        const margen = 10;
+        const anchoRectangulo = anchoTexto + margen * 2;
+        const altoRectangulo = this.tamanioFuente + margen * 2;
+        const radio = 10; // Radio de los bordes redondeados
+        
+        // Se dibuja el rectángulo
+        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+        this.dibujarRectanguloRedondeado(x - anchoRectangulo / 2, y - altoRectangulo / 2, anchoRectangulo, altoRectangulo, radio);
+        
+        // Se dibuja el texto
+        this.ctx.fillStyle = this.colorFuente;
+        this.ctx.textAlign = 'center';
+        this.ctx.fillText(texto, x, y + altoRectangulo / 6);
+    }
+
+    dibujarNombreEquipo(x, y, equipo) {
+        // Texto
+        const texto = equipo;
+        this.ctx.font = `${this.tamanioFuente}px ${this.fuente}`;
+        const anchoTexto = this.ctx.measureText(texto).width;
+        
+        // Rectángulo
+        const margen = 10;
+        const anchoRectangulo = anchoTexto + margen * 2;
+        const altoRectangulo = this.tamanioFuente + margen * 2;
+        const radio = 10; // Radio de los bordes redondeados
+        
+        // Se dibuja el rectángulo con bordes redondeados
+        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+        this.dibujarRectanguloRedondeado(x - anchoRectangulo / 2, y - altoRectangulo / 2, anchoRectangulo, altoRectangulo, radio)
+     
+        // Se dibuja el texto
+        this.ctx.fillStyle = this.colorFuente;
+        this.ctx.textAlign = 'center';
+        this.ctx.fillText(texto, x, y + altoRectangulo / 6);
+    }
+
+    dibujarRectanguloRedondeado(x, y, ancho, alto, radio) {
+        this.ctx.beginPath();
+        this.ctx.moveTo(x + radio, y); // Esquina superior izquierda
+        this.ctx.lineTo(x + ancho - radio, y); // Línea superior
+        this.ctx.arc(x + ancho - radio, y + radio, radio, -Math.PI / 2, 0); // Esquina superior derecha
+        this.ctx.lineTo(x + ancho, y + alto - radio); // Línea derecha
+        this.ctx.arc(x + ancho - radio, y + alto - radio, radio, 0, Math.PI / 2); // Esquina inferior derecha
+        this.ctx.lineTo(x + radio, y + alto); // Línea inferior
+        this.ctx.arc(x + radio, y + alto - radio, radio, Math.PI / 2, Math.PI); // Esquina inferior izquierda
+        this.ctx.lineTo(x, y + radio); // Línea izquierda
+        this.ctx.arc(x + radio, y + radio, radio, Math.PI, -Math.PI / 2); // Esquina superior izquierda
+        this.ctx.closePath(); // Cerrar el camino
+        this.ctx.fill(); // Rellenar el rectángulo
     }
 }

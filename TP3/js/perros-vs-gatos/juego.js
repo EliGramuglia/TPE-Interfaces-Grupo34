@@ -56,7 +56,7 @@ export class Juego {
         this.colorFuente = 'white';
 
         // Tiempo de turno y contadores
-        this.tiempoTurno = 1800; // Tiempo máximo de cada turno (en FPS)
+        this.tiempoTurno = 300; // Tiempo máximo de cada turno (en FPS)
         this.contadorTurno = this.tiempoTurno; // Contador de tiempo de turno (en FPS)
         this.contadorEstado; // Contador para verificar si hay ganador o empate
 
@@ -142,7 +142,7 @@ export class Juego {
                 }
 
                 this.fichaSeleccionada.seleccionada = false;
-                this.fichaSeleccionada = undefined;
+                this.fichaSeleccionada = null;
                 this.tablero.ocultarCasillerosLanzamiento();
                 this.tablero.quitarResaltadoCasillero();
             }
@@ -199,12 +199,23 @@ export class Juego {
      * Coloca una ficha en una columna al azar. Se utiliza cuando se termina el tiempo de un turno.
      */
     colocarFichaAlAzar(fichas) {
-        for (let f of fichas) {
-            if (!f.seleccionada && !f.enCaida && !f.colocada) {
-                this.tablero.prepararFicha(f);
-                return this.tablero.colocarFichaAlAzar(f);
+        let casilleroLibre = null;
+
+        if (this.fichaSeleccionada) {
+            this.tablero.prepararFicha(this.fichaSeleccionada);
+            casilleroLibre = this.tablero.colocarFichaAlAzar(this.fichaSeleccionada)
+            this.fichaSeleccionada.seleccionada = false;
+            this.fichaSeleccionada = null;
+        } else {
+            for (let f of fichas) {
+                if (!f.seleccionada && !f.enCaida && !f.colocada) {
+                    this.tablero.prepararFicha(f);
+                    casilleroLibre = this.tablero.colocarFichaAlAzar(f);
+                }
             }
         }
+
+        return casilleroLibre;
     }
 
     verificarEstadoJuego(casillero) {

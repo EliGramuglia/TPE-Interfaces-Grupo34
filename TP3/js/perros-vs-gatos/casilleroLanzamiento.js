@@ -9,7 +9,6 @@ export class CasilleroLanzamiento {
         this.img.src = './img/pagina-juego/perros-vs-gatos/flecha-lanzamiento.png';
         this.anchoImg = 30;
         this.altoImg = 30;
-        this.posYImg; // Se va a calcular cuando elijamos una imagen
         this.imgCargada = false;
         this.img.onload = () => {
             this.imgCargada = true;
@@ -18,7 +17,7 @@ export class CasilleroLanzamiento {
         this.activado = false;
 
         this.contadorMovimiento = 0;
-        this.framesCambioDireccion = 60; // Cantidad de frames antes de un cambio de dirección
+        this.framesCambioDireccion = 15; // Cantidad de frames antes de un cambio de dirección
         this.vy = .5; // Velocidad de movimiento en Y de la imagen
     }
 
@@ -26,7 +25,7 @@ export class CasilleroLanzamiento {
         if (this.activado) {
             this.contadorMovimiento++;
             if (this.contadorMovimiento < this.framesCambioDireccion) {
-                this.posYImg += this.vy;
+                this.y += this.vy;
             } else {
                 this.contadorMovimiento = 0;
                 this.vy *= -1; // Se invierte la dirección

@@ -24,6 +24,7 @@ export class Ficha {
         this.preparada = false;
         this.enCaida = false;
         this.colocada = false;
+        this.resaltada = false;
         this.equipo = equipo;
 
         // Carga de imagen
@@ -50,11 +51,23 @@ export class Ficha {
 
     dibujar(ctx, equipoJugadorActual) {
         if (this.imgCargada) {
+            // Imagen de ficha
             ctx.drawImage(this.img, this.x - this.radio, this.y - this.radio, this.radio * 2, this.radio * 2);
+
+            // Se oscurecen las fichas del oponente
             if (this.equipo != equipoJugadorActual && !this.colocada) {
-                ctx.beginPath(); // Inicia un nuevo camino
+                ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radio, 0, Math.PI * 2, false);
                 ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+                ctx.fill();
+                ctx.closePath();
+            }
+
+            // Se resaltan las fichas ganadoras
+            if (this.resaltada) {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radio, 0, Math.PI * 2, false);
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
                 ctx.fill();
                 ctx.closePath();
             }

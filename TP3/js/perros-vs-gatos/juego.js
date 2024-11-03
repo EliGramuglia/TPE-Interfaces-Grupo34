@@ -56,9 +56,9 @@ export class Juego {
         this.colorFuente = 'white';
 
         // Tiempo de turno y contadores
-        this.tiempoTurno = 300; // Tiempo máximo de cada turno (en FPS)
+        this.tiempoTurno = 1800; // Tiempo máximo de cada turno en FPS (1800FPS = 30s)
         this.contadorTurno = this.tiempoTurno; // Contador de tiempo de turno (en FPS)
-        this.contadorEstado; // Contador para verificar si hay ganador o empate
+        this.contadorFinalizacionJuego; // Contador para verificar si hay ganador o empate
 
         // Se inicializa el juego
         this.inicializar();
@@ -83,7 +83,7 @@ export class Juego {
 
         // Contadores
         this.contadorTurno = this.tiempoTurno;
-        this.contadorEstado = 120;
+        this.contadorFinalizacionJuego = 120;
 
         // Fichas
         this.generarFichas();
@@ -119,6 +119,8 @@ export class Juego {
                 const casilleroLanzamiento = this.tablero.activarCasilleroLanzamiento(this.fichaSeleccionada);
                 if (casilleroLanzamiento) {
                     this.tablero.resaltarCasilleroLibre(casilleroLanzamiento);
+                } else {
+                    this.tablero.quitarResaltadoCasillero();
                 }
             }
         });
@@ -211,7 +213,6 @@ export class Juego {
             this.fichaSeleccionada.seleccionada = false;
             this.fichaSeleccionada = null;
         } else {
-            console.log("No hay ficha seleccionada");
             for (let f of fichas) {
                 if (!f.seleccionada && !f.enCaida && !f.colocada) {
                     this.tablero.prepararFicha(f);
@@ -248,7 +249,7 @@ export class Juego {
         } else {
             this.jugadorActual = this.j1;
         }
-        console.log("Turno del equipo " + this.jugadorActual.equipo);
+        this.tablero.desactivarCasillerosLanzamiento;
         this.contadorTurno = this.tiempoTurno;
     }
 
@@ -266,13 +267,14 @@ export class Juego {
         this.actualizar();
         this.dibujar();
 
+        // Si se terminó el juego, se busca ganador o empate
         if (this.juegoTerminado) {
-            this.contadorEstado--;
-            if (this.contadorEstado === 0 && this.empate) {
+            this.contadorFinalizacionJuego--;
+            if (this.contadorFinalizacionJuego === 0 && this.empate) {
                 alert("Empate");
                 this.inicializar();
-            } else if (this.contadorEstado === 0 && this.ganador) {
-                alert("El ganador es el equipo " + this.ganador.equipo);
+            } else if (this.contadorFinalizacionJuego === 0 && this.ganador) {
+                alert("Ganan los " + (this.ganador.equipo).toLowerCase());
                 this.inicializar();
             }
         }

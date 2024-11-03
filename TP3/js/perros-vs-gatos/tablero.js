@@ -22,6 +22,7 @@ export class Tablero {
         this.casilleroResaltado = null;
         this.fichaEnPreparacion = null;
         this.cantFichasEnTablero = 0;
+        this.fichasGanadoras = [];
     }
 
     /**
@@ -76,15 +77,26 @@ export class Tablero {
     }
 
     activarCasilleroLanzamiento(ficha) {
-        for (let c of this.casillerosLanzamiento) {
-            if (c.sePuedeSoltarFicha(ficha)) {
-                c.activado = true;
-                this.casilleroLanzamientoActivo = c;
+        this.desactivarCasillerosLanzamiento();
+
+        for (let cl of this.casillerosLanzamiento) {
+            if (cl.sePuedeSoltarFicha(ficha)) {
+                cl.activado = true;
+                this.casilleroLanzamientoActivo = cl;
             } else {
-                c.activado = false;
+                cl.activado = false;
             }
         }
+
         return this.casilleroLanzamientoActivo;
+    }
+
+    desactivarCasillerosLanzamiento() {
+        this.casilleroLanzamientoActivo = null;
+        
+        for(let cl of this.casillerosLanzamiento) {
+            cl.activado = null;
+        }
     }
 
     resaltarCasilleroLibre(casilleroLanzamiento) {
@@ -124,7 +136,6 @@ export class Tablero {
         const casilleroLibre = this.buscarCasilleroLibre(col);
         if (casilleroLibre) {
             this.cantFichasEnTablero++;
-            console.log(this.cantFichasEnTablero);
             casilleroLibre.ficha = ficha;
             ficha.colocada = true;
             ficha.limiteInferior = casilleroLibre.y + casilleroLibre.tamanio / 2;
@@ -206,39 +217,41 @@ export class Tablero {
     }
 
     verificarFila(fila, cantFichasParaGanar, equipo) {
-        let cantFichas = 0;
+        this.fichasGanadoras.length = 0;
         for (let col = 0; col < this.maxColumnas; col++) {
             const casillero = this.casilleros[col][fila];
             if (casillero.ficha && casillero.ficha.equipo === equipo) {
-                cantFichas++;
-                if (cantFichas === cantFichasParaGanar) {
+                this.fichasGanadoras.push(casillero.ficha);
+                if (this.fichasGanadoras.length == cantFichasParaGanar) {
+                    this.resaltarFichasGanadoras();
                     return true;
                 }
             } else {
-                cantFichas = 0;
+                this.fichasGanadoras.length = 0;
             }
         }
         return false;
     }
     
     verificarColumna(columna, cantFichasParaGanar, equipo) {
-        let cantFichas = 0;
+        this.fichasGanadoras.length = 0;
         for (let fila = 0; fila < this.maxFilas; fila++) {
             const casillero = this.casilleros[columna][fila];
             if (casillero.ficha && casillero.ficha.equipo === equipo) {
-                cantFichas++;
-                if (cantFichas === cantFichasParaGanar) {
+                this.fichasGanadoras.push(casillero.ficha);
+                if (this.fichasGanadoras.length == cantFichasParaGanar) {
+                    this.resaltarFichasGanadoras();
                     return true;
                 }
             } else {
-                cantFichas = 0;
+                this.fichasGanadoras.length = 0;
             }
         }
         return false;
     }
     
     verificarDiagonalIzquierda(fila, columna, cantFichasParaGanar, equipo) {
-        let cantFichas = 0;
+        this.fichasGanadoras.length = 0;
 
         // Cantidad de filas para abajo y columnas para la izquierda
         const filasMax = Math.min(this.maxFilas - fila, columna + 1);
@@ -249,12 +262,13 @@ export class Tablero {
             const casillero = this.casilleros[columna - i][fila + i];
     
             if (casillero.ficha && casillero.ficha.equipo === equipo) {
-                cantFichas++;
-                if (cantFichas === cantFichasParaGanar) {
+                this.fichasGanadoras.push(casillero.ficha);
+                if (this.fichasGanadoras.length == cantFichasParaGanar) {
+                    this.resaltarFichasGanadoras();
                     return true;
                 }
             } else {
-                cantFichas = 0;
+                this.fichasGanadoras.length = 0;
             }
         }
 
@@ -262,7 +276,7 @@ export class Tablero {
     }
     
     verificarDiagonalDerecha(fila, columna, cantFichasParaGanar, equipo) {
-        let cantFichas = 0;
+        this.fichasGanadoras.length = 0;
 
         // Cantidad de filas para abajo y columnas para la izquierda
         const filasMax = Math.min(this.maxFilas - fila, this.maxColumnas - columna);
@@ -272,16 +286,23 @@ export class Tablero {
         for (let i = 0; i < filasMax && i < columnasMax; i++) {
             const casillero = this.casilleros[columna + i][fila + i];
             if (casillero.ficha && casillero.ficha.equipo === equipo) {
-                cantFichas++;
-                if (cantFichas === cantFichasParaGanar) {
+                this.fichasGanadoras.push(casillero.ficha);
+                if (this.fichasGanadoras.length == cantFichasParaGanar) {
+                    this.resaltarFichasGanadoras();
                     return true;
                 }
             } else {
-                cantFichas = 0;
+                this.fichasGanadoras.length = 0;
             }
         }
     
         return false;
+    }
+
+    resaltarFichasGanadoras() {
+        for (let f of this.fichasGanadoras) {
+            f.resaltada = true;
+        }
     }
 
     actualizar() {

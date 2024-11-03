@@ -22,7 +22,7 @@ export class Casillero {
     }
 
     dibujar(ctx) {
-        // Si el casillero está resaltado, se agrega un filtro de iluminación
+        // Si el casillero está resaltado, se oscurece el fondo del mismo
         if (this.resaltado) {
             ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
             ctx.fillRect(
@@ -33,6 +33,7 @@ export class Casillero {
             );
         }
 
+        // Imagen del casillero
         ctx.drawImage(this.img, this.x, this.y, this.tamanio, this.tamanio);
     }
 

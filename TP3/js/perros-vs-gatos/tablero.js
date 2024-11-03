@@ -94,20 +94,18 @@ export class Tablero {
             casilleroLibre.ficha = ficha;
             ficha.colocada = true;
             ficha.limiteInferior = casilleroLibre.y + casilleroLibre.tamanio / 2;
-            console.log(this.cantFichasEnTablero);
         }
+        return casilleroLibre;
     }
 
     colocarFichaAlAzar(ficha) {
         let indice = Math.floor(Math.random() * this.maxColumnas);
         this.casilleroLanzamientoActivo = this.casillerosLanzamiento[indice];
-
         while (!this.sePuedeSoltarFicha()) {
             indice = Math.floor(Math.random() * this.maxColumnas);
             this.casilleroLanzamientoActivo = this.casillerosLanzamiento[indice];            
         }
-
-        this.colocarFicha(ficha)
+        return this.colocarFicha(ficha);
     }
 
     buscarCasilleroLibre(columna) {
@@ -166,27 +164,90 @@ export class Tablero {
         return this.cantFichasEnTablero === this.maxFilas * this.maxColumnas;
     }
 
-    hayGanador(fila, columna, cantFichasParaGanar) {
-        return this.verificarFila(fila, cantFichasParaGanar) ||
-               this.verificarColumna(columna, cantFichasParaGanar) ||
-               this.verificarDiagonalIzquierda(fila, columna, cantFichasParaGanar) ||
-               this.verificarDiagonalDerecha(fila, columna, cantFichasParaGanar);
+    hayGanador(casillero, cantFichasParaGanar, equipo) {
+        return this.verificarFila(casillero.fila, cantFichasParaGanar, equipo) || 
+            this.verificarColumna(casillero.columna, cantFichasParaGanar, equipo) ||
+            this.verificarDiagonalIzquierda(casillero.fila, casillero.columna, cantFichasParaGanar, equipo) ||
+            this.verificarDiagonalDerecha(casillero.fila, casillero.columna, cantFichasParaGanar, equipo);
     }
 
-    verificarFila(fila, cantFichasParaGanar) {
-
+    verificarFila(fila, cantFichasParaGanar, equipo) {
+        let cantFichas = 0;
+        for (let col = 0; col < this.maxColumnas; col++) {
+            const casillero = this.casilleros[col][fila];
+            if (casillero.ficha && casillero.ficha.equipo === equipo) {
+                cantFichas++;
+                if (cantFichas === cantFichasParaGanar) {
+                    return true;
+                }
+            } else {
+                cantFichas = 0;
+            }
+        }
+        return false;
     }
     
-    verificarColumna(columna, cantFichasParaGanar) {
-
+    verificarColumna(columna, cantFichasParaGanar, equipo) {
+        let cantFichas = 0;
+        for (let fila = 0; fila < this.maxFilas; fila++) {
+            const casillero = this.casilleros[columna][fila];
+            if (casillero.ficha && casillero.ficha.equipo === equipo) {
+                cantFichas++;
+                if (cantFichas === cantFichasParaGanar) {
+                    return true;
+                }
+            } else {
+                cantFichas = 0;
+            }
+        }
+        return false;
     }
     
-    verificarDiagonalIzquierda(fila, columna, cantFichasParaGanar) {
+    verificarDiagonalIzquierda(fila, columna, cantFichasParaGanar, equipo) {
+        let cantFichas = 0;
 
+        // Cantidad de filas para abajo y columnas para la izquierda
+        const filasMax = Math.min(this.maxFilas - fila, columna + 1);
+        const columnasMax = Math.min(columna + 1, cantFichasParaGanar);
+    
+        // Se verifica cada diagonal izquierda
+        for (let i = 0; i < filasMax && i < columnasMax; i++) {
+            const casillero = this.casilleros[columna - i][fila + i];
+    
+            if (casillero.ficha && casillero.ficha.equipo === equipo) {
+                cantFichas++;
+                if (cantFichas === cantFichasParaGanar) {
+                    return true;
+                }
+            } else {
+                cantFichas = 0;
+            }
+        }
+
+        return false;
     }
     
-    verificarDiagonalDerecha(fila, columna, cantFichasParaGanar) {
+    verificarDiagonalDerecha(fila, columna, cantFichasParaGanar, equipo) {
+        let cantFichas = 0;
 
+        // Cantidad de filas para abajo y columnas para la izquierda
+        const filasMax = Math.min(this.maxFilas - fila, this.maxColumnas - columna);
+        const columnasMax = Math.min(this.maxColumnas - columna, cantFichasParaGanar);
+    
+        // Se verifica cada diagonal derecha
+        for (let i = 0; i < filasMax && i < columnasMax; i++) {
+            const casillero = this.casilleros[columna + i][fila + i];
+            if (casillero.ficha && casillero.ficha.equipo === equipo) {
+                cantFichas++;
+                if (cantFichas === cantFichasParaGanar) {
+                    return true;
+                }
+            } else {
+                cantFichas = 0;
+            }
+        }
+    
+        return false;
     }
 
     actualizar() {

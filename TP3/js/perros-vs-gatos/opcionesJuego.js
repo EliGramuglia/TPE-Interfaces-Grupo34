@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     //funcion para comenzar a mostrar la configuracion y modficiar el modo tablero
     function mostrarConfigTablero() {
-        console.log('cambiando img')
         pantallaJuego.style.backgroundColor = 'black';
         pantallaJuego.style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(2, 87, 214, 0.5))';
         // contenedorPantallaJuego.style.backgroundImage = "url(./img/pagina-juego/perros-vs-gatos/fondo-huellitas.png)";
@@ -116,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function inicializarJuego() {
         //creo la instancia juego con todos los datos necesarios y luego muestro el canvas
-        const juego = new Juego('#canvas', 2, imgGato, imgPerro);
+        const juego = new Juego('#canvas', cantFichasEnLinea, imgGato, imgPerro);
         canvas.classList.remove('oculto');
         const contenedor = document.querySelector('#contenedor-botones-canvas-juego');
         contenedor.style.display = 'flex';

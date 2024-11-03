@@ -114,10 +114,10 @@ export class Juego {
                     this.tablero.prepararFicha(this.fichaSeleccionada);
 
                     // Se coloca en el tablero y actualiza el límite inferior de rebote
-                    this.tablero.colocarFicha(this.fichaSeleccionada);
+                    const casillero = this.tablero.colocarFicha(this.fichaSeleccionada);
                     
                     // Se verifica estado del juego (empate, ganador o cambio de turno)
-                    this.verificarEstadoJuego();
+                    this.verificarEstadoJuego(casillero);
                 } else {
                     // Si no se puede soltar la ficha, se reestablece su posición
                     this.fichaSeleccionada.x = this.fichaSeleccionada.xOriginal;
@@ -176,8 +176,8 @@ export class Juego {
         this.contadorTurno--;
 
         if (this.contadorTurno <= 0) {
-            this.colocarFichaAlAzar(this.jugadorActual.fichas);
-            this.verificarEstadoJuego();
+            const casillero = this.colocarFichaAlAzar(this.jugadorActual.fichas);
+            this.verificarEstadoJuego(casillero);
         }
     }
 
@@ -188,19 +188,17 @@ export class Juego {
         for (let f of fichas) {
             if (!f.seleccionada && !f.enCaida && !f.colocada) {
                 this.tablero.prepararFicha(f);
-                f.enCaida = true;
-                this.tablero.colocarFichaAlAzar(f);
-                return;
+                return this.tablero.colocarFichaAlAzar(f);
             }
         }
     }
 
-    verificarEstadoJuego() {
+    verificarEstadoJuego(casillero) {
         // Se verifica si hay un empate o un ganador
         if (this.tablero.hayEmpate()) {
             this.empate = true;
             this.juegoTerminado = true;
-        } else if (this.tablero.hayGanador(this.cantFichasEnLinea, this.jugadorActual.equipo)) {
+        } else if (this.tablero.hayGanador(casillero, this.cantFichasEnLinea, this.jugadorActual.equipo)) {
             this.ganador = this.jugadorActual;
             this.juegoTerminado = true;
         } else {

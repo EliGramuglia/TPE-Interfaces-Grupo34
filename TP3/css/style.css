@@ -1425,6 +1425,7 @@ nav#bread-crumbs ul img {
     display: inherit;
     flex-direction: column;
     align-items: center;
+    gap: 15px;
 }
 /* ANIMACION DE CARGA LISTA PARA COLOCAR
 

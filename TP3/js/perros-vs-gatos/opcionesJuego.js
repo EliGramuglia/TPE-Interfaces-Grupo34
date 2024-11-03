@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contenedorConfig = document.getElementById('contenedor-configuracion-juego');
     const contenedorPantallaJuego = document.querySelector('.contenedor-pantalla-juego');
     const canvas = document.getElementById('canvas');
+    const contenedorbtnsJuego = document.querySelector('#contenedor-botones-canvas-juego');
 
     //si clickean el btn se activa la funcion que muestra la configuracion
     btnJugar.addEventListener('click', mostrarConfiguracionJuego);
@@ -28,7 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
         contenedorOpcTablero.classList.add('contenedor-modos-tablero-activo');
         contenedorOpcTablero.classList.remove('oculto');
         habilitarBotonesOpcTablero();
+        mostrar2daParteConfig();
 
+    }
+    function mostrar2daParteConfig(){
         //si se aprieta alguna opcion de tablero, se sigue con la configuracion
         const botonesTablero = contenedorOpcTablero.querySelectorAll('.btn-tipoTablero');
         botonesTablero.forEach(boton => {
@@ -38,21 +42,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 contenedorConfig.classList.remove('oculto');
                 contenedorConfig.classList.add('contenedor-configuracion-juego-activo');
                 gestionarDatosJuego();
+                habilitarCambioFicha();
             });
         });
-
     }
 
     //funcion para variar quien es el jugador 1 y jugador 2
     function gestionarDatosJuego() {
-        habilitarCambioFicha();
+
         let btnComenzarJuego = document.getElementById('btn-jugar-comenzar');
+
         btnComenzarJuego.addEventListener('click', () => {
             //oculto el contenedor de configuracion para mostrar el juego
             contenedorConfig.classList.remove('contenedor-configuracion-juego-activo');
             contenedorConfig.classList.add('oculto');
             inicializarJuego();
         })
+
+        let btnVolverConfigTablero = document.getElementById('btn-volver-juego');
+
+        btnVolverConfigTablero.addEventListener('click', () =>{
+            contenedorConfig.classList.remove('contenedor-configuracion-juego-activo');
+            contenedorConfig.classList.add('oculto');
+            mostrarConfigTablero();
+        });
         //si se aprieta el btn jugar se activa la funcion que crea el juego con los datos recolectados
     }
 
@@ -61,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let imgPerro = './img/pagina-juego/perros-vs-gatos/ficha-perro-1.png';
 
     // funcion para habilitar el despliegue de las opciones de ficha
-    function habilitarCambioFicha() {
+    function habilitarCambioFicha(){
         const btnCambarFichaGato = document.getElementById('btnModificarFichaGato');
         const btnCambarFichaPerro = document.getElementById('btnModificarFichaPerro');
         const contenedorOpcFichasPerro = document.getElementById('cajas-opc-fichas-perro');
@@ -109,14 +122,31 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('btn-opc3').addEventListener('click', () => {
             cantFichasEnLinea = 6;
         });
+
+        document.getElementById('btn-opc4').addEventListener('click', () => {
+            cantFichasEnLinea = 7;
+        });
     }
 
     function inicializarJuego() {
         //creo la instancia juego con todos los datos necesarios y luego muestro el canvas
         const juego = new Juego('#canvas', cantFichasEnLinea, imgGato, imgPerro);
         canvas.classList.remove('oculto');
-        const contenedor = document.querySelector('#contenedor-botones-canvas-juego');
-        contenedor.style.display = 'flex';
+        contenedorbtnsJuego.style.display = 'flex';
         juego.jugar();
+        habilitarOpcJuego(juego);
+    }
+    function habilitarOpcJuego(juego){
+        const btnHome = document.getElementById('btn-home');
+        const btnReset = document.getElementById('btn-reset');
+
+        btnHome.addEventListener('click', ()=>{
+            canvas.classList.add('oculto');
+            mostrarConfigTablero();
+        })
+
+        btnReset.addEventListener('click', () =>{
+            juego.inicializar();
+        })
     }
 });

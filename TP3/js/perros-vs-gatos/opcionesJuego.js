@@ -6,13 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
     //me traigo todos los elementos que voy a usar en la configuracion
     let btnJugar = document.getElementById('btn-jugar-especial');
     const previsualizacion = document.querySelector('.previsualizacion');
-    let lineaCarga = document.getElementById('animacion-carga');
     const contenedorOpcTablero = document.querySelector('.contenedor-modos-tablero');
     const contenedorConfig = document.getElementById('contenedor-configuracion-juego');
-    const contenedorPantallaJuego = document.querySelector('.contenedor-pantalla-juego');
     const canvas = document.getElementById('canvas');
     const contenedorbtnsJuego = document.querySelector('#contenedor-botones-canvas-juego');
-
+    const cardResultado = document.getElementById('contenedor-card-ganador');
+    const msgConfirmacion = document.getElementById('contenedor-mensaje-confirmacion');
     //si clickean el btn se activa la funcion que muestra la configuracion
     btnJugar.addEventListener('click', mostrarConfiguracionJuego);
 
@@ -128,25 +127,62 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+
+    function habilitarOpcJuego(juego){
+        const btnHome = document.getElementById('btn-home');
+        const btnReset = document.getElementById('btn-reset');
+        const btnResetCard = document.getElementById('btn-card-reset');
+        const btnVolverConfig = document.getElementById('btn-card-volver-config');
+        const btnNegarReset = document.getElementById('btn-confirmacion-no');
+        const btnConfirmarReset = document.getElementById('btn-confirmacion-si');
+        
+        //btn de volver a confirguracion en el juego
+        btnHome.addEventListener('click', ()=>{
+            canvas.classList.add('oculto');
+            contenedorbtnsJuego.style.display = 'none';
+            msgConfirmacion.classList.add('oculto');
+            mostrarConfigTablero();
+            //deberia de pausar el juego o elimiar la instancia de juego asi no se sigure ejecutando
+        })
+        //btn reset del juevo, muestra 2 btn para confirmar positiva o negativamente
+        btnReset.addEventListener('click', () =>{
+            msgConfirmacion.classList.remove('oculto');
+        });
+
+        btnNegarReset.addEventListener('click', ()=>{
+            msgConfirmacion.classList.add('oculto');
+
+        })
+
+        btnConfirmarReset.addEventListener('click', ()=>{
+            msgConfirmacion.classList.add('oculto');
+            juego.inicializar();
+        })
+
+
+        //botones dentro de la card que dice el resultado, primero ocultan su contenedor y luego generan una accion
+        btnResetCard.addEventListener('click', () =>{
+            cardResultado.classList.remove('contenedor-card-ganador-activo')
+            cardResultado.classList.add('oculto');
+            juego.inicializar();
+        })
+
+        btnVolverConfig.addEventListener('click', () =>{
+            cardResultado.classList.remove('contenedor-card-ganador-activo');
+            cardResultado.classList.add('oculto');
+            canvas.classList.add('oculto');
+            mostrarConfigTablero();
+            //deberia de pausar el juego o elimiar la instancia de juego asi no se sigure ejecutando
+        })
+    }
+
     function inicializarJuego() {
         //creo la instancia juego con todos los datos necesarios y luego muestro el canvas
-        const juego = new Juego('#canvas', cantFichasEnLinea, imgGato, imgPerro);
+        const juego = new Juego('#canvas', 2, imgGato, imgPerro,cardResultado);
         canvas.classList.remove('oculto');
         contenedorbtnsJuego.style.display = 'flex';
         juego.jugar();
         habilitarOpcJuego(juego);
-    }
-    function habilitarOpcJuego(juego){
-        const btnHome = document.getElementById('btn-home');
-        const btnReset = document.getElementById('btn-reset');
 
-        btnHome.addEventListener('click', ()=>{
-            canvas.classList.add('oculto');
-            mostrarConfigTablero();
-        })
-
-        btnReset.addEventListener('click', () =>{
-            juego.inicializar();
-        })
     }
 });

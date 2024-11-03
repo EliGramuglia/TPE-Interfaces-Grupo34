@@ -8,7 +8,7 @@ import { Tablero } from './tablero.js';
  * Esta clase representa el juego "4 en línea", con su canvas, tablero y jugadores.
  */
 export class Juego {
-    constructor(canvasId, cantFichasEnLinea, imgFichaGato, imgFichaPerro) {
+    constructor(canvasId, cantFichasEnLinea, imgFichaGato, imgFichaPerro, cardResultado) {
         // Canvas
         this.canvas = document.querySelector(canvasId);
         this.ctx = this.canvas.getContext('2d');
@@ -54,6 +54,7 @@ export class Juego {
         this.fuente = 'sans-serif';
         this.tamanioFuente = 20;
         this.colorFuente = 'white';
+        this.cardResultado = cardResultado;
 
         // Tiempo de turno y contadores
         this.tiempoTurno = 1800; // Tiempo máximo de cada turno en FPS (1800FPS = 30s)
@@ -271,11 +272,11 @@ export class Juego {
         if (this.juegoTerminado) {
             this.contadorFinalizacionJuego--;
             if (this.contadorFinalizacionJuego === 0 && this.empate) {
-                alert("Empate");
-                this.inicializar();
+                this.mostrarResultado("perros-gatos");
+                // this.inicializar();
             } else if (this.contadorFinalizacionJuego === 0 && this.ganador) {
-                alert("Ganan los " + (this.ganador.equipo).toLowerCase());
-                this.inicializar();
+                this.mostrarResultado((this.ganador.equipo).toLowerCase());
+                // this.inicializar();
             }
         }
 
@@ -367,7 +368,7 @@ export class Juego {
         // Se dibuja el rectángulo con bordes redondeados
         this.ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
         this.dibujarRectanguloRedondeado(x - anchoRectangulo / 2, y - altoRectangulo / 2, anchoRectangulo, altoRectangulo, radio)
-     
+    
         // Se dibuja el texto
         this.ctx.fillStyle = this.colorFuente;
         this.ctx.textAlign = 'center';
@@ -387,5 +388,33 @@ export class Juego {
         this.ctx.arc(x + radio, y + radio, radio, Math.PI, -Math.PI / 2); // Esquina superior izquierda
         this.ctx.closePath(); // Cerrar el camino
         this.ctx.fill(); // Rellenar el rectángulo
+    }
+
+    mostrarResultado(resultado){
+        let img = document.querySelector('#contenedor-card-ganador img');
+        let text = document.querySelector('#text-ganador');
+        switch(resultado){
+            case 'gatos':{
+                text.textContent = "Gatos";
+                img.src = './img/pagina-juego/perros-vs-gatos/gatos.png';
+                break;
+            }
+            case 'perros':{
+                text.textContent = "Perros";
+                img.src = './img/pagina-juego/perros-vs-gatos/perros.png';
+                break;
+                
+            }
+            default:{
+                text.textContent = "Empate";
+                img.src = './img/pagina-juego/perros-vs-gatos/perros-gatos.png';
+                break;
+            }
+        }
+
+        this.cardResultado.classList.add('contenedor-card-ganador-activo');
+        this.cardResultado.classList.remove('oculto');
+
+
     }
 }

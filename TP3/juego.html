@@ -178,10 +178,27 @@
                         <button id="btn-jugar-comenzar">Comenzar</button>
                     </div>
                 </div>
+                <div class="oculto" id="contenedor-card-ganador">
+                    <h2 id="titulo-card-ganador">Ganador</h2>
+                    <img id="img-ganador" src="" alt="">
+                    <p id="text-ganador"></p>
+                    <div class="btns-card-resultado">
+                        <button class="botones-juego-canvas" id="btn-card-reset"><img src="img/pagina-juego/perros-vs-gatos/flecha-btn-juego.png" alt="Flecha para reiniciar el juego"></button>
+                        <button class="botones-juego-canvas" id="btn-card-volver-config"><img src="img/pagina-juego/perros-vs-gatos/home-btn-juego.png" alt="ícono para volver al Home"></button>
+                    </div>    
+                </div>
                 <!-- Canvas del juego -->
-                 <div id="contenedor-canvas-juego">
+                <div id="contenedor-canvas-juego">
                     <div id="contenedor-botones-canvas-juego">
                         <button class="botones-juego-canvas" id="btn-reset"><img src="img/pagina-juego/perros-vs-gatos/flecha-btn-juego.png" alt="Flecha para reiniciar el juego"></button>
+                        <!-- mensaje de confirmacion para accionar -->
+                        <div id="contenedor-mensaje-confirmacion" class="oculto">
+                            <h2>¿Esta seguro de reiniciar la partida?</h2>
+                            <div id="grupo-opc-confirmacion">
+                                <button id="btn-confirmacion-no">No</button>
+                                <button id="btn-confirmacion-si">Si</button>
+                            </div>
+                        </div>
                         <button class="botones-juego-canvas" id="btn-pause"><img src="img/pagina-juego/perros-vs-gatos/pausa-btn-juego.png" alt="ícono para pausar el juego"></button>
                         <button class="botones-juego-canvas" id="btn-home"><img src="img/pagina-juego/perros-vs-gatos/home-btn-juego.png" alt="ícono para volver al Home"></button>
                     </div>

@@ -48,9 +48,16 @@ export class Ficha {
         }
     }
 
-    dibujar(ctx) {
+    dibujar(ctx, equipoJugadorActual) {
         if (this.imgCargada) {
             ctx.drawImage(this.img, this.x - this.radio, this.y - this.radio, this.radio * 2, this.radio * 2);
+            if (this.equipo != equipoJugadorActual && !this.colocada) {
+                ctx.beginPath(); // Inicia un nuevo camino
+                ctx.arc(this.x, this.y, this.radio, 0, Math.PI * 2, false);
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+                ctx.fill();
+                ctx.closePath();
+            }
         }
     }
 

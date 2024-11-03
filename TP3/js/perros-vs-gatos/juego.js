@@ -291,11 +291,11 @@ export class Juego {
 
         // Fichas
         for (let i = this.j1.fichas.length - 1; i >= 0; i--) {
-            this.j1.fichas[i].dibujar(this.ctx);
+            this.j1.fichas[i].dibujar(this.ctx, this.jugadorActual.equipo);
         }
 
         for (let i = this.j2.fichas.length - 1; i >= 0; i--) {
-            this.j2.fichas[i].dibujar(this.ctx);
+            this.j2.fichas[i].dibujar(this.ctx, this.jugadorActual.equipo);
         }
 
         // Tablero

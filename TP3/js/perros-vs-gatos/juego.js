@@ -56,7 +56,7 @@ export class Juego {
         this.colorFuente = 'white';
 
         // Tiempo de turno y contadores
-        this.tiempoTurno = 300; // Tiempo máximo de cada turno (en FPS)
+        this.tiempoTurno = 1800; // Tiempo máximo de cada turno (en FPS)
         this.contadorTurno = this.tiempoTurno; // Contador de tiempo de turno (en FPS)
         this.contadorEstado; // Contador para verificar si hay ganador o empate
 

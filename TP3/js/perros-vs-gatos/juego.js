@@ -56,7 +56,7 @@ export class Juego {
         this.colorFuente = 'white';
 
         // Tiempo de turno y contadores
-        this.tiempoTurno = 1800; // Tiempo máximo de cada turno (en FPS)
+        this.tiempoTurno = 300; // Tiempo máximo de cada turno (en FPS)
         this.contadorTurno = this.tiempoTurno; // Contador de tiempo de turno (en FPS)
         this.contadorEstado; // Contador para verificar si hay ganador o empate
 
@@ -134,7 +134,9 @@ export class Juego {
                     const casillero = this.tablero.colocarFicha(this.fichaSeleccionada);
                     
                     // Se verifica estado del juego (empate, ganador o cambio de turno)
-                    this.verificarEstadoJuego(casillero);
+                    if (casillero) {
+                        this.verificarEstadoJuego(casillero);
+                    }
                 } else {
                     // Si no se puede soltar la ficha, se reestablece su posición
                     this.fichaSeleccionada.x = this.fichaSeleccionada.xOriginal;
@@ -191,7 +193,9 @@ export class Juego {
 
         if (this.contadorTurno <= 0) {
             const casillero = this.colocarFichaAlAzar(this.jugadorActual.fichas);
-            this.verificarEstadoJuego(casillero);
+            if (casillero) {
+                this.verificarEstadoJuego(casillero);
+            }
         }
     }
 
@@ -207,10 +211,12 @@ export class Juego {
             this.fichaSeleccionada.seleccionada = false;
             this.fichaSeleccionada = null;
         } else {
+            console.log("No hay ficha seleccionada");
             for (let f of fichas) {
                 if (!f.seleccionada && !f.enCaida && !f.colocada) {
                     this.tablero.prepararFicha(f);
                     casilleroLibre = this.tablero.colocarFichaAlAzar(f);
+                    break;
                 }
             }
         }

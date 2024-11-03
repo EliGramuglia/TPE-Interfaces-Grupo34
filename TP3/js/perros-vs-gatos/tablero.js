@@ -124,6 +124,7 @@ export class Tablero {
         const casilleroLibre = this.buscarCasilleroLibre(col);
         if (casilleroLibre) {
             this.cantFichasEnTablero++;
+            console.log(this.cantFichasEnTablero);
             casilleroLibre.ficha = ficha;
             ficha.colocada = true;
             ficha.limiteInferior = casilleroLibre.y + casilleroLibre.tamanio / 2;

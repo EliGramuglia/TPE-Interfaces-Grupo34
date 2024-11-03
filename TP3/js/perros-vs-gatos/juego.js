@@ -17,7 +17,7 @@ export class Juego {
         this.ancho = Math.floor(this.alto * 1.5);
         this.canvas.width = this.ancho;
         this.canvas.height = this.alto;
-        this.unidad = Math.floor(this.alto / (filas * 1.4));
+        this.unidad = Math.floor(this.alto / (filas * 1.5));
         this.maxfilas = filas;
         this.maxColumnas = filas + 1;
         
@@ -140,7 +140,7 @@ export class Juego {
      * Genera fichas y las reparte a cada jugador.
      */
     generarFichas() {
-        const radio = this.unidad / 2;
+        const radio = Math.floor(this.unidad / 2);
         const alto = radio * (this.cantFichas / 2) + radio;
         const separacionFichas = radio / 2;
         const margenSuperior = (this.alto - alto) / 2 + alto / 4 ;

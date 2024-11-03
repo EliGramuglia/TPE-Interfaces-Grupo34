@@ -94,7 +94,7 @@ export class Tablero {
         if (casilleroLibre) {
             casilleroLibre.ficha = ficha;
             ficha.colocada = true;
-            ficha.limiteInferior = casilleroLibre.y + casilleroLibre.tamanio;
+            ficha.limiteInferior = casilleroLibre.y + casilleroLibre.tamanio / 2;
         }
     }
 

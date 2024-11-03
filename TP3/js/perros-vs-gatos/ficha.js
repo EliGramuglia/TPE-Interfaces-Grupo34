@@ -40,8 +40,8 @@ export class Ficha {
             this.vy += this.gravedad;
             this.y += this.vy;
             
-            if (this.y + this.radio > this.limiteInferior) {
-                this.y = this.limiteInferior - this.radio;
+            if (this.y > this.limiteInferior) {
+                this.y = this.limiteInferior;
                 this.vy *= -1;
                 this.vy *= this.friccion;
             }

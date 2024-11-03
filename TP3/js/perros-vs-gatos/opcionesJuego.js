@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const contenedorbtnsJuego = document.querySelector('#contenedor-botones-canvas-juego');
     const cardResultado = document.getElementById('contenedor-card-ganador');
     const msgConfirmacion = document.getElementById('contenedor-mensaje-confirmacion');
+    const contenedorPantallaJuego = document.querySelector('.contenedor-pantalla-juego');
+
     //si clickean el btn se activa la funcion que muestra la configuracion
     btnJugar.addEventListener('click', mostrarConfiguracionJuego);
 
@@ -22,9 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     //funcion para comenzar a mostrar la configuracion y modficiar el modo tablero
     function mostrarConfigTablero() {
-        pantallaJuego.style.backgroundColor = 'black';
+        contenedorbtnsJuego.style.display = 'none';
         pantallaJuego.style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(2, 87, 214, 0.5))';
-        // contenedorPantallaJuego.style.backgroundImage = "url(./img/pagina-juego/perros-vs-gatos/fondo-huellitas.png)";
+        contenedorPantallaJuego.style.backgroundImage = "url(../img/pagina-juego/perros-vs-gatos/fondo-huellitas.png)";
         contenedorOpcTablero.classList.add('contenedor-modos-tablero-activo');
         contenedorOpcTablero.classList.remove('oculto');
         habilitarBotonesOpcTablero();

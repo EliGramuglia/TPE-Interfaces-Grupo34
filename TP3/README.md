@@ -40,10 +40,10 @@ A continuación, se enumeran algunas de las correcciones/mejoras implementadas d
 - **Estética y diseño minimalista:** se presentan en pantalla únicamente los elementos necesarios para jugar y dar libertad de acciones al usuario
 - **Relación entre el sistema y el mundo real:** los btn de opciones tienen iconos que representan su accionar → reset, pausa/reproducir, home
 - **Control y Libertad del usuario:** los btn permiten al usuario realizar distintas acciones en el juego
-    - **reset →** permite resetear la partida. Tiene un cartel para confirmar el reset, esto para Prevención de errores, por si el usuario lo clickeo sin querer.
-    - **pausa →** permite pausar el temporizador del jeugo para darle más libertad al usuario de jugar cuando él pueda
+    - **reset →** permite resetear la partida. Tiene un cartel para confirmar el reset, esto para ***Prevención de errores***, por si el usuario lo clickeo sin querer.
+    - **pausa →** permite pausar el temporizador del juego para darle más libertad al usuario de jugar cuando él pueda o quiera
     - **home →** permite volver a la configuración inicial del juego, por si se quiere cambiar el modo y las fichas del juego
-- **Visibilidad del estado del sistema:** Se presenta un temporizador en la parte superior con una cuenta regresiva que representa el final del turno del jugador, adicionalmente se resaltan las fichas del jugador que tiene el turno. Se resaltan las fichas que hicieron la línea ganadora
+- **Visibilidad del estado del sistema:** Se presenta un temporizador en la parte superior con una cuenta regresiva que representa el final del turno del jugador, adicionalmente se resaltan las fichas del jugador que tiene el turno. Se resaltan las fichas que hicieron la línea ganadora y salta en pantalla un cartel mostrando textual y visualmente el resultado del juego _ _(equipo ganador o empate)_ _
 - **Prevención de errores:** se resalta el casillero disponible donde podrá caer la ficha para que el usuario sepa el posible accionar. Además se muestra una flecha animada en el casillero disponible para soltar la ficha.
 - **Reconocimiento antes que Recuerdo:** se resaltan las fichas del jugador en turno para que sepa visualmente quien juega. Se resaltan las fichas que hicieron la línea ganadora
 - **Ayuda y documentación:** se presentan resaltados visuales en las fichas para informar de que jugador es el turno, flechas resaltadas y con movimiento para informar en que columnas se colocará la ficha. Resaltado del casillero en el que caerá la ficha para ayudar a pensar jugadas al usuario. Documentación siempre disponible al clickear sobre el icono de control del navegador del juego, donde se especifican las reglas del juego.

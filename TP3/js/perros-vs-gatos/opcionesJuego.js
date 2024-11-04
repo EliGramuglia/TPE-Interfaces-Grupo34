@@ -180,11 +180,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function inicializarJuego() {
         //creo la instancia juego con todos los datos necesarios y luego muestro el canvas
-        const juego = new Juego('#canvas', 2, imgGato, imgPerro,cardResultado);
+        const juego = new Juego('#canvas', cantFichasEnLinea, imgGato, imgPerro,cardResultado);
         canvas.classList.remove('oculto');
         contenedorbtnsJuego.style.display = 'flex';
         juego.jugar();
         habilitarOpcJuego(juego);
-
     }
 });

@@ -85,9 +85,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         btnCambarFichaGato.addEventListener('click', () => {
             contenedorOpcFichasGato.classList.toggle('objInvisible');
+            contenedorOpcFichasPerro.classList.add('objInvisible');
+
         })
         btnCambarFichaPerro.addEventListener('click', () => {
             contenedorOpcFichasPerro.classList.toggle('objInvisible');
+            contenedorOpcFichasGato.classList.add('objInvisible');
         })
 
         // LA FICHA MAS GRANDE TOME EL VALOR DEL BTN OPC FICHA seleccionado
@@ -104,6 +107,8 @@ document.addEventListener('DOMContentLoaded', () => {
             btnFicha.addEventListener('click', () => {
                 imgPerro = btnFicha.src;
                 fichaprincipalPerro.src = imgPerro;
+                contenedorOpcFichasGato.classList.add('objInvisible');
+
             });
         });
     };
@@ -142,8 +147,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         //btn de volver a confirguracion en el juego
         btnHome.addEventListener('click', ()=>{
-            imgEstadoBtnPausarBtnPausar.src = './img/pagina-juego/perros-vs-gatos/reproduciendo-btn-juego.png';
-            imgEstadoBtnPausarBtnPausar.alt = 'Pausar';
             canvas.classList.add('oculto');
             contenedorbtnsJuego.style.display = 'none';
             msgConfirmacion.classList.add('oculto');
@@ -163,8 +166,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         btnConfirmarReset.addEventListener('click', ()=>{
-            imgEstadoBtnPausarBtnPausar.src = './img/pagina-juego/perros-vs-gatos/reproduciendo-btn-juego.png';
-            imgEstadoBtnPausarBtnPausar.alt = 'Pausar';
             msgConfirmacion.classList.add('oculto');
             juego.inicializar();
         });

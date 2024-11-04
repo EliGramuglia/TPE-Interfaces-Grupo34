@@ -1406,7 +1406,7 @@ nav#bread-crumbs ul img {
 }
 
 .contenedor-pantalla-juego {
-    background-image: url(/img/tarjetas/4enLinea.png);
+    background-image: url(../img/tarjetas/4enLinea.png);
     background-repeat: no-repeat;
     background-size: cover;
     width: fit-content;

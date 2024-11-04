@@ -140,10 +140,11 @@ document.addEventListener('DOMContentLoaded', () => {
         
         //btn de volver a confirguracion en el juego
         btnHome.addEventListener('click', ()=>{
-            canvas.classList.add('oculto');
-            contenedorbtnsJuego.style.display = 'none';
-            msgConfirmacion.classList.add('oculto');
-            mostrarConfigTablero();
+            // canvas.classList.add('oculto');
+            // contenedorbtnsJuego.style.display = 'none';
+            // msgConfirmacion.classList.add('oculto');
+            // mostrarConfigTablero();
+            inicializarJuego();
             //deberia de pausar el juego o elimiar la instancia de juego asi no se sigure ejecutando
         })
         //btn reset del juevo, muestra 2 btn para confirmar positiva o negativamente

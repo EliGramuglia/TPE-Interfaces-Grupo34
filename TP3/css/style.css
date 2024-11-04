@@ -1109,11 +1109,13 @@ button.hero-flecha-derecha {
     background-color: var(--secundario-semi-claro);
 }
 
-#imagen-hero #info-juego button span {
+#imagen-hero #info-juego button img {
     margin-left: 8px;
-}
+    width: 14px;
+    filter: invert(100%);
 
-#imagen-hero #info-juego button span.desplazamiento-jugar {
+}
+#imagen-hero #info-juego button img.desplazamiento-jugar {
     animation: desplazamiento-jugar 4s ease infinite;
 }
 

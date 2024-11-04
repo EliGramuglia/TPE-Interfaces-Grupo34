@@ -1469,8 +1469,8 @@ nav#bread-crumbs ul img {
     gap: 10px;
 }
 .info-tablero-seleccionado{
-    background-color: rgb(95, 152, 196, .7);
-    border-radius: 10px;
+    background-color: rgb(95, 152, 196, .5);
+    border-radius: 5px;
     padding: .2rem 1rem;
     font-weight: var(--grosor-grueso);
     font-size: .9em;
@@ -1496,8 +1496,6 @@ nav#bread-crumbs ul img {
 }
 
 .btn-tipoTablero:hover{
-    border: 2px white solid;
-    background-color: #70B3E6;
     transform: scale(1.1);
 }
 
@@ -1541,9 +1539,9 @@ nav#bread-crumbs ul img {
 }
 #contenedor-configuracion-juego .caja-opc-equipo .btn-equipo img,#contenedor-configuracion-juego .cajas-opc-fichas img{
     width: 100%;
-    cursor: pointer;
 }
 #contenedor-configuracion-juego .cajas-opc-fichas img{
+    cursor: pointer;
     filter: brightness(90%);
 }
 
@@ -1554,9 +1552,9 @@ nav#bread-crumbs ul img {
 }
 
 #contenedor-configuracion-juego .btn-modificar-ficha{
-    border: 2px solid #70b3e6;
-    background-color: var(--gris-muy-claro);
-    color: var(--gris-muy-oscuro);
+    border: 2px solid #5f98c4;
+    background-color: #5f98c4;
+    color: white;
     padding: 5px 10px;
     border-radius: 10px;
     font-weight: bolder;
@@ -1566,13 +1564,16 @@ nav#bread-crumbs ul img {
     cursor: pointer;
     transition: all linear .3s;
 }
-#contenedor-configuracion-juego .btn-modificar-ficha:hover{
-    background-color: #d0d2dd;
+#contenedor-configuracion-juego .btn-modificar-ficha:hover, .btn-tipoTablero:hover{
+    border: 2px white solid;
+    background-color: #70B3E6;
 }
 
 #contenedor-configuracion-juego .btn-modificar-ficha  img{
     transform: rotate(90deg);
     width: 10px;
+    filter: invert(100%);
+
 }
 #contenedor-configuracion-juego #caja-opc-volver-continuar{
     margin-top: 10px;
@@ -1599,11 +1600,10 @@ nav#bread-crumbs ul img {
     transform: scale(1.2);
 }
 #contenedor-configuracion-juego #btn-jugar-comenzar{
-    padding: 8px 26px;
+    padding: 5px 26px;
     border-radius: 30px;
-    border: 1px #5f98c4 solid;
-    background-color: #5f98c4;
-    color: white;
+    background-color: #d7edfc;
+    color: black;
     cursor: pointer;
     font-weight: var(--grosor-grueso);
     transition: background-color .3s linear;
@@ -1852,7 +1852,13 @@ nav#bread-crumbs ul img {
     padding: 10px;
     width: 750px;
     height: 415px;
-    border-radius: 20px;
+    overflow:scroll;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+}
+.contenedor-controles-juego h3{
+    text-align: end;
+    padding-right: 100px;
+    color: #FFBA00;
 }
 
 .reglas-contenedor {
@@ -1865,7 +1871,7 @@ nav#bread-crumbs ul img {
 .reglas-contenedor button {
     background-color: transparent;
     border: none;
-    width: 12px;
+    width: 20px;
     cursor: pointer;
 }
 
@@ -1875,7 +1881,6 @@ nav#bread-crumbs ul img {
 
 .caja-reglas>img {
     width: 200px;
-    border-radius: 10px;
 }
 
 .titulo-reglas {
@@ -1885,37 +1890,11 @@ nav#bread-crumbs ul img {
 
 .caja-reglas {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 2fr;
+    grid-template-columns: 1.5fr 2fr;
     align-items: center;
     justify-items: center;
     padding-bottom: 10px;
-}
-
-#circulos-instrucciones {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 5px;
-    text-align: center;
-}
-
-#circulos-instrucciones p {
-    background-color: rgb(12, 13, 20, 60%);
-    padding: 4px 10px;
-    border-radius: 30px;
-    border: 1px solid rgb(224, 6, 113, 70%);
-}
-
-.caja-reglas #clickMouse {
-    width: 80px;
-}
-
-#circulos-instrucciones p:hover {
-    background-color: rgb(224, 6, 113, 50%);
-}
-
-.caja-reglas h3 {
-    width: max-content;
-    grid-column: 3;
+    margin: 14px 0;
 }
 
 hr {

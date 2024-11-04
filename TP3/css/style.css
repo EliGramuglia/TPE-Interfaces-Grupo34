@@ -1649,15 +1649,15 @@ nav#bread-crumbs ul img {
 }
 
 #titulo-card-ganador{
-    text-transform: uppercase;
     width: 80%;
     text-align: center;
-    font-size: 14px;
+    font-weight: var(--grosor-mediano);
+    font-size: 1em;
     padding: 10px 0 8px 0;
     border-bottom: 1px solid  #5f98c4;
 }
-.contenedor-card-ganador #text-ganador{
-    font-size: 35px;
+#text-ganador{
+    font-size: 2em;
     font-weight: var(--grosor-grueso);
     border-bottom: 1px solid #5f98c4;
     width: 80%;

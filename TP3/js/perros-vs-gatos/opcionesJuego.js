@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function mostrarConfigTablero() {
         contenedorbtnsJuego.style.display = 'none';
         pantallaJuego.style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(2, 87, 214, 0.5))';
-        contenedorPantallaJuego.style.backgroundImage = "url(../img/pagina-juego/perros-vs-gatos/fondo-huellitas.png)";
+        contenedorPantallaJuego.style.backgroundImage = "url(./img/pagina-juego/perros-vs-gatos/fondo-huellitas.png)";
         contenedorOpcTablero.classList.add('contenedor-modos-tablero-activo');
         contenedorOpcTablero.classList.remove('oculto');
         habilitarBotonesOpcTablero();
@@ -132,36 +132,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function habilitarOpcJuego(juego){
         const btnHome = document.getElementById('btn-home');
+        const btnVolverConfig = document.getElementById('btn-card-volver-config');
+        const btnPausarReanudar = document.getElementById('btn-pause');
         const btnReset = document.getElementById('btn-reset');
         const btnResetCard = document.getElementById('btn-card-reset');
-        const btnVolverConfig = document.getElementById('btn-card-volver-config');
         const btnNegarReset = document.getElementById('btn-confirmacion-no');
         const btnConfirmarReset = document.getElementById('btn-confirmacion-si');
         
         //btn de volver a confirguracion en el juego
         btnHome.addEventListener('click', ()=>{
-            // canvas.classList.add('oculto');
-            // contenedorbtnsJuego.style.display = 'none';
-            // msgConfirmacion.classList.add('oculto');
-            // mostrarConfigTablero();
-            inicializarJuego();
-            //deberia de pausar el juego o elimiar la instancia de juego asi no se sigure ejecutando
-        })
+            canvas.classList.add('oculto');
+            contenedorbtnsJuego.style.display = 'none';
+            msgConfirmacion.classList.add('oculto');
+            mostrarConfigTablero();
+            juego.pausar();
+        });
+
         //btn reset del juevo, muestra 2 btn para confirmar positiva o negativamente
         btnReset.addEventListener('click', () =>{
             msgConfirmacion.classList.remove('oculto');
+            juego.pausar();
         });
 
         btnNegarReset.addEventListener('click', ()=>{
             msgConfirmacion.classList.add('oculto');
-
-        })
+            juego.reanudar();
+        });
 
         btnConfirmarReset.addEventListener('click', ()=>{
             msgConfirmacion.classList.add('oculto');
             juego.inicializar();
-        })
+        });
 
+        btnPausarReanudar.addEventListener('click', () => {
+            if (juego.pausado) {
+                juego.reanudar();
+            } else {
+                juego.pausar();
+            }
+
+            // if (btnPausarReanudar.classList.contains('pausa')) {
+            //     btnPausarReanudar.classList.remove('pausa');
+            //     btnPausarReanudar.classList.add('reanudar');
+            //     juego.pausar();
+            // } else {
+            //     btnPausarReanudar.classList.remove('reanudar');
+            //     btnPausarReanudar.classList.add('pausar');
+            //     juego.reanudar();
+            // }
+        });
 
         //botones dentro de la card que dice el resultado, primero ocultan su contenedor y luego generan una accion
         btnResetCard.addEventListener('click', () =>{

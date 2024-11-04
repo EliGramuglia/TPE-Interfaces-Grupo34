@@ -49,6 +49,7 @@ export class Juego {
         this.ganador = null;
         this.empate = false;
         this.juegoTerminado = false;
+        this.pausado = false;
 
         // Estilos de texto
         this.fuente = 'sans-serif';
@@ -60,6 +61,7 @@ export class Juego {
         this.tiempoTurno = 1800; // Tiempo máximo de cada turno en FPS (1800FPS = 30s)
         this.contadorTurno = this.tiempoTurno; // Contador de tiempo de turno (en FPS)
         this.contadorFinalizacionJuego; // Contador para verificar si hay ganador o empate
+        this.congelamiento = 120;
 
         // Se inicializa el juego
         this.inicializar();
@@ -81,6 +83,7 @@ export class Juego {
         this.ganador = null;
         this.empate = false;
         this.juegoTerminado = false;
+        this.pausado = false;
 
         // Contadores
         this.contadorTurno = this.tiempoTurno;
@@ -93,7 +96,7 @@ export class Juego {
 
     inicializarEventListeners() {
         this.canvas.addEventListener('mousedown', (e) => {
-            if (this.tablero.fichaEnPreparacion != null) {
+            if (this.pausado || this.tablero.fichaEnPreparacion != null) {
                 return;
             }
 
@@ -113,6 +116,10 @@ export class Juego {
         });
 
         this.canvas.addEventListener('mousemove', (e) => {
+            if (this.pausado) {
+                return;
+            }
+
             if (this.fichaSeleccionada && !this.fichaSeleccionada.colocada) {
                 this.coordenadasMouse = this.obtenerCoordenadasMouse(e);
                 this.fichaSeleccionada.x = this.coordenadasMouse.x;
@@ -127,6 +134,10 @@ export class Juego {
         });
 
         this.canvas.addEventListener('mouseup', (e) => {
+            if (this.pausado) {
+                return;
+            }
+
             if (this.fichaSeleccionada) {
                 // Se verifica si se puede soltar la ficha
                 if (this.tablero.sePuedeSoltarFicha(this.fichaSeleccionada)) {
@@ -202,6 +213,15 @@ export class Juego {
         }
     }
 
+    pausar() {
+        console.log("Pausando");
+        this.pausado = true;
+    }
+
+    reanudar() {
+        this.pausado = false;
+    }
+
     /**
      * Coloca una ficha en una columna al azar. Se utiliza cuando se termina el tiempo de un turno.
      */
@@ -261,22 +281,25 @@ export class Juego {
         // Se limpia el canvas
         this.ctx.clearRect(0, 0, this.ancho, this.alto); 
 
-        // Tiempo de cada turno
-        this.cuentaRegresiva();
+        // Si el juego está pausado no se actualiza ni dibuja
+        if (!this.pausado) {
+            // Se actualiza el juego y el temporizador
+            this.actualizar();
+            this.cuentaRegresiva();
+        }
 
-        // Se actualizan y dibujan los elementos del juego
-        this.actualizar();
+        // Se dibujan los elementos del juego
         this.dibujar();
 
         // Si se terminó el juego, se busca ganador o empate
         if (this.juegoTerminado) {
             this.contadorFinalizacionJuego--;
             if (this.contadorFinalizacionJuego === 0 && this.empate) {
-                this.mostrarResultado("perros-gatos");
-                // this.inicializar();
+                this.mostrarResultado("Empate");
+                this.pausar();
             } else if (this.contadorFinalizacionJuego === 0 && this.ganador) {
                 this.mostrarResultado((this.ganador.equipo).toLowerCase());
-                // this.inicializar();
+                this.pausar();
             }
         }
 
@@ -394,27 +417,22 @@ export class Juego {
         let img = document.querySelector('#contenedor-card-ganador img');
         let text = document.querySelector('#text-ganador');
         switch(resultado){
-            case 'gatos':{
+            case 'gatos':
                 text.textContent = "Gatos";
                 img.src = './img/pagina-juego/perros-vs-gatos/gatos.png';
                 break;
-            }
-            case 'perros':{
+            case 'perros':
                 text.textContent = "Perros";
                 img.src = './img/pagina-juego/perros-vs-gatos/perros.png';
                 break;
-                
-            }
-            default:{
+            case 'empate':
+            default:
                 text.textContent = "Empate";
                 img.src = './img/pagina-juego/perros-vs-gatos/perros-gatos.png';
                 break;
-            }
         }
 
         this.cardResultado.classList.add('contenedor-card-ganador-activo');
         this.cardResultado.classList.remove('oculto');
-
-
     }
 }

@@ -138,9 +138,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const btnResetCard = document.getElementById('btn-card-reset');
         const btnNegarReset = document.getElementById('btn-confirmacion-no');
         const btnConfirmarReset = document.getElementById('btn-confirmacion-si');
+        let imgEstadoBtnPausarBtnPausar = document.getElementById('img-estado-juego');
         
         //btn de volver a confirguracion en el juego
         btnHome.addEventListener('click', ()=>{
+            imgEstadoBtnPausarBtnPausar.src = './img/pagina-juego/perros-vs-gatos/reproduciendo-btn-juego.png';
+            imgEstadoBtnPausarBtnPausar.alt = 'Pausar';
             canvas.classList.add('oculto');
             contenedorbtnsJuego.style.display = 'none';
             msgConfirmacion.classList.add('oculto');
@@ -160,26 +163,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         btnConfirmarReset.addEventListener('click', ()=>{
+            imgEstadoBtnPausarBtnPausar.src = './img/pagina-juego/perros-vs-gatos/reproduciendo-btn-juego.png';
+            imgEstadoBtnPausarBtnPausar.alt = 'Pausar';
             msgConfirmacion.classList.add('oculto');
             juego.inicializar();
         });
 
         btnPausarReanudar.addEventListener('click', () => {
-            if (juego.pausado) {
-                juego.reanudar();
-            } else {
+            if (imgEstadoBtnPausarBtnPausar.src.includes('reproduciendo')){
+                console.log('pausando');
+                // Si la imagen es de "reproduciendo"
+                imgEstadoBtnPausarBtnPausar.src = './img/iconos/icono-flecha-corta.png';
+                imgEstadoBtnPausarBtnPausar.alt = 'Reanudar';
                 juego.pausar();
+            } else {
+                console.log('despausando');
+                // Si la imagen no es de "reproduciendo"
+                imgEstadoBtnPausarBtnPausar.src = './img/pagina-juego/perros-vs-gatos/reproduciendo-btn-juego.png';
+                imgEstadoBtnPausarBtnPausar.alt = 'Pausar';
+                juego.reanudar();
             }
-
-            // if (btnPausarReanudar.classList.contains('pausa')) {
-            //     btnPausarReanudar.classList.remove('pausa');
-            //     btnPausarReanudar.classList.add('reanudar');
-            //     juego.pausar();
-            // } else {
-            //     btnPausarReanudar.classList.remove('reanudar');
-            //     btnPausarReanudar.classList.add('pausar');
-            //     juego.reanudar();
-            // }
         });
 
         //botones dentro de la card que dice el resultado, primero ocultan su contenedor y luego generan una accion

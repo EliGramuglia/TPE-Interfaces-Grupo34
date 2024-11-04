@@ -61,7 +61,7 @@ export class Juego {
         this.tiempoTurno = 1800; // Tiempo máximo de cada turno en FPS (1800FPS = 30s)
         this.contadorTurno = this.tiempoTurno; // Contador de tiempo de turno (en FPS)
         this.contadorFinalizacionJuego; // Contador para verificar si hay ganador o empate
-        this.congelamiento = 120;
+        this.congelamiento;
 
         // Se inicializa el juego
         this.inicializar();
@@ -88,6 +88,7 @@ export class Juego {
         // Contadores
         this.contadorTurno = this.tiempoTurno;
         this.contadorFinalizacionJuego = 120;
+        this.congelamiento = 180; // Freeze time al iniciar el juego
 
         // Fichas
         this.generarFichas();
@@ -96,7 +97,7 @@ export class Juego {
 
     inicializarEventListeners() {
         this.canvas.addEventListener('mousedown', (e) => {
-            if (this.pausado || this.tablero.fichaEnPreparacion != null) {
+            if (this.congelamiento > 0 || this.pausado || this.tablero.fichaEnPreparacion != null) {
                 return;
             }
 
@@ -116,7 +117,7 @@ export class Juego {
         });
 
         this.canvas.addEventListener('mousemove', (e) => {
-            if (this.pausado) {
+            if (this.congelamiento > 0 || this.pausado) {
                 return;
             }
 
@@ -134,7 +135,7 @@ export class Juego {
         });
 
         this.canvas.addEventListener('mouseup', (e) => {
-            if (this.pausado) {
+            if (this.congelamiento > 0 || this.pausado) {
                 return;
             }
 
@@ -214,7 +215,6 @@ export class Juego {
     }
 
     pausar() {
-        console.log("Pausando");
         this.pausado = true;
     }
 
@@ -281,13 +281,14 @@ export class Juego {
         // Se limpia el canvas
         this.ctx.clearRect(0, 0, this.ancho, this.alto); 
 
-        // Si el juego está pausado no se actualiza ni dibuja
-        if (!this.pausado) {
-            // Se actualiza el juego y el temporizador
+        if (this.congelamiento > 0) {
+            this.congelamiento--;
+        } else if (!this.pausado) {
+            // Si el juego está pausado no se actualiza ni dibuja
             this.actualizar();
             this.cuentaRegresiva();
         }
-
+    
         // Se dibujan los elementos del juego
         this.dibujar();
 
@@ -351,7 +352,11 @@ export class Juego {
         // Nombres de equipos
         this.dibujarNombreEquipo(this.j1.fichas[0].xOriginal, this.alto - 40, this.j1.equipo); // Perros
         this.dibujarNombreEquipo(this.j2.fichas[0].xOriginal, this.alto - 40, this.j2.equipo); // Gatos
-        
+
+        // Tiempo de congelamiento
+        if (this.congelamiento > 0) {
+            this.dibujarTiempoCongelamiento();
+        }
     }
 
     dibujarTemporizador(x, y) {
@@ -411,6 +416,22 @@ export class Juego {
         this.ctx.arc(x + radio, y + radio, radio, Math.PI, -Math.PI / 2); // Esquina superior izquierda
         this.ctx.closePath(); // Cerrar el camino
         this.ctx.fill(); // Rellenar el rectángulo
+    }
+
+    dibujarTiempoCongelamiento() {
+        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.5)'
+        this.ctx.fillRect(0, 0, this.ancho, this.alto);
+
+        let segundos = Math.ceil(this.congelamiento / 60);
+        const x = this.ancho / 2;
+        const y = this.alto / 2 - 100;
+        this.ctx.font = "100px fantasy";
+        this.ctx.fillStyle = 'rgb(255, 255, 255)';
+        this.ctx.strokeStyle = 'rgb(12, 27, 74)';  // Color del contorno del texto
+        this.ctx.lineWidth = 3;        // Ancho del contorno
+        this.ctx.textAlign = 'center';
+        this.ctx.fillText(segundos, x, y);
+        this.ctx.strokeText(segundos, x, y);
     }
 
     mostrarResultado(resultado){

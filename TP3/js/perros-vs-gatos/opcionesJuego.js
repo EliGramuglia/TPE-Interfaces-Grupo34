@@ -1,7 +1,7 @@
 "use strict"
 
 import {Juego} from './juego.js';
-
+//Una vez que se carga el documento guardo todos los elementos del DOM necesarios para iniciar el juego
 document.addEventListener('DOMContentLoaded', () => {
     //me traigo todos los elementos que voy a usar en la configuracion
     let btnJugar = document.getElementById('btn-jugar-especial');
@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btnJugar.addEventListener('click', mostrarConfiguracionJuego);
 
     function mostrarConfiguracionJuego() {
+        //le saco los estilos a la previsualizacion asi puedo ponerle el display:none que esta en la clase oculto
         previsualizacion.classList.remove('previsualizacion');
         previsualizacion.classList.add('oculto');
         mostrarConfigTablero()
@@ -33,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mostrar2daParteConfig();
 
     }
+    //funciona para mostrar y habilitar la segunda parte de la configuracion que es cuando se selecciona el tipo de ficha con la que se quiere jugar
     function mostrar2daParteConfig(){
         //si se aprieta alguna opcion de tablero, se sigue con la configuracion
         const botonesTablero = contenedorOpcTablero.querySelectorAll('.btn-tipoTablero');
@@ -48,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    //funcion para variar quien es el jugador 1 y jugador 2
+    //funcion para guardar los datos seleccionados por el usuario e inicializar el juego o bien volver a configuracion inicial
     function gestionarDatosJuego() {
 
         let btnComenzarJuego = document.getElementById('btn-jugar-comenzar');
@@ -93,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
             contenedorOpcFichasGato.classList.add('objInvisible');
         })
 
-        // LA FICHA MAS GRANDE TOME EL VALOR DEL BTN OPC FICHA seleccionado
+        // La ficha principal toma la img de la ficha seleccionada para jugar 
         let fichasGato = document.querySelectorAll('.imgs-cat');
         fichasGato.forEach(btnFicha => {
             btnFicha.addEventListener('click', () => {
@@ -107,14 +109,12 @@ document.addEventListener('DOMContentLoaded', () => {
             btnFicha.addEventListener('click', () => {
                 imgPerro = btnFicha.src;
                 fichaprincipalPerro.src = imgPerro;
-                contenedorOpcFichasGato.classList.add('objInvisible');
-
             });
         });
     };
 
     let cantFichasEnLinea = 4;
-
+    //funcion que guarda que tipo de tablero se selecciono para jugar
     function habilitarBotonesOpcTablero() {
         document.getElementById('btn-opc1').addEventListener('click', () => {
             cantFichasEnLinea = 4;
@@ -134,7 +134,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
+//funcion para generar comportamineto dentro del juego con los btns de reset, home y pausar
+//tambien para los btn dentro de la tarjeta de resultado 
     function habilitarOpcJuego(juego){
         const btnHome = document.getElementById('btn-home');
         const btnVolverConfig = document.getElementById('btn-card-volver-config');
@@ -202,6 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
+    //funcion para crear la instancia de juego y mostrar el canvas para poder empezar a jugar
     function inicializarJuego() {
         //creo la instancia juego con todos los datos necesarios y luego muestro el canvas
         const juego = new Juego('#canvas', cantFichasEnLinea, imgGato, imgPerro,cardResultado);

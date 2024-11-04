@@ -1468,6 +1468,18 @@ nav#bread-crumbs ul img {
     display: flex;
     gap: 10px;
 }
+.info-tablero-seleccionado{
+    background-color: rgb(95, 152, 196, .7);
+    border-radius: 10px;
+    padding: .2rem 1rem;
+    font-weight: var(--grosor-grueso);
+    font-size: .9em;
+}
+.info-tablero-seleccionado #tablero-elegido{
+    font-style: oblique;
+    font-weight: var(--grosor-regular);
+}
+
 .btn-tipoTablero {
     border: 2px solid #5f98c4;
     background-color: #5f98c4;

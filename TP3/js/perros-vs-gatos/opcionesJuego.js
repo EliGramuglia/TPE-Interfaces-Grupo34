@@ -37,9 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
     //funciona para mostrar y habilitar la segunda parte de la configuracion que es cuando se selecciona el tipo de ficha con la que se quiere jugar
     function mostrar2daParteConfig(){
         //si se aprieta alguna opcion de tablero, se sigue con la configuracion
+        const txtTipoTablero = document.getElementById('tablero-elegido');
         const botonesTablero = contenedorOpcTablero.querySelectorAll('.btn-tipoTablero');
         botonesTablero.forEach(boton => {
             boton.addEventListener('click', () => {
+                txtTipoTablero.textContent = cantFichasEnLinea + ' en linea';
                 contenedorOpcTablero.classList.remove('contenedor-modos-tablero-activo');
                 contenedorOpcTablero.classList.add('oculto');
                 contenedorConfig.classList.remove('oculto');

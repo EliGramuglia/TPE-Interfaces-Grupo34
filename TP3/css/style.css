@@ -1451,9 +1451,10 @@ nav#bread-crumbs ul img {
 
     }
 }
-.contenedor-modos-tablero-activo h2,.contenedor-pantalla-juego #contenedor-configuracion-juego h2{
+.contenedor-modos-tablero-activo .title-config,.contenedor-pantalla-juego #contenedor-configuracion-juego h2{
     text-shadow: 2px 1px 10px rgba(18, 18, 18, 0.6);
-    font-size: 18px;
+    font-size: 1.2em;
+    max-width: max-content;
 }
 .contenedor-pantalla-juego .contenedor-modos-tablero-activo  #grupo-opc-tablero{
     display: flex;
@@ -1558,6 +1559,7 @@ nav#bread-crumbs ul img {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    padding: 0 14px;
 }
 
 #contenedor-configuracion-juego #caja-opc-volver-continuar #btn-volver-juego{
@@ -1623,6 +1625,7 @@ nav#bread-crumbs ul img {
     overflow: hidden;
     padding: 2px;
     position: absolute;
+    z-index: 3;
 }
 
 #titulo-card-ganador{
@@ -1633,7 +1636,7 @@ nav#bread-crumbs ul img {
     padding: 10px 0 8px 0;
     border-bottom: 1px solid  #5f98c4;
 }
-#text-ganador{
+.contenedor-card-ganador #text-ganador{
     font-size: 35px;
     font-weight: var(--grosor-grueso);
     border-bottom: 1px solid #5f98c4;
@@ -1783,17 +1786,17 @@ nav#bread-crumbs ul img {
 
 /* Elementos para la pantalla de juego (Canvas) */
 
-.contenedor-canvas-juego {
+#contenedor-canvas-juego {
     height: fit-content;
-    position: absolute;
+    position: relative;
 }
 
 #contenedor-botones-canvas-juego {
     display: flex; 
     flex-direction: column; 
     position: absolute;
-    bottom: 10px; 
-    right: 10px; 
+    top: 20px; 
+    right: 20px; 
     z-index: 2;
     display: none;
 }

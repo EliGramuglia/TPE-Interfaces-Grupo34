@@ -10,10 +10,16 @@ export class Jugador {
         this.fichas = [];
     }
 
+    /**
+     * Verifica si tiene fichas.
+     */
     tieneFichas(){
         return this.fichas.length > 0;
     }
 
+    /**
+     * Agrega una ficha dada a su colección.
+     */
     agregarFicha(ficha) {
         this.fichas.push(ficha);
     }

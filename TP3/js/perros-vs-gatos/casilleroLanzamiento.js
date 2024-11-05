@@ -2,6 +2,8 @@ export class CasilleroLanzamiento {
     constructor(x, y, tamanio, columna) {
         this.x = Math.round(x);
         this.y = Math.round(y);
+        this.xOriginal = this.x;
+        this.yOriginal = this.y;
         this.tamanio = Math.round(tamanio);
         this.columna = columna;
 
@@ -21,6 +23,9 @@ export class CasilleroLanzamiento {
         this.vy = .5; // Velocidad de movimiento en Y de la imagen
     }
 
+    /**
+     * Actualiza el casillero de lanzamiento, movimiendo verticalmente la flecha cuando éste está activo.
+     */
     actualizar() {
         if (this.activado) {
             this.contadorMovimiento++;
@@ -30,11 +35,14 @@ export class CasilleroLanzamiento {
                 this.contadorMovimiento = 0;
                 this.vy *= -1; // Se invierte la dirección
             }
+        } else {
+            this.x = this.xOriginal;
+            this.y = this.yOriginal;
         }
     }
 
     /**
-     * Muestra imagen de flecha cuando es seleccionada una ficha.
+     * Muestra una imagen de flecha cuando es seleccionada una ficha.
      */
     dibujar(ctx) {
         if (this.imgCargada && this.visible) {
@@ -47,6 +55,9 @@ export class CasilleroLanzamiento {
         }
     }
 
+    /**
+     * Verifica si una ficha puede ser soltada (cuando el centro de ésta se ubica dentro del casillero de lanzamiento)
+     */
     sePuedeSoltarFicha(ficha) {
         const enRangoHorizontal = ficha.x >= this.x && ficha.x <= this.x + this.tamanio;
         const enRangoVertical = ficha.y >= this.y && ficha.y <= this.y + this.tamanio;

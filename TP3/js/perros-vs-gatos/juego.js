@@ -45,6 +45,10 @@ export class Juego {
         this.imgFichaGato = imgFichaGato;
         this.imgFichaPerro = imgFichaPerro;
 
+        // Botón de Pausar/Reanudar
+        this.btnPausarReanudar = document.getElementById('btn-pause');
+        this.imgEstadoBtnPausarBtnPausar = document.getElementById('img-estado-juego');
+
         // Estado del juego
         this.ganador = null;
         this.empate = false;
@@ -52,8 +56,8 @@ export class Juego {
         this.pausado = false;
 
         // Estilos de texto
-        this.fuente = 'sans-serif';
-        this.tamanioFuente = 20;
+        this.fuente = 'fantasy';
+        this.tamanioFuente = 30;
         this.colorFuente = 'white';
         this.cardResultado = cardResultado;
 
@@ -70,6 +74,9 @@ export class Juego {
         this.inicializarEventListeners();
     }
 
+    /**
+     * Inicializa todos los elementos necesarios del juego. Se llama cuando este se crea y o reinicia.
+     */
     inicializar() {
         // Tablero
         this.tablero = new Tablero(this.maxFilas, this.maxColumnas, this.unidad, this.canvas);
@@ -78,6 +85,10 @@ export class Juego {
         this.j1 = new Jugador("Perros");
         this.j2 = new Jugador("Gatos");
         this.jugadorActual = Math.floor(Math.random() * 2) === 0 ? this.j1 : this.j2;
+
+        // Fichas
+        this.generarFichas();
+        this.fichaSeleccionada = null;
 
         // Estado del juego
         this.ganador = null;
@@ -90,11 +101,16 @@ export class Juego {
         this.contadorFinalizacionJuego = 120;
         this.congelamiento = 180; // Freeze time al iniciar el juego
 
-        // Fichas
-        this.generarFichas();
-        this.fichaSeleccionada = null;
+        // Botón de Pausar/Reanudar
+        this.imgEstadoBtnPausarBtnPausar.src = './img/pagina-juego/perros-vs-gatos/reproduciendo-btn-juego.png';
+        this.imgEstadoBtnPausarBtnPausar.alt = 'Pausar';
     }
 
+    /**
+     * Inicializa los event listeners del juego. 
+     * Mouse -> presionar, mover y soltar
+     * Botón de Pausar/Reanudar -> click
+     */
     inicializarEventListeners() {
         this.canvas.addEventListener('mousedown', (e) => {
             if (this.congelamiento > 0 || this.pausado || this.tablero.fichaEnPreparacion != null) {
@@ -129,7 +145,7 @@ export class Juego {
                 if (casilleroLanzamiento) {
                     this.tablero.resaltarCasilleroLibre(casilleroLanzamiento);
                 } else {
-                    this.tablero.quitarResaltadoCasillero();
+                    this.tablero.quitarResaltadoCasilleroLibre();
                 }
             }
         });
@@ -161,11 +177,26 @@ export class Juego {
                 this.fichaSeleccionada.seleccionada = false;
                 this.fichaSeleccionada = null;
                 this.tablero.ocultarCasillerosLanzamiento();
-                this.tablero.quitarResaltadoCasillero();
+                this.tablero.quitarResaltadoCasilleroLibre();
+            }
+        });
+
+        this.btnPausarReanudar.addEventListener('click', () => {
+            if (this.juegoTerminado) {
+                return;
+            }
+
+            if (this.pausado) {
+                this.reanudar();
+            } else {
+                this.pausar();
             }
         });
     }
 
+    /**
+     * Obtiene las coordenadas (x, y) del cursor del mouse.
+     */
     obtenerCoordenadasMouse(evento) {
         const rect = this.canvas.getBoundingClientRect()
         return {
@@ -201,7 +232,7 @@ export class Juego {
     }
 
     /**
-     * Establece un temporizador para cada turno. Al finalizar el tiempo, se cambia el turno.
+     * Establece un temporizador para cada turno. Al finalizar el tiempo, se cambia de turno.
      */
     cuentaRegresiva() {
         this.contadorTurno--;
@@ -214,12 +245,22 @@ export class Juego {
         }
     }
 
+    /**
+     * Pausa el juego, cambiando la imagen del botón Pausar/Reanudar
+     */
     pausar() {
         this.pausado = true;
+        this.imgEstadoBtnPausarBtnPausar.src = './img/iconos/icono-flecha-corta.png';
+        this.imgEstadoBtnPausarBtnPausar.alt = 'Reanudar';
     }
 
+    /**
+     * Reanuda el juego, cambiando la imagen del botón Pausar/Reanudar
+     */
     reanudar() {
         this.pausado = false;
+        this.imgEstadoBtnPausarBtnPausar.src = './img/pagina-juego/perros-vs-gatos/reproduciendo-btn-juego.png';
+        this.imgEstadoBtnPausarBtnPausar.alt = 'Pausar';
     }
 
     /**
@@ -246,6 +287,9 @@ export class Juego {
         return casilleroLibre;
     }
 
+    /**
+     * Determina si hay un ganador, si hay empate o si se debe cambiar de turno.
+     */
     verificarEstadoJuego(casillero) {
         // Se verifica si hay un empate o un ganador
         if (this.tablero.hayEmpate()) {
@@ -262,7 +306,7 @@ export class Juego {
 
     /**
      * Cambia el turno entre jugadores. El turno se cambia cuando finaliza su tiempo o cuando
-     * se suelta una ficha en el tablero. 
+     * se suelta una ficha en el tablero.
      */
     cambiarTurno() {
         if (this.jugadorActual === this.j1) {
@@ -270,12 +314,13 @@ export class Juego {
         } else {
             this.jugadorActual = this.j1;
         }
-        this.tablero.desactivarCasillerosLanzamiento;
+        this.tablero.ocultarCasillerosLanzamiento();
+        this.tablero.quitarResaltadoCasilleroLibre();
         this.contadorTurno = this.tiempoTurno;
     }
 
     /**
-     * Gameloop del juego.
+     * Gameloop del juego que actualiza y dibuja los elementos del mismo.
      */
     jugar() {
         // Se limpia el canvas
@@ -294,7 +339,6 @@ export class Juego {
 
         // Si se terminó el juego, se busca ganador o empate
         if (this.juegoTerminado) {
-            this.contadorFinalizacionJuego--;
             if (this.contadorFinalizacionJuego === 0 && this.empate) {
                 this.mostrarResultado("Empate");
                 this.pausar();
@@ -302,6 +346,8 @@ export class Juego {
                 this.mostrarResultado((this.ganador.equipo).toLowerCase());
                 this.pausar();
             }
+
+            this.contadorFinalizacionJuego--;
         }
 
         // Se solicita el próximo frame
@@ -359,12 +405,17 @@ export class Juego {
         }
     }
 
+    /**
+     * Dibuja el temporizador ubicado en la parte superior de la pantalla de juego.
+     */
     dibujarTemporizador(x, y) {
         // Texto
         const texto = `Tiempo restante: ${Math.ceil((this.contadorTurno / 60))}`;
-        this.ctx.font = `${this.tamanioFuente}px ${this.fuente}`;
+        this.ctx.font = `25px ${this.fuente}`;
         const anchoTexto = this.ctx.measureText(texto).width;
-        
+        this.ctx.strokeStyle = 'rgb(80, 80, 80)';
+        this.ctx.lineWidth = 0.5;
+
         // Rectángulo
         const margen = 10;
         const anchoRectangulo = anchoTexto + margen * 2;
@@ -379,30 +430,12 @@ export class Juego {
         this.ctx.fillStyle = this.colorFuente;
         this.ctx.textAlign = 'center';
         this.ctx.fillText(texto, x, y + altoRectangulo / 6);
+        this.ctx.strokeText(texto, x, y + altoRectangulo / 6);
     }
 
-    dibujarNombreEquipo(x, y, equipo) {
-        // Texto
-        const texto = equipo;
-        this.ctx.font = `${this.tamanioFuente}px ${this.fuente}`;
-        const anchoTexto = this.ctx.measureText(texto).width;
-        
-        // Rectángulo
-        const margen = 10;
-        const anchoRectangulo = anchoTexto + margen * 2;
-        const altoRectangulo = this.tamanioFuente + margen * 2;
-        const radio = 10; // Radio de los bordes redondeados
-        
-        // Se dibuja el rectángulo con bordes redondeados
-        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
-        this.dibujarRectanguloRedondeado(x - anchoRectangulo / 2, y - altoRectangulo / 2, anchoRectangulo, altoRectangulo, radio)
-    
-        // Se dibuja el texto
-        this.ctx.fillStyle = this.colorFuente;
-        this.ctx.textAlign = 'center';
-        this.ctx.fillText(texto, x, y + altoRectangulo / 6);
-    }
-
+    /**
+     * Dibuja rectángulos con bordes redondeados.
+     */
     dibujarRectanguloRedondeado(x, y, ancho, alto, radio) {
         this.ctx.beginPath();
         this.ctx.moveTo(x + radio, y); // Esquina superior izquierda
@@ -418,6 +451,22 @@ export class Juego {
         this.ctx.fill(); // Rellenar el rectángulo
     }
 
+    /**
+     * Dibuja el nombre de cada equipo debajo de su colección de fichas.
+     */
+    dibujarNombreEquipo(x, y, equipo) {
+        this.ctx.font = `${this.tamanioFuente}px ${this.fuente}`;
+        this.ctx.fillStyle = this.colorFuente;
+        this.ctx.strokeStyle = 'rgb(80, 80, 80)';
+        this.ctx.lineWidth = 1.5;
+        this.ctx.textAlign = 'center';
+        this.ctx.fillText(equipo.toUpperCase(), x, y);
+        this.ctx.strokeText(equipo.toUpperCase(), x, y);
+    }
+
+    /**
+     * Dibuja el temporizador de tiempo de congelamiento al iniciar/reiniciar el juego.
+     */
     dibujarTiempoCongelamiento() {
         this.ctx.fillStyle = 'rgba(0, 0, 0, 0.5)'
         this.ctx.fillRect(0, 0, this.ancho, this.alto);
@@ -425,15 +474,18 @@ export class Juego {
         let segundos = Math.ceil(this.congelamiento / 60);
         const x = this.ancho / 2;
         const y = this.alto / 2 - 100;
-        this.ctx.font = "100px fantasy";
+        this.ctx.font = `100px ${this.fuente}`;
         this.ctx.fillStyle = 'rgb(255, 255, 255)';
-        this.ctx.strokeStyle = 'rgb(12, 27, 74)';  // Color del contorno del texto
-        this.ctx.lineWidth = 3;        // Ancho del contorno
+        this.ctx.strokeStyle = 'rgb(12, 27, 74)';
+        this.ctx.lineWidth = 3;
         this.ctx.textAlign = 'center';
         this.ctx.fillText(segundos, x, y);
         this.ctx.strokeText(segundos, x, y);
     }
 
+    /**
+     * Muestra una ventana con el resultado de la partida.
+     */
     mostrarResultado(resultado){
         let img = document.querySelector('#contenedor-card-ganador img');
         let text = document.querySelector('#text-ganador');

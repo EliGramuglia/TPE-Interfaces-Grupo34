@@ -36,6 +36,9 @@ export class Ficha {
         };
     }
 
+    /**
+     * Actualiza la posición de la ficha simulando la gravedad y el rebote.
+     */
     actualizar() {
         if (this.preparada && this.enCaida) {
             this.vy += this.gravedad;
@@ -49,6 +52,9 @@ export class Ficha {
         }
     }
 
+    /**
+     * Dibuja la ficha teniendo en cuenta: 1) si pertenece al jugador oponente; 2) si pertenece al conjunto ganador.
+     */
     dibujar(ctx, equipoJugadorActual) {
         if (this.imgCargada) {
             // Imagen de ficha
@@ -74,6 +80,9 @@ export class Ficha {
         }
     }
 
+    /**
+     * Verifica si la ficha está siendo seleccionada (arrastrada) por el mouse.
+     */
     seleccionar(coordenadasMouse) {
         const distX = coordenadasMouse.x - (this.x);
         const distY = coordenadasMouse.y - (this.y);

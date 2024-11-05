@@ -21,6 +21,9 @@ export class Casillero {
         };
     }
 
+    /**
+     * Dibuja el casillero teniendo en cuenta su estado (resaltado o no resaltado).
+     */
     dibujar(ctx) {
         // Si el casillero está resaltado, se oscurece el fondo del mismo
         if (this.resaltado) {

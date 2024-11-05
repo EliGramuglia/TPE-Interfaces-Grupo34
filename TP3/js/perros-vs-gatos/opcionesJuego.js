@@ -90,8 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
         btnCambarFichaGato.addEventListener('click', () => {
             contenedorOpcFichasGato.classList.toggle('objInvisible');
             contenedorOpcFichasPerro.classList.add('objInvisible');
-
         })
+
         btnCambarFichaPerro.addEventListener('click', () => {
             contenedorOpcFichasPerro.classList.toggle('objInvisible');
             contenedorOpcFichasGato.classList.add('objInvisible');
@@ -141,12 +141,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function habilitarOpcJuego(juego){
         const btnHome = document.getElementById('btn-home');
         const btnVolverConfig = document.getElementById('btn-card-volver-config');
-        const btnPausarReanudar = document.getElementById('btn-pause');
         const btnReset = document.getElementById('btn-reset');
         const btnResetCard = document.getElementById('btn-card-reset');
         const btnNegarReset = document.getElementById('btn-confirmacion-no');
         const btnConfirmarReset = document.getElementById('btn-confirmacion-si');
-        let imgEstadoBtnPausarBtnPausar = document.getElementById('img-estado-juego');
         
         //btn de volver a confirguracion en el juego
         btnHome.addEventListener('click', ()=>{
@@ -171,22 +169,6 @@ document.addEventListener('DOMContentLoaded', () => {
         btnConfirmarReset.addEventListener('click', ()=>{
             msgConfirmacion.classList.add('oculto');
             juego.inicializar();
-        });
-
-        btnPausarReanudar.addEventListener('click', () => {
-            if (imgEstadoBtnPausarBtnPausar.src.includes('reproduciendo')){
-                console.log('pausando');
-                // Si la imagen es de "reproduciendo"
-                imgEstadoBtnPausarBtnPausar.src = './img/iconos/icono-flecha-corta.png';
-                imgEstadoBtnPausarBtnPausar.alt = 'Reanudar';
-                juego.pausar();
-            } else {
-                console.log('despausando');
-                // Si la imagen no es de "reproduciendo"
-                imgEstadoBtnPausarBtnPausar.src = './img/pagina-juego/perros-vs-gatos/reproduciendo-btn-juego.png';
-                imgEstadoBtnPausarBtnPausar.alt = 'Pausar';
-                juego.reanudar();
-            }
         });
 
         //botones dentro de la card que dice el resultado, primero ocultan su contenedor y luego generan una accion

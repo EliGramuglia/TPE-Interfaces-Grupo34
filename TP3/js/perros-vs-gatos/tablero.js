@@ -64,18 +64,29 @@ export class Tablero {
         return casillerosLanzamiento;
     }
 
+    /**
+     * Reinicia la ubicación vertical y muestra los casilleros de lanzamiento.
+     */
     mostrarCasillerosLanzamiento() {
         for (let c of this.casillerosLanzamiento) {
+            c.x = c.xOriginal;
+            c.y = c.yOriginal;
             c.visible = true;
         }
     }
 
+    /**
+     * Oculta los casilleros de lanzamiento.
+     */
     ocultarCasillerosLanzamiento() {
         for (let c of this.casillerosLanzamiento) {
             c.visible = false;
         }
     }
 
+    /**
+     * Actualiza el casillero de lanzamiento activo del tablero.
+     */
     activarCasilleroLanzamiento(ficha) {
         this.desactivarCasillerosLanzamiento();
 
@@ -91,6 +102,9 @@ export class Tablero {
         return this.casilleroLanzamientoActivo;
     }
 
+    /**
+     * Desactiva los casilleros de lanzamiento y elimina el casillero de lanzamiento activo.
+     */
     desactivarCasillerosLanzamiento() {
         this.casilleroLanzamientoActivo = null;
         
@@ -99,6 +113,9 @@ export class Tablero {
         }
     }
 
+    /**
+     * Resalta el casillero libre donde caería la ficha en caso de soltarse.
+     */
     resaltarCasilleroLibre(casilleroLanzamiento) {
         const col = casilleroLanzamiento.columna;
         const casilleroLibre = this.buscarCasilleroLibre(col);
@@ -115,22 +132,36 @@ export class Tablero {
         }
     }
 
-    quitarResaltadoCasillero() {
+    /**
+     * Elimina el estado de resaltado del casillero.
+     */
+    quitarResaltadoCasilleroLibre() {
         if (this.casilleroResaltado) {
             this.casilleroResaltado.resaltado = false;
             this.casilleroResaltado = null;
         }
     }
 
+    /**
+     * Verifica si la ficha seleccionada puede soltarse, dependiendo de si hay un casillero activo y 
+     * si hay casilleros libres en esa columna.
+     */
     sePuedeSoltarFicha() {
         return this.casilleroLanzamientoActivo != null && 
                this.buscarCasilleroLibre(this.casilleroLanzamientoActivo.columna) != null;
     }
 
+    /**
+     * Establece el estado de preparación de una ficha dada, lo cual activa su desplazamiento hacia
+     * el casillero de lanzamiento activo.
+     */
     prepararFicha(ficha) {
         this.fichaEnPreparacion = ficha;
     }
 
+    /**
+     * Coloca una ficha en el casillero libre que contenga la columna del casillero de lanzamiento activo.
+     */
     colocarFicha(ficha) {
         const col = this.casilleroLanzamientoActivo.columna;
         const casilleroLibre = this.buscarCasilleroLibre(col);
@@ -143,6 +174,9 @@ export class Tablero {
         return casilleroLibre;
     }
 
+    /**
+     * Coloca una ficha en una columna al azar.
+     */
     colocarFichaAlAzar(ficha) {
         let indice = Math.floor(Math.random() * this.maxColumnas);
         this.casilleroLanzamientoActivo = this.casillerosLanzamiento[indice];
@@ -153,6 +187,9 @@ export class Tablero {
         return this.colocarFicha(ficha);
     }
 
+    /**
+     * Dada una columna, retorna el casillero libre, en caso de haberlo, para colocar la ficha.
+     */
     buscarCasilleroLibre(columna) {
         for (let fila = this.maxFilas - 1; fila >= 0; fila--) {
             const casillero = this.casilleros[columna][fila];
@@ -163,6 +200,9 @@ export class Tablero {
         return null;
     }
 
+    /**
+     * Obtiene las coordenadas (x, y) del centro del casillero de lanzamiento activo.
+     */
     coordenadasCasilleroLanzamiento() {
         let coordenadas = {
             x: undefined,
@@ -175,6 +215,10 @@ export class Tablero {
         return coordenadas;
     }
 
+    /**
+     * Una vez soltada la ficha, la desplaza al centro del casillero de lanzamiento activo para
+     * luego activar su caída.
+     */
     moverFichaALanzamiento() {
         // Se calcula la distancia entre la ficha y el destino
         const destino = this.coordenadasCasilleroLanzamiento();
@@ -204,11 +248,17 @@ export class Tablero {
         }
     }
 
+    /**
+     * Verifica si quedan lugares para colocar fichas. En caso de no haber, hay empate.
+     */
     hayEmpate() {
         // Si la cantidad de fichas en el tablero es igual a la cantidad de casilleros, hay empate
         return this.cantFichasEnTablero === this.maxFilas * this.maxColumnas;
     }
 
+    /**
+     * Determina si hay un ganador, verificando una secuencia ganadora de fichas por fila, columna y diagonal.
+     */
     hayGanador(casillero, cantFichasParaGanar, equipo) {
         return this.verificarFila(casillero.fila, cantFichasParaGanar, equipo) || 
             this.verificarColumna(casillero.columna, cantFichasParaGanar, equipo) ||
@@ -216,6 +266,9 @@ export class Tablero {
             this.verificarDiagonalDerecha(casillero.fila, casillero.columna, cantFichasParaGanar, equipo);
     }
 
+    /**
+     * Verifica secuencia ganadora por fila.
+     */
     verificarFila(fila, cantFichasParaGanar, equipo) {
         this.fichasGanadoras.length = 0;
         for (let col = 0; col < this.maxColumnas; col++) {
@@ -233,6 +286,9 @@ export class Tablero {
         return false;
     }
     
+    /**
+     * Verifica secuencia ganadora por columna.
+     */
     verificarColumna(columna, cantFichasParaGanar, equipo) {
         this.fichasGanadoras.length = 0;
         for (let fila = 0; fila < this.maxFilas; fila++) {
@@ -250,6 +306,9 @@ export class Tablero {
         return false;
     }
     
+    /**
+     * Verifica secuencia ganadora por diagonal izquierda.
+     */
     verificarDiagonalIzquierda(fila, columna, cantFichasParaGanar, equipo) {
         this.fichasGanadoras.length = 0;
 
@@ -275,6 +334,9 @@ export class Tablero {
         return false;
     }
     
+    /**
+     * Verifica secuencia ganadora por diagonal derecha.
+     */
     verificarDiagonalDerecha(fila, columna, cantFichasParaGanar, equipo) {
         this.fichasGanadoras.length = 0;
 
@@ -299,12 +361,18 @@ export class Tablero {
         return false;
     }
 
+    /**
+     * Cuando hay ganador, resalta la secuencia ganadora de fichas.
+     */
     resaltarFichasGanadoras() {
         for (let f of this.fichasGanadoras) {
             f.resaltada = true;
         }
     }
 
+    /**
+     * Actualiza los casilleros de lanzamiento y el desplazamiento de fichas soltadas al casillero de lanzamiento activo.
+     */
     actualizar() {
         for (let c of this.casillerosLanzamiento) {
             c.actualizar();
@@ -315,6 +383,9 @@ export class Tablero {
         }
     }
     
+    /**
+     * Dibuja los casilleros y los casilleros de lanzamiento.
+     */
     dibujar(ctx) {
         // Casilleros
         for (let f = 0; f < this.casilleros.length; f++) {

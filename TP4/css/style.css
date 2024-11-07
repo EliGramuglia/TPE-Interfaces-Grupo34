@@ -1,0 +1,28 @@
+/* ------------------- Variables globales ------------------- */
+
+:root {
+    /* Colores para los backgrounds */
+    --violeta: #5829BF;
+    --amarillo: #EFB71E;
+    --linear-1: linear-gradient(180deg, #88DE7F 0%, #A8EBEC 46%);
+    --linear-2: linear-gradient(0deg, #E0D299 0%, #ADF8FD 44%, #EDFDFD 82%, #FFFFFF 100%);
+    --linear-header: linear-gradient(0deg, #00D1D5 0%, #00D1D5 88%, #01D0D5 100%); /*modificar*/
+
+
+    /* Colores para los botones */
+    --btn-verde: #83C252;
+}
+
+
+/* ------------------- Estilo general ------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    border: none;
+}
+
+body {
+    font-family: 'Lato';
+}

@@ -24,6 +24,7 @@ export class Ficha {
         this.preparada = false;
         this.enCaida = false;
         this.colocada = false;
+        this.resaltada = false;
         this.equipo = equipo;
 
         // Carga de imagen
@@ -35,25 +36,53 @@ export class Ficha {
         };
     }
 
+    /**
+     * Actualiza la posición de la ficha simulando la gravedad y el rebote.
+     */
     actualizar() {
         if (this.preparada && this.enCaida) {
             this.vy += this.gravedad;
             this.y += this.vy;
             
-            if (this.y + this.radio > this.limiteInferior) {
-                this.y = this.limiteInferior - this.radio;
+            if (this.y > this.limiteInferior) {
+                this.y = this.limiteInferior;
                 this.vy *= -1;
                 this.vy *= this.friccion;
             }
         }
     }
 
-    dibujar(ctx) {
+    /**
+     * Dibuja la ficha teniendo en cuenta: 1) si pertenece al jugador oponente; 2) si pertenece al conjunto ganador.
+     */
+    dibujar(ctx, equipoJugadorActual) {
         if (this.imgCargada) {
+            // Imagen de ficha
             ctx.drawImage(this.img, this.x - this.radio, this.y - this.radio, this.radio * 2, this.radio * 2);
+
+            // Se oscurecen las fichas del oponente
+            if (this.equipo != equipoJugadorActual && !this.colocada) {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radio, 0, Math.PI * 2, false);
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+                ctx.fill();
+                ctx.closePath();
+            }
+
+            // Se resaltan las fichas ganadoras
+            if (this.resaltada) {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radio, 0, Math.PI * 2, false);
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+                ctx.fill();
+                ctx.closePath();
+            }
         }
     }
 
+    /**
+     * Verifica si la ficha está siendo seleccionada (arrastrada) por el mouse.
+     */
     seleccionar(coordenadasMouse) {
         const distX = coordenadasMouse.x - (this.x);
         const distY = coordenadasMouse.y - (this.y);

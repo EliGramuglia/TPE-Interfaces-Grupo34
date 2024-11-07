@@ -22,7 +22,7 @@
             <img src="img/iconos/lupa.png" alt="Ícono lupa" id="imagen-lupa">
         </div>
         <div class="iconos">
-            <img src="img/iconos/carrito.png" alt="Carrito de compras" class="imagen-iconos icon-hover">
+            <img src="img/iconos/tarjetas-juegos/carrito-agregar.png" alt="Carrito de compras" class="imagen-iconos icon-hover" id="img-carrito">
             <img src="img/iconos/perfil-desplegable/foto-de-perfil.png" alt="Perfil de usuario"
                 class="imagen-iconos icon-hover" id="icono-perfil">
         </div>
@@ -126,22 +126,24 @@
         <section class="contenedor-pantalla-juego">
             <div class="pantalla-juego" id="pantallaJuego">
                 <div class="previsualizacion">
-                    <img src="img/tarjetas/4EnLinea.png" alt="" class="mini-portada-juego">
-                    <h2>4 en línea</h2>
+                    <img src="img/tarjetas/4enLinea.png" alt="" class="mini-portada-juego">
+                    <h2>X en línea</h2>
                     <button id="btn-jugar-especial">jugar</button>
                     <div id="animacion-carga" class="oculto"></div>
                 </div>
                 <div class="contenedor-modos-tablero oculto">
                     <img id="logo-juego" src="img/pagina-juego/perros-vs-gatos/logo-juego.png" alt="logo del juego">
-                    <h2>Selecciona el tipo de tablero para comenzar a jugar</h2>
+                    <h2 class="title-config">Selecciona el tipo de tablero para comenzar a jugar</h2>
                     <div id="grupo-opc-tablero">
                         <button id="btn-opc1" class="btn-tipoTablero">4 en línea</button>
                         <button id="btn-opc2" class="btn-tipoTablero">5 en línea</button>
                         <button id="btn-opc3" class="btn-tipoTablero">6 en línea</button>
+                        <button id="btn-opc4" class="btn-tipoTablero">7 en línea</button>
                     </div>
                 </div>
                 <div id="contenedor-configuracion-juego" class="oculto">
-                    <h2>Selecciona un bando</h2>
+                    <div class="info-tablero-seleccionado">Tablero: <span id="tablero-elegido"></span></div>
+                    <h2 class="title-config">Selecciona un bando</h2>
                     <div id="contenedor-opc-equipo">
                         <div class="caja-opc-equipo">
                             <h3>Gatos</h3>
@@ -161,8 +163,10 @@
                             <button class="btn-equipo" id="btn-equipo-perro">
                                 <img id="fichaPrincipalPerro" src="img/pagina-juego/perros-vs-gatos/ficha-perro-1.png" alt="">
                             </button>
-                            <button id="btnModificarFichaPerro" class="btn-modificar-ficha">Cambiar ficha <img src="img/iconos/icono-flecha-corta.png"
-                                    alt=""></button>
+                            <button id="btnModificarFichaPerro" class="btn-modificar-ficha">
+                                Cambiar ficha
+                                <img src="img/iconos/icono-flecha-corta.png" alt="">
+                                </button>
                             <div class="cajas-opc-fichas objInvisible" id="cajas-opc-fichas-perro">
                                 <button><img class="imgs-dog" src="img/pagina-juego/perros-vs-gatos/ficha-perro-1.png" alt=""></button>
                                 <button><img class="imgs-dog" src="img/pagina-juego/perros-vs-gatos/ficha-perro-2.png" alt=""></button>
@@ -175,15 +179,32 @@
                         <button id="btn-jugar-comenzar">Comenzar</button>
                     </div>
                 </div>
+                <div class="oculto" id="contenedor-card-ganador">
+                    <h2 id="titulo-card-ganador">Ganador</h2>
+                    <img id="img-ganador" src="" alt="">
+                    <p id="text-ganador"></p>
+                    <div class="btns-card-resultado">
+                        <button class="botones-juego-canvas" id="btn-card-reset"><img src="img/pagina-juego/perros-vs-gatos/flecha-btn-juego.png" alt="Flecha para reiniciar el juego"></button>
+                        <button class="botones-juego-canvas" id="btn-card-volver-config"><img src="img/pagina-juego/perros-vs-gatos/home-btn-juego.png" alt="ícono para volver al Home"></button>
+                    </div>    
+                </div>
                 <!-- Canvas del juego -->
-                 <div id="contenedor-canvas-juego">
-                    <div id="contenedor-botones-canva-juego">
-                        <button class="botones-juego-canvas" id="btn-review"><img src="img/pagina-juego/perros-vs-gatos/flecha-btn-juego.png" alt="Flecha para reiniciar el juego"></button>
-                        <button class="botones-juego-canvas" id="btn-pause"><img src="img/pagina-juego/perros-vs-gatos/pausa-btn-juego.png" alt="ícono para pausar el juego"></button>
+                <div id="contenedor-canvas-juego">
+                    <div id="contenedor-botones-canvas-juego">
+                        <button class="botones-juego-canvas" id="btn-reset"><img src="img/pagina-juego/perros-vs-gatos/flecha-btn-juego.png" alt="Flecha para reiniciar el juego"></button>
+                        <!-- mensaje de confirmacion para accionar -->
+                        <div id="contenedor-mensaje-confirmacion" class="oculto">
+                            <h2>¿Esta seguro de reiniciar la partida?</h2>
+                            <div id="grupo-opc-confirmacion">
+                                <button id="btn-confirmacion-no">No</button>
+                                <button id="btn-confirmacion-si">Si</button>
+                            </div>
+                        </div>
+                        <button class="botones-juego-canvas" id="btn-pause"><img src="img/pagina-juego/perros-vs-gatos/reproduciendo-btn-juego.png" alt="ícono para pausar el juego" id="img-estado-juego"></button>
                         <button class="botones-juego-canvas" id="btn-home"><img src="img/pagina-juego/perros-vs-gatos/home-btn-juego.png" alt="ícono para volver al Home"></button>
                     </div>
                     <canvas id="canvas" class="oculto"></canvas>
-                 </div>
+                </div>
 
                 <!-- Contenedor de instrucciones del juego -->
                 <section id="caja-instrucciones" class="contenedor-controles-juego">
@@ -194,22 +215,20 @@
                                 alt="btn cerrar instrucciones"></button>
                     </div>
                     <div class="caja-reglas">
-                        <img src="img/pagina-juego/img1-reglas.png" alt="">
-                        <img id="clickMouse" src="img/pagina-juego/mouse-click.png" alt="mouse haciendo click">
-                        <p>Clickea el lugar en el que quieres colocar tu ficha, ya sea horizontal, vertical o diagonal
+                        <img src="img/pagina-juego/regla-1.png" alt="">
+                        <p> <span class="negrita">Para ganar, debes conectar al menos X fichas formando una línea recta.</span> Las líneas pueden ser verticales, horizontales o diagonales.
                         </p>
                     </div>
                     <div class="caja-reglas">
-                        <img src="img/pagina-juego/img2-reglas.png" alt="">
-                        <div id="circulos-instrucciones">
-                            <p>1</p>
-                            <p>2</p>
-                            <p>3</p>
-                            <p>4</p>
-                        </div>
-                        <p>Tienes que crear una línea de cuatro fichas de tu color para ganar</p>
-                        <h3 class="resaltado">¡Ya puedes empezar!</h3>
+                        <img src="img/pagina-juego/regla-2.png" alt="">
+                        <p> <span class="negrita">Las flechas resaltadas indican la zona permitida para dejar caer las fichas.</span>
+                            Por fuera de esa zona no es valido el movimiento</p>
                     </div>
+                    <div class="caja-reglas">
+                        <img src="img/pagina-juego/regla-3.png" alt="">
+                        <p><span class="negrita">Las fichas del jugador que tiene el turno estaran resaltadas</span></p>
+                    </div>
+                        <h3>¡Ya puedes empezar!</h3>
                 </section>
             </div>
             <nav class="nav-juego">
@@ -241,7 +260,7 @@
             <img id="info-4-en-linea" src="img/tarjetas/4enLinea.png" alt="portada del juego">
             <div class="contenedor-informacion-juego">
                 <div class="titulo-descripcion">
-                    <h2>4 en linea</h2>
+                    <h2>X en linea</h2>
                     <div class="caja-valoracion-juego">
                         <img id="img-estrella" class="filtro-oscuro" src="img/iconos/icono-estrella-descripcion.png"
                             alt="estrellita">
@@ -250,10 +269,10 @@
                 </div>
                 <div class="texto-descricion">
                     <p>Disfruta de un juego que combina la simplicidad de sus reglas con una profundidad estratégica
-                        sorprendente. Conecta cuatro fichas en una fila, vertical, horizontal o diagonal, y demuestra tu
+                        sorprendente. Conecta cuatro o mas fichas en una fila dependiendo el tablero elegido, de forma vertical, horizontal o diagonal, y demuestra tu
                         habilidad para planificar y anticipar los movimientos de tu adversario. ¡La diversión está
                         garantizada!</p>
-                    <p>Elige tu bando favorito y sumergete en este emocionante juego de 4 en línea.</p>
+                    <p>Elige tu bando favorito y sumergete en este emocionante juego de x en línea.</p>
                     <p class="detalles-descripcion">Autor: <span class="letra-cursiva">Pro Gamers</span></p>
                     <p>Fecha de publicación: <span class="letra-cursiva">14/09/2024</span></p>
                 </div>
@@ -441,14 +460,6 @@
 
     <!-- Archivos JS del juego -->
     <script type="module" src="js/perros-vs-gatos/opcionesJuego.js"></script>
-    <!-- 
-    <script type="module" src="js/perros-vs-gatos/casillero.js"></script>
-    <script type="module" src="js/perros-vs-gatos/tablero.js"></script>
-    <script type="module" src="js/perros-vs-gatos/ficha.js"></script>
-    <script type="module" src="js/perros-vs-gatos/jugador.js"></script>
-    <script type="module" src="js/perros-vs-gatos/juego.js"></script>
-    <script type="module" src="js/perros-vs-gatos/main.js"></script> 
-    -->
 </body>
 
 </html>

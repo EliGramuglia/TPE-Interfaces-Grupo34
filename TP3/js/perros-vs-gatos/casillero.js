@@ -11,6 +11,7 @@ export class Casillero {
         this.fila = fila;
         this.columna = columna;
         this.ficha = null;
+        this.resaltado = false;
         
         this.img = new Image();
         this.img.src = './img/pagina-juego/perros-vs-gatos/casillero-madera-clara.png';
@@ -20,7 +21,22 @@ export class Casillero {
         };
     }
 
+    /**
+     * Dibuja el casillero teniendo en cuenta su estado (resaltado o no resaltado).
+     */
     dibujar(ctx) {
+        // Si el casillero está resaltado, se oscurece el fondo del mismo
+        if (this.resaltado) {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+            ctx.fillRect(
+                Math.round(this.x), 
+                Math.round(this.y), 
+                Math.round(this.tamanio), 
+                Math.round(this.tamanio)
+            );
+        }
+
+        // Imagen del casillero
         ctx.drawImage(this.img, this.x, this.y, this.tamanio, this.tamanio);
     }
 

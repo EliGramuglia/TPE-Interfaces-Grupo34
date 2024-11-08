@@ -29,6 +29,8 @@
 
 body {
     font-family: 'Lato';
+    /* ancho en el que se van a fijar el diseño */
+    width: 1080px;
 }
 
 /* .seccion {
@@ -116,7 +118,7 @@ header button#btn-comprar {
     width: 100%;
     height: 1259px;
     padding: 0 100px;
-    background-image: url('../img/number-blocks/seccion-2/fondo-seccion-2.svg');
+    background-image: url('../img/number-blocks/sec_2_publiTextual/fondo-seccion-2.svg');
     background-repeat: no-repeat;
     position: relative;
 }
@@ -189,7 +191,7 @@ header button#btn-comprar {
 /* ------------------- Sección 4: publicidad descarga   ------------------- */
 #contenedor-publicidad-descarga {
     height: 1157px;
-    background-image: url('../img/number-blocks/seccion-4/fondo-seccion-3.svg');
+    background-image: url('../img/number-blocks/sec_4_promo_descarga/fondo-seccion-3.svg');
     background-repeat: no-repeat;
     color: white;
     position: relative;
@@ -225,7 +227,7 @@ header button#btn-comprar {
 /* ------------------- Sección 6: categorias juego  ------------------- */
 #contenedor-video-publicidad{
     height: 989px;
-    background-image: url('../img/number-blocks/seccion-6/fondo-seccion-6.svg');
+    background-image: url('../img/number-blocks/sec_6_muestra_modelo_3d/fondo-seccion-6.svg');
     background-repeat: no-repeat;
     background-position: ce;
     margin-top: 147px;
@@ -237,7 +239,7 @@ header button#btn-comprar {
 #contenedor-video-publicidad .video-publicidad{
     width: 804px;
     height: 452px;
-    background-image: url('../img/number-blocks/seccion-6/portada-video.png');
+    background-image: url('../img/number-blocks/sec_6_muestra_modelo_3d/portada-video.png');
     border: 29px solid white;
     border-radius: 45px;
     margin-top: 46px;
@@ -273,12 +275,9 @@ header button#btn-comprar {
 #contenedor-presentacion-personajes{
     width: 100%;
     background-image: linear-gradient(to right, #8f1010, #ff0);
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 373px auto;
-    column-gap: 30px;
-    row-gap: 30px;
     margin-top: 54px;
+    display: flex;
+    flex-direction: column;
 }
 #contenedor-presentacion-personajes img{
     transition: all .5s ease;
@@ -287,3 +286,44 @@ header button#btn-comprar {
     transform: scale(1.1);
 }
 
+/* ------------------- Sección N: footer  ------------------- */
+footer{
+    background-color: #5E5E5D;
+    color: white;
+}
+
+footer .plataformas-disponibles{
+    height: 80px;
+    padding: 0 100px;
+    background-color: #242424;
+    display: flex;
+    align-items: center;
+}
+footer .plataformas-disponibles img{
+    width: 100%;
+    height: max-content;
+}
+footer .info-footer{
+    padding: 35px 100px;
+}
+
+
+.politicas-privacidad{
+    display: flex;
+    gap: 10px;
+}
+footer p{
+    width: 820px;
+    line-height: 94.5%;
+    letter-spacing: 11%;
+    font-weight: lighter;
+}
+footer a.subrayado{
+    text-decoration: underline;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    border-bottom: 1px solid white;
+    margin: 14px 0 34px  0;
+}

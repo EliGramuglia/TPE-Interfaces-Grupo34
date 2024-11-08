@@ -1,0 +1,289 @@
+/* ------------------- Variables globales ------------------- */
+
+:root {
+    /* Colores para los backgrounds */
+    --violeta: #5829BF;
+    --amarillo: #EFB71E;
+    --linear-1: linear-gradient(180deg, #88DE7F 0%, #A8EBEC 46%);
+    --linear-2: linear-gradient(0deg, #E0D299 0%, #ADF8FD 44%, #EDFDFD 82%, #FFFFFF 100%);
+    --linear-header: linear-gradient(0deg, #00D1D5 0%, #00D1D5 88%, #01D0D5 100%);
+    /*modificar*/
+
+
+    /* Colores de la pag*/
+    --verde-primario: #83C252;
+    --naranja-primario: #F39E46;
+    --azul-primario: #02197d;
+    --azul-text: #1B428F;
+    --azul-bordes: #1B5F99;
+}
+
+/* ------------------- Estilo general ------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+    list-style: none;
+    border: none;
+}
+
+body {
+    font-family: 'Lato';
+}
+
+/* .seccion {
+    width: 100%;
+    max-width: 1280px; 
+    margin: 0 auto; 
+} */
+
+
+.btn-estilo-general {
+    background-color: var(--verde-primario);
+    font-size: 20px;
+    border: 8px solid white;
+    border-radius: 111px;
+    color: white;
+    /* buscar el font-weight exacto del btn comprar */
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 4px 5px 0 var(--azul-primario);
+}
+
+.text {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.img {
+    width: 100%;
+}
+
+.txt-cursiva {
+    font-style: oblique;
+}
+
+h2 {
+    font-size: 60px;
+}
+
+/* ------------------- Header ------------------- */
+header {
+    height: 103px;
+    background-image: linear-gradient(to bottom, rgba(0, 209, 213, 1), rgba(0, 209, 213, 0.12) 88%, rgba(0, 209, 213, 0));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header #menu-hamburguesa div {
+    width: 34px;
+    height: 4px;
+    background-color: var(--naranja-primario);
+    border: 4px white solid;
+    border-radius: 111px;
+    box-shadow: 4px 5px 0 var(--azul-primario);
+    cursor: pointer;
+}
+
+header #img-logo {
+    width: 150px;
+    height: 86px;
+}
+
+header button#btn-comprar {
+    padding: 16px 43px 15px;
+    text-transform: uppercase;
+}
+
+
+/* ------------------- Sección 1: hero -> presentacion visual   ------------------- */
+#contenedor-hero-visual {
+    width: 100%;
+}
+
+#contenedor-hero-visual img{
+    width: 100%;
+    height: 959px;
+}
+
+/* ------------------- Sección 2: presentacion textual   ------------------- */
+#contenedor-presentacion-textual {
+    width: 100%;
+    height: 1259px;
+    padding: 0 100px;
+    background-image: url('../img/number-blocks/seccion-2/fondo-seccion-2.svg');
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.contenedor-informacion {
+    width: 704px;
+}
+
+.contenedor-informacion h1 {
+    width: 508px;
+    padding-top: 60px;
+    font-size: 47px;
+    color: var(--azul-text);
+}
+
+.contenedor-informacion p.text {
+    color: var(--azul-text);
+    margin-top: 22px;
+}
+
+.caja-video-presentacion {
+    border: 29px solid var(--azul-bordes);
+    border-radius: 77px;
+    overflow: hidden;
+    width: 576.38px;
+    height: 324.35px;
+    margin-top: 24px;
+    float: right;
+}
+
+#pj-cuadrado-1 {
+    width: 601.64px;
+    height: 603px;
+    position: absolute;
+    top: 637px;
+    left: 18px;
+}
+
+#pj-cuadrado-2 {
+    width: 572px;
+    height: 1259px;
+    position: absolute;
+    top: -107px;
+    right: 0;
+}
+
+/* ------------------- Sección 3: recomendacion videos   ------------------- */
+#contenedor-videos-recomendados {
+    padding: 80px 100px 88px;
+    display: flex;
+    gap: 41px;
+}
+
+.tarjeta-recomendacion {
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+}
+
+.tarjeta-recomendacion .contenedor-video {
+    width: 332.96px;
+    height: 302.69px;
+    border-radius: 41px;
+    border: 9px solid #2982FF;
+    box-shadow: 4px 5px 0 #02187E;
+    overflow: hidden;
+}
+
+/* ------------------- Sección 4: publicidad descarga   ------------------- */
+#contenedor-publicidad-descarga {
+    height: 1157px;
+    background-image: url('../img/number-blocks/seccion-4/fondo-seccion-3.svg');
+    background-repeat: no-repeat;
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 62px;
+}
+
+#contenedor-publicidad-descarga h2 {
+    width: 950px;
+    padding-top: 175px;
+}
+
+#btn-descarga {
+    padding: 16px 65px;
+    font-size: 31px;
+}
+
+#fondo-personajes {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/* ------------------- Sección 5: categorias juego  ------------------- */
+
+
+
+
+/* ------------------- Sección 6: categorias juego  ------------------- */
+#contenedor-video-publicidad{
+    height: 989px;
+    background-image: url('../img/number-blocks/seccion-6/fondo-seccion-6.svg');
+    background-repeat: no-repeat;
+    background-position: ce;
+    margin-top: 147px;
+    padding: 308px 100px;
+    color: white;
+    font-weight: bolder;
+    position: relative;
+}
+#contenedor-video-publicidad .video-publicidad{
+    width: 804px;
+    height: 452px;
+    background-image: url('../img/number-blocks/seccion-6/portada-video.png');
+    border: 29px solid white;
+    border-radius: 45px;
+    margin-top: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#icono-play{
+    width: 101px;
+    height: auto;
+}
+#pj-seccion-6{
+    width: 638px;
+    height: 989px;
+    position: absolute;
+    right: 0;
+    top: 350px;
+}
+/* ------------------- Sección 7: publicidad objeto 3d  ------------------- */
+/* #contenedor-objeto-3d-publicidad{
+    
+} */
+
+#contenedor-objeto-3d-publicidad h2{
+    width: 746px;
+    color: #9D2121;
+}
+
+#contenedor-objeto-3d-publicidad p{
+    width: 467px;
+}   
+/* ------------------- Sección 8: presentacion personajes  ------------------- */
+#contenedor-presentacion-personajes{
+    width: 100%;
+    background-image: linear-gradient(to right, #8f1010, #ff0);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 373px auto;
+    column-gap: 30px;
+    row-gap: 30px;
+    margin-top: 54px;
+}
+#contenedor-presentacion-personajes img{
+    transition: all .5s ease;
+}
+#contenedor-presentacion-personajes img:hover{
+    transform: scale(1.1);
+}
+

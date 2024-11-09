@@ -30,7 +30,8 @@
 body {
     font-family: 'Lato';
     /* ancho en el que se van a fijar el diseño */
-    width: 1280px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 /* .seccion {

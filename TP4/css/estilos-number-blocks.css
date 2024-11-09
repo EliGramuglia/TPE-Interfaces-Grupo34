@@ -22,7 +22,7 @@
 * {
     margin: 0;
     padding: 0;
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
     list-style: none;
     border: none;
 }
@@ -30,7 +30,7 @@
 body {
     font-family: 'Lato';
     /* ancho en el que se van a fijar el diseño */
-    width: 1080px;
+    width: 1280px;
 }
 
 /* .seccion {

@@ -50,6 +50,7 @@ body {
     font-weight: 900;
     cursor: pointer;
     box-shadow: 4px 5px 0 var(--azul-primario);
+    font-family: 'Lato';
 }
 
 .text {
@@ -77,8 +78,10 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 0 100px;
-    position: sticky;
+    position: fixed;
     top: 0;
+    right: calc(100% - 1080px);
+    left: 0;
     z-index: 100;
 }
 

@@ -31,15 +31,8 @@ body {
     font-family: 'Lato';
     /* ancho en el que se van a fijar el diseño */
     width: 100%;
-    margin: 0 auto;
+
 }
-
-/* .seccion {
-    width: 100%;
-    max-width: 1280px; 
-    margin: 0 auto; 
-} */
-
 
 .btn-estilo-general {
     background-color: var(--verde-primario);
@@ -72,9 +65,13 @@ body {
 h2 {
     font-size: 60px;
 }
-
+#contenedor-pagina{
+    width: 1280px;
+    margin: 0 auto;
+}
 /* ------------------- Header ------------------- */
 header {
+    width: 1280px;
     height: 103px;
     background-image: linear-gradient(to bottom, rgba(0, 209, 213, 1), rgba(0, 209, 213, 0.12) 88%, rgba(0, 209, 213, 0));
     display: flex;
@@ -83,14 +80,14 @@ header {
     padding: 0 100px;
     position: fixed;
     top: 0;
-    right: calc(100% - 1080px);
-    left: 0;
+    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 100;
 }
 
 header #menu-hamburguesa div {
-    width: 34px;
-    height: 4px;
+    padding: 2px 17px;
     background-color: var(--naranja-primario);
     border: 4px white solid;
     border-radius: 111px;
@@ -232,7 +229,8 @@ header button#btn-comprar {
 
 /* ------------------- Sección 6: categorias juego  ------------------- */
 #contenedor-video-publicidad{
-    height: 989px;
+    /* no va max-content */
+    height: max-content;
     background-image: url('../img/number-blocks/sec_6_muestra_modelo_3d/fondo-seccion-6.svg');
     background-repeat: no-repeat;
     background-position: ce;
@@ -251,7 +249,6 @@ header button#btn-comprar {
     margin-top: 46px;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 #icono-play{
     width: 101px;
@@ -262,7 +259,7 @@ header button#btn-comprar {
     height: 989px;
     position: absolute;
     right: 0;
-    top: 350px;
+    top: 150px;
 }
 /* ------------------- Sección 7: publicidad objeto 3d  ------------------- */
 /* #contenedor-objeto-3d-publicidad{
@@ -280,10 +277,13 @@ header button#btn-comprar {
 /* ------------------- Sección 8: presentacion personajes  ------------------- */
 #contenedor-presentacion-personajes{
     width: 100%;
-    background-image: linear-gradient(to right, #8f1010, #ff0);
+    background-image: 
+    linear-gradient(to right, #8f1010,#cc1f1d,#dbc51d,#58e009,#38f3fc, #38f3fc),
+    linear-gradient(to right, #5e3c9e,#35e8a7,#de3394,#82817f,#fafffe);                                           
     margin-top: 54px;
     display: flex;
     flex-direction: column;
+    gap: 30px;
 }
 #contenedor-presentacion-personajes img{
     transition: all .5s ease;
@@ -291,11 +291,17 @@ header button#btn-comprar {
 #contenedor-presentacion-personajes img:hover{
     transform: scale(1.1);
 }
+.catalogo-personajes{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
 
 /* ------------------- Sección N: footer  ------------------- */
 footer{
     background-color: #5E5E5D;
     color: white;
+    width: 100%;
 }
 
 footer .plataformas-disponibles{

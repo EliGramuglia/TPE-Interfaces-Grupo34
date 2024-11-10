@@ -6,8 +6,6 @@
     --amarillo: #EFB71E;
     --linear-1: linear-gradient(180deg, #88DE7F 0%, #A8EBEC 46%);
     --linear-2: linear-gradient(0deg, #E0D299 0%, #ADF8FD 44%, #EDFDFD 82%, #FFFFFF 100%);
-    --linear-header: linear-gradient(0deg, #00D1D5 0%, #00D1D5 88%, #01D0D5 100%);
-    /*modificar*/
 
 
     /* Colores de la pag*/
@@ -29,17 +27,20 @@
 
 body {
     font-family: 'Lato';
-    /* ancho en el que se van a fijar el diseño */
     width: 100%;
     margin: 0 auto;
 }
 
-/* .seccion {
-    width: 100%;
-    max-width: 1280px; 
-    margin: 0 auto; 
-} */
+ .contenedor-1280 {
+    width: 1280px;
+    margin: 0 auto;
+    background-color: #f0f0f0; /*FONDO DE EJEMPLO (LUEGO BORRARLO)*/
+} 
 
+.contenedor-1080 {
+    max-width: 1080px;
+    margin: 0 auto;
+}
 
 .btn-estilo-general {
     background-color: var(--verde-primario);
@@ -47,7 +48,6 @@ body {
     border: 8px solid white;
     border-radius: 111px;
     color: white;
-    /* buscar el font-weight exacto del btn comprar */
     font-weight: 900;
     -webkit-text-stroke: 1px white;
     letter-spacing: 1.5px;
@@ -74,18 +74,20 @@ h2 {
 }
 
 /* ------------------- Header ------------------- */
-header {
+div header {
     height: 103px;
     background-image: linear-gradient(to bottom, rgba(0, 209, 213, 1), rgba(0, 209, 213, 0.12) 88%, rgba(0, 209, 213, 0));
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 100px;
+    padding: 0 90px;
     position: fixed;
     top: 0;
-    right: calc(100% - 1080px);
+    right: 0;
     left: 0;
     z-index: 100;
+    margin: 0 auto;
+    max-width: 1280px;
 }
 
 header #menu-hamburguesa div {
@@ -173,7 +175,6 @@ header button#btn-comprar {
 
 /* ------------------- Sección 3: recomendacion videos   ------------------- */
 #contenedor-videos-recomendados {
-    padding: 80px 100px 88px;
     display: flex;
     gap: 41px;
 }
@@ -201,10 +202,13 @@ header button#btn-comprar {
     background-repeat: no-repeat;
     color: white;
     position: relative;
+}
+
+#contenedor-publicidad-descarga div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    text-align: center;
     gap: 62px;
 }
 
@@ -232,16 +236,21 @@ header button#btn-comprar {
 
 /* ------------------- Sección 6: categorias juego  ------------------- */
 #contenedor-video-publicidad{
-    height: 989px;
+    height: 1444px;
     background-image: url('../img/number-blocks/sec_6_muestra_modelo_3d/fondo-seccion-6.svg');
     background-repeat: no-repeat;
     background-position: ce;
-    margin-top: 147px;
     padding: 308px 100px;
-    color: white;
-    font-weight: bolder;
     position: relative;
 }
+
+#contenedor-video-publicidad h2 {
+    color: white;
+    font-weight: 600;
+    font-size: 60px;
+}
+
+
 #contenedor-video-publicidad .video-publicidad{
     width: 804px;
     height: 452px;
@@ -269,7 +278,7 @@ header button#btn-comprar {
     
 } */
 
-#contenedor-objeto-3d-publicidad h2{
+#contenedor-objeto-3d-publicidad h2{ /*ARREGLAAAAAAAAAAAR*/
     width: 746px;
     color: #9D2121;
 }
@@ -313,17 +322,23 @@ footer .info-footer{
     padding: 35px 100px;
 }
 
-
 .politicas-privacidad{
     display: flex;
     gap: 10px;
 }
-footer p{
+
+.info-footer div {
     width: 820px;
-    line-height: 94.5%;
-    letter-spacing: 11%;
-    font-weight: lighter;
 }
+
+.info-footer div p {
+    line-height: 94.5%;
+    letter-spacing: 2px;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+
 footer a.subrayado{
     text-decoration: underline;
     text-transform: uppercase;

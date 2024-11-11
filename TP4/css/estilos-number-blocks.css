@@ -151,6 +151,7 @@ header button#btn-comprar {
 
 /* ------------------- Sección 3: recomendacion videos   ------------------- */
 #contenedor-videos-recomendados {
+    padding: 80px 100px 88px;
     display: flex;
     gap: 41px;
 }
@@ -210,7 +211,7 @@ header button#btn-comprar {
 
 
 
-/* ------------------- Sección 6: categorias juego  ------------------- */
+/* ------------------- Sección 6: trailer  ------------------- */
 #contenedor-video-publicidad{
     height: 1444px;
     padding: 308px 100px;
@@ -252,15 +253,16 @@ header button#btn-comprar {
     right: 0;
     top: 350px;
 }
-/* ------------------- Sección 7: publicidad objeto 3d  ------------------- */
+/* ------------------- Sección 7: modelo de objeto 3d  ------------------- */
 #contenedor-objeto-3d-publicidad{
     padding-left: 100px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
 }
 .contenedor-info-modelo_3d {
-    width: 40%; /* Ajusta el ancho según sea necesario */
+    margin-top: 220px;
+    width: 40%;
 }
 .contenedor-info-modelo_3d p, #contenedor-objeto-3d-publicidad h2{
     line-height: 94.5%;
@@ -285,7 +287,6 @@ header button#btn-comprar {
 #contenedor-presentacion-personajes{
     width: 100%;
     background-image: url('../img/number-blocks/sec_8_presentacion_personajes/fondo-arcoiris.svg');
-    margin-top: 54px;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -301,8 +302,10 @@ header button#btn-comprar {
     justify-content: space-between;
     gap: 30px;
 }
+/* ------------------- Sección 9: pre footer  ------------------- */
 
-/* ------------------- Sección N: footer  ------------------- */
+
+/* ------------------- Sección: footer  ------------------- */
 footer{
     background-color: #5E5E5D;
     color: white;

@@ -317,6 +317,7 @@ header button#btn-comprar {
 #pre-footer {
     height: 1570px;
     background: linear-gradient(0deg, #E0D299 0%, #ADF8FD 44%, #EDFDFD 82%, #FFFFFF 100%);
+    position: relative;
 }
 
 #contenedor-pre-footer {
@@ -379,6 +380,7 @@ header button#btn-comprar {
     font-family: 'Lato';
     line-height: 94.5%;
     -webkit-text-stroke: 1px white;
+    padding: 0 22px;
 }
 
 #texto-inscribirse {
@@ -402,10 +404,33 @@ header button#btn-comprar {
     height: 145px;
 }
 
+#fondo-loma-verde img {
+    position: absolute;
+    height: 389px;
+    bottom: 0px;
+}
 
+#gif-2 {
+    height: 480px;
+    position: absolute;
+    top: 1048px;
+    left: 65px;
 
+}
 
+#gif-3 {
+    position: absolute;
+    height: 509px;
+    top: 1019px;
+    left: 407px;
+}
 
+#gif-7 {
+    position: absolute;
+    height: 997px;
+    top: 613px;
+    left: 756px;
+}
 
 
 /* ------------------- Sección: footer  ------------------- */

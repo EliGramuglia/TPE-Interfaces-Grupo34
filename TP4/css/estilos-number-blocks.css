@@ -1,21 +1,3 @@
-/* ------------------- Variables globales ------------------- */
-
-:root {
-    /* Colores para los backgrounds */
-    --violeta: #5829BF;
-    --amarillo: #EFB71E;
-    --linear-1: linear-gradient(180deg, #88DE7F 0%, #A8EBEC 46%);
-    --linear-2: linear-gradient(0deg, #E0D299 0%, #ADF8FD 44%, #EDFDFD 82%, #FFFFFF 100%);
-
-
-    /* Colores de la pag*/
-    --verde-primario: #83C252;
-    --naranja-primario: #F39E46;
-    --azul-primario: #02197d;
-    --azul-text: #1B428F;
-    --azul-bordes: #1B5F99;
-}
-
 /* ------------------- Estilo general ------------------- */
 * {
     margin: 0;
@@ -31,19 +13,14 @@ body {
     margin: 0 auto;
 }
 
- .contenedor-1280 {
+.contenedor-1280 {
     width: 1280px;
     margin: 0 auto;
-    background-color: #f0f0f0; /*FONDO DE EJEMPLO (LUEGO BORRARLO)*/
+    background-color: #f0f0f065; /*FONDO DE EJEMPLO (LUEGO BORRARLO)*/
 } 
 
-.contenedor-1080 {
-    max-width: 1080px;
-    margin: 0 auto;
-}
-
 .btn-estilo-general {
-    background-color: var(--verde-primario);
+    background-color: #83C252;
     font-size: 20px;
     border: 8px solid white;
     border-radius: 111px;
@@ -51,9 +28,9 @@ body {
     font-weight: 900;
     -webkit-text-stroke: 1px white;
     letter-spacing: 1.5px;
-    cursor: pointer;
-    box-shadow: 4px 5px 0 var(--azul-primario);
+    box-shadow: 4px 5px 0 #02197d;
     font-family: 'Lato';
+    cursor: pointer;
 }
 
 .text {
@@ -75,29 +52,27 @@ h2 {
 
 /* ------------------- Header ------------------- */
 div header {
+    max-width: 1280px;
     height: 103px;
+    padding: 0 90px;
+    margin: 0 auto;
     background-image: linear-gradient(to bottom, rgba(0, 209, 213, 1), rgba(0, 209, 213, 0.12) 88%, rgba(0, 209, 213, 0));
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 90px;
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     z-index: 100;
-    margin: 0 auto;
-    max-width: 1280px;
 }
 
 header #menu-hamburguesa div {
-    width: 34px;
-    height: 4px;
     padding: 2px 17px;
-    background-color: var(--naranja-primario);
+    background-color: #F39E46;;
     border: 4px white solid;
     border-radius: 111px;
-    box-shadow: 4px 5px 0 var(--azul-primario);
+    box-shadow: 4px 5px 0 #02197d;
     cursor: pointer;
 }
 
@@ -107,7 +82,7 @@ header #img-logo {
 }
 
 header button#btn-comprar {
-    padding: 16px 43px 15px;
+    padding: 15px 43px;
     text-transform: uppercase;
 }
 
@@ -140,16 +115,16 @@ header button#btn-comprar {
     width: 508px;
     padding-top: 60px;
     font-size: 47px;
-    color: var(--azul-text);
+    color: #1B428F;
 }
 
 .contenedor-informacion p.text {
-    color: var(--azul-text);
+    color: #1B428F;
     margin-top: 22px;
 }
 
 .caja-video-presentacion {
-    border: 29px solid var(--azul-bordes);
+    border: 29px solid #1B5F99;
     border-radius: 77px;
     overflow: hidden;
     width: 576.38px;
@@ -202,15 +177,13 @@ header button#btn-comprar {
     background-image: url('../img/number-blocks/sec_4_promo_descarga/fondo-seccion-3.svg');
     background-repeat: no-repeat;
     color: white;
-    position: relative;
-}
-
-#contenedor-publicidad-descarga div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    justify-content: flex-start;
     gap: 62px;
+    position: relative;
+    z-index: 3;
 }
 
 #contenedor-publicidad-descarga h2 {
@@ -221,6 +194,7 @@ header button#btn-comprar {
 #btn-descarga {
     padding: 16px 65px;
     font-size: 31px;
+    z-index: 4;
 }
 
 #fondo-personajes {
@@ -228,6 +202,7 @@ header button#btn-comprar {
     position: absolute;
     bottom: 0;
     left: 0;
+    z-index: 2;
 }
 
 /* ------------------- Sección 5: categorias juego  ------------------- */
@@ -238,24 +213,24 @@ header button#btn-comprar {
 /* ------------------- Sección 6: categorias juego  ------------------- */
 #contenedor-video-publicidad{
     height: 1444px;
-    background-image: url('../img/number-blocks/sec_6_muestra_modelo_3d/fondo-seccion-6.svg');
-    background-repeat: no-repeat;
-    background-position: ce;
     padding: 308px 100px;
+    margin-top: 147px;
+    background-image: url('../img/number-blocks/sec_6_trailer/fondo-seccion-6.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    font-weight: 600;
+    font-size: 60px;
+    color: white;
     position: relative;
 }
 
-#contenedor-video-publicidad h2 {
-    color: white;
-    font-weight: 600;
-    font-size: 60px;
-}
 
 
 #contenedor-video-publicidad .video-publicidad{
     width: 804px;
     height: 452px;
-    background-image: url('../img/number-blocks/sec_6_muestra_modelo_3d/portada-video.png');
+    background-image: url('../img/number-blocks/sec_6_trailer/portada-video.png');
+    background-position: center;
     border: 29px solid white;
     border-radius: 45px;
     margin-top: 46px;
@@ -265,7 +240,6 @@ header button#btn-comprar {
 }
 #icono-play{
     width: 101px;
-    height: 989px;
     position: absolute;
     right: 0;
     top: 150px;
@@ -279,24 +253,38 @@ header button#btn-comprar {
     top: 350px;
 }
 /* ------------------- Sección 7: publicidad objeto 3d  ------------------- */
-/* #contenedor-objeto-3d-publicidad{
-    
-} */
-
-#contenedor-objeto-3d-publicidad h2{ /*ARREGLAAAAAAAAAAAR*/
-    width: 746px;
-    color: #9D2121;
+#contenedor-objeto-3d-publicidad{
+    padding-left: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.contenedor-info-modelo_3d {
+    width: 40%; /* Ajusta el ancho según sea necesario */
+}
+.contenedor-info-modelo_3d p, #contenedor-objeto-3d-publicidad h2{
+    line-height: 94.5%;
 }
 
-#contenedor-objeto-3d-publicidad p{
-    width: 467px;
-}     
+.contenedor-modelo-3d {
+    width: 50%;
+}
+
+#modelo-3d {
+    width: 100%; 
+    height: 970px;
+    margin-top: 10%;
+}
+
+#contenedor-objeto-3d-publicidad h2{ 
+    width: 746px;
+    color: #9D2121;
+    margin-bottom: 43px;
+}    
 /* ------------------- Sección 8: presentacion personajes  ------------------- */
 #contenedor-presentacion-personajes{
     width: 100%;
-    background-image: 
-    linear-gradient(to right, #8f1010,#cc1f1d,#dbc51d,#58e009,#38f3fc, #38f3fc),
-    linear-gradient(to right, #5e3c9e,#35e8a7,#de3394,#82817f,#fafffe);                                           
+    background-image: url('../img/number-blocks/sec_8_presentacion_personajes/fondo-arcoiris.svg');
     margin-top: 54px;
     display: flex;
     flex-direction: column;

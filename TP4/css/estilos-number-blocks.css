@@ -315,12 +315,9 @@ header button#btn-comprar {
 /* ------------------- Sección 9: pre footer  ------------------- */
 
 #pre-footer {
-    height: 1570px;
+    height: 1400px;
     background: linear-gradient(0deg, #E0D299 0%, #ADF8FD 44%, #EDFDFD 82%, #FFFFFF 100%);
     position: relative;
-}
-
-#contenedor-pre-footer {
     margin-top: 195px;
 }
 
@@ -413,7 +410,7 @@ header button#btn-comprar {
 #gif-2 {
     height: 480px;
     position: absolute;
-    top: 1048px;
+    top: 877px;
     left: 65px;
 
 }
@@ -421,15 +418,36 @@ header button#btn-comprar {
 #gif-3 {
     position: absolute;
     height: 509px;
-    top: 1019px;
+    top: 848px;
     left: 407px;
 }
 
 #gif-7 {
     position: absolute;
     height: 997px;
-    top: 613px;
+    top: 442px;
     left: 756px;
+}
+
+#nube-1 {
+    position: absolute;
+    height: 181px;
+    top: 648px;
+    left: 0;
+}
+
+#nube-2 {
+    position: absolute;
+    height: 124px;
+    top: 346px;
+    right: 221px;
+}
+
+#nube-3 {
+    position: absolute;
+    height: 181px;
+    top: 389px;
+    right: 0;
 }
 
 

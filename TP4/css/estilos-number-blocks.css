@@ -93,6 +93,7 @@ div header {
 header #menu-hamburguesa div {
     width: 34px;
     height: 4px;
+    padding: 2px 17px;
     background-color: var(--naranja-primario);
     border: 4px white solid;
     border-radius: 111px;
@@ -264,8 +265,12 @@ header button#btn-comprar {
 }
 #icono-play{
     width: 101px;
-    height: auto;
+    height: 989px;
+    position: absolute;
+    right: 0;
+    top: 150px;
 }
+
 #pj-seccion-6{
     width: 638px;
     height: 989px;

@@ -16,7 +16,6 @@ body {
 .contenedor-1280 {
     width: 1280px;
     margin: 0 auto;
-    background-color: #f0f0f0; /*FONDO DE EJEMPLO (LUEGO BORRARLO)*/
 } 
 
 .contenedor-1080 {
@@ -325,102 +324,6 @@ header button#btn-comprar {
 }
 
 #contenedor-pre-footer #titulo-btn-texto {
-    padding-left: 100px;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-#contenedor-pre-footer #titulo-btn-texto h2 {
-    font-size: 60px;
-    font-weight: 600;
-    line-height: 94.5%;
-    width: 816px;
-   /* margin-bottom: 40px;*/
-}
-
-#suscribirse {
-    height: 100px;
-    width: 780px;
-    display: flex;
-    flex-direction: row;
-    overflow: hidden;
-    border: 9px solid #FFFFFF;
-    border-radius: 50px;
-    box-shadow: 4px 5px #02187E;
-}
-
-#suscribirse input {
-    width: 100%;
-    font-family: "Lato";
-    background-color: #ECECEC;
-    letter-spacing: 2px;
-    font-weight: 400;
-    font-size: 20px;
-    padding-left: 45px;
-    outline: none;
-    border: none;
-}
-
-#suscribirse input::placeholder {
-    color: rgba(0, 0, 0, 0.39);
-}
-
-#suscribirse button {
-    background-color: #83C252;
-    width: 218px;
-    color: white;
-    font-size: 20px;
-    font-weight: 900;
-    text-transform: uppercase;
-    outline: none;
-    cursor: pointer;
-    border-left: 9px solid #FFFFFF;
-    letter-spacing: 2px;
-    border: none;
-    font-family: 'Lato';
-    line-height: 94.5%;
-    -webkit-text-stroke: 1px white;
-}
-
-#texto-inscribirse {
-    width: 578px;
-}
-
-#texto-inscribirse p {
-    color: black;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 94.5%;
-    margin-bottom: 25px;
-}
-
-.subrayado {
-    text-decoration: underline; /* Subraya el texto */
-}
-
-#texto-inscribirse #img-teen {
-    width: 231px;
-    height: 145px;
-}
-
-
-
-
-
-
-
-#pre-footer {
-    height: 1570px;
-    background: linear-gradient(0deg, #E0D299 0%, #ADF8FD 44%, #EDFDFD 82%, #FFFFFF 100%);
-}
-
-#contenedor-pre-footer {
-    margin-top: 195px;
-}
-
-#contenedor-pre-footer #titulo-btn-texto {
-    padding-left: 100px;
     display: flex;
     flex-direction: column;
     gap: 40px;

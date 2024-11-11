@@ -16,8 +16,13 @@ body {
 .contenedor-1280 {
     width: 1280px;
     margin: 0 auto;
-    background-color: #f0f0f065; /*FONDO DE EJEMPLO (LUEGO BORRARLO)*/
+    background-color: #f0f0f0; /*FONDO DE EJEMPLO (LUEGO BORRARLO)*/
 } 
+
+.contenedor-1080 {
+    max-width: 1080px;
+    margin: 0 auto;
+}
 
 .btn-estilo-general {
     background-color: #83C252;
@@ -28,9 +33,9 @@ body {
     font-weight: 900;
     -webkit-text-stroke: 1px white;
     letter-spacing: 1.5px;
+    cursor: pointer;
     box-shadow: 4px 5px 0 #02197d;
     font-family: 'Lato';
-    cursor: pointer;
 }
 
 .text {
@@ -68,8 +73,10 @@ div header {
 }
 
 header #menu-hamburguesa div {
+    width: 34px;
+    height: 4px;
     padding: 2px 17px;
-    background-color: #F39E46;;
+    background-color: #F39E46;
     border: 4px white solid;
     border-radius: 111px;
     box-shadow: 4px 5px 0 #02197d;
@@ -151,7 +158,6 @@ header button#btn-comprar {
 
 /* ------------------- Sección 3: recomendacion videos   ------------------- */
 #contenedor-videos-recomendados {
-    padding: 80px 100px 88px;
     display: flex;
     gap: 41px;
 }
@@ -178,13 +184,16 @@ header button#btn-comprar {
     background-image: url('../img/number-blocks/sec_4_promo_descarga/fondo-seccion-3.svg');
     background-repeat: no-repeat;
     color: white;
+    position: relative;
+    z-index: 3;
+}
+
+#contenedor-publicidad-descarga div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    text-align: center;
     gap: 62px;
-    position: relative;
-    z-index: 3;
 }
 
 #contenedor-publicidad-descarga h2 {
@@ -211,41 +220,41 @@ header button#btn-comprar {
 
 
 
-/* ------------------- Sección 6: trailer  ------------------- */
+/* ------------------- Sección 6: categorias juego  ------------------- */
 #contenedor-video-publicidad{
     height: 1444px;
     padding: 308px 100px;
-    margin-top: 147px;
     background-image: url('../img/number-blocks/sec_6_trailer/fondo-seccion-6.svg');
     background-repeat: no-repeat;
     background-position: center;
-    font-weight: 600;
-    font-size: 60px;
-    color: white;
     position: relative;
 }
 
+#contenedor-video-publicidad h2 {
+    color: white;
+    font-weight: 600;
+    font-size: 60px;
+}
 
 
 #contenedor-video-publicidad .video-publicidad{
     width: 804px;
     height: 452px;
+    margin-top: 46px;
     background-image: url('../img/number-blocks/sec_6_trailer/portada-video.png');
     background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     border: 29px solid white;
     border-radius: 45px;
-    margin-top: 46px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 #icono-play{
     width: 101px;
-    position: absolute;
-    right: 0;
-    top: 150px;
+    height: auto;
 }
-
 #pj-seccion-6{
     width: 638px;
     height: 989px;
@@ -253,9 +262,8 @@ header button#btn-comprar {
     right: 0;
     top: 350px;
 }
-/* ------------------- Sección 7: modelo de objeto 3d  ------------------- */
-#contenedor-objeto-3d-publicidad{
-    padding-left: 100px;
+/* ------------------- Sección 7: publicidad objeto 3d  ------------------- */
+#contenedor-objeto-3d-publicidad div.contenedor-1080{
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -270,7 +278,7 @@ header button#btn-comprar {
 
 .contenedor-modelo-3d {
     width: 50%;
-}
+} 
 
 #modelo-3d {
     width: 100%; 
@@ -282,11 +290,13 @@ header button#btn-comprar {
     width: 746px;
     color: #9D2121;
     margin-bottom: 43px;
-}    
+}     
 /* ------------------- Sección 8: presentacion personajes  ------------------- */
 #contenedor-presentacion-personajes{
     width: 100%;
     background-image: url('../img/number-blocks/sec_8_presentacion_personajes/fondo-arcoiris.svg');
+    /* linear-gradient(to right, #8f1010,#cc1f1d,#dbc51d,#58e009,#38f3fc, #38f3fc),
+    linear-gradient(to right, #5e3c9e,#35e8a7,#de3394,#82817f,#fafffe);                                            */
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -296,16 +306,15 @@ header button#btn-comprar {
 }
 #contenedor-presentacion-personajes img:hover{
     transform: scale(1.1);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 .catalogo-personajes{
     display: flex;
     justify-content: space-between;
     gap: 30px;
 }
-/* ------------------- Sección 9: pre footer  ------------------- */
 
-
-/* ------------------- Sección: footer  ------------------- */
+/* ------------------- Sección N: footer  ------------------- */
 footer{
     background-color: #5E5E5D;
     color: white;
@@ -344,11 +353,11 @@ footer .info-footer{
 
 
 footer a.subrayado{
+    margin: 14px 0 34px  0;
     text-decoration: underline;
     text-transform: uppercase;
     text-decoration: none;
     color: white;
-    font-size: 20px;
     border-bottom: 1px solid white;
-    margin: 14px 0 34px  0;
+    font-size: 20px;
 }

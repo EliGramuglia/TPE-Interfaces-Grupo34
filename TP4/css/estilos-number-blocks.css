@@ -346,6 +346,12 @@ header button#btn-comprar {
     box-shadow: 4px 5px #02187E;
 }
 
+#suscribirse form {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
 #suscribirse input {
     width: 100%;
     font-family: "Lato";
@@ -449,6 +455,12 @@ header button#btn-comprar {
     top: 389px;
     right: 0;
 }
+
+
+
+
+
+
 
 
 /* ------------------- Sección: footer  ------------------- */

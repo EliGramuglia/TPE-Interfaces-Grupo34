@@ -346,12 +346,12 @@ header button#btn-comprar {
     z-index: 2;
 }
 
-/* ------------------- Sección 5: categorias juego  ------------------- */
+/* ------------------- Sección 5: Más amigos, más diversión  ------------------- */
 
 
 
 
-/* ------------------- Sección 6: categorias juego  ------------------- */
+/* ------------------- Sección 6: "Mira el video y descubre .."  ------------------- */
 #contenedor-video-publicidad{
     height: 1444px;
     padding: 308px 100px;
@@ -447,8 +447,9 @@ header button#btn-comprar {
     justify-content: space-between;
     gap: 30px;
 }
-/* ------------------- Sección 9: pre footer  ------------------- */
 
+
+/* ------------------- Sección 9: pre footer  ------------------- */
 #pre-footer {
     height: 1400px;
     background: linear-gradient(0deg, #E0D299 0%, #ADF8FD 44%, #EDFDFD 82%, #FFFFFF 100%);
@@ -467,7 +468,6 @@ header button#btn-comprar {
     font-weight: 600;
     line-height: 94.5%;
     width: 816px;
-/* margin-bottom: 40px;*/
 }
 
 #suscribirse {

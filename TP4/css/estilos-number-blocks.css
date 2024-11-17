@@ -426,9 +426,9 @@ header button#btn-comprar {
 }
 
 /* ------------------- Sección 5: Más amigos, más diversión  ------------------- */
-/*#contenedor-mas-amigos {
-    height: 5415px;
-}*/
+#contenedor-mas-amigos {
+    height: 700px;
+}
 
 #contenedor-mas-amigos h2 {
     margin-top: 172px;
@@ -439,14 +439,20 @@ header button#btn-comprar {
 .contenedor-2-columnas {
     display: grid;
     grid-template-columns: 1fr 1fr; 
+    margin-top: 60px;
 }
 
 .texto-scrollear {
-    width: 467px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    height: 100%;
+}
+
+.texto-scrollear div {
+    width: 467px;
+    margin-bottom: 20px;
 }
 
 #contenedor-mas-amigos .texto-scrollear h3 {
@@ -466,13 +472,15 @@ header button#btn-comprar {
     align-items: center;
 }
 
+.imagen-sticky img {
+    position: sticky;
+}
+
 .texto-oculto {
     display: none;
 }
 
-.texto-visible {
-    display: block; 
-}
+
 
 
 

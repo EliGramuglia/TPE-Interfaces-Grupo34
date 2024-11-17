@@ -55,7 +55,50 @@ body {
 h2 {
     font-size: 60px;
 }
+/* animaciones para los elementos de la pag */
 
+@keyframes entradaLateralIzq {
+    0%{
+        transform: translateX(-900px);
+    }
+    70%{
+        transform: translateX(20px);
+    }
+    100%{
+    transform: translateX(0px);
+    opacity: 1;
+    }
+}
+@keyframes entradaLateralDerecha {
+    0%{
+        transform: translateX(900px);
+    }
+    70%{
+        transform: translateX(-20px);
+    }
+    100%{
+    transform: translateX(0px);
+    opacity: 1;
+    }
+}
+@keyframes flotando {
+    0%,100%{
+        transform: translateY(0px) rotate(0deg);
+    }
+    40%{
+        transform: translateY(10px) rotate(.5deg);
+    }
+}
+
+.personaje-flotante{
+    animation: flotando 3.5s infinite ease-in-out alternate;
+}
+.elem-animado-izq{
+    animation: entradaLateralIzq 1s ease-out forwards; 
+}
+.elem-animado-derecha{
+    animation: entradaLateralDerecha 1s ease-out forwards; 
+}
 /* ------------------- Header ------------------- */
 div header {
     max-width: 1280px;
@@ -117,7 +160,21 @@ header button#btn-comprar {
     z-index: 0;
 
 }
+/* .crecimientoVertical{
+    animation: crecimientoVertical 2s ease-in forwards;
+} */
 
+/* @keyframes crecimientoVertical {
+    0% {
+        transform: translateY(80%);
+    }
+    70%{
+        transform:skewX(0) rotateY(60deg);
+    }
+    100% {
+        transform: translateY(0);
+    }
+  } */
 #contenedor-hero-visual img.img-fondo {
     width: 100%;
     height: 959px;
@@ -172,6 +229,8 @@ header button#btn-comprar {
 #arbol-grande{
     left: -152px;
     z-index: 28;
+    overflow: hidden;
+    animation: crecimientoVertical 1s ease-in forwards;
 }
 
 #roca-4{
@@ -238,34 +297,17 @@ header button#btn-comprar {
     font-size: 47px;
     opacity: 0;
     color: #1B428F;
-    animation: entradaLateralIzq 1s ease-in .2s forwards;
+
 }
 
 .contenedor-informacion p.text {
     color: #1B428F;
     margin-top: 22px;
     opacity: 0;
-    animation: entradaLateralIzq 1s ease-in 1s forwards;
+    animation-delay: .4s;
+
 }
 
-@keyframes entradaLateralIzq {
-    0%{
-        transform: translateX(-900px);
-    }
-    70%{
-        transform: translateX(0px);
-    }
-    80%{
-        transform: translateX(25px);
-    }
-    100%{
-    transform: translateX(0px);
-    opacity: 1;
-    }
-}
-.elem-animado-izq{
-    animation: entrada linear;
-}
 .caja-video-presentacion {
     border: 29px solid #1B5F99;
     border-radius: 77px;
@@ -274,6 +316,8 @@ header button#btn-comprar {
     height: 324.35px;
     margin-top: 24px;
     float: right;
+    opacity: 0;
+    animation-delay: .6s;
 }
 
 #pj-cuadrado-1 {
@@ -282,7 +326,8 @@ header button#btn-comprar {
     position: absolute;
     top: 637px;
     left: 18px;
-    animation: flotando 2.5s infinite ease-in-out alternate; 
+    opacity: 0;
+    animation-delay: .9s;
 }
 
 #pj-cuadrado-2 {
@@ -291,20 +336,16 @@ header button#btn-comprar {
     position: absolute;
     top: -107px;
     right: 0;
-    animation: flotando 3.5s infinite ease-in-out alternate;
+    opacity: 0;
+    animation-delay: 1.2s;
 }
-@keyframes flotando {
-    0%,100%{
-        transform: translateY(0px) rotate(0deg);
-    }
-    40%{
-        transform: translateY(10px) rotate(.5deg);
-    }
-}
+
+
 /* ------------------- Sección 3: recomendacion videos   ------------------- */
 #contenedor-videos-recomendados {
     display: flex;
     gap: 41px;
+    padding: 80px 0;
 }
 
 .tarjeta-recomendacion {
@@ -312,8 +353,11 @@ header button#btn-comprar {
     display: flex;
     flex-direction: column;
     gap: 23px;
+    opacity: 0;
 }
-
+.entradaInferior{
+    animation: entradaInferior 1s ease-out forwards;
+}
 .tarjeta-recomendacion .contenedor-video {
     width: 332.96px;
     height: 302.69px;
@@ -321,6 +365,25 @@ header button#btn-comprar {
     border: 9px solid #2982FF;
     box-shadow: 4px 5px 0 #02187E;
     overflow: hidden;
+}
+
+@keyframes entradaInferior {
+    0%{   
+        transform: translateY(700px);
+    }
+    70%{
+        transform: translateY(-20px);
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+.tarjeta-recomendacion:nth-child(2){
+    animation-delay: .2s;
+}
+.tarjeta-recomendacion:nth-child(3){
+    animation-delay: .5s;
 }
 
 /* ------------------- Sección 4: publicidad descarga   ------------------- */
@@ -331,6 +394,7 @@ header button#btn-comprar {
     color: white;
     position: relative;
     z-index: 3;
+    overflow: hidden;
 }
 
 #contenedor-publicidad-descarga div {
@@ -358,6 +422,7 @@ header button#btn-comprar {
     bottom: 0;
     left: 0;
     z-index: 2;
+    transition: transform linear .3s;
 }
 
 /* ------------------- Sección 5: Más amigos, más diversión  ------------------- */
@@ -425,6 +490,8 @@ header button#btn-comprar {
     color: white;
     font-weight: 600;
     font-size: 60px;
+    opacity: 0;
+    animation-delay: .2s;
 }
 
 
@@ -432,31 +499,28 @@ header button#btn-comprar {
     width: 804px;
     height: 452px;
     margin-top: 46px;
-    /* background-image: url('../img/number-blocks/sec_6_trailer/portada-video.png'); */
-    /* background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; */
     border: 29px solid white;
     border-radius: 45px;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    opacity: 0;
+    animation-delay: .6s;
 }
 #contenedor-video-publicidad .video-publicidad iframe{
     width: 100%;
     height: 100%;
 }
-#icono-play{
-    width: 101px;
-    height: auto;
-}
+
 #pj-seccion-6{
     width: 638px;
     height: 989px;
     position: absolute;
     right: 0;
     top: 350px;
+    opacity: 0;
+    animation-delay: 1s; 
 }
 /* ------------------- Sección 7: publicidad objeto 3d  ------------------- */
 #contenedor-objeto-3d-publicidad div.contenedor-1080{

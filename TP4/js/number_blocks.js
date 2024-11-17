@@ -1,35 +1,22 @@
 "use strict"
 
-//elementos necesarios para las animaciones
 const pagina = document.getElementById('contenedor-pagina');
 //guardo las secciones de la pag
-//sec 1: hero
+
+//sec 1: hero -> FALTA PARALAX!!!
 const hero = document.getElementById('contenedor-hero-visual');
 
 //sec 2: presentacion textual
 const introTextual = document.getElementById('contenedor-presentacion-textual'); //sec 2: intro textual
 
-const pj1 = document.getElementById('');
-
-
+//sec 3: recomendacion videos
 const contenedorVideos = document.getElementById('contenedor-videos-recomendados');
+
+//sec 4: publicidad descarga
+const contenedor = document.getElementById('contenedor-publicidad-descarga');
+
+//sec 6: trailer con video y personaje
 const contenedorTrailer = document.getElementById('contenedor-video-publicidad');
-
-
-
-
-// const wrapper = document.getElementById("wrapper");
-// const paralx0 = document.getElementById("paralx0");
-// const paralx1 = document.getElementById("paralx1");
-// const paralx2 = document.getElementById("paralx2");
-
-// wrapper.onscroll = function () {
-//   let y = wrapper.scrollTop;
-//   paralx0.style.top = 1800 - y * 2.65 + "px";
-//   paralx1.style.top = 1200 - y * 0.75 + "px";
-//   paralx2.style.top = 800 + y * 0.5 + "px";
-// };
-
 
 window.addEventListener('scroll', () => {
     let distancia_Sec_2 = introTextual.getBoundingClientRect().top;
@@ -52,7 +39,9 @@ window.addEventListener('scroll', () => {
 });
 
 
-// seccion 2 presentacion textual de la app
+//FUNCIONES PARA ANIMAR CADA SECCION
+
+// seccion 2: presentacion textual de la app
 function showIntroTextual() {
     const title = introTextual.querySelector('.contenedor-informacion h1');
     const text = introTextual.querySelector('.contenedor-informacion p');
@@ -66,19 +55,19 @@ function showIntroTextual() {
     video.classList.add('elem-animado-izq');
     pj_Sec_1.classList.add('elem-animado-izq');
     pj_Sec_2.classList.add('elem-animado-derecha');
+    //los pj 1 y 2 deben tener la animacion luego de entrar ('personaje-flotante');
 }
 
-//seccion 3 muestra 3 videos
+//seccion 3: muestra 3 videos
 function show3Videos() {
     let tarjetas = contenedorVideos.querySelectorAll('div .tarjeta-recomendacion');
     tarjetas.forEach(tarjeta => tarjeta.classList.add('entradaInferior'));
     // se animan los elementos de esta seccion
 }
 
-//seccion 4 descarga app
+//seccion 4: descarga app
 function activarInteraccionConPersonajes(){
     const img = document.getElementById('fondo-personajes');
-    const contenedor = document.getElementById('contenedor-publicidad-descarga');
     //si los elementos existen 
     
     if(contenedor && img){
@@ -88,7 +77,7 @@ function activarInteraccionConPersonajes(){
         });
     }
 }
-//seccion 6 trailer
+//seccion 6: trailer
 function showTrailer(){
     const title = contenedorTrailer.querySelector('h2');
     const video = document.getElementById('video-publicidad');

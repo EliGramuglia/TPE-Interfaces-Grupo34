@@ -100,30 +100,25 @@ h2 {
     animation: entradaLateralDerecha 1s ease-out forwards; 
 }
 /* ------------------- Header ------------------- */
-div header {
-    max-width: 1280px;
+header {
+    width: 1280px;
     height: 103px;
-    margin: 0 auto;
-    /* gradiente que se le coloca al iniciar le scroll */
-    /* background-image: linear-gradient(to bottom, rgba(0, 209, 213, 1), rgba(0, 209, 213, 0.12) 88%, rgba(0, 209, 213, 0)); */
+    padding: 0 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     z-index: 100;
-}
-
-header div.contenedor-1080 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: center;
-    justify-items: center;
+    background-image: linear-gradient(to bottom, rgba(0, 209, 213, 0), rgba(0, 209, 213, 0) 88%, rgba(0, 209, 213, 0));
+    transition: background-image 0.3s ease;
 }
 
 header nav {
     justify-self: start;
 }
-
 
 header #menu-hamburguesa div {
     width: 34px;
@@ -137,8 +132,14 @@ header #menu-hamburguesa div {
 }
 
 header #img-logo {
-    width: 150px;
-    height: 86px;
+    width: 560px;
+    height: 320px;
+    position: fixed;
+    top: 55px;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    transition: all 0.2s ease;
 }
 
 header button#btn-comprar {
@@ -151,7 +152,6 @@ header button#btn-comprar {
     justify-self: end;
 }
 
-
 /* ------------------- Sección 1: hero -> presentacion visual   ------------------- */
 #contenedor-hero-visual {
     width: 100%;
@@ -160,6 +160,7 @@ header button#btn-comprar {
     z-index: 0;
 
 }
+
 /* .crecimientoVertical{
     animation: crecimientoVertical 2s ease-in forwards;
 } */

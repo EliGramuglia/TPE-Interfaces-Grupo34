@@ -67,5 +67,11 @@ function cambiarTexto(index) {
 function cambiarImagen(index) {
     if (personaje.src !== imagenes[index]) {
         personaje.src = imagenes[index];
+
+        if(index > 0 && index < 10) {
+        personaje.classList.add("imagen-fija");
+        } else if (index === 0 || index === 10){
+            personaje.classList.remove("imagen-fija");
+        }
     }
 }

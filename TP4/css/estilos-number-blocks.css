@@ -434,11 +434,7 @@ header button#btn-comprar {
 
 #contenedor-2-columnas {
     display: flex;
-    height: 5190px;
-}
-
-.columna {
-    flex: 1;
+    justify-content: space-between;
 }
 
 .texto-scrollear {
@@ -458,6 +454,12 @@ header button#btn-comprar {
 
 .imagen-sticky {
     position: sticky;
+    left: 243px;
+    top: 20px;
+}
+
+.imagen-fija {
+    position: fixed;
     left: 243px;
     top: 20px;
 }

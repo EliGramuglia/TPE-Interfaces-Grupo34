@@ -150,7 +150,45 @@ header button#btn-comprar {
     align-items: center;
     justify-content: center;
     justify-self: end;
+    position: relative;
+    overflow: hidden;
 }
+#btn-comprar:active {
+    transform: scale(0.95); 
+    transition: transform 0.1s ease-out; 
+}
+#btn-comprar::after {
+    content: "";
+    width: 120%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    left: -5;
+    top: 0;
+    transform: skew(20deg);
+    transition: .3s ease-in-out all;
+}
+
+#btn-comprar:hover:after {
+    animation: btnPrincipal .5s ease-in-out .5s 1 forwards;
+}
+
+#btn-comprar span {
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes btnPrincipal {
+    0% {
+        width: 0;
+        background-color: #30962f;
+    }
+    100% {
+        background-color: #30962f;
+        width: 100%;
+    }
+}
+
 
 /* ------------------- Sección 1: hero -> presentacion visual   ------------------- */
 #contenedor-hero-visual {

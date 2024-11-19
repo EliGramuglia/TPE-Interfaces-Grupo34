@@ -85,7 +85,14 @@ document.addEventListener('DOMContentLoaded', () => {
         video.classList.add('elem-animado-izq');
         pj_Sec_1.classList.add('elem-animado-izq');
         pj_Sec_2.classList.add('elem-animado-derecha');
-        //los pj 1 y 2 deben tener la animacion luego de entrar ('personaje-flotante');
+
+        //los pj 1 y 2 deben tener la animacion luego de entrar ('personaje-flotante') para dar la ilusion de que estan flotando en la pantalla
+        setTimeout(() => {
+            pj_Sec_1.style.opacity = 1;
+            pj_Sec_2.style.opacity = 1;
+            pj_Sec_1.style.animation = 'flotando 2.5s infinite ease-in-out alternate';
+            pj_Sec_2.style.animation = 'flotando 4s .3s infinite ease-in-out alternate';
+        }, 2000);
     }
 
     // Sección 3: muestra 3 videos
@@ -117,7 +124,11 @@ document.addEventListener('DOMContentLoaded', () => {
         title.classList.add('elem-animado-izq');
         video.classList.add('elem-animado-izq');
         pj_Sec_6.classList.add('elem-animado-derecha');
-        //no estoy pudiendo ponerle la segunda animacion para que se quede flotando el pj
-        pj_Sec_6.classList.add = ('personaje-flotante');
+
+//se le agrega despues de la entrada la animacion de para simular que flota el personaje
+        setTimeout(() => {
+            pj_Sec_6.style.opacity = 1;
+            pj_Sec_6.style.animation = 'flotando 2.5s infinite ease-in-out alternate';
+        }, 2000);
     }
 });

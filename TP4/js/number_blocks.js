@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         video.classList.add('elem-animado-izq');
         pj_Sec_1.classList.add('elem-animado-izq');
         pj_Sec_2.classList.add('elem-animado-derecha');
-
+        
         //los pj 1 y 2 deben tener la animacion luego de entrar ('personaje-flotante') para dar la ilusion de que estan flotando en la pantalla
         setTimeout(() => {
             pj_Sec_1.style.opacity = 1;

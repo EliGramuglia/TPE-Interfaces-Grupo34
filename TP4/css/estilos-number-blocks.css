@@ -310,16 +310,44 @@ header button#btn-comprar {
 }
 
 .caja-video-presentacion {
-    border: 29px solid #1B5F99;
-    border-radius: 77px;
-    overflow: hidden;
     width: 576.38px;
     height: 324.35px;
     margin-top: 24px;
+    border: 29px solid #1B5F99;
+    border-radius: 77px;
+    overflow: hidden;
     float: right;
     opacity: 0;
     animation-delay: .6s;
 }
+
+#portada-video{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../img/number-blocks/sec_2_publiTextual/portada-1.png');
+    animation: GaleriaAnimada infinite ease-in-out 9s alternate;
+}
+
+@keyframes GaleriaAnimada {
+    0%{
+        background-image: url('../img/number-blocks/sec_2_publiTextual/portada-1.png');
+        animation-duration: 3s;
+    }
+    50%{
+        background-image: url('../img/number-blocks/sec_2_publiTextual/portada-2.png');
+        animation-duration: 3s;
+
+    }
+    100%{
+        background-image: url('../img/number-blocks/sec_2_publiTextual/portada-3.png');
+        animation-duration: 3s;
+
+    }
+}
+
 
 #pj-cuadrado-1 {
     width: 601.64px;
@@ -381,10 +409,10 @@ header button#btn-comprar {
     }
 }
 .tarjeta-recomendacion:nth-child(2){
-    animation-delay: .2s;
+    animation-delay: .3s;
 }
 .tarjeta-recomendacion:nth-child(3){
-    animation-delay: .5s;
+    animation-delay: .6s;
 }
 
 /* ------------------- Sección 4: publicidad descarga   ------------------- */

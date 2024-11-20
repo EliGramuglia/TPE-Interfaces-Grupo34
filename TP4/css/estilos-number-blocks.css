@@ -395,7 +395,7 @@ header button#btn-comprar {
     top: 680px;
     right: 400px;
     z-index: 30;
-    animation-delay: 3s;
+    animation-delay: 2.6s;
 
 }
 
@@ -403,7 +403,7 @@ header button#btn-comprar {
     top: 700px;
     right: 520px;
     z-index: 30;
-    animation-delay: 3.3s;
+    animation-delay: 3.6s;
 
 }
 
@@ -411,7 +411,7 @@ header button#btn-comprar {
     top: 735px;
     right: 616px;
     z-index: 30;
-    animation-delay: 3.6s;
+    animation-delay: 3.8s;
 
 }
 

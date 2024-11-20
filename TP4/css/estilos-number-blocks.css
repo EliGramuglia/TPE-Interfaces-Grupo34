@@ -144,6 +144,9 @@ header #menu-hamburguesa div {
     cursor: pointer;
 }
 
+
+
+
 header #img-logo {
     width: 560px;
     height: 320px;
@@ -419,14 +422,14 @@ header button#btn-comprar {
     top: 404px;
     left: 540px;
     z-index: 33;
-    animation-delay: 3.9s;
+    animation-delay: 3.6s;
 }
 
 #pj-3 {
     top: 495px;
     left: 420px;
     z-index: 33;
-    animation-delay: 4s;
+    animation-delay: 3.8s;
 
 }
 

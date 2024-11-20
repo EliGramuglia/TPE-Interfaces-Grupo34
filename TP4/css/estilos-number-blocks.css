@@ -475,12 +475,12 @@ header button#btn-comprar {
 }
 
 #fondo-personajes {
-    width: 100%;
+    transform: translateX(0) scale(1.04); 
+    transition: transform ease 0.1s;
     position: absolute;
-    bottom: 0;
+    bottom: -20px;
     left: 0;
     z-index: 2;
-    transition: transform linear .3s;
 }
 
 /* ------------------- Sección 5: Más amigos, más diversión  ------------------- */

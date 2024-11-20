@@ -16,14 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const contenedorVideos = document.getElementById('contenedor-videos-recomendados');
 
     // Sección 4: Publicidad descarga
-    const contenedor = document.getElementById('contenedor-publicidad-descarga');
+    const contenedorDescarga = document.getElementById('contenedor-publicidad-descarga');
 
     // Sección 6: Trailer con video y personaje
     const contenedorTrailer = document.getElementById('contenedor-video-publicidad');
 
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
-        console.log(scrollY);
 
         modificarHeader(scrollY);
         showIntroTextual(scrollY);
@@ -113,12 +112,26 @@ document.addEventListener('DOMContentLoaded', () => {
     function activarInteraccionConPersonajes() {
         const img = document.getElementById('fondo-personajes');
 
-        if (contenedor && img) {
-            contenedor.addEventListener('mousemove', (event) => {
-                const x = (event.clientX - contenedor.offsetLeft) / contenedor.offsetWidth * 20;
-                img.style.transform = `translateX(${x}px) scaleX(1.04)`;
-            });
-        }
+        contenedorDescarga.addEventListener('mousemove', (event) => {
+            // Coordenadas del mouse
+            const rect = contenedorDescarga.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            // Normalización (-1 a 1)
+            const xRatio = (x / rect.width) * 2 - 1;
+            const yRatio = (y / rect.height) * 2 - 1;
+
+            // Desplazamiento en eje X e Y
+            const translateX = Math.round(-xRatio * 20);
+            const translateY = Math.round(-yRatio * 10);
+
+            img.style.transform = `translate(${translateX}px, ${translateY}px) scale(1.04)`;
+        });
+
+        contenedorDescarga.addEventListener('mouseleave', () => {
+            img.style.transform = `translate(0, 0) scale(1.04)`;
+        });
     }
 
     // Sección 6: Trailer
@@ -144,5 +157,5 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 1000);
         }
     }
-    
+
 });

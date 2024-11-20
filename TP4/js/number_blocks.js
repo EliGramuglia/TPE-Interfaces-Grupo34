@@ -22,22 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const contenedorTrailer = document.getElementById('contenedor-video-publicidad');
 
     window.addEventListener('scroll', () => {
-        modificarHeader();
+        const scrollY = window.scrollY;
+        console.log(scrollY);
 
-        let distancia_Sec_2 = introTextual.getBoundingClientRect().top;
-        let distancia_Sec_3 = contenedorVideos.getBoundingClientRect().top;
-        let distancia_Sec_6 = contenedorTrailer.getBoundingClientRect().top;
-        let alturaPantallaVisible = window.innerHeight / 1.3;
-
-        if(distancia_Sec_2 <= alturaPantallaVisible){
-            showIntroTextual();
-        }
-        if(distancia_Sec_3 <= alturaPantallaVisible){
-            show3Videos();
-        }
-        if(distancia_Sec_6 <= alturaPantallaVisible){
-            showTrailer();
-        }
+        modificarHeader(scrollY);
+        showIntroTextual(scrollY);
+        show3Videos(scrollY);
+        showTrailer(scrollY);
 
         //la seccion de descarga se activa al momento de empezar a bajar por la pag
         activarInteraccionConPersonajes();
@@ -46,9 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // FUNCIONES PARA ANIMAR CADA SECCIÓN
     // Header
-    function modificarHeader() {
-        const scrollY = window.scrollY; // Valor del scroll vertical
-
+    function modificarHeader(scrollY) {
         // Límites de transformación del logo (posición y tamaño)
         const maxScroll = 400;  // Valor máximo de scroll
         const maxWidth = 560;   // Tamaño inicial del logo (cuando no hay scroll)
@@ -72,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Sección 2: presentación textual de la app
-    function showIntroTextual() {
+    function showIntroTextual(scrollY) {
         const title = introTextual.querySelector('.contenedor-informacion h1');
         const text = introTextual.querySelector('.contenedor-informacion p');
         const video = document.querySelector('.contenedor-informacion .caja-video-presentacion');
@@ -80,26 +69,44 @@ document.addEventListener('DOMContentLoaded', () => {
         const pj_Sec_2 = document.getElementById('pj-cuadrado-2');
 
         //le agrego las animaciones de entrada
-        title.classList.add('elem-animado-izq');
-        text.classList.add('elem-animado-izq');
-        video.classList.add('elem-animado-izq');
-        pj_Sec_1.classList.add('elem-animado-izq');
-        pj_Sec_2.classList.add('elem-animado-derecha');
+        if (scrollY >= 400) {
+            title.classList.add('elem-animado-izq');
+        }
+
+        if (scrollY >= 500) {
+            text.classList.add('elem-animado-izq');
+        }
         
-        //los pj 1 y 2 deben tener la animacion luego de entrar ('personaje-flotante') para dar la ilusion de que estan flotando en la pantalla
-        setTimeout(() => {
-            pj_Sec_1.style.opacity = 1;
-            pj_Sec_2.style.opacity = 1;
-            pj_Sec_1.style.animation = 'flotando 2.5s infinite ease-in-out alternate';
-            pj_Sec_2.style.animation = 'flotando 4s .3s infinite ease-in-out alternate';
-        }, 2000);
+        if (scrollY >= 600) {
+            video.classList.add('elem-animado-izq');
+        }
+
+        if (scrollY >= 700) {
+            // Aparece number block 5 (rectángulo azul)
+            pj_Sec_2.classList.add('elem-animado-derecha');
+            setTimeout(() => {
+                pj_Sec_2.style.animation = 'flotando 4s .3s infinite ease-in-out alternate';
+                pj_Sec_2.style.opacity = 1;
+            }, 1000);
+        }
+
+        if (scrollY >= 1100) {
+            // Aparece number block 4 (cuadrado verde)
+            pj_Sec_1.classList.add('elem-animado-izq');
+            setTimeout(() => {
+                pj_Sec_1.style.animation = 'flotando 2.5s infinite ease-in-out alternate';
+                pj_Sec_1.style.opacity = 1;
+            }, 1000);
+        }
     }
 
     // Sección 3: muestra 3 videos
-    function show3Videos() {
-        let tarjetas = contenedorVideos.querySelectorAll('div .tarjeta-recomendacion');
-        tarjetas.forEach(tarjeta => tarjeta.classList.add('entradaInferior'));
-        // se animan los elementos de esta seccion
+    function show3Videos(scrollY) {
+        if (scrollY >= 1600) {
+            // se animan los elementos de esta seccion
+            let tarjetas = contenedorVideos.querySelectorAll('div .tarjeta-recomendacion');
+            tarjetas.forEach(tarjeta => tarjeta.classList.add('entradaInferior'));
+        }
     }
 
     // Sección 4: Descarga app
@@ -115,20 +122,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Sección 6: Trailer
-    function showTrailer() {
+    function showTrailer(scrollY) {
         const title = contenedorTrailer.querySelector('h2');
         const video = document.getElementById('video-publicidad');
         const pj_Sec_6 = document.getElementById('pj-seccion-6');
 
         //le coloco las animaciones de entrada
-        title.classList.add('elem-animado-izq');
-        video.classList.add('elem-animado-izq');
-        pj_Sec_6.classList.add('elem-animado-derecha');
+        if (scrollY >= 9000) {
+            title.classList.add('elem-animado-izq');            
+        }
 
-//se le agrega despues de la entrada la animacion de para simular que flota el personaje
-        setTimeout(() => {
-            pj_Sec_6.style.opacity = 1;
-            pj_Sec_6.style.animation = 'flotando 2.5s infinite ease-in-out alternate';
-        }, 2000);
+        if (scrollY >= 9300) {
+            video.classList.add('elem-animado-izq');
+        }
+
+        if (scrollY >= 9400) {
+            pj_Sec_6.classList.add('elem-animado-derecha');
+            setTimeout(() => {
+                pj_Sec_6.style.opacity = 1;
+                pj_Sec_6.style.animation = 'flotando 2.5s infinite ease-in-out alternate';
+            }, 1000);
+        }
     }
+    
 });

@@ -323,7 +323,6 @@ header button#btn-comprar {
     background-image: url('../img/number-blocks/sec_2_publiTextual/fondo-seccion-2.svg');
     background-repeat: no-repeat;
     position: relative;
-
 }
 
 .contenedor-informacion {
@@ -336,15 +335,12 @@ header button#btn-comprar {
     font-size: 47px;
     opacity: 0;
     color: #1B428F;
-
 }
 
 .contenedor-informacion p.text {
     color: #1B428F;
     margin-top: 22px;
     opacity: 0;
-    animation-delay: .4s;
-
 }
 
 .caja-video-presentacion {
@@ -356,10 +352,9 @@ header button#btn-comprar {
     overflow: hidden;
     float: right;
     opacity: 0;
-    animation-delay: .6s;
 }
 
-#portada-video{
+#portada-video {
     width: 100%;
     height: 100%;
     background-position: center;
@@ -370,41 +365,35 @@ header button#btn-comprar {
 }
 
 @keyframes GaleriaAnimada {
-    0%{
+    0% {
         background-image: url('../img/number-blocks/sec_2_publiTextual/portada-1.png');
         animation-duration: 3s;
     }
-    50%{
+
+    50% {
         background-image: url('../img/number-blocks/sec_2_publiTextual/portada-2.png');
         animation-duration: 3s;
 
     }
-    100%{
+
+    100% {
         background-image: url('../img/number-blocks/sec_2_publiTextual/portada-3.png');
         animation-duration: 3s;
-
     }
 }
 
-
 #pj-cuadrado-1 {
-    width: 601.64px;
-    height: 603px;
     position: absolute;
-    top: 637px;
+    top: 570px;
     left: 18px;
     opacity: 0;
-    animation-delay: .9s;
 }
 
 #pj-cuadrado-2 {
-    width: 572px;
-    height: 1259px;
     position: absolute;
     top: -107px;
     right: 0;
     opacity: 0;
-    animation-delay: 1.2s;
 }
 
 
@@ -446,9 +435,11 @@ header button#btn-comprar {
         opacity: 1;
     }
 }
+
 .tarjeta-recomendacion:nth-child(2){
     animation-delay: .3s;
 }
+
 .tarjeta-recomendacion:nth-child(3){
     animation-delay: .6s;
 }
@@ -574,7 +565,6 @@ header button#btn-comprar {
     font-weight: 600;
     font-size: 60px;
     opacity: 0;
-    animation-delay: .2s;
 }
 
 
@@ -589,22 +579,20 @@ header button#btn-comprar {
     align-items: center;
     overflow: hidden;
     opacity: 0;
-    animation-delay: .6s;
 }
+
 #contenedor-video-publicidad .video-publicidad iframe{
     width: 100%;
     height: 100%;
 }
 
 #pj-seccion-6{
-    width: 638px;
-    height: 989px;
     position: absolute;
     right: 0;
     top: 350px;
     opacity: 0;
-    animation-delay: 1s; 
 }
+
 /* ------------------- Sección 7: publicidad objeto 3d  ------------------- */
 #contenedor-objeto-3d-publicidad div.contenedor-1080{
     display: flex;

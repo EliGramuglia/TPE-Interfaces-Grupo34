@@ -17,7 +17,7 @@ body {
     width: 1280px;
     margin: 0 auto;
     overflow-x: hidden;
-} 
+}
 
 .contenedor-1080 {
     max-width: 1080px;
@@ -55,50 +55,63 @@ body {
 h2 {
     font-size: 60px;
 }
+
 /* animaciones para los elementos de la pag */
 
 @keyframes entradaLateralIzq {
-    0%{
+    0% {
         transform: translateX(-900px);
     }
-    70%{
+
+    70% {
         transform: translateX(20px);
     }
-    100%{
-    transform: translateX(0px);
-    opacity: 1;
+
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
     }
 }
+
 @keyframes entradaLateralDerecha {
-    0%{
+    0% {
         transform: translateX(900px);
     }
-    70%{
+
+    70% {
         transform: translateX(-20px);
     }
-    100%{
-    transform: translateX(0px);
-    opacity: 1;
+
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
     }
 }
+
 @keyframes flotando {
-    0%,100%{
+
+    0%,
+    100% {
         transform: translateY(0px) rotate(0deg);
     }
-    40%{
+
+    40% {
         transform: translateY(10px) rotate(.5deg);
     }
 }
 
-.personaje-flotante{
+.personaje-flotante {
     animation: flotando 3.5s infinite ease-in-out alternate;
 }
-.elem-animado-izq{
-    animation: entradaLateralIzq 1s ease-out forwards; 
+
+.elem-animado-izq {
+    animation: entradaLateralIzq 1s ease-out forwards;
 }
-.elem-animado-derecha{
-    animation: entradaLateralDerecha 1s ease-out forwards; 
+
+.elem-animado-derecha {
+    animation: entradaLateralDerecha 1s ease-out forwards;
 }
+
 /* ------------------- Header ------------------- */
 header {
     width: 1280px;
@@ -153,10 +166,12 @@ header button#btn-comprar {
     position: relative;
     overflow: hidden;
 }
+
 #btn-comprar:active {
-    transform: scale(0.95); 
-    transition: transform 0.1s ease-out; 
+    transform: scale(0.95);
+    transition: transform 0.1s ease-out;
 }
+
 #btn-comprar::after {
     content: "";
     width: 120%;
@@ -170,7 +185,7 @@ header button#btn-comprar {
 }
 
 #btn-comprar:hover:after {
-    animation: btnPrincipal .5s ease-in-out .5s 1 forwards;
+    animation: btnPrincipal .5s ease-in-out 1 forwards;
 }
 
 #btn-comprar span {
@@ -183,9 +198,10 @@ header button#btn-comprar {
         width: 0;
         background-color: #30962f;
     }
+
     100% {
         background-color: #30962f;
-        width: 100%;
+        width: 120%;
     }
 }
 
@@ -199,119 +215,219 @@ header button#btn-comprar {
 
 }
 
-/* .crecimientoVertical{
-    animation: crecimientoVertical 2s ease-in forwards;
-} */
+.crecimientoVertical {
+    transform-origin: 50% 100%;
+    animation: crecer 2s ease-in-out forwards;
+}
 
-/* @keyframes crecimientoVertical {
+.aparicionEspontanea {
+    animation: aparicionEspontanea 1s ease-in-out 1s forwards;
+}
+
+.entradaSuperior {
+    animation: entradaSuperior 1s ease-out 1s forwards;
+}
+
+@keyframes aparicionEspontanea {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes entradaSuperior {
+    0% {
+        transform: translateY(-900px);
+    }
+
+    60% {
+        transform: translateY(0px);
+    }
+
+    80% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes crecer {
+    0% {
+        transform: scaleY(0);
+    }
+    60% {
+        transform: scaleY(1.1);
+        opacity: 1; 
+    }
+    80% {
+        transform: scaleY(.95);
+        opacity: 1; 
+
+    }
+    100% {
+        transform: scaleY(1);
+        opacity: 1; 
+    }
+}
+
+@keyframes crecimientoVertical {
     0% {
         transform: translateY(80%);
     }
-    70%{
-        transform:skewX(0) rotateY(60deg);
+
+    90% {
+        transform: translateY(-5%);
     }
+
     100% {
         transform: translateY(0);
+        opacity: 1;
     }
-  } */
+}
+
 #contenedor-hero-visual img.img-fondo {
     width: 100%;
     height: 959px;
     z-index: 19;
 }
-.elemento-hero{
+
+.elemento-hero {
     position: absolute;
+    opacity: 0;
 }
-#arbusto-1{
+
+#arbusto-1 {
     right: 60px;
     top: 630px;
     z-index: 20;
 }
-#arbol-chico{
+
+#arbol-chico {
     right: -80px;
     top: 278px;
     z-index: 21;
+    animation-delay: .2s;
 }
-#arbusto-2{
+
+#arbusto-2 {
     right: -50px;
     top: 662px;
     z-index: 22;
-
+    animation-delay: .6s;
 }
-#arbol-mediano{
+
+#arbol-mediano {
     right: -36px;
     top: 110px;
     z-index: 23;
+    animation-delay: .9s;
 }
-#roca-1{
+
+#roca-1 {
     right: 177px;
     top: 737px;
     z-index: 24;
+    animation-delay: 2.9s;
 
 }
-#roca-2{
+
+#roca-2 {
     right: 100px;
     top: 737px;
     z-index: 25;
+    animation-delay: 3s;
+
 }
-#roca-3{
+
+#roca-3 {
     right: 177px;
     top: 786px;
     z-index: 26;
+    animation-delay: 3.2s;
 }
-#arbusto-4{
+
+#arbusto-4 {
     top: 718px;
     left: 161px;
     z-index: 27;
+    animation-delay: 1.9s;
 }
 
-#arbol-grande{
+#arbol-grande {
     left: -152px;
     z-index: 28;
     overflow: hidden;
-    animation: crecimientoVertical 1s ease-in forwards;
+    animation-delay: 2s;
 }
 
-#roca-4{
+#roca-4 {
     left: 130px;
     top: 793px;
     z-index: 29;
+    animation-delay: 2.3s;
+
 }
-#arbusto-3{
+
+#arbusto-3 {
     top: 820px;
     left: 198px;
     z-index: 30;
+    animation-delay: 2.6s;
+
 }
-#pj-1{
+
+#pj-1 {
     top: 340px;
     right: 355px;
     z-index: 31;
-}
-#sombra-1{
-    top: 680px;
-    right: 400px;
-    z-index: 30; 
-}
-#sombra-2{
-    top: 700px;
-    right: 520px;
-    z-index: 30; 
-}
-#sombra-3{
-    top: 735px;
-    right: 616px;
-    z-index: 30; 
+    animation-delay: 2.9s;
+
 }
 
-#pj-2{
+#sombra-1 {
+    top: 680px;
+    right: 400px;
+    z-index: 30;
+    animation-delay: 3s;
+
+}
+
+#sombra-2 {
+    top: 700px;
+    right: 520px;
+    z-index: 30;
+    animation-delay: 3.3s;
+
+}
+
+#sombra-3 {
+    top: 735px;
+    right: 616px;
+    z-index: 30;
+    animation-delay: 3.6s;
+
+}
+
+#pj-2 {
     top: 404px;
     left: 540px;
     z-index: 33;
+    animation-delay: 3.9s;
 }
-#pj-3{
+
+#pj-3 {
     top: 495px;
     left: 420px;
     z-index: 33;
+    animation-delay: 4s;
+
 }
 
 
@@ -411,9 +527,11 @@ header button#btn-comprar {
     gap: 23px;
     opacity: 0;
 }
-.entradaInferior{
+
+.entradaInferior {
     animation: entradaInferior 1s ease-out forwards;
 }
+
 .tarjeta-recomendacion .contenedor-video {
     width: 332.96px;
     height: 302.69px;
@@ -424,23 +542,25 @@ header button#btn-comprar {
 }
 
 @keyframes entradaInferior {
-    0%{   
+    0% {
         transform: translateY(700px);
     }
-    70%{
+
+    70% {
         transform: translateY(-20px);
     }
-    100%{
+
+    100% {
         transform: translateY(0px);
         opacity: 1;
     }
 }
 
-.tarjeta-recomendacion:nth-child(2){
+.tarjeta-recomendacion:nth-child(2) {
     animation-delay: .3s;
 }
 
-.tarjeta-recomendacion:nth-child(3){
+.tarjeta-recomendacion:nth-child(3) {
     animation-delay: .6s;
 }
 
@@ -475,7 +595,7 @@ header button#btn-comprar {
 }
 
 #fondo-personajes {
-    transform: translateX(0) scale(1.04); 
+    transform: translateX(0) scale(1.04);
     transition: transform ease 0.1s;
     position: absolute;
     bottom: -20px;
@@ -551,7 +671,7 @@ header button#btn-comprar {
 
 
 /* ------------------- Sección 6: "Mira el video y descubre .."  ------------------- */
-#contenedor-video-publicidad{
+#contenedor-video-publicidad {
     height: 1444px;
     padding: 308px 100px;
     background-image: url('../img/number-blocks/sec_6_trailer/fondo-seccion-6.svg');
@@ -568,7 +688,7 @@ header button#btn-comprar {
 }
 
 
-#contenedor-video-publicidad .video-publicidad{
+#contenedor-video-publicidad .video-publicidad {
     width: 804px;
     height: 452px;
     margin-top: 46px;
@@ -581,49 +701,54 @@ header button#btn-comprar {
     opacity: 0;
 }
 
-#contenedor-video-publicidad .video-publicidad iframe{
+#contenedor-video-publicidad .video-publicidad iframe {
     width: 100%;
     height: 100%;
 }
 
-#pj-seccion-6{
+#pj-seccion-6 {
     position: absolute;
     right: 0;
     top: 350px;
     opacity: 0;
+    pointer-events: none;
 }
 
 /* ------------------- Sección 7: publicidad objeto 3d  ------------------- */
-#contenedor-objeto-3d-publicidad div.contenedor-1080{
+#contenedor-objeto-3d-publicidad div.contenedor-1080 {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
 }
+
 .contenedor-info-modelo_3d {
     margin-top: 220px;
     width: 40%;
 }
-.contenedor-info-modelo_3d p, #contenedor-objeto-3d-publicidad h2{
+
+.contenedor-info-modelo_3d p,
+#contenedor-objeto-3d-publicidad h2 {
     line-height: 94.5%;
 }
 
 .contenedor-modelo-3d {
     width: 50%;
-} 
+}
 
 #modelo-3d {
-    width: 100%; 
+    width: 100%;
     height: 970px;
     margin-top: 10%;
 }
 
-#contenedor-objeto-3d-publicidad h2{ 
+#contenedor-objeto-3d-publicidad h2 {
     width: 746px;
     color: #9D2121;
     margin-bottom: 43px;
-}     
+}
+
 /* ------------------- Sección 8: presentacion personajes  ------------------- */
-#contenedor-presentacion-personajes{
+#contenedor-presentacion-personajes {
     width: 100%;
     background-image: url('../img/number-blocks/sec_8_presentacion_personajes/fondo-arcoiris.svg');
     /* linear-gradient(to right, #8f1010,#cc1f1d,#dbc51d,#58e009,#38f3fc, #38f3fc),
@@ -632,17 +757,20 @@ header button#btn-comprar {
     flex-direction: column;
     gap: 30px;
 }
-#contenedor-presentacion-personajes img{
+
+#contenedor-presentacion-personajes img {
     transition: all .5s ease;
     filter: brightness(90%);
 
 }
-#contenedor-presentacion-personajes img:hover{
+
+#contenedor-presentacion-personajes img:hover {
     transform: scale(1.1);
     filter: brightness(110%);
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
-.catalogo-personajes{
+
+.catalogo-personajes {
     display: flex;
     justify-content: space-between;
     gap: 30px;
@@ -723,11 +851,30 @@ header button#btn-comprar {
 }
 
 @keyframes expandir {
-    0% { transform: scale(1); box-shadow: none; }
-    10% { transform: scale(1.1); box-shadow: 0 0 20px 5px rgba(255, 255, 255, 1); }
-    20% { transform: scale(1); box-shadow: none; }
-    30% { transform: scale(1.1); box-shadow: 0 0 20px 5px rgba(255, 255, 255, 1); }
-    40% { transform: scale(1); box-shadow: none; }
+    0% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    10% {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px 5px rgba(255, 255, 255, 1);
+    }
+
+    20% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    30% {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px 5px rgba(255, 255, 255, 1);
+    }
+
+    40% {
+        transform: scale(1);
+        box-shadow: none;
+    }
 }
 
 #texto-inscribirse {
@@ -743,7 +890,8 @@ header button#btn-comprar {
 }
 
 .subrayado {
-    text-decoration: underline; /* Subraya el texto */
+    text-decoration: underline;
+    /* Subraya el texto */
 }
 
 #texto-inscribirse #img-teen {
@@ -808,27 +956,29 @@ header button#btn-comprar {
 
 
 /* ------------------- Sección: footer  ------------------- */
-footer{
+footer {
     background-color: #5E5E5D;
     color: white;
 }
 
-footer .plataformas-disponibles{
+footer .plataformas-disponibles {
     height: 80px;
     padding: 0 100px;
     background-color: #242424;
     display: flex;
     align-items: center;
 }
-footer .plataformas-disponibles img{
+
+footer .plataformas-disponibles img {
     width: 100%;
     height: max-content;
 }
-footer .info-footer{
+
+footer .info-footer {
     padding: 35px 100px;
 }
 
-.politicas-privacidad{
+.politicas-privacidad {
     display: flex;
     gap: 10px;
 }
@@ -845,8 +995,8 @@ footer .info-footer{
 }
 
 
-footer a.subrayado{
-    margin: 14px 0 34px  0;
+footer a.subrayado {
+    margin: 14px 0 34px 0;
     text-decoration: underline;
     text-transform: uppercase;
     text-decoration: none;

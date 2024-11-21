@@ -16,7 +16,6 @@ body {
 .contenedor-1280 {
     width: 1280px;
     margin: 0 auto;
-    overflow-x: hidden;
 }
 
 .contenedor-1080 {
@@ -320,10 +319,13 @@ aside ul#lista-secciones.sombra {
 
 aside ul#lista-secciones li {
     opacity: 0;
-    padding: 10px;
+    padding: 5px 14px;
     cursor: pointer;
     transition: all ease-in-out linear;
-    background-color: white;
+    background-color: white;    
+    border-left: .2px solid rgb(2, 25, 125,.3);
+    border-right: .2px solid rgb(2, 25, 125,.3);
+
 }
 
 aside ul#lista-secciones li a {
@@ -331,7 +333,8 @@ aside ul#lista-secciones li a {
     text-decoration: none;
     font-size: 20px;
     font-weight: bolder;
-    padding: 14px;
+    padding: 10px 14px;
+    text-wrap: nowrap;
     background-color: rgb(255, 255, 255);
     display: flex;
     border-radius: 4px;
@@ -347,6 +350,8 @@ aside ul#lista-secciones li a {
 aside ul#lista-secciones li:first-child{
     border-radius:  10px 10px 0 0;
     animation-delay: 0s;
+    border-top: .2px solid rgb(2, 25, 125,.3);
+    padding-top: 14px;
 }
 
 aside ul#lista-secciones li:nth-child(2) {
@@ -376,6 +381,8 @@ aside ul#lista-secciones li:nth-child(7) {
 aside ul#lista-secciones li:last-child {
     animation-delay: 1.4s;
     border-radius: 0 0 10px 10px;
+    border-bottom: .2px solid rgb(2, 25, 125,.3);
+    padding-bottom: 14px;
 }
 
 aside ul#lista-secciones li:hover a{
@@ -421,24 +428,24 @@ header button#btn-comprar {
 
 /* ------------------- Sección 1: hero -> presentacion visual   ------------------- */
 #contenedor-hero-visual {
+    overflow: hidden;
     width: 100%;
     margin-bottom: -4px;
     position: relative;
     z-index: 0;
-
 }
 
 .crecimientoVertical {
     transform-origin: 50% 100%;
-    animation: crecer 2s ease-in-out forwards;
+    animation: crecer 1s ease-in-out forwards;
 }
 
 .aparicionEspontanea {
-    animation: aparicionEspontanea 1s ease-in-out 1s forwards;
+    animation: aparicionEspontanea .5s ease-in-out 1s forwards;
 }
 
 .entradaSuperior {
-    animation: entradaSuperior 1s ease-out 1s forwards;
+    animation: entradaSuperior .5s ease-out 1s forwards;
 }
 
 @keyframes aparicionEspontanea {
@@ -804,62 +811,7 @@ header button#btn-comprar {
 
 /* ------------------- Sección 5: Más amigos, más diversión  ------------------- */
 #contenedor-mas-amigos {
-    height: 5247px;
-}
-
-#contenedor-2-columnas {
-    display: grid;              
-    grid-template-columns: 1fr 450px;  
-}
-
-.texto-scrollear {
-    display: grid;
-    row-gap: 400px;
-    padding-bottom: 150px;
-}
-
-.texto-scrollear div {
-    width: 467px;
-   
-}
-
-.imagen-sticky {
-    align-self: start;
-    position: sticky;
-    top: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 200px;
-}
-
-.imagen-sticky img {
-    margin: 0 auto;
-}
-
-.imagen-sticky img.fija {
-    position: sticky;
-    top: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.imagen-sticky img.oculta {
-    display: none;
-}
-
-
-#contenedor-mas-amigos .texto-scrollear h3 {
-    font-family: 'Lato';
-    font-size: 40px;
-    font-weight: 400;
-    margin-bottom: 15px;
-}
-
-#contenedor-mas-amigos .texto-scrollear p {
-    line-height: 94.5%;
+    height: 8000px;
 }
 
 #contenedor-mas-amigos h2 {
@@ -869,7 +821,49 @@ header button#btn-comprar {
     margin-bottom: 68px;
 }
 
+#contenedor-2-columnas {
+    display: grid;              
+    grid-template-columns: 1fr 450px;  
+}
 
+.columna-texto {
+    display: grid;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#contenedor-mas-amigos .columna-texto h3 {
+    font-family: 'Lato';
+    font-size: 40px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+#contenedor-mas-amigos .columna-texto p {
+    line-height: 94.5%;
+}
+
+.columna-imagenes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 200px;
+}
+
+.columna-imagenes .contenedor-personaje {
+    position: sticky;
+    top: 50vh;
+    transform: translateY(-50%);
+}
+
+.columna-imagenes img {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.columna-imagenes img.oculta {
+    display: none;
+}
 
 
 /* ------------------- Sección 6: "Mira el video y descubre .."  ------------------- */
@@ -920,7 +914,6 @@ header button#btn-comprar {
 #contenedor-objeto-3d-publicidad div.contenedor-1080 {
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
 }
 
 .contenedor-info-modelo_3d {
@@ -938,9 +931,9 @@ header button#btn-comprar {
 }
 
 #modelo-3d {
-    width: 100%;
+    width: 150%;
     height: 970px;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 #contenedor-objeto-3d-publicidad h2 {
@@ -950,11 +943,14 @@ header button#btn-comprar {
 }
 
 /* ------------------- Sección 8: presentacion personajes  ------------------- */
+.contenedor-overflow {
+    padding: 25px 0;
+    overflow: hidden;
+}
+
 #contenedor-presentacion-personajes {
     width: 100%;
     background-image: url('../img/number-blocks/sec_8_presentacion_personajes/fondo-arcoiris.svg');
-    /* linear-gradient(to right, #8f1010,#cc1f1d,#dbc51d,#58e009,#38f3fc, #38f3fc),
-    linear-gradient(to right, #5e3c9e,#35e8a7,#de3394,#82817f,#fafffe);                                            */
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -982,9 +978,10 @@ header button#btn-comprar {
 /* ------------------- Sección 9: pre footer  ------------------- */
 #pre-footer {
     height: 1400px;
-    background: linear-gradient(0deg, #E0D299 0%, #ADF8FD 44%, #EDFDFD 82%, #FFFFFF 100%);
-    position: relative;
     margin-top: 195px;
+    position: relative;
+    background: linear-gradient(0deg, #E0D299 0%, #ADF8FD 44%, #EDFDFD 82%, #FFFFFF 100%);
+    overflow: hidden;
 }
 
 #contenedor-pre-footer #titulo-btn-texto {

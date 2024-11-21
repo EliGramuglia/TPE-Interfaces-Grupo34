@@ -134,17 +134,3 @@ const observerCols2 = new IntersectionObserver((entries) => {
 
 
 
-window.addEventListener('scroll', () => {
-    console.log(window.scrollY);
-
-    //En 4100 queda la imagen fija
-    const scroll = window.scrollY;
-    const img = document.getElementById('personaje-0');
-    if(scroll >= 4100){
-        img.classList.add('fija');
-  
-    } else {
-        img.classList.remove('fija');
-    }
-
-});

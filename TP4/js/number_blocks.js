@@ -24,8 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Sección 6: Trailer con video y personaje
     const contenedorTrailer = document.getElementById('contenedor-video-publicidad');
 
-
-
     //funcion para desplegar el menu hamburguesa y tambien para que se vuelva cruz(falta)
     let visible = false;
     menuHamburguesa.addEventListener('click', () => {
@@ -56,16 +54,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
+        
         heroParalax(scrollY)
         modificarHeader(scrollY);
         showIntroTextual(scrollY);
         show3Videos(scrollY);
         showTrailer(scrollY);
+        modelo3D(scrollY);
 
         //la seccion de descarga se activa al momento de empezar a bajar por la pag
         activarInteraccionConPersonajes();
     });
-
 
     // FUNCIONES PARA ANIMAR CADA SECCIÓN
     // Header
@@ -122,7 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
         //se agrandan y acercan a la pantalla los personajes
         //se achica toda la naturaleza
 
-
     //se van moviendo los elementos, desde la "mas" alejada a las mas cercanas -> personajes
     fondoHero.style.filter =`blur(${scrollY * .03}px)`; 
     arbusto1.style.right = 60 - scrollY * 0.4 + "px"; 
@@ -146,8 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
             sombra2.style.top = 700 + scrollY * .4 + "px";
             sombra3.style.top = 735 + scrollY * .4 + "px";
             // pj1.style.transform =`scale(${scrollY * .8}px)`;
-
-
         }
     }
 
@@ -249,6 +245,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 pj_Sec_6.style.animation = 'flotando 2.5s infinite ease-in-out alternate';
             }, 1000);
         }
+    }
+
+    function modelo3D() {
+        const objeto3D = document.getElementById('modelo-3d');
+        const contenedorModelo3d = document.getElementById('contenedor-objeto-3d-publicidad');
+
+        contenedorModelo3d.addEventListener("mousemove", (event) => {
+            //se calcula la rotacion del personaje con la posicion del mouse en x e y dividido el alto y ancho del contenedor
+            const rotacionX = ((event.clientY / window.innerHeight) - .4) * 30;
+            const rotacionY = ((event.clientX / window.innerWidth) - .4) * 30;        
+            
+            objeto3D.setAttribute("camera-orbit", `${-75 - rotacionY}deg ${85 - rotacionX}deg 0`);
+        });
+
+        //vuelve a su posicion cuando el mouse deje el contenedor del modelo 3d
+        contenedorModelo3d.addEventListener("mouseleave", () => {
+            objeto3D.setAttribute("camera-orbit", "-75deg 85deg 0"); // steamos a la rotacion original 
+        });
     }
 
 });

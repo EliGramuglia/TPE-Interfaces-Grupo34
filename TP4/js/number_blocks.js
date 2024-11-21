@@ -28,8 +28,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //funcion para desplegar el menu hamburguesa y tambien para que se vuelva cruz(falta)
     let visible = false;
-    menuHamburguesa.addEventListener('click', () =>{
+    menuHamburguesa.addEventListener('click', () => {
         visible = !visible;
+
+        // Alterna el ícono de menú hamburguesa abierto y cerrado
+        if (visible) {
+            menuHamburguesa.classList.add("abrir");
+            menuHamburguesa.classList.remove("cerrar");
+        } else {
+            menuHamburguesa.classList.remove("abrir");
+            menuHamburguesa.classList.add("cerrar");
+        }
+
+        // Lista de elementos
         listItems.forEach(item => {
             if (visible) {
                 item.classList.add('entradaItems');
@@ -40,10 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-
-
-
 
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;

@@ -136,6 +136,15 @@ header nav {
 header button#menu-hamburguesa {
     background-color: transparent;
     border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s ease;
 }
 
 header #menu-hamburguesa div {
@@ -146,7 +155,97 @@ header #menu-hamburguesa div {
     border: 4px white solid;
     border-radius: 111px;
     box-shadow: 4px 5px 0 #02197d;
-    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Animaciones para la apertura */
+@keyframes rotar-linea-1 {
+    0% {
+        transform: rotate(0deg) translate(0, 0);
+        box-shadow: 4px 5px 0 #02197d;
+    }
+    100% {
+        transform: rotate(45deg) translate(7px, 7px);
+        box-shadow: 0 0 0 #02197d;
+    }
+}
+
+@keyframes ocultar-linea-2 {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes rotar-linea-3 {
+    0% {
+        transform: rotate(0deg) translate(0, 0);
+        box-shadow: 4px 5px 0 #02197d;
+    }
+    100% {
+        transform: rotate(-45deg) translate(10px, -10px);
+        box-shadow: 0 0 0 #02197d;
+    }
+}
+
+/* Animaciones para el cierre */
+@keyframes rotar-linea-1-cerrar {
+    0% {
+        transform: rotate(45deg) translate(7px, 7px);
+        box-shadow: 0 0 0 #02197d;
+    }
+    100% {
+        transform: rotate(0deg) translate(0, 0);
+        box-shadow: 4px 5px 0 #02197d;
+    }
+}
+
+@keyframes mostrar-linea-2 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes rotar-linea-3-cerrar {
+    0% {
+        transform: rotate(-45deg) translate(10px, -10px);
+        box-shadow: 0 0 0 #02197d;
+    }
+    100% {
+        transform: rotate(0deg) translate(0, 0);
+        box-shadow: 4px 5px 0 #02197d;
+    }
+}
+
+/* Cuando el menú está abierto */
+header #menu-hamburguesa.abrir .line-1 {
+    animation: rotar-linea-1 0.3s forwards;
+}
+
+header #menu-hamburguesa.abrir .line-2 {
+    animation: ocultar-linea-2 0.3s forwards;
+}
+
+header #menu-hamburguesa.abrir .line-3 {
+    animation: rotar-linea-3 0.3s forwards;
+}
+
+/* Cuando el menú está cerrado */
+header #menu-hamburguesa.cerrar .line-1 {
+    animation: rotar-linea-1-cerrar 0.3s forwards;
+}
+
+header #menu-hamburguesa.cerrar .line-2 {
+    animation: mostrar-linea-2 0.3s forwards;
+}
+
+header #menu-hamburguesa.cerrar .line-3 {
+    animation: rotar-linea-3-cerrar 0.3s forwards;
 }
 
 aside#menu-secciones {

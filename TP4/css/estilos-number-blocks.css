@@ -1157,7 +1157,7 @@ header button#btn-comprar {
 .contenedor-pajarito {
     width: calc(420px / 7); 
     height: 60px;
-    background-image: url('img/number-blocks/sprite-sheet/sprite-sheet-pajarito.png'); 
+    background-image: url('../img/number-blocks/sprite-sheet/sprite-sheet-pajarito.png'); 
     background-repeat: no-repeat; 
     position: absolute;
     top: 45%; 
@@ -1190,7 +1190,7 @@ header button#btn-comprar {
 .contenedor-perro-ladrando {
     width: calc(610px / 4); 
     height: 98px;
-    background-image: url('img/number-blocks/sprite-sheet/sprite-sheet-perro-ladrando.png'); 
+    background-image: url('../img/number-blocks/sprite-sheet/sprite-sheet-perro-ladrando.png'); 
     background-repeat: no-repeat; 
     position: absolute;
     z-index: 10;

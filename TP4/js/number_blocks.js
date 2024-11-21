@@ -11,6 +11,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Sección 1: Hero -> FALTA PARALAX!!!
     const hero = document.getElementById('contenedor-hero-visual');
+    const fondoHero = document.getElementById('fondo-hero');
+    const elementosHero = document.querySelectorAll('.elemento-hero');
+    const arbolChico = document.getElementById('arbol-chico');
+    const arbolMediano = document.getElementById('arbol-mediano');
+    const arbolGrande = document.getElementById('arbol-grande');
+    const arbusto1 = document.getElementById('arbusto-1');
+    const arbusto2 = document.getElementById('arbusto-2');
+    const arbusto3 = document.getElementById('arbusto-3');
+    const arbusto4 = document.getElementById('arbusto-4');
+    const roca1 = document.getElementById('roca-1');
+    const roca2 = document.getElementById('roca-2');
+    const roca3 = document.getElementById('roca-3');
+    const roca4 = document.getElementById('roca-4');
+    const pj1 = document.getElementById('pj-1');
+    const pj2 = document.getElementById('pj-2');
+    const pj3 = document.getElementById('pj-3');
+    const sombra1 = document.getElementById('sombra-1');
+    const sombra2 = document.getElementById('sombra-2');
+    const sombra3 = document.getElementById('sombra-3');
 
     // Sección 2: Presentación textual
     const introTextual = document.getElementById('contenedor-presentacion-textual'); //sec 2: intro textual
@@ -93,57 +112,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //seccion 1: hero con paralax
     function heroParalax(scrollY){
-        const fondoHero = document.getElementById('fondo-hero');
-        const arbolChico = document.getElementById('arbol-chico');
-        const arbolMediano = document.getElementById('arbol-mediano');
-        const arbolGrande = document.getElementById('arbol-grande');
-        const arbusto1 = document.getElementById('arbusto-1');
-        const arbusto2 = document.getElementById('arbusto-2');
-        const arbusto3 = document.getElementById('arbusto-3');
-        const arbusto4 = document.getElementById('arbusto-4');
-        const roca1 = document.getElementById('roca-1');
-        const roca2 = document.getElementById('roca-2');
-        const roca3 = document.getElementById('roca-3');
-        const roca4 = document.getElementById('roca-4');
-        const pj1 = document.getElementById('pj-1');
-        const pj2 = document.getElementById('pj-2');
-        const pj3 = document.getElementById('pj-3');
-        const sombra1 = document.getElementById('sombra-1');
-        const sombra2 = document.getElementById('sombra-2');
-        const sombra3 = document.getElementById('sombra-3');
+        // Se van moviendo los elementos, desde la "mas" alejada a las mas cercanas -> personajes
+        // Lado derecho
+        fondoHero.style.filter = `blur(${scrollY * .02}px)`; 
+        let escala = scrollY * 0.0001;
+        fondoHero.style.transform = `scale(${1 + escala})`;
 
-        // if(scrollY <= 200){
+        arbusto1.style.right = 60 - scrollY * 0.3 + "px"; 
+        arbolChico.style.right = -80 - scrollY * 0.4 + "px"; 
+        arbusto2.style.right = -50 - scrollY * 0.5 + "px";
+        arbolMediano.style.right = -36 - scrollY * .3 + "px";
+        roca1.style.right = 177 - scrollY * .5 + "px"; 
+        roca2.style.right = 100 - scrollY * .5 + "px";
+        roca3.style.right = 177 - scrollY * .5 + "px";
 
-        //     pj1.style.top = 340 + scrollY * 1 + "px";
+        // Lado izquierdo
+        arbusto3.style.left =  161 - scrollY * .5 + "px"; 
+        arbolGrande.style.left = -152 - scrollY * .4 + "px"; 
+        roca4.style.left =  130 - scrollY * .8 + "px"; 
+        arbusto4.style.left =  198 - scrollY * .8 + "px"; 
 
-        // }
-        //se agrandan los arboles y se corren para el costado. haciendo zoom en el personajes
-        //se agrandan y acercan a la pantalla los personajes
-        //se achica toda la naturaleza
+        // Personajes
+        pj1.style.transform = `scale(${ 1 + scrollY * 0.5})`;
 
-    //se van moviendo los elementos, desde la "mas" alejada a las mas cercanas -> personajes
-    fondoHero.style.filter =`blur(${scrollY * .03}px)`; 
-    arbusto1.style.right = 60 - scrollY * 0.4 + "px"; 
-    arbusto2.style.right = -50 - scrollY * 0.5 + "px";
-    arbolChico.style.right = -80 - scrollY * 0.2 + "px"; 
-    arbolMediano.style.right = -36 - scrollY * .3 + "px";
-    roca1.style.right = 177 - scrollY * .6 + "px"; 
-    roca2.style.right = 100 - scrollY * .5 + "px"; 
-    roca3.style.right = 177 - scrollY * .8 + "px"; 
-    arbusto4.style.left =  161 - scrollY * .8 + "px"; 
-    arbolGrande.style.left = -152 - scrollY * .4 + "px"; 
-    roca4.style.left =  130 - scrollY * .8 + "px"; 
-    arbusto3.style.left =  198 - scrollY * .44 + "px"; 
-
-    //tienen un limite los personajes de cuanto pueden bajar
-        if(scrollY <= 250){
-            pj1.style.top = 340 + scrollY * .4 + "px";
-            pj2.style.top = 404 + scrollY * .5 + "px";
-            pj3.style.top = 420 + scrollY * .6 + "px";
-            sombra1.style.top = 680 + scrollY * .4 + "px";
-            sombra2.style.top = 700 + scrollY * .4 + "px";
-            sombra3.style.top = 735 + scrollY * .4 + "px";
-            // pj1.style.transform =`scale(${scrollY * .8}px)`;
+        //tienen un limite los personajes de cuanto pueden bajar
+        if (scrollY <= 250) {
+            pj1.style.top = 340 + scrollY * .1 + "px";
+            pj2.style.top = 404 + scrollY * .2 + "px";
+            pj3.style.top = 420 + scrollY * .3 + "px";
+            sombra1.style.top = 680 + scrollY * .1 + "px";
+            sombra2.style.top = 700 + scrollY * .2 + "px";
+            sombra3.style.top = 735 + scrollY * .3 + "px";
         }
     }
 

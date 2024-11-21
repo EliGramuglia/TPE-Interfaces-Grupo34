@@ -507,6 +507,7 @@ header button#btn-comprar {
     position: absolute;
     opacity: 0;
     will-change: transform;
+    transition: all 0.3s ease;
 }
 
 #arbusto-1 {
@@ -559,7 +560,7 @@ header button#btn-comprar {
     animation-delay: 3.2s;
 }
 
-#arbusto-4 {
+#arbusto-3 {
     top: 718px;
     left: 161px;
     z-index: 27;
@@ -581,12 +582,11 @@ header button#btn-comprar {
 
 }
 
-#arbusto-3 {
+#arbusto-4 {
     top: 820px;
     left: 198px;
     z-index: 30;
     animation-delay: 2.6s;
-
 }
 
 #pj-1 {
@@ -594,7 +594,6 @@ header button#btn-comprar {
     right: 355px;
     z-index: 31;
     animation-delay: 2.9s;
-
 }
 
 #sombra-1 {
@@ -602,7 +601,6 @@ header button#btn-comprar {
     right: 400px;
     z-index: 30;
     animation-delay: 2.6s;
-
 }
 
 #sombra-2 {
@@ -610,7 +608,6 @@ header button#btn-comprar {
     right: 520px;
     z-index: 30;
     animation-delay: 3.6s;
-
 }
 
 #sombra-3 {
@@ -618,7 +615,6 @@ header button#btn-comprar {
     right: 616px;
     z-index: 30;
     animation-delay: 3.8s;
-
 }
 
 #pj-2 {
@@ -639,6 +635,7 @@ header button#btn-comprar {
 
 /* ------------------- Sección 2: presentacion textual   ------------------- */
 #contenedor-presentacion-textual {
+    z-index: 1;
     width: 100%;
     height: 1259px;
     padding: 0 100px;

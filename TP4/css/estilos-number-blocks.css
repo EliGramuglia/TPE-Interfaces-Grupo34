@@ -928,7 +928,6 @@ header button#btn-comprar {
 #contenedor-objeto-3d-publicidad div.contenedor-1080 {
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
 }
 
 .contenedor-info-modelo_3d {
@@ -946,9 +945,9 @@ header button#btn-comprar {
 }
 
 #modelo-3d {
-    width: 100%;
+    width: 150%;
     height: 970px;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 #contenedor-objeto-3d-publicidad h2 {

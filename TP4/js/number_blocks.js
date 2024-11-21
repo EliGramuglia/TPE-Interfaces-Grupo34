@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showIntroTextual(scrollY);
         show3Videos(scrollY);
         showTrailer(scrollY);
+        modelo3D(scrollY);
 
         //la seccion de descarga se activa al momento de empezar a bajar por la pag
         activarInteraccionConPersonajes();
@@ -250,5 +251,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 1000);
         }
     }
+
+    function modelo3D(scrollY){
+        const modelViewer = document.getElementById('modelo-3d');
+        const contenedorModelo3d = document.getElementById('contenedor-objeto-3d-publicidad');
+        contenedorModelo3d.addEventListener("mousemove", (event) => {
+
+            const rotacionX = ((event.clientY / window.innerHeight) - .4) * 30; // 15deg por cada lado (15 * 2 = 30)
+            const rotacionY = ((event.clientX / window.innerWidth) - .4) * 30;
+        
+            
+            modelViewer.setAttribute("camera-orbit", `${-75 - rotacionY}deg ${85 - rotacionX}deg 0`);
+        });
+        //Rotacion original (-75deg 85deg 0) -> vuelve a su posicion cuando el mouse deje el contenedor del modelo 3d
+        contenedorModelo3d.addEventListener("mouseleave", () => {
+            modelViewer.setAttribute("camera-orbit", "-75deg 85deg 0");
+        });
+        }
 
 });

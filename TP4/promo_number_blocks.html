@@ -222,9 +222,11 @@
                         creando un aprendizaje dinámico y emocionante. ¡Cada sesión de juego se convierte en una
                         experiencia inolvidable llena de color y diversión!</p>
                 </div>
-                <div class="contenedor-modelo-3d"> <model-viewer id="modelo-3d" loading="eager" camera-controls
-                        tone-mapping="aces" src="img/number-blocks/sec_7_muestra_modelo_3d/one.glb" shadow-intensity="1"
-                        alt="A 3D model of a shishkebab"></model-viewer>
+                <div class="contenedor-modelo-3d"> 
+                    <model-viewer id="modelo-3d" camera-orbit="-75deg 85deg 0" disable-zoom
+                        src="img/number-blocks/sec_7_muestra_modelo_3d/one.glb"
+                        alt="A 3D model of a shishkebab">
+                    </model-viewer>
                 </div>
             </div>
         </article>
@@ -318,7 +320,7 @@
     </div>
     <script src="js/number_blocks.js"></script>
     <script src="js/pruebaSeccion5.js"></script>
-    <!-- <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script> -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </body>
 
 </html>

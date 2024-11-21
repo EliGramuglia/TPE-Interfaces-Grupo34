@@ -302,6 +302,7 @@ aside ul#lista-secciones {
     z-index: 10;
     transition: transform 0.5s ease-in-out;
     border-radius: 10px;
+    display: none;
 }
 
 aside ul#lista-secciones.sombra {

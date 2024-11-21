@@ -33,9 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Alterna el ícono de menú hamburguesa abierto y cerrado
         if (visible) {
+            listaSecciones.style.display = 'block';
             menuHamburguesa.classList.add("abrir");
             menuHamburguesa.classList.remove("cerrar");
         } else {
+            listaSecciones.style.display = 'none';
             menuHamburguesa.classList.remove("abrir");
             menuHamburguesa.classList.add("cerrar");
         }

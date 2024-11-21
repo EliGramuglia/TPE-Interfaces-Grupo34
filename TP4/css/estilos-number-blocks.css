@@ -1136,21 +1136,33 @@ header button#btn-comprar {
     position: absolute;
     height: 181px;
     top: 648px;
-    left: 0;
+    animation: moverNube 10s linear infinite;
 }
 
 #nube-2 {
     position: absolute;
     height: 124px;
     top: 346px;
-    right: 221px;
+    animation: moverNube 18s linear infinite;
+    filter: blur(2px);
 }
 
 #nube-3 {
     position: absolute;
     height: 181px;
     top: 389px;
-    right: 0;
+    animation: moverNube 15s linear infinite;
+    filter: blur(1px);
+}
+
+/*Animación para mover las nubes*/
+@keyframes moverNube {
+    0% {
+        transform: translateX(-100px);
+    }
+    100% {
+        transform: translateX(120vw); 
+    }
 }
 
 

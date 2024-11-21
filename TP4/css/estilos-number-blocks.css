@@ -1243,8 +1243,8 @@ header button#btn-comprar {
     position: absolute;
     z-index: 1;
     top: 190px;
-    transform: translateY(-50%); 
-    animation: saltarRanita 1s steps(4) infinite, moveRana 8s linear infinite;
+    transform: translateY(-50%) scaleX(1); 
+    animation: saltarRanita 1s steps(4) infinite, moveRana 10s linear infinite;
   }
 
   @keyframes saltarRanita {
@@ -1257,11 +1257,20 @@ header button#btn-comprar {
   }
 
   @keyframes moveRana {
-    from {
-      left: 100px; 
+    0% {
+      left: 100px;
+      transform: translateY(-50%) scaleX(1); 
     }
-    to {
-      left: 782px; 
+    50% {
+        left: 782px;
+        transform: translateY(-50%) scaleX(1); 
+    }
+    51% {
+        transform: translateY(-50%) scaleX(-1);
+    }
+    100% {
+        transform: translateY(-50%) scaleX(-1);
+        left: 100px;
     }
   }
 

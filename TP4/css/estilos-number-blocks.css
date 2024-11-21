@@ -1049,7 +1049,11 @@ header button#btn-comprar {
     line-height: 94.5%;
     -webkit-text-stroke: 1px white;
     padding: 0 22px;
-    animation: expandir 3s infinite;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#suscribirse button:hover {
+    animation: expandir 3s; 
 }
 
 @keyframes expandir {
@@ -1112,7 +1116,7 @@ header button#btn-comprar {
     position: absolute;
     top: 877px;
     left: 65px;
-
+    z-index: 10;
 }
 
 #gif-3 {
@@ -1120,6 +1124,7 @@ header button#btn-comprar {
     height: 509px;
     top: 848px;
     left: 407px;
+    z-index: 10;
 }
 
 #gif-7 {
@@ -1127,6 +1132,7 @@ header button#btn-comprar {
     height: 997px;
     top: 442px;
     left: 756px;
+    z-index: 10;
 }
 
 #nube-1 {
@@ -1186,30 +1192,36 @@ header button#btn-comprar {
   }
 
 
-/*PERRO LADRANDO*/
-.contenedor-perro-ladrando {
-    width: calc(610px / 4); 
-    height: 98px;
-    background-image: url('../img/number-blocks/sprite-sheet/sprite-sheet-perro-ladrando.png'); 
+/*CONEJO SALTANDO*/
+.contenedor-conejo {
+    width: calc(400px / 4); 
+    height: 76px;
+    background-image: url('../img/number-blocks/sprite-sheet/sprite-sheet-conejo.png'); 
     background-repeat: no-repeat; 
     position: absolute;
-    z-index: 10;
+    z-index: 1;
     top: 90%;
-    left: 15px;
     transform: translateY(-50%); 
-    animation: ladrar 1s steps(4) infinite
+    animation: saltar 1s steps(4) infinite, moveConejo 5s linear infinite;
   }
 
-  @keyframes ladrar {
+  @keyframes saltar {
     from {
       background-position: 0 0; 
     }
     to {
-      background-position: -610px 0; 
+      background-position: -400px 0; 
     }
   }
 
-
+  @keyframes moveConejo {
+    from {
+      left: 15px; 
+    }
+    to {
+      left: 35px; 
+    }
+  }
 
 
 

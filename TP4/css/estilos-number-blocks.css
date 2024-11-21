@@ -827,23 +827,29 @@ header button#btn-comprar {
     align-self: start;
     position: sticky;
     top: 20px;
-    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 200px;
 }
 
 .imagen-sticky img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 436px;
-    display: none;
+    margin: 0 auto;
 }
 
-.imagen-sticky img.visible {
-    display: block;
+.imagen-sticky img.fija {
+    position: sticky;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: opacity 0.5s ease-in-out;
 }
+
 .imagen-sticky img.oculta {
     display: none;
 }
+
 
 #contenedor-mas-amigos .texto-scrollear h3 {
     font-family: 'Lato';
@@ -1149,14 +1155,14 @@ header button#btn-comprar {
 
 /*PAJARITO*/
 .contenedor-pajarito {
-    width: calc(360px / 5); /* Ancho de cada cuadro (72px) */
-    height: calc(199px /3); /* Alto de cada cuadro */
+    width: calc(420px / 7); 
+    height: 60px;
     background-image: url('/img/number-blocks/sprite-sheet/sprite-sheet-pajarito.png'); /* Ruta del sprite sheet */
     background-repeat: no-repeat; /* Evitar repeticiones */
     position: absolute;
     top: 45%; /* Posición vertical */
     transform: translateY(-50%); /* Centra verticalmente */
-    animation: fly 2s steps(14) infinite, move 5s linear infinite; /* Animaciones */
+    animation: fly 2s steps(7) infinite, move 5s linear infinite; /* Animaciones */
   }
   
   /* Animación para el cambio de cuadros */
@@ -1165,7 +1171,7 @@ header button#btn-comprar {
       background-position: 0 0; /* Primer cuadro */
     }
     to {
-      background-position: 0 -360px; /* Último cuadro (ajustar según el sprite sheet) */
+      background-position: -420px 0; /* Último cuadro (ajustar según el sprite sheet) */
     }
   }
   

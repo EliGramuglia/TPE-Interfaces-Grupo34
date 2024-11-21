@@ -83,7 +83,7 @@ function cambiarImagen(index) {
 }*/
 
 
-"use strict";
+/*"use strict";
 const scrollingImagen = document.querySelector('.imagen-sticky');
 const textos = document.querySelectorAll('.texto-scrollear > div'); //Selecciona todos los textos
 
@@ -93,23 +93,58 @@ const observerCols2 = new IntersectionObserver((entries) => {
     //Entries es un array que guarda info de los elementos observados y su estado de visibilidad
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      const index = Array.from(textos).indexOf(entry.target); //Índice del párrafo actual
-
-      // Generamos el id de la imagen correspondiente al índice del párrafo
-      const currentImageId = `personaje-${index}`; // Genera el id de la imagen
-
-      // Obtenemos la imagen correspondiente a través de su id
-      const currentImage = scrollingImagen.querySelector(`#${currentImageId}`); 
-
-      // Si la imagen no tiene la clase 'visible', la agregamos
-      if (currentImage && !currentImage.classList.contains('visible')) {
-        currentImage.classList.add('visible');
+        const index = Array.from(textos).indexOf(entry.target); // Índice del párrafo actual
+  
+        // Generamos el id de la imagen correspondiente al índice del párrafo
+        const currentImageId = `personaje-${index}`; // Genera el id de la imagen
+  
+        // Obtenemos todas las imágenes dentro del contenedor 'imagen-sticky'
+        const allImages = scrollingImagen.querySelectorAll('img'); 
+  
+        // Ocultamos todas las imágenes
+        allImages.forEach(img => {
+          img.classList.remove('visible'); // Eliminar clase visible
+          img.classList.add('oculta'); // Asegurarnos de que las otras imágenes estén ocultas
+        });
+  
+        // Obtenemos la imagen correspondiente a través de su id
+        const currentImage = scrollingImagen.querySelector(`#${currentImageId}`); 
+  
+        // Mostramos solo la imagen correspondiente
+        if (currentImage && !currentImage.classList.contains('visible')) {
+          currentImage.classList.remove('oculta'); // Asegurarnos de que no tenga la clase 'oculta'
+          currentImage.classList.add('visible');  // Mostrar la imagen correspondiente
+        }
       }
-    }
-  });
-}, { threshold: 0.8 }); // Ajustamos el umbral de visibilidad al 80%
+    });
+  }, { threshold: 0.8 }); // Ajustamos el umbral de visibilidad al 80%
+  
+  // Observamos todos los párrafos
+  textos.forEach(paragraph => {
+    observerCols2.observe(paragraph);
+  });*/
 
-// Observamos todos los párrafos
-textos.forEach(paragraph => {
-  observerCols2.observe(paragraph);
+
+
+
+
+
+
+
+
+
+
+window.addEventListener('scroll', () => {
+    console.log(window.scrollY);
+
+    //En 4100 queda la imagen fija
+    const scroll = window.scrollY;
+    const img = document.getElementById('personaje-0');
+    if(scroll >= 4100){
+        img.classList.add('fija');
+  
+    } else {
+        img.classList.remove('fija');
+    }
+
 });

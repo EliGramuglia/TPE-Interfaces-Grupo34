@@ -804,49 +804,45 @@ header button#btn-comprar {
 
 /* ------------------- Sección 5: Más amigos, más diversión  ------------------- */
 #contenedor-mas-amigos {
-    position: relative;
     height: 5247px;
 }
 
 #contenedor-2-columnas {
     display: grid;              
-    grid-template-columns: 1fr 1fr;  
+    grid-template-columns: 1fr 450px;  
 }
 
 .texto-scrollear {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    position: absolute;
-    left: 613px;
-    gap: 500px;
+    display: grid;
+    row-gap: 400px;
+    padding-bottom: 150px;
 }
 
 .texto-scrollear div {
     width: 467px;
-    height: 100%;
+   
 }
 
 .imagen-sticky {
+    align-self: start;
     position: sticky;
-    left: 243px;
     top: 20px;
+    justify-items: center;
 }
 
-.imagen-fija {
-    position: fixed;
-    top: 25%;
-    left: 25%;
-    transform: translate(-25%, -25%);
-}
-
-.texto-oculto {
+.imagen-sticky img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 436px;
     display: none;
 }
 
-.texto-visible {
+.imagen-sticky img.visible {
     display: block;
+}
+.imagen-sticky img.oculta {
+    display: none;
 }
 
 #contenedor-mas-amigos .texto-scrollear h3 {

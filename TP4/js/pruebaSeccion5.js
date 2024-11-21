@@ -82,96 +82,34 @@ function cambiarImagen(index) {
     }
 }*/
 
+
 "use strict";
+const scrollingImagen = document.querySelector('.imagen-sticky');
+const textos = document.querySelectorAll('.texto-scrollear > div'); //Selecciona todos los textos
 
-// Selección de elementos
-const sec5 = document.getElementById('contenedor-mas-amigos');
-const contenedorMasAmigos = document.getElementById('contenedor-2-columnas');
-const personaje = document.querySelector('#personaje-0');
-const textos = document.getElementsByClassName('texto-oculto');
 
-// Rutas de las imágenes que se deben mostrar según el índice calculado (PERSONAJES)
-const imagenes = [
-    'img/number-blocks/sec_5_mas_amigos/img-0.png',
-    'img/number-blocks/sec_5_mas_amigos/img-1.png',
-    'img/number-blocks/sec_5_mas_amigos/img-2.png',
-    'img/number-blocks/sec_5_mas_amigos/img-3.png',
-    'img/number-blocks/sec_5_mas_amigos/img-4.png',
-    'img/number-blocks/sec_5_mas_amigos/img-5.png',
-    'img/number-blocks/sec_5_mas_amigos/img-6.png',
-    'img/number-blocks/sec_5_mas_amigos/img-7.png',
-    'img/number-blocks/sec_5_mas_amigos/img-8.png',
-    'img/number-blocks/sec_5_mas_amigos/img-9.png',
-    'img/number-blocks/sec_5_mas_amigos/img-10.png',
-];
+//IntersectionObserver detecta cuándo un elemento entra o sale del viewport
+const observerCols2 = new IntersectionObserver((entries) => {
+    //Entries es un array que guarda info de los elementos observados y su estado de visibilidad
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const index = Array.from(textos).indexOf(entry.target); //Índice del párrafo actual
 
-// Listener para el evento scroll
-window.addEventListener('scroll', () => {
-    const sectionTop = sec5.offsetTop; // Obtiene la posición de la parte superior de la sección 
-    const sectionHeight = sec5.offsetHeight; // Devuelve la altura total de la sección
+      // Generamos el id de la imagen correspondiente al índice del párrafo
+      const currentImageId = `personaje-${index}`; // Genera el id de la imagen
 
-    const scrollPosition = window.scrollY; // Desplazamiento actual de la página
+      // Obtenemos la imagen correspondiente a través de su id
+      const currentImage = scrollingImagen.querySelector(`#${currentImageId}`); 
 
-    // Verifica si la sección está visible en el viewport.
-    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-        const indiceActual = calcularIndexParaImagen(scrollPosition - sectionTop);
-        cambiarTexto(indiceActual);
-        cambiarImagen(indiceActual);
-        console.log(indiceActual);
+      // Si la imagen no tiene la clase 'visible', la agregamos
+      if (currentImage && !currentImage.classList.contains('visible')) {
+        currentImage.classList.add('visible');
+      }
     }
+  });
+}, { threshold: 0.8 }); // Ajustamos el umbral de visibilidad al 80%
+
+// Observamos todos los párrafos
+textos.forEach(paragraph => {
+  observerCols2.observe(paragraph);
 });
-
-// Calcula el índice de la imagen que se debe mostrar en base a la cantidad de píxeles desplazados
-function calcularIndexParaImagen(cantPixelesScroll) {
-    const cambioImagen = 500; // A cuantos píxeles cambiar la imagen
-    let index = Math.floor(cantPixelesScroll / cambioImagen);
-
-    if (index >= imagenes.length) {
-        index = imagenes.length - 1;
-    } else if (index < 0) {
-        index = 0;
-    }
-    return index;
-}
-
-// Función para cambiar el texto 
-function cambiarTexto(index) {
-    for (let i = 0; i < textos.length; i++) {
-        if (i === index) {
-            textos[i].classList.add("texto-visible");
-            textos[i].classList.remove("texto-oculto");
-        } else {
-            textos[i].classList.add("texto-oculto");
-            textos[i].classList.remove("texto-visible");
-        }
-    }
-}
-
-// Función para cambiar la imagen
-function cambiarImagen(index) {
-    if (personaje.src !== imagenes[index]) {
-        personaje.src = imagenes[index];
-
-        if (index > 0 && index < 10) {
-            personaje.classList.add("imagen-fija");
-        } else if (index === 0 || index === 10) {
-            personaje.classList.remove("imagen-fija");
-        }
-    }
-}
-
-// Crear un IntersectionObserver para observar cuando el contenedor entra en el viewport
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            // Si el contenedor entra en el viewport, hacer que la imagen sea fija
-            personaje.classList.add('imagen-fija');
-        } else {
-            // Si el contenedor ya no está visible, quitar la clase 'imagen-fija'
-            personaje.classList.remove('imagen-fija');
-        }
-    });
-}, { threshold: 0.15}); // Umbral de visibilidad (0.1 significa que 10% del contenedor debe ser visible)
-
-// Comienza a observar el contenedor sec5
-observer.observe(sec5);

@@ -320,7 +320,7 @@ aside ul#lista-secciones.sombra {
 
 aside ul#lista-secciones li {
     opacity: 0;
-    padding: 10px;
+    padding: 5px 14px;
     cursor: pointer;
     transition: all ease-in-out linear;
     background-color: white;    
@@ -334,7 +334,8 @@ aside ul#lista-secciones li a {
     text-decoration: none;
     font-size: 20px;
     font-weight: bolder;
-    padding: 14px;
+    padding: 10px 14px;
+    text-wrap: nowrap;
     background-color: rgb(255, 255, 255);
     display: flex;
     border-radius: 4px;
@@ -351,7 +352,7 @@ aside ul#lista-secciones li:first-child{
     border-radius:  10px 10px 0 0;
     animation-delay: 0s;
     border-top: .2px solid rgb(2, 25, 125,.3);
-
+    padding-top: 14px;
 }
 
 aside ul#lista-secciones li:nth-child(2) {
@@ -382,7 +383,7 @@ aside ul#lista-secciones li:last-child {
     animation-delay: 1.4s;
     border-radius: 0 0 10px 10px;
     border-bottom: .2px solid rgb(2, 25, 125,.3);
-
+    padding-bottom: 14px;
 }
 
 aside ul#lista-secciones li:hover a{

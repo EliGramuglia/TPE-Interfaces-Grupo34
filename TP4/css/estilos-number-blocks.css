@@ -1162,7 +1162,7 @@ header button#btn-comprar {
     position: absolute;
     top: 45%; /* Posición vertical */
     transform: translateY(-50%); /* Centra verticalmente */
-    animation: fly 2s steps(7) infinite, move 5s linear infinite; /* Animaciones */
+    animation: fly 1s steps(7) infinite, move 5s linear infinite; /* Animaciones */
   }
   
   /* Animación para el cambio de cuadros */

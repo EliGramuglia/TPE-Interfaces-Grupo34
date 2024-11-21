@@ -1157,21 +1157,21 @@ header button#btn-comprar {
 .contenedor-pajarito {
     width: calc(420px / 7); 
     height: 60px;
-    background-image: url('/img/number-blocks/sprite-sheet/sprite-sheet-pajarito.png'); /* Ruta del sprite sheet */
-    background-repeat: no-repeat; /* Evitar repeticiones */
+    background-image: url('/img/number-blocks/sprite-sheet/sprite-sheet-pajarito.png'); 
+    background-repeat: no-repeat; 
     position: absolute;
-    top: 45%; /* Posición vertical */
-    transform: translateY(-50%); /* Centra verticalmente */
-    animation: fly 1s steps(7) infinite, move 5s linear infinite; /* Animaciones */
+    top: 45%; 
+    transform: translateY(-50%); 
+    animation: fly 1s steps(7) infinite, move 5s linear infinite; 
   }
   
   /* Animación para el cambio de cuadros */
   @keyframes fly {
     from {
-      background-position: 0 0; /* Primer cuadro */
+      background-position: 0 0; 
     }
     to {
-      background-position: -420px 0; /* Último cuadro (ajustar según el sprite sheet) */
+      background-position: -420px 0; 
     }
   }
   
@@ -1182,6 +1182,30 @@ header button#btn-comprar {
     }
     to {
       left: 100vw; /* Fuera de la pantalla por la derecha */
+    }
+  }
+
+
+/*PERRO LADRANDO*/
+.contenedor-perro-ladrando {
+    width: calc(610px / 4); 
+    height: 98px;
+    background-image: url('/img/number-blocks/sprite-sheet/sprite-sheet-perro-ladrando.png'); 
+    background-repeat: no-repeat; 
+    position: absolute;
+    z-index: 10;
+    top: 94%;
+    left: 15px;
+    transform: translateY(-50%); 
+    animation: ladrar 1s steps(4) infinite
+  }
+
+  @keyframes ladrar {
+    from {
+      background-position: 0 0; 
+    }
+    to {
+      background-position: -610px 0; 
     }
   }
 

@@ -16,7 +16,6 @@ body {
 .contenedor-1280 {
     width: 1280px;
     margin: 0 auto;
-    overflow-x: hidden;
 }
 
 .contenedor-1080 {
@@ -429,11 +428,11 @@ header button#btn-comprar {
 
 /* ------------------- Sección 1: hero -> presentacion visual   ------------------- */
 #contenedor-hero-visual {
+    overflow: hidden;
     width: 100%;
     margin-bottom: -4px;
     position: relative;
     z-index: 0;
-
 }
 
 .crecimientoVertical {
@@ -812,62 +811,7 @@ header button#btn-comprar {
 
 /* ------------------- Sección 5: Más amigos, más diversión  ------------------- */
 #contenedor-mas-amigos {
-    height: 5247px;
-}
-
-#contenedor-2-columnas {
-    display: grid;              
-    grid-template-columns: 1fr 450px;  
-}
-
-.texto-scrollear {
-    display: grid;
-    row-gap: 400px;
-    padding-bottom: 150px;
-}
-
-.texto-scrollear div {
-    width: 467px;
-   
-}
-
-.imagen-sticky {
-    align-self: start;
-    position: sticky;
-    top: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 200px;
-}
-
-.imagen-sticky img {
-    margin: 0 auto;
-}
-
-.imagen-sticky img.fija {
-    position: sticky;
-    top: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.imagen-sticky img.oculta {
-    display: none;
-}
-
-
-#contenedor-mas-amigos .texto-scrollear h3 {
-    font-family: 'Lato';
-    font-size: 40px;
-    font-weight: 400;
-    margin-bottom: 15px;
-}
-
-#contenedor-mas-amigos .texto-scrollear p {
-    line-height: 94.5%;
+    height: 8000px;
 }
 
 #contenedor-mas-amigos h2 {
@@ -877,7 +821,49 @@ header button#btn-comprar {
     margin-bottom: 68px;
 }
 
+#contenedor-2-columnas {
+    display: grid;              
+    grid-template-columns: 1fr 450px;  
+}
 
+.columna-texto {
+    display: grid;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#contenedor-mas-amigos .columna-texto h3 {
+    font-family: 'Lato';
+    font-size: 40px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+#contenedor-mas-amigos .columna-texto p {
+    line-height: 94.5%;
+}
+
+.columna-imagenes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 200px;
+}
+
+.columna-imagenes .contenedor-personaje {
+    position: sticky;
+    top: 50vh;
+    transform: translateY(-50%);
+}
+
+.columna-imagenes img {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.columna-imagenes img.oculta {
+    display: none;
+}
 
 
 /* ------------------- Sección 6: "Mira el video y descubre .."  ------------------- */
@@ -957,11 +943,14 @@ header button#btn-comprar {
 }
 
 /* ------------------- Sección 8: presentacion personajes  ------------------- */
+.contenedor-overflow {
+    padding: 25px 0;
+    overflow: hidden;
+}
+
 #contenedor-presentacion-personajes {
     width: 100%;
     background-image: url('../img/number-blocks/sec_8_presentacion_personajes/fondo-arcoiris.svg');
-    /* linear-gradient(to right, #8f1010,#cc1f1d,#dbc51d,#58e009,#38f3fc, #38f3fc),
-    linear-gradient(to right, #5e3c9e,#35e8a7,#de3394,#82817f,#fafffe);                                            */
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -989,9 +978,10 @@ header button#btn-comprar {
 /* ------------------- Sección 9: pre footer  ------------------- */
 #pre-footer {
     height: 1400px;
-    background: linear-gradient(0deg, #E0D299 0%, #ADF8FD 44%, #EDFDFD 82%, #FFFFFF 100%);
-    position: relative;
     margin-top: 195px;
+    position: relative;
+    background: linear-gradient(0deg, #E0D299 0%, #ADF8FD 44%, #EDFDFD 82%, #FFFFFF 100%);
+    overflow: hidden;
 }
 
 #contenedor-pre-footer #titulo-btn-texto {

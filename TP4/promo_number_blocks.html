@@ -13,7 +13,6 @@
 
 <body>
     <div class="contenedor-1280" id="contenedor-pagina">
-
         <!------------------------------- HEADER -------------------------------> 
         <header class="contenedor-1280">
             <!-- menu hamburguesa con sus 3  divs para formar las lineas -->
@@ -136,21 +135,44 @@
             <h2>Más amigos, más diversión!</h2>
             <div id="contenedor-2-columnas">
                 <!--Imagenes de los personajes-->
-               <div class="imagen-sticky">
-                    <img id="personaje-0" src="img/number-blocks/sec_5_mas_amigos/img-0.png" alt="Imágen de número animado">
-                    <img id="personaje-1" src="img/number-blocks/sec_5_mas_amigos/img-1.png" alt="Imágen de número animado">
-                    <img id="personaje-2" src="img/number-blocks/sec_5_mas_amigos/img-2.png" alt="Imágen de número animado">
-                    <img id="personaje-3" src="img/number-blocks/sec_5_mas_amigos/img-3.png" alt="Imágen de número animado">
-                    <img id="personaje-4" src="img/number-blocks/sec_5_mas_amigos/img-4.png" alt="Imágen de número animado">
-                    <img id="personaje-5" src="img/number-blocks/sec_5_mas_amigos/img-5.png" alt="Imágen de número animado">
-                    <img id="personaje-6" src="img/number-blocks/sec_5_mas_amigos/img-6.png" alt="Imágen de número animado">
-                    <img id="personaje-7" src="img/number-blocks/sec_5_mas_amigos/img-7.png" alt="Imágen de número animado">
-                    <img id="personaje-8" src="img/number-blocks/sec_5_mas_amigos/img-8.png" alt="Imágen de número animado">
-                    <img id="personaje-9" src="img/number-blocks/sec_5_mas_amigos/img-9.png" alt="Imágen de número animado">
-                    <img id="personaje-10" src="img/number-blocks/sec_5_mas_amigos/img-10.png" alt="Imágen de número animado">
+                <div class="columna-imagenes">
+                    <div class="contenedor-personaje">
+                        <img id="personaje-0" src="img/number-blocks/sec_5_mas_amigos/img-0.png" alt="Imágen de número animado">
+                    </div>
+                    <div class="contenedor-personaje">
+                        <img id="personaje-1" src="img/number-blocks/sec_5_mas_amigos/img-1.png" alt="Imágen de número animado">
+                    </div>
+                    <div class="contenedor-personaje">
+                        <img id="personaje-2" src="img/number-blocks/sec_5_mas_amigos/img-2.png" alt="Imágen de número animado">
+                    </div>
+                    <div class="contenedor-personaje">
+                        <img id="personaje-3" src="img/number-blocks/sec_5_mas_amigos/img-3.png" alt="Imágen de número animado">
+                    </div>
+                    <div class="contenedor-personaje">
+                        <img id="personaje-4" src="img/number-blocks/sec_5_mas_amigos/img-4.png" alt="Imágen de número animado">
+                    </div>
+                    <div class="contenedor-personaje">
+                        <img id="personaje-5" src="img/number-blocks/sec_5_mas_amigos/img-5.png" alt="Imágen de número animado">
+                    </div>
+                    <div class="contenedor-personaje">
+                        <img id="personaje-6" src="img/number-blocks/sec_5_mas_amigos/img-6.png" alt="Imágen de número animado">
+                    </div>
+                    <div class="contenedor-personaje">
+                        <img id="personaje-7" src="img/number-blocks/sec_5_mas_amigos/img-7.png" alt="Imágen de número animado">
+                    </div>
+                    <div class="contenedor-personaje">
+                        <img id="personaje-8" src="img/number-blocks/sec_5_mas_amigos/img-8.png" alt="Imágen de número animado">
+                    </div>
+                    <div class="contenedor-personaje">
+                        <img id="personaje-9" src="img/number-blocks/sec_5_mas_amigos/img-9.png" alt="Imágen de número animado">
+                    </div>
+                    <div class="contenedor-personaje">
+                        <img id="personaje-10" src="img/number-blocks/sec_5_mas_amigos/img-10.png" alt="Imágen de número animado">
+                    </div>
                 </div>
+
                 <!--Contenedor de los textos-->
-                 <div class="texto-scrollear">
+                 <div class="columna-texto">
                     <div>
                         <h3>Sumas Mágicas</h3>
                         <p class="text">Ayuda a UNO y sus amigos a juntar bloques y ver cómo sus números crecen al sumar. Cada vez que sumas correctamente, los NumberBlocks ganan fuerza y desbloquean sorpresas mágicas. ¡Descubre cómo los números se combinan para formar resultados increíbles!</p>
@@ -223,7 +245,9 @@
                         experiencia inolvidable llena de color y diversión!</p>
                 </div>
                 <div class="contenedor-modelo-3d"> 
-                    <model-viewer id="modelo-3d" camera-orbit="-75deg 85deg 0" disable-zoom
+                    <model-viewer id="modelo-3d" 
+                        camera-orbit="-75deg 85deg 0" 
+                        disable-zoom
                         src="img/number-blocks/sec_7_muestra_modelo_3d/one.glb"
                         alt="A 3D model of a shishkebab">
                     </model-viewer>
@@ -233,22 +257,24 @@
 
 
         <!--------------------- SECCIÓN 8: PRESENTACIÓN PERSONAJES ------------------------>
-        <section id="contenedor-presentacion-personajes"> 
-            <div class="catalogo-personajes">
-                <img src="img/number-blocks/sec_8_presentacion_personajes/img-1.jpg" alt="personaje 1">
-                <img src="img/number-blocks/sec_8_presentacion_personajes/img-2.jpg" alt="personaje 2">
-                <img src="img/number-blocks/sec_8_presentacion_personajes/img-3.jpg" alt="personaje 3">
-                <img src="img/number-blocks/sec_8_presentacion_personajes/img-4.jpg" alt="personaje 4">
-                <img src="img/number-blocks/sec_8_presentacion_personajes/img-5.jpg" alt="personaje 5">
-            </div>
-            <div class="catalogo-personajes">
-                <img src="img/number-blocks/sec_8_presentacion_personajes/img-6.jpg" alt="personaje 6">
-                <img src="img/number-blocks/sec_8_presentacion_personajes/img-7.jpg" alt="personaje 7">
-                <img src="img/number-blocks/sec_8_presentacion_personajes/img-8.jpg" alt="personaje 8">
-                <img src="img/number-blocks/sec_8_presentacion_personajes/img-9.jpg" alt="personaje 9">
-                <img src="img/number-blocks/sec_8_presentacion_personajes/img-10.jpg" alt="personaje 10">
-            </div>
-        </section>
+        <div class="contenedor-overflow">
+            <section id="contenedor-presentacion-personajes"> 
+                <div class="catalogo-personajes">
+                    <img src="img/number-blocks/sec_8_presentacion_personajes/img-1.jpg" alt="personaje 1">
+                    <img src="img/number-blocks/sec_8_presentacion_personajes/img-2.jpg" alt="personaje 2">
+                    <img src="img/number-blocks/sec_8_presentacion_personajes/img-3.jpg" alt="personaje 3">
+                    <img src="img/number-blocks/sec_8_presentacion_personajes/img-4.jpg" alt="personaje 4">
+                    <img src="img/number-blocks/sec_8_presentacion_personajes/img-5.jpg" alt="personaje 5">
+                </div>
+                <div class="catalogo-personajes">
+                    <img src="img/number-blocks/sec_8_presentacion_personajes/img-6.jpg" alt="personaje 6">
+                    <img src="img/number-blocks/sec_8_presentacion_personajes/img-7.jpg" alt="personaje 7">
+                    <img src="img/number-blocks/sec_8_presentacion_personajes/img-8.jpg" alt="personaje 8">
+                    <img src="img/number-blocks/sec_8_presentacion_personajes/img-9.jpg" alt="personaje 9">
+                    <img src="img/number-blocks/sec_8_presentacion_personajes/img-10.jpg" alt="personaje 10">
+                </div>
+            </section>
+        </div>
 
 
         <!--------------------- SECCIÓN 9: PRE-FOOTER ------------------------>

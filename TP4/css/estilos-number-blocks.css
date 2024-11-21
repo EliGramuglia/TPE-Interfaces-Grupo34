@@ -37,6 +37,8 @@ body {
     cursor: pointer;
     box-shadow: 4px 5px 0 #02197d;
     font-family: 'Lato';
+    position: relative;
+    overflow: hidden;
 }
 
 .text {
@@ -276,32 +278,30 @@ header button#btn-comprar {
     align-items: center;
     justify-content: center;
     justify-self: end;
-    position: relative;
-    overflow: hidden;
 }
 
-#btn-comprar:active {
+.btn-estilo-general:active {
     transform: scale(0.95);
     transition: transform 0.1s ease-out;
 }
 
-#btn-comprar::after {
+.btn-estilo-general::after {
     content: "";
     width: 120%;
     height: 100%;
     position: absolute;
     z-index: 1;
-    left: -5;
+    left: -100px;
     top: 0;
     transform: skew(20deg);
     transition: .3s ease-in-out all;
 }
 
-#btn-comprar:hover:after {
+.btn-estilo-general:hover:after {
     animation: btnPrincipal .5s ease-in-out 1 forwards;
 }
 
-#btn-comprar span {
+.btn-estilo-general span {
     position: relative;
     z-index: 2;
 }
@@ -314,7 +314,7 @@ header button#btn-comprar {
 
     100% {
         background-color: #30962f;
-        width: 120%;
+        width: 160%;
     }
 }
 

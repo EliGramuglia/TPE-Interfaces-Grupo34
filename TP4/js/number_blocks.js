@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //seccion 1: hero con paralax
     function heroParalax(scrollY){
+        const fondoHero = document.getElementById('fondo-hero');
         const arbolChico = document.getElementById('arbol-chico');
         const arbolMediano = document.getElementById('arbol-mediano');
         const arbolGrande = document.getElementById('arbol-grande');
@@ -112,14 +113,42 @@ document.addEventListener('DOMContentLoaded', () => {
         const sombra2 = document.getElementById('sombra-2');
         const sombra3 = document.getElementById('sombra-3');
 
-        if(scrollY <= 200){
+        // if(scrollY <= 200){
 
-            pj1.style.top = 340 + scrollY * 1 + "px";
+        //     pj1.style.top = 340 + scrollY * 1 + "px";
+
+        // }
+        //se agrandan los arboles y se corren para el costado. haciendo zoom en el personajes
+        //se agrandan y acercan a la pantalla los personajes
+        //se achica toda la naturaleza
+
+
+    //se van moviendo los elementos, desde la "mas" alejada a las mas cercanas -> personajes
+    fondoHero.style.filter =`blur(${scrollY * .03}px)`; 
+    arbusto1.style.right = 60 - scrollY * 0.4 + "px"; 
+    arbusto2.style.right = -50 - scrollY * 0.5 + "px";
+    arbolChico.style.right = -80 - scrollY * 0.2 + "px"; 
+    arbolMediano.style.right = -36 - scrollY * .3 + "px";
+    roca1.style.right = 177 - scrollY * .6 + "px"; 
+    roca2.style.right = 100 - scrollY * .5 + "px"; 
+    roca3.style.right = 177 - scrollY * .8 + "px"; 
+    arbusto4.style.left =  161 - scrollY * .8 + "px"; 
+    arbolGrande.style.left = -152 - scrollY * .4 + "px"; 
+    roca4.style.left =  130 - scrollY * .8 + "px"; 
+    arbusto3.style.left =  198 - scrollY * .44 + "px"; 
+
+    //tienen un limite los personajes de cuanto pueden bajar
+        if(scrollY <= 250){
+            pj1.style.top = 340 + scrollY * .4 + "px";
+            pj2.style.top = 404 + scrollY * .5 + "px";
+            pj3.style.top = 420 + scrollY * .6 + "px";
+            sombra1.style.top = 680 + scrollY * .4 + "px";
+            sombra2.style.top = 700 + scrollY * .4 + "px";
+            sombra3.style.top = 735 + scrollY * .4 + "px";
+            // pj1.style.transform =`scale(${scrollY * .8}px)`;
+
 
         }
-        //se agrandan los arboles y se corren para el costado. haciendo zoom en el personajes
-        //se agrandan y acercan a la pantalla los personajes 
-        //se achica toda la naturaleza
     }
 
 
@@ -139,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (scrollY >= 500) {
             text.classList.add('elem-animado-izq');
         }
-        
+
         if (scrollY >= 600) {
             video.classList.add('elem-animado-izq');
         }
@@ -206,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         //le coloco las animaciones de entrada
         if (scrollY >= 9000) {
-            title.classList.add('elem-animado-izq');            
+            title.classList.add('elem-animado-izq');
         }
 
         if (scrollY >= 9300) {

@@ -252,20 +252,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function modelo3D(scrollY){
-        const modelViewer = document.getElementById('modelo-3d');
+    function modelo3D(){
+        const objeto3D = document.getElementById('modelo-3d');
         const contenedorModelo3d = document.getElementById('contenedor-objeto-3d-publicidad');
+
         contenedorModelo3d.addEventListener("mousemove", (event) => {
 
+            //se calcula la rotacion del personaje con la posicion del mouse en x e y dividido el alto y ancho del contenedor
             const rotacionX = ((event.clientY / window.innerHeight) - .4) * 30; // 15deg por cada lado (15 * 2 = 30)
-            const rotacionY = ((event.clientX / window.innerWidth) - .4) * 30;
-        
+            const rotacionY = ((event.clientX / window.innerWidth) - .4) * 30;        
             
-            modelViewer.setAttribute("camera-orbit", `${-75 - rotacionY}deg ${85 - rotacionX}deg 0`);
+            objeto3D.setAttribute("camera-orbit", `${-75 - rotacionY}deg ${85 - rotacionX}deg 0`);
         });
-        //Rotacion original (-75deg 85deg 0) -> vuelve a su posicion cuando el mouse deje el contenedor del modelo 3d
+
+        //vuelve a su posicion cuando el mouse deje el contenedor del modelo 3d
         contenedorModelo3d.addEventListener("mouseleave", () => {
-            modelViewer.setAttribute("camera-orbit", "-75deg 85deg 0");
+            objeto3D.setAttribute("camera-orbit", "-75deg 85deg 0"); // steamos a la rotacion original 
         });
         }
 

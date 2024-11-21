@@ -433,8 +433,8 @@ header button#btn-comprar {
 }
 
 #contenedor-2-columnas {
-    display: flex;
-    justify-content: space-between;
+    display: grid;              
+    grid-template-columns: 1fr 1fr;  
 }
 
 .texto-scrollear {
@@ -444,7 +444,7 @@ header button#btn-comprar {
     align-items: flex-start;
     position: absolute;
     left: 613px;
-    gap: 210px;
+    gap: 500px;
 }
 
 .texto-scrollear div {
@@ -460,8 +460,9 @@ header button#btn-comprar {
 
 .imagen-fija {
     position: fixed;
-    left: 243px;
-    top: 20px;
+    top: 25%;
+    left: 25%;
+    transform: translate(-25%, -25%);
 }
 
 .texto-oculto {
@@ -747,7 +748,39 @@ header button#btn-comprar {
 }
 
 
+/* ------------------- Sprite sheets  ------------------- */
 
+/*PAJARITO*/
+.contenedor-pajarito {
+    width: calc(360px / 5); /* Ancho de cada cuadro (72px) */
+    height: calc(199px /3); /* Alto de cada cuadro */
+    background-image: url('/img/number-blocks/sprite-sheet/sprite-sheet-pajarito.png'); /* Ruta del sprite sheet */
+    background-repeat: no-repeat; /* Evitar repeticiones */
+    position: absolute;
+    top: 45%; /* Posición vertical */
+    transform: translateY(-50%); /* Centra verticalmente */
+    animation: fly 2s steps(14) infinite, move 5s linear infinite; /* Animaciones */
+  }
+  
+  /* Animación para el cambio de cuadros */
+  @keyframes fly {
+    from {
+      background-position: 0 0; /* Primer cuadro */
+    }
+    to {
+      background-position: 0 -360px; /* Último cuadro (ajustar según el sprite sheet) */
+    }
+  }
+  
+  /* Animación para desplazarse de izquierda a derecha */
+  @keyframes move {
+    from {
+      left: -100px; /* Fuera de la pantalla por la izquierda */
+    }
+    to {
+      left: 100vw; /* Fuera de la pantalla por la derecha */
+    }
+  }
 
 
 

@@ -18,51 +18,52 @@
         <header class="contenedor-1280">
             <!-- menu hamburguesa con sus 3  divs para formar las lineas -->
             <nav>
-                <div id="menu-hamburguesa">
+                <button id="menu-hamburguesa">
                     <div class="line-1"></div>
                     <div class="line-2"></div>
                     <div class="line-3"></div>
-                </div>
+                </button>
                 <!-- menu de links con el indice de la pag -->
-                <!-- <ul>
-                    <li><a href="#contenedor-hero-visual">Inicio</a></li>
-                    <li><a href="#contenedor-presentacion-textual">Presentacion Textual</a></li>
-                    <li><a href="#contenedor-videos-recomendados">Videos recomendados</a></li>
-                    <li><a href="#contenedor-publicidad-descarga">Promosion-descarga</a></li>
-                    <li><a href="#contenedor-mas-amigos">seccion informativa</a></li>
-                    <li><a href="#contenedor-video-publicidad">trailer?</a></li>
-                    <li><a href="#contenedor-objeto-3d-publicidad">Presentacion de modelo 3d</a></li>
-                    <li><a href="#contenedor-presentacion-personajes">Muestra de personajes</a></li>
-                    <li><a href="#pre-footer">Contacto</a></li>
-                </ul> -->
             </nav>
             <img src="img/number-blocks/header/logo.png" alt="" id="img-logo"> <!--CENTRARLO EN EL MEDIO DEL HEADER-->
-            <button class="btn-estilo-general" id="btn-comprar">comprar</button>
+            <button class="btn-estilo-general" id="btn-comprar"><span>comprar</span></button>
         </header>
-
+        
+        <aside id="menu-secciones">
+            <ul id="lista-secciones">
+                <li><a href="#contenedor-hero-visual">Inicio</a></li>
+                <li><a href="#contenedor-presentacion-textual">Presentacion Textual</a></li>
+                <li><a href="#contenedor-publicidad-descarga">Promosion descarga</a></li>
+                <li><a href="#contenedor-mas-amigos">Seccion informativa</a></li>
+                <li><a href="#contenedor-video-publicidad">Video publicidad</a></li>
+                <li><a href="#contenedor-objeto-3d-publicidad">Presentacion de modelo 3d</a></li>
+                <li><a href="#contenedor-presentacion-personajes">Muestra de personajes</a></li>
+                <li><a href="#contenedor-pre-footer">Contacto</a></li>
+            </ul>
+        </aside>
 
         <!--------------------- SECCIÓN 1: HERO - PRESENTACIÓN VISUAL ------------------------> 
         <section id="contenedor-hero-visual">
             <!-- <img src="img/number-blocks/sec_1_hero/nubes-hero.png" alt="">
             <img src="img/number-blocks/sec_1_hero/paisaje-sin-fondo.png" alt=""> -->
             <img id="fondo-hero" class="img-fondo img" src="img/number-blocks/sec_1_hero/fondo-hero.png" alt="">
-            <img id="arbol-chico" class="elemento-hero" src="img/number-blocks/sec_1_hero/arbol-chico.png" alt="">
-            <img id="arbol-mediano" class="elemento-hero" src="img/number-blocks/sec_1_hero/arbol-mediano.png" alt="">
+            <img id="arbol-chico" class="elemento-hero crecimientoVertical" src="img/number-blocks/sec_1_hero/arbol-chico.png" alt="">
+            <img id="arbol-mediano" class="elemento-hero crecimientoVertical" src="img/number-blocks/sec_1_hero/arbol-mediano.png" alt="">
             <img id="arbol-grande" class="elemento-hero crecimientoVertical" src="img/number-blocks/sec_1_hero/arbol-grande.png" alt="">
-            <img id="arbusto-1" class="elemento-hero" src="img/number-blocks/sec_1_hero/arbusto-1.png" alt="">
-            <img id="arbusto-2" class="elemento-hero" src="img/number-blocks/sec_1_hero/arbusto-2.png" alt="">
-            <img id="arbusto-3" class="elemento-hero" src="img/number-blocks/sec_1_hero/arbusto-3.png" alt="">
-            <img id="arbusto-4" class="elemento-hero" src="img/number-blocks/sec_1_hero/arbusto-4.png" alt="">
-            <img id="roca-1" class="elemento-hero" src="img/number-blocks/sec_1_hero/roca-1.png" alt="">
-            <img id="roca-2" class="elemento-hero" src="img/number-blocks/sec_1_hero/roca-2.png" alt="">
-            <img id="roca-3" class="elemento-hero" src="img/number-blocks/sec_1_hero/roca-3.png" alt="">
-            <img id="roca-4" class="elemento-hero" src="img/number-blocks/sec_1_hero/roca-4.png" alt="">
-            <img id="pj-1" class="elemento-hero" src="img/number-blocks/sec_1_hero/pj-1.png" alt="">
-            <img id="pj-2" class="elemento-hero" src="img/number-blocks/sec_1_hero/pj-2.png" alt="">
-            <img id="pj-3" class="elemento-hero" src="img/number-blocks/sec_1_hero/pj-3.png" alt="">
-            <img id="sombra-1" class="elemento-hero" src="img/number-blocks/sec_1_hero/sombra-personaje.png" alt="">
-            <img id="sombra-2" class="elemento-hero" src="img/number-blocks/sec_1_hero/sombra-personaje.png" alt="">
-            <img id="sombra-3" class="elemento-hero" src="img/number-blocks/sec_1_hero/sombra-personaje.png" alt="">
+            <img id="arbusto-1" class="elemento-hero elem-animado-derecha" src="img/number-blocks/sec_1_hero/arbusto-1.png" alt="">
+            <img id="arbusto-2" class="elemento-hero elem-animado-derecha" src="img/number-blocks/sec_1_hero/arbusto-2.png" alt="">
+            <img id="arbusto-3" class="elemento-hero elem-animado-izq" src="img/number-blocks/sec_1_hero/arbusto-3.png" alt="">
+            <img id="arbusto-4" class="elemento-hero elem-animado-izq" src="img/number-blocks/sec_1_hero/arbusto-4.png" alt="">
+            <img id="roca-1" class="elemento-hero elem-animado-derecha" src="img/number-blocks/sec_1_hero/roca-1.png" alt="">
+            <img id="roca-2" class="elemento-hero elem-animado-derecha" src="img/number-blocks/sec_1_hero/roca-2.png" alt="">
+            <img id="roca-3" class="elemento-hero elem-animado-derecha" src="img/number-blocks/sec_1_hero/roca-3.png" alt="">
+            <img id="roca-4" class="elemento-hero elem-animado-izq" src="img/number-blocks/sec_1_hero/roca-4.png" alt="">
+            <img id="pj-1" class="elemento-hero entradaSuperior" src="img/number-blocks/sec_1_hero/pj-1.png" alt="">
+            <img id="pj-2" class="elemento-hero entradaSuperior" src="img/number-blocks/sec_1_hero/pj-2.png" alt="">
+            <img id="pj-3" class="elemento-hero entradaSuperior" src="img/number-blocks/sec_1_hero/pj-3.png" alt="">
+            <img id="sombra-1" class="elemento-hero aparicionEspontanea" src="img/number-blocks/sec_1_hero/sombra-personaje.png" alt="">
+            <img id="sombra-2" class="elemento-hero aparicionEspontanea" src="img/number-blocks/sec_1_hero/sombra-personaje.png" alt="">
+            <img id="sombra-3" class="elemento-hero aparicionEspontanea" src="img/number-blocks/sec_1_hero/sombra-personaje.png" alt="">
         </section>
 
 
@@ -76,7 +77,7 @@
                     equipo
                     de Alphablocks Ltd. y Blue Zoo Animations Studio, ganador de un premio BAFTA.</p>
                 <div class="caja-video-presentacion">
-                    <img class="img" src="img//number-blocks/sec_2_publiTextual/portada-1.png"></img>
+                    <div id="portada-video"></div>
                 </div>
             </div>
             <img id="pj-cuadrado-1" src="img/number-blocks/sec_2_publiTextual/pj-cuadrado.png" alt="">
@@ -123,7 +124,7 @@
         <article id="contenedor-publicidad-descarga">
             <div class="contenedor-1080">
                 <h2>Descubre el juego que convierte las <span class="txt-cursiva">Matemáticas</span> en diversión </h2>
-                <button id="btn-descarga" class="btn-estilo-general">¡Descarga NumberBlocks hoy!</button>
+                <button id="btn-descarga" class="btn-estilo-general"><span>¡Descarga NumberBlocks hoy!</span></button>
                 <img id="fondo-personajes" src="img/number-blocks/sec_4_promo_descarga/personajes-fondo.png"
                     alt="png de personajes">
             </div>
@@ -195,7 +196,7 @@
         <section id="contenedor-video-publicidad">
             <h2>Mira el video y descubre el sorprendente mundo de los NumberBlocks!</h2>
             <div id="video-publicidad" class="video-publicidad">
-                <iframe src="https://www.youtube.com/embed/0YKa9DQYdRg?si=xlvYceMJpaXYoHuQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <!-- <iframe src="https://www.youtube.com/embed/0YKa9DQYdRg?si=xlvYceMJpaXYoHuQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
             </div>
             <img id="pj-seccion-6" src="img/number-blocks/sec_6_trailer/pj-seccion-6.png" alt="modelo 3d">
         </section>

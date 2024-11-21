@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const logo = document.getElementById('img-logo');
     const menuHamburguesa =document.getElementById('menu-hamburguesa');
     const listaSecciones = document.getElementById('lista-secciones');
+    const listItems = document.querySelectorAll('#lista-secciones li');
+
     // Sección 1: Hero -> FALTA PARALAX!!!
     const hero = document.getElementById('contenedor-hero-visual');
 
@@ -26,17 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //funcion para desplegar el menu hamburguesa y tambien para que se vuelva cruz(falta)
     let visible = false;
-    const listItems = document.querySelectorAll('#lista-secciones li');
-
     menuHamburguesa.addEventListener('click', () =>{
         visible = !visible;
         listItems.forEach(item => {
             if (visible) {
                 item.classList.add('entradaItems');
-                item.style.opacity = 1;
+                listaSecciones.classList.add('sombra');
             } else {
                 item.classList.remove('entradaItems');
-                item.style.opacity = 0;
+                listaSecciones.classList.remove('sombra');
             }
         });
     });

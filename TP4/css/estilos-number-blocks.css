@@ -149,21 +149,43 @@ header #menu-hamburguesa div {
     cursor: pointer;
 }
 
-aside#menu-secciones{
+aside#menu-secciones {
     width: 300px;
-    position: relative;
-    left: -300px;
+    position: fixed;
+    left: calc(50vw - 550px);
     z-index: 100;
 }
 
-aside ul#lista-secciones{
+aside ul#lista-secciones {
     position: absolute;
-    top: 80px;
+    top: 100px;
     z-index: 10;
     transition: transform 0.5s ease-in-out;
+    border-radius: 10px;
 }
 
-aside ul#lista-secciones li a{
+aside ul#lista-secciones.sombra {
+    animation: sombra 1.4s ease forwards 1.6s;
+}
+
+@keyframes sombra {
+    from {
+        box-shadow: 4px 0 10px rgba(0, 0, 0, 0);
+    }
+    to {
+        box-shadow: 4px 0 10px rgba(0, 0, 0, 0.4);
+    }
+}
+
+aside ul#lista-secciones li {
+    opacity: 0;
+    padding: 10px;
+    cursor: pointer;
+    transition: all ease-in-out linear;
+    background-color: white;
+}
+
+aside ul#lista-secciones li a {
     color: #02197d;
     text-decoration: none;
     font-size: 20px;
@@ -174,13 +196,6 @@ aside ul#lista-secciones li a{
     border-radius: 4px;
     padding: 16px;
     transition:  background-color .1s ease,color .1s ease ;
-}
-aside ul#lista-secciones li{
-    opacity: 0;
-    padding: 10px;
-    cursor: pointer;
-    transition: all ease-in-out linear;
-    background-color: white;
 }
 
 .entradaItems{
@@ -213,8 +228,12 @@ aside ul#lista-secciones li:nth-child(6) {
     animation-delay: 1s;
 }
 
-aside ul#lista-secciones li:last-child {
+aside ul#lista-secciones li:nth-child(7) {
     animation-delay: 1.2s;
+}
+
+aside ul#lista-secciones li:last-child {
+    animation-delay: 1.4s;
     border-radius: 0 0 10px 10px;
 }
 
@@ -226,13 +245,15 @@ aside ul#lista-secciones li:hover a{
 
 @keyframes entradaItemMenu {
     0%{
-        transform: translateX(0);
+        opacity: 0;
+        transform: translateX(-300px);
     }
     80%{
-        transform: translateX(410px);
+        transform: translateX(10px);
     }
     100%{
-        transform: translateX(400px);
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 

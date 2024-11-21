@@ -1198,8 +1198,8 @@ header button#btn-comprar {
     position: absolute;
     z-index: 1;
     top: 90%;
-    transform: translateY(-50%); 
-    animation: saltar 1s steps(4) infinite, moveConejo 5s linear infinite;
+    transform: translateY(-50%) rotateY(180deg);
+    animation: saltar 1s steps(4) infinite, moveConejo 8s linear infinite;
   }
 
   @keyframes saltar {
@@ -1213,10 +1213,10 @@ header button#btn-comprar {
 
   @keyframes moveConejo {
     from {
-      left: 15px; 
+        left: 100vw; 
     }
     to {
-      left: 35px; 
+        left: -100px;
     }
   }
 

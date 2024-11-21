@@ -1082,6 +1082,7 @@ header button#btn-comprar {
 
 #texto-inscribirse {
     width: 578px;
+    z-index: 10;
 }
 
 #texto-inscribirse p {
@@ -1143,7 +1144,7 @@ header button#btn-comprar {
     position: absolute;
     height: 124px;
     top: 346px;
-    animation: moverNube 18s linear infinite;
+    animation: moverNube 25s linear infinite;
     filter: blur(2px);
 }
 
@@ -1151,14 +1152,14 @@ header button#btn-comprar {
     position: absolute;
     height: 181px;
     top: 389px;
-    animation: moverNube 15s linear infinite;
+    animation: moverNube 20s linear infinite;
     filter: blur(1px);
 }
 
 /*Animación para mover las nubes*/
 @keyframes moverNube {
     0% {
-        transform: translateX(-100px);
+        transform: translateX(-20vw);
     }
     100% {
         transform: translateX(120vw); 

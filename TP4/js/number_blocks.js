@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Header
     const header = document.querySelector('header');
     const logo = document.getElementById('img-logo');
-
+    const menuHamburguesa =document.getElementById('menu-hamburguesa');
+    const listaSecciones = document.getElementById('lista-secciones');
     // Sección 1: Hero -> FALTA PARALAX!!!
     const hero = document.getElementById('contenedor-hero-visual');
 
@@ -21,9 +22,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Sección 6: Trailer con video y personaje
     const contenedorTrailer = document.getElementById('contenedor-video-publicidad');
 
+
+
+    //funcion para desplegar el menu hamburguesa y tambien para que se vuelva cruz(falta)
+    menuHamburguesa.addEventListener('click', () =>{
+        const listItems = document.querySelectorAll('#lista-secciones li');
+        listItems.forEach(item => {
+            item.classList.toggle('entradaItems');
+        });
+    });
+
+
+
+
+
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
-
+        heroParalax(scrollY)
         modificarHeader(scrollY);
         showIntroTextual(scrollY);
         show3Videos(scrollY);
@@ -58,6 +73,37 @@ document.addEventListener('DOMContentLoaded', () => {
         var gradiente = `linear-gradient(to bottom, rgba(0, 209, 213, ${opacidad}), rgba(0, 209, 213, ${opacidad * 0.12}) 88%, rgba(0, 209, 213, 0))`;
         header.style.backgroundImage = gradiente;
     }
+
+    //seccion 1: hero con paralax
+    function heroParalax(scrollY){
+        const arbolChico = document.getElementById('arbol-chico');
+        const arbolMediano = document.getElementById('arbol-mediano');
+        const arbolGrande = document.getElementById('arbol-grande');
+        const arbusto1 = document.getElementById('arbusto-1');
+        const arbusto2 = document.getElementById('arbusto-2');
+        const arbusto3 = document.getElementById('arbusto-3');
+        const arbusto4 = document.getElementById('arbusto-4');
+        const roca1 = document.getElementById('roca-1');
+        const roca2 = document.getElementById('roca-2');
+        const roca3 = document.getElementById('roca-3');
+        const roca4 = document.getElementById('roca-4');
+        const pj1 = document.getElementById('pj-1');
+        const pj2 = document.getElementById('pj-2');
+        const pj3 = document.getElementById('pj-3');
+        const sombra1 = document.getElementById('sombra-1');
+        const sombra2 = document.getElementById('sombra-2');
+        const sombra3 = document.getElementById('sombra-3');
+
+        if(scrollY <= 200){
+
+            pj1.style.top = 340 + scrollY * 1 + "px";
+
+        }
+        //se agrandan los arboles y se corren para el costado. haciendo zoom en el personajes
+        //se agrandan y acercan a la pantalla los personajes 
+        //se achica toda la naturaleza
+    }
+
 
     // Sección 2: presentación textual de la app
     function showIntroTextual(scrollY) {

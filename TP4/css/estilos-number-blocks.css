@@ -132,7 +132,10 @@ header {
 header nav {
     justify-self: start;
 }
-
+button#menu-hamburguesa {
+    background-color: transparent;
+    border: none;
+}
 header #menu-hamburguesa div {
     width: 34px;
     height: 4px;
@@ -143,6 +146,90 @@ header #menu-hamburguesa div {
     box-shadow: 4px 5px 0 #02197d;
     cursor: pointer;
 }
+aside#menu-secciones{
+    position: relative;
+}
+aside ul#lista-secciones{
+    position: absolute;
+    top: 80px;
+    z-index: 10;
+    transition: transform 0.5s ease-in-out;
+}
+
+aside ul#lista-secciones li a{
+    color: #02197d;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bolder;
+    padding: 14px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    border-radius: 4px;
+    padding: 16px;
+    transition:  background-color .1s ease,color .1s ease ;
+}
+aside ul#lista-secciones li{
+    opacity: 0;
+    padding: 10px;
+    cursor: pointer;
+    transition: all ease-in-out linear;
+    background-color: white;
+}
+.entradaItems{
+    animation: entradaItemMenu .5s ease-in-out forwards;
+}
+aside ul#lista-secciones li:first-child{
+    border-radius:  10px 10px 0 0;
+    animation-delay: 0s;
+}
+
+aside ul#lista-secciones li:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+aside ul#lista-secciones li:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+aside ul#lista-secciones li:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+aside ul#lista-secciones li:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+aside ul#lista-secciones li:nth-child(6) {
+    animation-delay: 1s;
+}
+
+aside ul#lista-secciones li:last-child {
+    animation-delay: 1.2s;
+    border-radius: 0 0 10px 10px;
+}
+aside ul#lista-secciones li:hover a{
+    background-color: rgba(2, 25, 125, 0.8);
+    color: white;
+    transition:  background-color .1s linear, color .1s linear;
+}
+@keyframes entradaItemMenu {
+    0%{
+        transform: translateX(-300px);
+        opacity: 1;
+
+    }
+    80%{
+        transform: translateX(110px);
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(100px);
+        opacity: 1;
+    }
+}
+
+
+
 
 
 

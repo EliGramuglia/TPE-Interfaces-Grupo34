@@ -41,6 +41,45 @@ body {
     overflow: hidden;
 }
 
+.btn-estilo-general:active {
+    transform: translate(8px, 8px);
+    box-shadow: 0px 0px 0 #02197d;
+    transition: transform .2s ease-out, box-shadow .2s ease-out;
+}
+
+.btn-estilo-general::after {
+    content: "";
+    width: 120%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    left: -100px;
+    top: 0;
+    transform: skew(20deg);
+    transition: .3s ease-in-out all;
+}
+
+.btn-estilo-general:hover:after {
+    animation: btnPrincipal .5s ease-in-out 1 forwards;
+}
+
+.btn-estilo-general span {
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes btnPrincipal {
+    0% {
+        width: 0;
+        background-color: #30962f;
+    }
+
+    100% {
+        background-color: #30962f;
+        width: 160%;
+    }
+}
+
 .text {
     font-size: 20px;
     font-weight: 400;
@@ -378,45 +417,6 @@ header button#btn-comprar {
     justify-content: center;
     justify-self: end;
 }
-
-.btn-estilo-general:active {
-    transform: scale(0.95);
-    transition: transform 0.1s ease-out;
-}
-
-.btn-estilo-general::after {
-    content: "";
-    width: 120%;
-    height: 100%;
-    position: absolute;
-    z-index: 1;
-    left: -100px;
-    top: 0;
-    transform: skew(20deg);
-    transition: .3s ease-in-out all;
-}
-
-.btn-estilo-general:hover:after {
-    animation: btnPrincipal .5s ease-in-out 1 forwards;
-}
-
-.btn-estilo-general span {
-    position: relative;
-    z-index: 2;
-}
-
-@keyframes btnPrincipal {
-    0% {
-        width: 0;
-        background-color: #30962f;
-    }
-
-    100% {
-        background-color: #30962f;
-        width: 160%;
-    }
-}
-
 
 /* ------------------- Sección 1: hero -> presentacion visual   ------------------- */
 #contenedor-hero-visual {

@@ -1221,6 +1221,37 @@ header button#btn-comprar {
   }
 
 
+  /*RANA VERDE*/
+  .contenedor-rana {
+    width: calc(423px / 4); 
+    height: 53px;
+    background-image: url('../img/number-blocks/sprite-sheet/sprite-sheet-rana.png'); 
+    background-repeat: no-repeat; 
+    position: absolute;
+    z-index: 1;
+    top: 190px;
+    transform: translateY(-50%); 
+    animation: saltarRanita 1s steps(4) infinite, moveRana 8s linear infinite;
+  }
+
+  @keyframes saltarRanita {
+    from {
+      background-position: 0 0; 
+    }
+    to {
+      background-position: -423px 0; 
+    }
+  }
+
+  @keyframes moveRana {
+    from {
+      left: 100px; 
+    }
+    to {
+      left: 782px; 
+    }
+  }
+
 
 /* ------------------- Sección: footer  ------------------- */
 footer {

@@ -25,10 +25,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     //funcion para desplegar el menu hamburguesa y tambien para que se vuelva cruz(falta)
+    let visible = false;
+    const listItems = document.querySelectorAll('#lista-secciones li');
+
     menuHamburguesa.addEventListener('click', () =>{
-        const listItems = document.querySelectorAll('#lista-secciones li');
+        visible = !visible;
         listItems.forEach(item => {
-            item.classList.toggle('entradaItems');
+            if (visible) {
+                item.classList.add('entradaItems');
+                item.style.opacity = 1;
+            } else {
+                item.classList.remove('entradaItems');
+                item.style.opacity = 0;
+            }
         });
     });
 

@@ -1043,7 +1043,11 @@ header button#btn-comprar {
     line-height: 94.5%;
     -webkit-text-stroke: 1px white;
     padding: 0 22px;
-    animation: expandir 3s infinite;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#suscribirse button:hover {
+    animation: expandir 3s; 
 }
 
 @keyframes expandir {
@@ -1075,6 +1079,7 @@ header button#btn-comprar {
 
 #texto-inscribirse {
     width: 578px;
+    z-index: 10;
 }
 
 #texto-inscribirse p {
@@ -1106,7 +1111,7 @@ header button#btn-comprar {
     position: absolute;
     top: 877px;
     left: 65px;
-
+    z-index: 10;
 }
 
 #gif-3 {
@@ -1114,6 +1119,7 @@ header button#btn-comprar {
     height: 509px;
     top: 848px;
     left: 407px;
+    z-index: 10;
 }
 
 #gif-7 {
@@ -1121,27 +1127,40 @@ header button#btn-comprar {
     height: 997px;
     top: 442px;
     left: 756px;
+    z-index: 10;
 }
 
 #nube-1 {
     position: absolute;
     height: 181px;
     top: 648px;
-    left: 0;
+    animation: moverNube 10s linear infinite;
 }
 
 #nube-2 {
     position: absolute;
     height: 124px;
     top: 346px;
-    right: 221px;
+    animation: moverNube 25s linear infinite;
+    filter: blur(2px);
 }
 
 #nube-3 {
     position: absolute;
     height: 181px;
     top: 389px;
-    right: 0;
+    animation: moverNube 20s linear infinite;
+    filter: blur(1px);
+}
+
+/*Animación para mover las nubes*/
+@keyframes moverNube {
+    0% {
+        transform: translateX(-20vw);
+    }
+    100% {
+        transform: translateX(120vw); 
+    }
 }
 
 
@@ -1180,31 +1199,77 @@ header button#btn-comprar {
   }
 
 
-/*PERRO LADRANDO*/
-.contenedor-perro-ladrando {
-    width: calc(610px / 4); 
-    height: 98px;
-    background-image: url('../img/number-blocks/sprite-sheet/sprite-sheet-perro-ladrando.png'); 
+/*CONEJO SALTANDO*/
+.contenedor-conejo {
+    width: calc(400px / 4); 
+    height: 76px;
+    background-image: url('../img/number-blocks/sprite-sheet/sprite-sheet-conejo.png'); 
     background-repeat: no-repeat; 
     position: absolute;
-    z-index: 10;
+    z-index: 1;
     top: 90%;
-    left: 15px;
-    transform: translateY(-50%); 
-    animation: ladrar 1s steps(4) infinite
+    transform: translateY(-50%) rotateY(180deg);
+    animation: saltar 1s steps(4) infinite, moveConejo 8s linear infinite;
   }
 
-  @keyframes ladrar {
+  @keyframes saltar {
     from {
       background-position: 0 0; 
     }
     to {
-      background-position: -610px 0; 
+      background-position: -400px 0; 
+    }
+  }
+
+  @keyframes moveConejo {
+    from {
+        left: 100vw; 
+    }
+    to {
+        left: -100px;
     }
   }
 
 
+  /*RANA VERDE*/
+  .contenedor-rana {
+    width: calc(423px / 4); 
+    height: 53px;
+    background-image: url('../img/number-blocks/sprite-sheet/sprite-sheet-rana.png'); 
+    background-repeat: no-repeat; 
+    position: absolute;
+    z-index: 1;
+    top: 190px;
+    transform: translateY(-50%) scaleX(1); 
+    animation: saltarRanita 1s steps(4) infinite, moveRana 10s linear infinite;
+  }
 
+  @keyframes saltarRanita {
+    from {
+      background-position: 0 0; 
+    }
+    to {
+      background-position: -423px 0; 
+    }
+  }
+
+  @keyframes moveRana {
+    0% {
+      left: 100px;
+      transform: translateY(-50%) scaleX(1); 
+    }
+    50% {
+        left: 782px;
+        transform: translateY(-50%) scaleX(1); 
+    }
+    51% {
+        transform: translateY(-50%) scaleX(-1);
+    }
+    100% {
+        transform: translateY(-50%) scaleX(-1);
+        left: 100px;
+    }
+  }
 
 
 /* ------------------- Sección: footer  ------------------- */

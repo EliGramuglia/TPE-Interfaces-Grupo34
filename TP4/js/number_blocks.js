@@ -1,6 +1,36 @@
 "use strict"
 
 document.addEventListener('DOMContentLoaded', () => {
+    const pantallaLoader = document.querySelector('#loader');
+    const porcentajeCarga = document.querySelector('#porcentaje-carga');
+
+    // Loader
+    let contador = 0; // Valor inicial
+    const objetivo = 100; // Objetivo del contador (100%)
+    const duracion = 5000; // Duración total en milisegundos
+    const intervalo = 50; // Intervalo de actualización en milisegundos
+    const pasos = objetivo / (duracion / intervalo); // Cantidad de pasos para alcanzar el objetivo
+    document.body.classList.add('no-scroll');
+
+    const intervaloContador = setInterval(() => {
+        contador += pasos;
+        porcentajeCarga.innerHTML = Math.round(contador) + "%"
+
+        if (contador >= objetivo) {
+            clearInterval(intervaloContador);
+
+            // Cuando termina la carga, se dispara la animación de finalización
+            porcentajeCarga.innerHTML = "100%";
+            pantallaLoader.style.opacity = 0;
+
+            setTimeout(() => {
+                document.body.classList.remove('no-scroll');
+                pantallaLoader.remove();
+            }, 1000);
+        }
+    }, intervalo);
+
+
     // ELEMENTOS DE CADA SECCIÓN
     // Header
     const header = document.querySelector('header');

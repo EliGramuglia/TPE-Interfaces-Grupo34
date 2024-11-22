@@ -96,6 +96,10 @@ h2 {
     font-size: 60px;
 }
 
+.no-scroll {
+    overflow: hidden;
+}
+
 /* animaciones para los elementos de la pag */
 
 @keyframes entradaLateralIzq {
@@ -151,6 +155,81 @@ h2 {
 .elem-animado-derecha {
     animation: entradaLateralDerecha 1s ease-out forwards;
 }
+
+/* ------------------- Loader ------------------- */
+.contenedor-loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#loader {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: #16161d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    transition: opacity 1s ease;
+}
+
+.contenedor-simbolos-loader {
+    width: 50vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.simbolo-loader {
+   width: 150px;
+   height: 150px;
+   transform: perspective(168px) rotateX(0) rotateY(0);
+   animation: loader-rotacion 2s infinite linear, loader-color 3s infinite linear -0.5s;
+   z-index: 1000;
+}
+
+#cuadrado {
+    border-radius: 4px;
+}
+
+#circulo {
+    border-radius: 50%;
+}
+
+#porcentaje-carga {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+
+@keyframes loader-rotacion {
+   50% {
+      transform: perspective(168px) rotateX(180deg) rotateY(0);
+   }
+
+   100% {
+      transform: perspective(168px) rotateX(180deg) rotateY(180deg);
+   }
+}
+
+@keyframes loader-color {
+   0%, 33% {
+      background-color: #0a5dff;
+   }
+
+   33.1%, 66% {
+      background-color: #ff0000;
+   }
+
+   66.1%, 100% {
+      background-color: #ffd82e;
+   }
+}
+
 
 /* ------------------- Header ------------------- */
 header {

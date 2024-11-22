@@ -149,11 +149,11 @@ h2 {
 }
 
 .elem-animado-izq {
-    animation: entradaLateralIzq 1s ease-out forwards;
+    animation: entradaLateralIzq .5s ease-out forwards;
 }
 
 .elem-animado-derecha {
-    animation: entradaLateralDerecha 1s ease-out forwards;
+    animation: entradaLateralDerecha .5s ease-out forwards;
 }
 
 /* ------------------- Loader ------------------- */
@@ -516,7 +516,7 @@ header button#btn-comprar {
 
 .crecimientoVertical {
     transform-origin: 50% 100%;
-    animation: crecer 1s ease-in-out forwards;
+    animation: crecer .5s ease-in-out forwards;
 }
 
 .aparicionEspontanea {

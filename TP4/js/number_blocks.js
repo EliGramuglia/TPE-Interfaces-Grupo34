@@ -168,6 +168,14 @@ document.addEventListener('DOMContentLoaded', () => {
         roca4.style.left =  130 - scrollY * .8 + "px"; 
         arbusto4.style.left =  198 - scrollY * .8 + "px"; 
 
+        elementosHero.forEach(elem => {
+            // Verificamos si el elemento no es ninguno de los personajes o sombras
+            if (![pj1, pj2, pj3, sombra1, sombra2, sombra3].includes(elem)) {
+                elem.style.filter = `blur(${scrollY * .003}px)`;
+            }
+        });    
+        
+
         // Personajes
         pj1.style.transform = `scale(${ 1 + scrollY * 0.5})`;
 

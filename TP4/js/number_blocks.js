@@ -71,19 +71,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    window.addEventListener('load', () => {
+        const scrollY = window.scrollY;
+        actualizarScrollPagina(scrollY);
+    });
+
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
-        
+        actualizarScrollPagina(scrollY);
+    });
+
+    function actualizarScrollPagina(scrollY) {
         heroParalax(scrollY)
         modificarHeader(scrollY);
         showIntroTextual(scrollY);
         show3Videos(scrollY);
         showTrailer(scrollY);
         modelo3D(scrollY);
-
-        //la seccion de descarga se activa al momento de empezar a bajar por la pag
         activarInteraccionConPersonajes();
-    });
+    }
 
     // FUNCIONES PARA ANIMAR CADA SECCIÓN
     // Header

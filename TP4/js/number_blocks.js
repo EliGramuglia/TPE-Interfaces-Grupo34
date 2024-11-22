@@ -270,4 +270,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    document.addEventListener('click', () => {
+        console.log(window.scrollY);
+    })
+
 });

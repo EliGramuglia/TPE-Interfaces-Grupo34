@@ -1,37 +1,42 @@
 "use strict";
 const scrollingImagen = document.querySelector('.columna-imagenes');
+const personajes = [
+    document.querySelector('#personaje-0'),
+    document.querySelector('#personaje-1'),
+    document.querySelector('#personaje-2'),
+    document.querySelector('#personaje-3'),
+    document.querySelector('#personaje-4'),
+    document.querySelector('#personaje-5'),
+    document.querySelector('#personaje-6'),
+    document.querySelector('#personaje-7'),
+    document.querySelector('#personaje-8'),
+    document.querySelector('#personaje-9'),
+    document.querySelector('#personaje-10')
+];
+
+personajes.forEach((personaje, index) => {
+    if (index !== 0) {
+        personaje.classList.add('oculto');
+    }
+});
+
 const textos = document.querySelectorAll('.columna-texto > div'); //Selecciona todos los textos
 
-//IntersectionObserver detecta cuándo un elemento entra o sale del viewport
-const observerCols2 = new IntersectionObserver((entries) => {
-    //Entries es un array que guarda info de los elementos observados y su estado de visibilidad
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-        const index = Array.from(textos).indexOf(entry.target); // Índice del párrafo actual
+window.addEventListener('scroll', () => {
+    const puntoMedioY = window.innerHeight / 2;
 
-        // Generamos el id de la imagen correspondiente al índice del párrafo
-        const currentImageId = `personaje-${index}`; // Genera el id de la imagen
+    // Iteramos sobre los textos
+    for (let i = 0; i < textos.length; i++) {
+        const textoTop = textos[i].getBoundingClientRect().top;
+        const textoBottom = textos[i].getBoundingClientRect().bottom;
 
-        // Obtenemos todas las imágenes dentro del contenedor 'imagen-sticky'
-        const allImages = scrollingImagen.querySelectorAll('img'); 
+        // Si el texto está en la mitad visible de la ventana, mostramos la imagen correspondiente
+        if (textoTop < (puntoMedioY - 200) && textoBottom > (puntoMedioY + 200)) {
+            // Ocultamos todos los personajes
+            personajes.forEach(personaje => personaje.classList.add('oculto'));
 
-        // Ocultamos todas las imágenes
-        allImages.forEach(img => {
-          img.classList.add('oculta'); // Asegurarnos de que las otras imágenes estén ocultas
-        });
-
-        // Obtenemos la imagen correspondiente a través de su id
-        const currentImage = scrollingImagen.querySelector(`#${currentImageId}`); 
-
-        // Mostramos solo la imagen correspondiente
-        if (currentImage && currentImage.classList.contains('oculta')) {
-          currentImage.classList.remove('oculta'); // Asegurarnos de que no tenga la clase 'oculta'
+            // Mostramos el personaje correspondiente
+            personajes[i].classList.remove('oculto');
         }
-      }
-    });
-  }, { threshold: 0.8 }); // Ajustamos el umbral de visibilidad al 80%
-
-  // Observamos todos los párrafos
-  textos.forEach(paragraph => {
-    observerCols2.observe(paragraph);
-  });
+    }
+});

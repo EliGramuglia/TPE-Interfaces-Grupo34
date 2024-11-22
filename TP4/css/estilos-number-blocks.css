@@ -808,7 +808,7 @@ header button#btn-comprar {
 
 /* ------------------- Sección 5: Más amigos, más diversión  ------------------- */
 #contenedor-mas-amigos {
-    height: 8000px;
+    height: 7000px;
 }
 
 #contenedor-mas-amigos h2 {
@@ -819,14 +819,22 @@ header button#btn-comprar {
 }
 
 #contenedor-2-columnas {
-    display: grid;              
+    height: calc(100% - 124px);
+    display: grid;
     grid-template-columns: 1fr 450px;  
 }
 
 .columna-texto {
-    display: grid;
+    display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+}
+
+.columna-texto div {
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #contenedor-mas-amigos .columna-texto h3 {
@@ -845,21 +853,24 @@ header button#btn-comprar {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    gap: 200px;
 }
 
 .columna-imagenes .contenedor-personaje {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 550px;
     position: sticky;
-    top: 50vh;
-    transform: translateY(-50%);
+    top: calc(50vh - 275px);
 }
 
 .columna-imagenes img {
-    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
 }
 
-.columna-imagenes img.oculta {
-    display: none;
+.columna-imagenes img.oculto {
+    opacity: 0;
 }
 
 

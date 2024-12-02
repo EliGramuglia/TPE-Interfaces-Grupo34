@@ -100,8 +100,7 @@ h2 {
     overflow: hidden;
 }
 
-/* animaciones para los elementos de la pag */
-
+/* Animaciones para los elementos de la página */
 @keyframes entradaLateralIzq {
     0% {
         transform: translateX(-900px);
@@ -133,9 +132,7 @@ h2 {
 }
 
 @keyframes flotando {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: translateY(0px) rotate(0deg);
     }
 
@@ -183,11 +180,11 @@ h2 {
 }
 
 .simbolo-loader {
-   width: 150px;
-   height: 150px;
-   transform: perspective(168px) rotateX(0) rotateY(0);
-   animation: loader-rotacion 2s infinite linear, loader-color 3s infinite linear -0.5s;
-   z-index: 1000;
+    width: 150px;
+    height: 150px;
+    transform: perspective(168px) rotateX(0) rotateY(0);
+    animation: loader-rotacion 2s infinite linear, loader-color 3s infinite linear -0.5s;
+    z-index: 1000;
 }
 
 #cuadrado {
@@ -207,27 +204,28 @@ h2 {
 }
 
 @keyframes loader-rotacion {
-   50% {
-      transform: perspective(168px) rotateX(180deg) rotateY(0);
-   }
+    50% {
+        transform: perspective(168px) rotateX(180deg) rotateY(0);
+    }
 
-   100% {
-      transform: perspective(168px) rotateX(180deg) rotateY(180deg);
-   }
+    100% {
+        transform: perspective(168px) rotateX(180deg) rotateY(180deg);
+    }
 }
 
 @keyframes loader-color {
-   0%, 33% {
-      background-color: #0a5dff;
-   }
 
-   33.1%, 66% {
-      background-color: #ff0000;
-   }
+    0%, 33% {
+        background-color: #0a5dff;
+    }
 
-   66.1%, 100% {
-      background-color: #ffd82e;
-   }
+    33.1%, 66% {
+        background-color: #ff0000;
+    }
+
+    66.1%, 100% {
+        background-color: #ffd82e;
+    }
 }
 
 
@@ -283,6 +281,7 @@ header #menu-hamburguesa div {
         transform: rotate(0deg) translate(0, 0);
         box-shadow: 4px 5px 0 #02197d;
     }
+
     100% {
         transform: rotate(45deg) translate(7px, 7px);
         box-shadow: 0 0 0 #02197d;
@@ -293,6 +292,7 @@ header #menu-hamburguesa div {
     0% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
     }
@@ -303,6 +303,7 @@ header #menu-hamburguesa div {
         transform: rotate(0deg) translate(0, 0);
         box-shadow: 4px 5px 0 #02197d;
     }
+
     100% {
         transform: rotate(-45deg) translate(10px, -10px);
         box-shadow: 0 0 0 #02197d;
@@ -315,6 +316,7 @@ header #menu-hamburguesa div {
         transform: rotate(45deg) translate(7px, 7px);
         box-shadow: 0 0 0 #02197d;
     }
+
     100% {
         transform: rotate(0deg) translate(0, 0);
         box-shadow: 4px 5px 0 #02197d;
@@ -325,6 +327,7 @@ header #menu-hamburguesa div {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -335,6 +338,7 @@ header #menu-hamburguesa div {
         transform: rotate(-45deg) translate(10px, -10px);
         box-shadow: 0 0 0 #02197d;
     }
+
     100% {
         transform: rotate(0deg) translate(0, 0);
         box-shadow: 4px 5px 0 #02197d;
@@ -391,6 +395,7 @@ aside ul#lista-secciones.sombra {
     from {
         box-shadow: 4px 0 10px rgba(0, 0, 0, 0);
     }
+
     to {
         box-shadow: 4px 0 10px rgba(0, 0, 0, 0.4);
     }
@@ -401,10 +406,9 @@ aside ul#lista-secciones li {
     padding: 5px 14px;
     cursor: pointer;
     transition: all ease-in-out linear;
-    background-color: white;    
-    border-left: .2px solid rgb(2, 25, 125,.3);
-    border-right: .2px solid rgb(2, 25, 125,.3);
-
+    background-color: white;
+    border-left: .2px solid rgb(2, 25, 125, .3);
+    border-right: .2px solid rgb(2, 25, 125, .3);
 }
 
 aside ul#lista-secciones li a {
@@ -418,18 +422,18 @@ aside ul#lista-secciones li a {
     display: flex;
     border-radius: 4px;
     padding: 16px;
-    transition:  background-color .1s ease,color .1s ease ;
+    transition: background-color .1s ease, color .1s ease;
 }
 
-.entradaItems{
+.entradaItems {
     opacity: 1;
     animation: entradaItemMenu .5s ease-in-out forwards;
 }
 
-aside ul#lista-secciones li:first-child{
-    border-radius:  10px 10px 0 0;
+aside ul#lista-secciones li:first-child {
+    border-radius: 10px 10px 0 0;
     animation-delay: 0s;
-    border-top: .2px solid rgb(2, 25, 125,.3);
+    border-top: .2px solid rgb(2, 25, 125, .3);
     padding-top: 14px;
 }
 
@@ -460,25 +464,27 @@ aside ul#lista-secciones li:nth-child(7) {
 aside ul#lista-secciones li:last-child {
     animation-delay: 1.4s;
     border-radius: 0 0 10px 10px;
-    border-bottom: .2px solid rgb(2, 25, 125,.3);
+    border-bottom: .2px solid rgb(2, 25, 125, .3);
     padding-bottom: 14px;
 }
 
-aside ul#lista-secciones li:hover a{
+aside ul#lista-secciones li:hover a {
     background-color: rgba(2, 25, 125, 0.8);
     color: white;
-    transition:  background-color .1s linear, color .1s linear;
+    transition: background-color .1s linear, color .1s linear;
 }
 
 @keyframes entradaItemMenu {
-    0%{
+    0% {
         opacity: 0;
         transform: translateX(-300px);
     }
-    80%{
+
+    80% {
         transform: translateX(10px);
     }
-    100%{
+
+    100% {
         opacity: 1;
         transform: translateX(0);
     }
@@ -505,7 +511,7 @@ header button#btn-comprar {
     justify-self: end;
 }
 
-/* ------------------- Sección 1: hero -> presentacion visual   ------------------- */
+/* ------------------- Sección 1: Hero -> Presentación visual   ------------------- */
 #contenedor-hero-visual {
     overflow: hidden;
     width: 100%;
@@ -561,18 +567,20 @@ header button#btn-comprar {
     0% {
         transform: scaleY(0);
     }
+
     60% {
         transform: scaleY(1.1);
-        opacity: 1; 
+        opacity: 1;
     }
+
     80% {
         transform: scaleY(.95);
-        opacity: 1; 
-
+        opacity: 1;
     }
+
     100% {
         transform: scaleY(1);
-        opacity: 1; 
+        opacity: 1;
     }
 }
 
@@ -621,7 +629,6 @@ header button#btn-comprar {
     top: 737px;
     z-index: 24;
     animation-delay: 2.9s;
-
 }
 
 #roca-2 {
@@ -629,7 +636,6 @@ header button#btn-comprar {
     top: 737px;
     z-index: 25;
     animation-delay: 3s;
-
 }
 
 #roca-3 {
@@ -658,7 +664,6 @@ header button#btn-comprar {
     top: 793px;
     z-index: 29;
     animation-delay: 2.3s;
-
 }
 
 #arbusto-4 {
@@ -708,11 +713,10 @@ header button#btn-comprar {
     left: 420px;
     z-index: 33;
     animation-delay: 3.8s;
-
 }
 
 
-/* ------------------- Sección 2: presentacion textual   ------------------- */
+/* ------------------- Sección 2: Presentación textual ------------------- */
 #contenedor-presentacion-textual {
     z-index: 1;
     width: 100%;
@@ -795,7 +799,7 @@ header button#btn-comprar {
 }
 
 
-/* ------------------- Sección 3: recomendacion videos   ------------------- */
+/* ------------------- Sección 3: Videos de recomendación ------------------- */
 #contenedor-videos-recomendados {
     display: flex;
     gap: 41px;
@@ -846,7 +850,7 @@ header button#btn-comprar {
     animation-delay: .6s;
 }
 
-/* ------------------- Sección 4: publicidad descarga   ------------------- */
+/* ------------------- Sección 4: Publicidad de descarga ------------------- */
 #contenedor-publicidad-descarga {
     height: 1157px;
     background-image: url('../img/number-blocks/sec_4_promo_descarga/fondo-seccion-3.svg');
@@ -885,7 +889,7 @@ header button#btn-comprar {
     z-index: 2;
 }
 
-/* ------------------- Sección 5: Más amigos, más diversión  ------------------- */
+/* ------------------- Sección 5: Más amigos, más diversión ------------------- */
 #contenedor-mas-amigos {
     height: 7000px;
 }
@@ -900,7 +904,7 @@ header button#btn-comprar {
 #contenedor-2-columnas {
     height: calc(100% - 124px);
     display: grid;
-    grid-template-columns: 1fr 450px;  
+    grid-template-columns: 1fr 450px;
 }
 
 .columna-texto {
@@ -953,7 +957,7 @@ header button#btn-comprar {
 }
 
 
-/* ------------------- Sección 6: "Mira el video y descubre .."  ------------------- */
+/* ------------------- Sección 6: "Mira el video y descubre..."  ------------------- */
 #contenedor-video-publicidad {
     height: 1444px;
     padding: 308px 100px;
@@ -969,7 +973,6 @@ header button#btn-comprar {
     font-size: 60px;
     opacity: 0;
 }
-
 
 #contenedor-video-publicidad .video-publicidad {
     width: 804px;
@@ -997,7 +1000,7 @@ header button#btn-comprar {
     pointer-events: none;
 }
 
-/* ------------------- Sección 7: publicidad objeto 3d  ------------------- */
+/* ------------------- Sección 7: Modelo 3D ------------------- */
 #contenedor-objeto-3d-publicidad div.contenedor-1080 {
     display: flex;
     align-items: flex-start;
@@ -1029,7 +1032,7 @@ header button#btn-comprar {
     margin-bottom: 43px;
 }
 
-/* ------------------- Sección 8: presentacion personajes  ------------------- */
+/* ------------------- Sección 8: Presentacion de personajes ------------------- */
 .contenedor-overflow {
     padding: 25px 0;
     overflow: hidden;
@@ -1046,7 +1049,6 @@ header button#btn-comprar {
 #contenedor-presentacion-personajes img {
     transition: all .5s ease;
     filter: brightness(90%);
-
 }
 
 #contenedor-presentacion-personajes img:hover {
@@ -1062,7 +1064,7 @@ header button#btn-comprar {
 }
 
 
-/* ------------------- Sección 9: pre footer  ------------------- */
+/* ------------------- Sección 9: Pre-footer ------------------- */
 #pre-footer {
     height: 1400px;
     margin-top: 195px;
@@ -1137,7 +1139,7 @@ header button#btn-comprar {
 }
 
 #suscribirse button:hover {
-    animation: expandir 3s; 
+    animation: expandir 3s;
 }
 
 @keyframes expandir {
@@ -1182,7 +1184,6 @@ header button#btn-comprar {
 
 .subrayado {
     text-decoration: underline;
-    /* Subraya el texto */
 }
 
 #texto-inscribirse #img-teen {
@@ -1243,126 +1244,136 @@ header button#btn-comprar {
     filter: blur(1px);
 }
 
-/*Animación para mover las nubes*/
 @keyframes moverNube {
     0% {
         transform: translateX(-20vw);
     }
+
     100% {
-        transform: translateX(120vw); 
+        transform: translateX(120vw);
     }
 }
 
 
-/* ------------------- Sprite sheets  ------------------- */
+/* ------------------- Sprite sheets ------------------- */
 
-/*PAJARITO*/
+/* PAJARITO */
 .contenedor-pajarito {
-    width: calc(420px / 7); 
+    width: calc(420px / 7);
     height: 60px;
-    background-image: url('../img/number-blocks/sprite-sheet/sprite-sheet-pajarito.png'); 
-    background-repeat: no-repeat; 
+    background-image: url('../img/number-blocks/sprite-sheet/sprite-sheet-pajarito.png');
+    background-repeat: no-repeat;
     position: absolute;
-    top: 45%; 
-    transform: translateY(-50%); 
-    animation: fly 1s steps(7) infinite, move 5s linear infinite; 
-  }
-  
-  /* Animación para el cambio de cuadros */
-  @keyframes fly {
+    top: 45%;
+    transform: translateY(-50%);
+    animation: fly 1s steps(7) infinite, move 5s linear infinite;
+}
+
+/* Animación para el cambio de cuadros */
+@keyframes fly {
     from {
-      background-position: 0 0; 
+        background-position: 0 0;
     }
+
     to {
-      background-position: -420px 0; 
+        background-position: -420px 0;
     }
-  }
+}
   
-  /* Animación para desplazarse de izquierda a derecha */
-  @keyframes move {
+/* Animación para desplazarse de izquierda a derecha */
+@keyframes move {
     from {
-      left: -100px; /* Fuera de la pantalla por la izquierda */
+        left: -100px;
+        /* Fuera de la pantalla por la izquierda */
     }
+
     to {
-      left: 100vw; /* Fuera de la pantalla por la derecha */
+        left: 100vw;
+        /* Fuera de la pantalla por la derecha */
     }
-  }
+}
 
 
-/*CONEJO SALTANDO*/
+/* CONEJO SALTANDO */
 .contenedor-conejo {
-    width: calc(400px / 4); 
+    width: calc(400px / 4);
     height: 76px;
-    background-image: url('../img/number-blocks/sprite-sheet/sprite-sheet-conejo.png'); 
-    background-repeat: no-repeat; 
+    background-image: url('../img/number-blocks/sprite-sheet/sprite-sheet-conejo.png');
+    background-repeat: no-repeat;
     position: absolute;
     z-index: 1;
     top: 90%;
     transform: translateY(-50%) rotateY(180deg);
     animation: saltar 1s steps(4) infinite, moveConejo 8s linear infinite;
-  }
+}
 
-  @keyframes saltar {
+@keyframes saltar {
     from {
-      background-position: 0 0; 
+        background-position: 0 0;
     }
+
     to {
-      background-position: -400px 0; 
+        background-position: -400px 0;
     }
-  }
+}
 
-  @keyframes moveConejo {
+@keyframes moveConejo {
     from {
-        left: 100vw; 
+        left: 100vw;
     }
+
     to {
         left: -100px;
     }
-  }
+}
 
 
-  /*RANA VERDE*/
-  .contenedor-rana {
-    width: calc(423px / 4); 
+/* RANA VERDE */
+.contenedor-rana {
+    width: calc(423px / 4);
     height: 53px;
-    background-image: url('../img/number-blocks/sprite-sheet/sprite-sheet-rana.png'); 
-    background-repeat: no-repeat; 
+    background-image: url('../img/number-blocks/sprite-sheet/sprite-sheet-rana.png');
+    background-repeat: no-repeat;
     position: absolute;
     z-index: 1;
     top: 190px;
-    transform: translateY(-50%) scaleX(1); 
-    animation: saltarRanita 1s steps(4) infinite, moveRana 10s linear infinite;
-  }
+    transform: translateY(-50%) scaleX(1);
+    animation: saltarRanita 1s steps(4) infinite, moverRanita 10s linear infinite;
+}
 
-  @keyframes saltarRanita {
+@keyframes saltarRanita {
     from {
-      background-position: 0 0; 
+        background-position: 0 0;
     }
-    to {
-      background-position: -423px 0; 
-    }
-  }
 
-  @keyframes moveRana {
-    0% {
-      left: 100px;
-      transform: translateY(-50%) scaleX(1); 
+    to {
+        background-position: -423px 0;
     }
+}
+
+@keyframes moverRanita {
+    0% {
+        left: 100px;
+        transform: translateY(-50%) scaleX(1);
+    }
+
     50% {
         left: 782px;
-        transform: translateY(-50%) scaleX(1); 
+        transform: translateY(-50%) scaleX(1);
     }
+
     51% {
         transform: translateY(-50%) scaleX(-1);
     }
-    100% {
+
+    99% {
         transform: translateY(-50%) scaleX(-1);
         left: 100px;
     }
-  }
+}
 
 
-/* ------------------- Sección: footer  ------------------- */
+/* ------------------- Footer  ------------------- */
 footer {
     background-color: #5E5E5D;
     color: white;
@@ -1400,7 +1411,6 @@ footer .info-footer {
     font-weight: 400;
     font-size: 20px;
 }
-
 
 footer a.subrayado {
     margin: 14px 0 34px 0;

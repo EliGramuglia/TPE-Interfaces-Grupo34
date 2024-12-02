@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const listaSecciones = document.getElementById('lista-secciones');
     const listItems = document.querySelectorAll('#lista-secciones li');
 
-    // Sección 1: Hero -> FALTA PARALAX!!!
+    // Sección 1: Hero
     const hero = document.getElementById('contenedor-hero-visual');
     const fondoHero = document.getElementById('fondo-hero');
     const elementosHero = document.querySelectorAll('.elemento-hero');
@@ -73,7 +73,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // Sección 6: Trailer con video y personaje
     const contenedorTrailer = document.getElementById('contenedor-video-publicidad');
 
-    //funcion para desplegar el menu hamburguesa y tambien para que se vuelva cruz(falta)
+    window.addEventListener('load', () => {
+        const scrollY = window.scrollY;
+        actualizarScrollPagina(scrollY);
+    });
+
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        actualizarScrollPagina(scrollY);
+    });
+
+    function actualizarScrollPagina(scrollY) {
+        heroParallax(scrollY)
+        modificarHeader(scrollY);
+        mostrarIntroTextual(scrollY);
+        mostrar3Videos(scrollY);
+        mostrarTrailer(scrollY);
+        modelo3D(scrollY);
+        activarInteraccionConPersonajes();
+    }
+
+    // FUNCIONES PARA ANIMAR CADA SECCIÓN
+    // Header
+    // Función para desplegar el menu hamburguesa
     let visible = false;
     menuHamburguesa.addEventListener('click', () => {
         visible = !visible;
@@ -100,29 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    window.addEventListener('load', () => {
-        const scrollY = window.scrollY;
-        actualizarScrollPagina(scrollY);
-    });
-
-    window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        actualizarScrollPagina(scrollY);
-    });
-
-    function actualizarScrollPagina(scrollY) {
-        heroParalax(scrollY)
-        modificarHeader(scrollY);
-        showIntroTextual(scrollY);
-        show3Videos(scrollY);
-        showTrailer(scrollY);
-        modelo3D(scrollY);
-        activarInteraccionConPersonajes();
-    }
-
-    // FUNCIONES PARA ANIMAR CADA SECCIÓN
-    // Header
+    
     function modificarHeader(scrollY) {
         // Límites de transformación del logo (posición y tamaño)
         const maxScroll = 400;  // Valor máximo de scroll
@@ -146,14 +146,15 @@ document.addEventListener('DOMContentLoaded', () => {
         header.style.backgroundImage = gradiente;
     }
 
-    //seccion 1: hero con paralax
-    function heroParalax(scrollY){
-        // Se van moviendo los elementos, desde la "mas" alejada a las mas cercanas -> personajes
-        // Lado derecho
+    // Sección 1: Hero
+    function heroParallax(scrollY){
+        // Se van moviendo los elementos, desde el más alejado al más cercano
+        // Fondo
         fondoHero.style.filter = `blur(${scrollY * .02}px)`; 
         let escala = scrollY * 0.0001;
         fondoHero.style.transform = `scale(${1 + escala})`;
-
+        
+        // Lado derecho
         arbusto1.style.right = 60 - scrollY * 0.3 + "px"; 
         arbolChico.style.right = -80 - scrollY * 0.4 + "px"; 
         arbusto2.style.right = -50 - scrollY * 0.5 + "px";
@@ -169,17 +170,16 @@ document.addEventListener('DOMContentLoaded', () => {
         arbusto4.style.left =  198 - scrollY * .8 + "px"; 
 
         elementosHero.forEach(elem => {
-            // Verificamos si el elemento no es ninguno de los personajes o sombras
+            // Se difuminan los elementos que no sean personajes ni sombras
             if (![pj1, pj2, pj3, sombra1, sombra2, sombra3].includes(elem)) {
                 elem.style.filter = `blur(${scrollY * .003}px)`;
             }
         });    
         
-
         // Personajes
         pj1.style.transform = `scale(${ 1 + scrollY * 0.5})`;
 
-        //tienen un limite los personajes de cuanto pueden bajar
+        // Límite de desplazamiento de los personajes al hacer scroll
         if (scrollY <= 250) {
             pj1.style.top = 340 + scrollY * .1 + "px";
             pj2.style.top = 404 + scrollY * .2 + "px";
@@ -191,15 +191,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // Sección 2: presentación textual de la app
-    function showIntroTextual(scrollY) {
+    // Sección 2: Presentación textual de la app
+    function mostrarIntroTextual(scrollY) {
         const title = introTextual.querySelector('.contenedor-informacion h1');
         const text = introTextual.querySelector('.contenedor-informacion p');
         const video = document.querySelector('.contenedor-informacion .caja-video-presentacion');
         const pj_Sec_1 = document.getElementById('pj-cuadrado-1');
         const pj_Sec_2 = document.getElementById('pj-cuadrado-2');
 
-        //le agrego las animaciones de entrada
+        // Animaciones de entrada
         if (scrollY >= 400) {
             title.classList.add('elem-animado-izq');
         }
@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (scrollY >= 700) {
-            // Aparece number block 5 (rectángulo azul)
+            // Aparece personaje 5 (rectángulo azul)
             pj_Sec_2.classList.add('elem-animado-derecha');
             setTimeout(() => {
                 pj_Sec_2.style.animation = 'flotando 4s .3s infinite ease-in-out alternate';
@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (scrollY >= 1100) {
-            // Aparece number block 4 (cuadrado verde)
+            // Aparece personaje 4 (cuadrado verde)
             pj_Sec_1.classList.add('elem-animado-izq');
             setTimeout(() => {
                 pj_Sec_1.style.animation = 'flotando 2.5s infinite ease-in-out alternate';
@@ -231,8 +231,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Sección 3: muestra 3 videos
-    function show3Videos(scrollY) {
+    // Sección 3: Tres videos
+    function mostrar3Videos(scrollY) {
         if (scrollY >= 1600) {
             // se animan los elementos de esta seccion
             let tarjetas = contenedorVideos.querySelectorAll('div .tarjeta-recomendacion');
@@ -240,10 +240,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Sección 4: Descarga app
+    // Sección 4: Descarga de app
+
     function activarInteraccionConPersonajes() {
         const img = document.getElementById('fondo-personajes');
 
+        // La imagen de fondo se mueve en dirección opuesta al mouse
         contenedorDescarga.addEventListener('mousemove', (event) => {
             // Coordenadas del mouse
             const rect = contenedorDescarga.getBoundingClientRect();
@@ -261,12 +263,13 @@ document.addEventListener('DOMContentLoaded', () => {
             img.style.transform = `translate(${translateX}px, ${translateY}px) scale(1.04)`;
         });
 
+        // Al quitar el mouse, la imagen vuelve a su posición original
         contenedorDescarga.addEventListener('mouseleave', () => {
             img.style.transform = `translate(0, 0) scale(1.04)`;
         });
     }
 
-    // Sección 5
+    // Sección 5: Más amigos, más diversión
     const personajes = [
         document.querySelector('#personaje-0'),
         document.querySelector('#personaje-1'),
@@ -281,13 +284,15 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('#personaje-10')
     ];
 
+    // Se oculan los personajes
     personajes.forEach((personaje, index) => {
         if (index !== 0) {
             personaje.classList.add('oculto');
         }
     });
 
-    const textos = document.querySelectorAll('.columna-texto > div'); //Selecciona todos los textos
+    // Se seleccionan todos los textos
+    const textos = document.querySelectorAll('.columna-texto > div');
 
     window.addEventListener('scroll', () => {
         const puntoMedioY = window.innerHeight / 2;
@@ -309,7 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Sección 6: Trailer
-    function showTrailer(scrollY) {
+    function mostrarTrailer(scrollY) {
         const title = contenedorTrailer.querySelector('h2');
         const video = document.getElementById('video-publicidad');
         const pj_Sec_6 = document.getElementById('pj-seccion-6');

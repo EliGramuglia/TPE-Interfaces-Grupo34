@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const pantallaLoader = document.querySelector('#loader');
     const porcentajeCarga = document.querySelector('#porcentaje-carga');
 
-    // Loader
+    // --------------------------------------- Loader ---------------------------------------
     let contador = 0; // Valor inicial
     const objetivo = 100; // Objetivo del contador (100%)
-    const duracion = 5000; // Duración total en milisegundos
+    const duracion = 10; // Duración total en milisegundos
     const intervalo = 50; // Intervalo de actualización en milisegundos
     const pasos = objetivo / (duracion / intervalo); // Cantidad de pasos para alcanzar el objetivo
     document.body.classList.add('no-scroll');
@@ -30,49 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, intervalo);
 
-
-    // ELEMENTOS DE CADA SECCIÓN
-    // Header
-    const header = document.querySelector('header');
-    const logo = document.getElementById('img-logo');
-    const menuHamburguesa =document.getElementById('menu-hamburguesa');
-    const listaSecciones = document.getElementById('lista-secciones');
-    const listItems = document.querySelectorAll('#lista-secciones li');
-
-    // Sección 1: Hero
-    const hero = document.getElementById('contenedor-hero-visual');
-    const fondoHero = document.getElementById('fondo-hero');
-    const elementosHero = document.querySelectorAll('.elemento-hero');
-    const arbolChico = document.getElementById('arbol-chico');
-    const arbolMediano = document.getElementById('arbol-mediano');
-    const arbolGrande = document.getElementById('arbol-grande');
-    const arbusto1 = document.getElementById('arbusto-1');
-    const arbusto2 = document.getElementById('arbusto-2');
-    const arbusto3 = document.getElementById('arbusto-3');
-    const arbusto4 = document.getElementById('arbusto-4');
-    const roca1 = document.getElementById('roca-1');
-    const roca2 = document.getElementById('roca-2');
-    const roca3 = document.getElementById('roca-3');
-    const roca4 = document.getElementById('roca-4');
-    const pj1 = document.getElementById('pj-1');
-    const pj2 = document.getElementById('pj-2');
-    const pj3 = document.getElementById('pj-3');
-    const sombra1 = document.getElementById('sombra-1');
-    const sombra2 = document.getElementById('sombra-2');
-    const sombra3 = document.getElementById('sombra-3');
-
-    // Sección 2: Presentación textual
-    const introTextual = document.getElementById('contenedor-presentacion-textual'); //sec 2: intro textual
-
-    // Sección 3: Recomendación videos
-    const contenedorVideos = document.getElementById('contenedor-videos-recomendados');
-
-    // Sección 4: Publicidad descarga
-    const contenedorDescarga = document.getElementById('contenedor-publicidad-descarga');
-
-    // Sección 6: Trailer con video y personaje
-    const contenedorTrailer = document.getElementById('contenedor-video-publicidad');
-
     window.addEventListener('load', () => {
         const scrollY = window.scrollY;
         actualizarScrollPagina(scrollY);
@@ -88,14 +45,20 @@ document.addEventListener('DOMContentLoaded', () => {
         modificarHeader(scrollY);
         mostrarIntroTextual(scrollY);
         mostrar3Videos(scrollY);
+        actualizarPersonajes(scrollY);
         mostrarTrailer(scrollY);
         modelo3D(scrollY);
         activarInteraccionConPersonajes();
     }
 
-    // FUNCIONES PARA ANIMAR CADA SECCIÓN
-    // Header
-    // Función para desplegar el menu hamburguesa
+
+    // ------------------------------------- Header -------------------------------------
+    const header = document.querySelector('header');
+    const logo = document.getElementById('img-logo');
+    const menuHamburguesa =document.getElementById('menu-hamburguesa');
+    const listaSecciones = document.getElementById('lista-secciones');
+    const listItems = document.querySelectorAll('#lista-secciones li');
+
     let visible = false;
     menuHamburguesa.addEventListener('click', () => {
         visible = !visible;
@@ -146,7 +109,28 @@ document.addEventListener('DOMContentLoaded', () => {
         header.style.backgroundImage = gradiente;
     }
 
-    // Sección 1: Hero
+
+    // ------------------------------------- Sección 1: Hero -------------------------------------
+    const fondoHero = document.getElementById('fondo-hero');
+    const elementosHero = document.querySelectorAll('.elemento-hero');
+    const arbolChico = document.getElementById('arbol-chico');
+    const arbolMediano = document.getElementById('arbol-mediano');
+    const arbolGrande = document.getElementById('arbol-grande');
+    const arbusto1 = document.getElementById('arbusto-1');
+    const arbusto2 = document.getElementById('arbusto-2');
+    const arbusto3 = document.getElementById('arbusto-3');
+    const arbusto4 = document.getElementById('arbusto-4');
+    const roca1 = document.getElementById('roca-1');
+    const roca2 = document.getElementById('roca-2');
+    const roca3 = document.getElementById('roca-3');
+    const roca4 = document.getElementById('roca-4');
+    const pj1 = document.getElementById('pj-1');
+    const pj2 = document.getElementById('pj-2');
+    const pj3 = document.getElementById('pj-3');
+    const sombra1 = document.getElementById('sombra-1');
+    const sombra2 = document.getElementById('sombra-2');
+    const sombra3 = document.getElementById('sombra-3');
+
     function heroParallax(scrollY){
         // Se van moviendo los elementos, desde el más alejado al más cercano
         // Fondo
@@ -191,7 +175,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // Sección 2: Presentación textual de la app
+    // ------------------------- Sección 2: Presentación textual de la app -------------------------
+    const introTextual = document.getElementById('contenedor-presentacion-textual');
+
     function mostrarIntroTextual(scrollY) {
         const title = introTextual.querySelector('.contenedor-informacion h1');
         const text = introTextual.querySelector('.contenedor-informacion p');
@@ -201,20 +187,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Animaciones de entrada
         if (scrollY >= 400) {
-            title.classList.add('elem-animado-izq');
+            title.classList.add('elem-animado-izq'); // Título
         }
 
         if (scrollY >= 500) {
-            text.classList.add('elem-animado-izq');
+            text.classList.add('elem-animado-izq'); // Texto
         }
 
         if (scrollY >= 600) {
-            video.classList.add('elem-animado-izq');
+            video.classList.add('elem-animado-izq'); // Video
         }
 
         if (scrollY >= 700) {
-            // Aparece personaje 5 (rectángulo azul)
-            pj_Sec_2.classList.add('elem-animado-derecha');
+            pj_Sec_2.classList.add('elem-animado-derecha'); // Personaje 5
             setTimeout(() => {
                 pj_Sec_2.style.animation = 'flotando 4s .3s infinite ease-in-out alternate';
                 pj_Sec_2.style.opacity = 1;
@@ -222,8 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (scrollY >= 1100) {
-            // Aparece personaje 4 (cuadrado verde)
-            pj_Sec_1.classList.add('elem-animado-izq');
+            pj_Sec_1.classList.add('elem-animado-izq'); // Personaje 4
             setTimeout(() => {
                 pj_Sec_1.style.animation = 'flotando 2.5s infinite ease-in-out alternate';
                 pj_Sec_1.style.opacity = 1;
@@ -231,7 +215,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Sección 3: Tres videos
+
+    // ----------------------------- Sección 3: Tres videos -----------------------------
+    const contenedorVideos = document.getElementById('contenedor-videos-recomendados');
+
     function mostrar3Videos(scrollY) {
         if (scrollY >= 1600) {
             // se animan los elementos de esta seccion
@@ -240,7 +227,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Sección 4: Descarga de app
+
+    // -------------------------------- Sección 4: Descarga de app --------------------------------
+    const contenedorDescarga = document.getElementById('contenedor-publicidad-descarga');
 
     function activarInteraccionConPersonajes() {
         const img = document.getElementById('fondo-personajes');
@@ -269,7 +258,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Sección 5: Más amigos, más diversión
+
+    // ------------------------------ Sección 5: Más amigos, más diversión ------------------------------
+    const textos = document.querySelectorAll('.columna-texto > div');
+    const contenedoresPersonajes = document.querySelectorAll('.contenedor-personaje');
+
     const personajes = [
         document.querySelector('#personaje-0'),
         document.querySelector('#personaje-1'),
@@ -284,17 +277,18 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('#personaje-10')
     ];
 
-    // Se oculan los personajes
-    personajes.forEach((personaje, index) => {
-        if (index !== 0) {
-            personaje.classList.add('oculto');
+    function actualizarPersonajes(scrollY) {
+        if (scrollY < 4200 || scrollY > 10415) {
+            contenedoresPersonajes.forEach(personaje => personaje.style.position = 'sticky');
+            return;
         }
-    });
 
-    // Se seleccionan todos los textos
-    const textos = document.querySelectorAll('.columna-texto > div');
+        contenedoresPersonajes.forEach(personaje => {
+            personaje.style.position = 'fixed';
+            let altoPersonaje = personaje.getBoundingClientRect().height;
+            personaje.style.top = `calc(50vh - ${altoPersonaje / 2}px)`;
+        });
 
-    window.addEventListener('scroll', () => {
         const puntoMedioY = window.innerHeight / 2;
 
         // Iteramos sobre los textos
@@ -303,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const textoBottom = textos[i].getBoundingClientRect().bottom;
 
             // Si el texto está en la mitad visible de la ventana, mostramos la imagen correspondiente
-            if (textoTop < (puntoMedioY - 200) && textoBottom > (puntoMedioY + 200)) {
+            if (textoTop < (puntoMedioY) && textoBottom > (puntoMedioY)) {
                 // Ocultamos todos los personajes
                 personajes.forEach(personaje => personaje.classList.add('oculto'));
 
@@ -311,9 +305,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 personajes[i].classList.remove('oculto');
             }
         }
-    });
+    }
 
-    // Sección 6: Trailer
+    // ------------------------------------ Sección 6: Trailer ------------------------------------
+    const contenedorTrailer = document.getElementById('contenedor-video-publicidad');
+
     function mostrarTrailer(scrollY) {
         const title = contenedorTrailer.querySelector('h2');
         const video = document.getElementById('video-publicidad');
@@ -321,15 +317,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         //le coloco las animaciones de entrada
         if (scrollY >= 9000) {
-            title.classList.add('elem-animado-izq');
+            title.classList.add('elem-animado-izq'); // Aparace título
         }
 
         if (scrollY >= 9300) {
-            video.classList.add('elem-animado-izq');
+            video.classList.add('elem-animado-izq'); // Aparece video
         }
 
         if (scrollY >= 9400) {
-            pj_Sec_6.classList.add('elem-animado-derecha');
+            pj_Sec_6.classList.add('elem-animado-derecha'); // Aparece personaje
             setTimeout(() => {
                 pj_Sec_6.style.opacity = 1;
                 pj_Sec_6.style.animation = 'flotando 2.5s infinite ease-in-out alternate';
@@ -337,6 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // ------------------------------------ Sección 7: Modelo 3D ------------------------------------
     function modelo3D() {
         const objeto3D = document.getElementById('modelo-3d');
         const contenedorModelo3d = document.getElementById('contenedor-objeto-3d-publicidad');
@@ -354,9 +351,10 @@ document.addEventListener('DOMContentLoaded', () => {
             objeto3D.setAttribute("camera-orbit", "-75deg 85deg 0"); // steamos a la rotacion original 
         });
     }
+});
 
-    document.addEventListener('click', () => {
-        console.log(window.scrollY);
-    })
 
+// Para debugging
+document.addEventListener('click', () => {
+    console.log(window.scrollY);
 });
